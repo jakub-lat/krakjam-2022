@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Camera))]
-public class LetterBoxManager : MonoBehaviour
+public class LetterboxManager : MonoBehaviour
 {
 	[SerializeField]
 	private Color letterBoxColor = new Color(0, 0, 0, 1);
@@ -17,7 +17,7 @@ public class LetterBoxManager : MonoBehaviour
 	private float aspectRatioY = 9;
 
 	private Camera cam = null;
-	private Camera letterBoxCam = null;
+	private Camera letterboxCam = null;
 
 	[SerializeField]
 	[Tooltip("Make sure that any of your camera is not using this depth!")]
@@ -30,22 +30,22 @@ public class LetterBoxManager : MonoBehaviour
 	{
 		cam = GetComponent<Camera>();
 
-		AddLetterBoxCamera();
+		AddLetterboxCamera();
 
 		RefreshSize();
 	}
 
-	private void AddLetterBoxCamera()
+	private void AddLetterboxCamera()
 	{
-		letterBoxCam = new GameObject().AddComponent<Camera>();
-		letterBoxCam.backgroundColor = letterBoxColor;
-		letterBoxCam.cullingMask = 0;
-		letterBoxCam.depth = minimalPossibleDepth;
-		letterBoxCam.useOcclusionCulling = false;
-		letterBoxCam.allowHDR = false;
-		letterBoxCam.allowMSAA = false;
-		letterBoxCam.clearFlags = CameraClearFlags.Color;
-		letterBoxCam.name = "Letter Box Camera";
+		letterboxCam = new GameObject().AddComponent<Camera>();
+		letterboxCam.backgroundColor = letterBoxColor;
+		letterboxCam.cullingMask = 0;
+		letterboxCam.depth = minimalPossibleDepth;
+		letterboxCam.useOcclusionCulling = false;
+		letterboxCam.allowHDR = false;
+		letterboxCam.allowMSAA = false;
+		letterboxCam.clearFlags = CameraClearFlags.Color;
+		letterboxCam.name = "Letter Box Camera";
 	}
 
 	public void RefreshSize()
