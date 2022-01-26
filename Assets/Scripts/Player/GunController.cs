@@ -16,6 +16,8 @@ namespace Player
         
         [SerializeField] private string bulletholePoolingTag;
         [SerializeField] private string hitParticlePoolingTag;
+
+        [SerializeField] private Transform shootingDir;
         
         private int currentAmmo;
         private int totalAmmo;
@@ -25,6 +27,8 @@ namespace Player
 
         private bool isReloading = false;
         private float reloadTimer = 0;
+
+        [SerializeField] private bool noAmmo = false;
         
         protected override void Awake()
         {
@@ -48,7 +52,7 @@ namespace Player
 
         public void OnFire()
         {
-            if (!isCooldown && currentAmmo > 0 && !isReloading)
+            if ((!isCooldown && currentAmmo > 0 && !isReloading) || noAmmo)
             {
                 Shoot();
             }
@@ -69,7 +73,7 @@ namespace Player
             cooldownTimer = fireCooldown;
             currentAmmo--;
             
-            if (Physics.Raycast(transform.position, transform.forward, out var hit))
+            if (Physics.Raycast(shootingDir.position, shootingDir.forward, out var hit))
             {
                 if (hit.collider.gameObject.CompareTag("Enemy"))
                 {

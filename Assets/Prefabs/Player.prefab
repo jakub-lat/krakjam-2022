@@ -164,6 +164,8 @@ MonoBehaviour:
   maxCurrentAmmo: 10
   bulletholePoolingTag: BulletHole
   hitParticlePoolingTag: HitParticle
+  shootingDir: {fileID: 0}
+  noAmmo: 1
 --- !u!114 &4071760806639490275
 MonoBehaviour:
   m_ObjectHideFlags: 0
