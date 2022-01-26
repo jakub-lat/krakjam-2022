@@ -20,8 +20,8 @@ namespace WorldChange
             var from = volumes.GetInverse(type);
             var to = volumes[type];
 
-            DOTween.To(() => to.weight, (v) => to.weight = v, 1, transitionDuration).SetEase(Ease.InOutCubic);
-            DOTween.To(() => from.weight, (v) => from.weight = v, 0, transitionDuration).SetEase(Ease.InOutCubic);
+            DOTween.To(() => to.weight, (v) => to.weight = v, 1, transitionDuration).SetEase(Ease.InOutQuint);
+            DOTween.To(() => from.weight, (v) => from.weight = v, 0, transitionDuration).SetEase(Ease.InOutQuint);
         }
     }
 }

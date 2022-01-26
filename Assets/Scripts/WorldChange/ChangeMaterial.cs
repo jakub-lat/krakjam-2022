@@ -24,7 +24,7 @@ namespace WorldChange
             var from = materials.GetInverse(type);
             var to = materials[type];
             
-            DOTween.To(() => 0f, (v) => meshRenderer.material.Lerp(from, to, v), 1, duration).SetEase(Ease.InOutCubic);
+            DOTween.To(() => 0f, (v) => meshRenderer.material.Lerp(from, to, v), 1, duration).SetEase(Ease.InOutQuint);
         }
         
     }
