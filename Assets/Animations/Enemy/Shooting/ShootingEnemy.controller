@@ -20,7 +20,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: ba1c4bff647d868488eb11aa2761c184, type: 2}
+  m_Motion: {fileID: 7400000, guid: 03e34f281611474438a742bb1ce16d5c, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -69,7 +69,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 67cd829668dd85a429391a461ee27948, type: 2}
+  m_Motion: {fileID: 7400000, guid: 76e12b9924bb8964991acd3cb99a0127, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -86,7 +86,7 @@ AnimatorStateMachine:
   m_ChildStates:
   - serializedVersion: 1
     m_State: {fileID: -9117326357914012904}
-    m_Position: {x: 386, y: 233, z: 0}
+    m_Position: {x: 390, y: 230, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 1515976686095357490}
     m_Position: {x: 288, y: 399, z: 0}
@@ -112,7 +112,7 @@ AnimatorController:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: MeleeEnemy
+  m_Name: ShootingEnemy
   serializedVersion: 5
   m_AnimatorParameters: []
   m_AnimatorLayers:
@@ -149,7 +149,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 9d7e93e5d09e95b42a67bc851daed2f1, type: 2}
+  m_Motion: {fileID: 7400000, guid: 0d60465aad8b4fb4abceb331e63be9ee, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -197,7 +197,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: e99658654185876488d05de9726383bd, type: 2}
+  m_Motion: {fileID: 7400000, guid: b05c4c1f76fead94e83a57f0874be197, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
