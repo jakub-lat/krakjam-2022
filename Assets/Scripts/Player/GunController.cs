@@ -15,7 +15,7 @@ namespace KrakJam2022.Player
 
         [SerializeField] private TMP_Text infoText;
 
-        [SerializeField] private GameObject bulletHolePrefab;
+        [SerializeField] private string bulletholePoolingTag;
         
         private int currentAmmo;
         private int totalAmmo;
@@ -77,7 +77,7 @@ namespace KrakJam2022.Player
                 }
                 else
                 {
-                    var bulletHole = Instantiate(bulletHolePrefab, hit.point, Quaternion.LookRotation(hit.normal));
+                    GameObject bulletHole = ObjectPooler.Current.SpawnPool(bulletholePoolingTag, hit.point, Quaternion.LookRotation(hit.normal));
                     bulletHole.transform.parent = hit.collider.transform;
                 }
             }

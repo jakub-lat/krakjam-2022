@@ -5,10 +5,21 @@ using UnityEngine;
 public class EnemyBullet : MonoBehaviour
 {
     public LayerMask destroyBullet;
-    public void OnTriggerEnter(Collider other)
+    public string bulletholePoolingTag;
+
+    public void OnCollisionEnter(Collision col)
     {
-        if (destroyBullet == (destroyBullet | (1 << other.gameObject.layer)))
+        if (destroyBullet == (destroyBullet | (1 << col.gameObject.layer)))
         {
+            ContactPoint contact = col.contacts[0];
+            Quaternion rot = Quaternion.FromToRotation(Vector3.up, contact.normal);
+            Vector3 pos = contact.point;
+
+            if (col.gameObject.layer != 7) //if not a player spawn a bullethole
+            {
+                GameObject bulletHole = ObjectPooler.Current.SpawnPool(bulletholePoolingTag, pos, rot);
+                bulletHole.transform.parent = col.transform;
+            }
             Enqueue();
         }
     }

@@ -76,7 +76,7 @@ public class ShootingEnemy : EnemyAI
     }
     private void Shoot()
     {
-        GameObject obj = ObjectPooler.instance.SpawnPool(bulletPoolTag, lookPoint.position, Quaternion.identity);
+        GameObject obj = ObjectPooler.Current.SpawnPool(bulletPoolTag, lookPoint.position, Quaternion.identity);
         obj.GetComponent<Rigidbody>().AddForce((player.position - lookPoint.position).normalized * bulletSpeed);
         currMagazine--;
     }
