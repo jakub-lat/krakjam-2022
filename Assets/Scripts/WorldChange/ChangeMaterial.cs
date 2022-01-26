@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using DG.Tweening;
 using KrakJam2022.Player;
@@ -18,6 +19,7 @@ namespace WorldChange
         {
             meshRenderer = GetComponent<MeshRenderer>();
         }
+        
 
         public override void OnWorldTypeChange(WorldTypeController.WorldType type)
         {
@@ -25,10 +27,18 @@ namespace WorldChange
             var from = materials.GetInverse(type);
             var to = materials[type];
 
-            DOTween.To(() => 0f, (v) => meshRenderer.material.Lerp(from, to, v), 1, duration)
-                .SetEase(Ease.InOutQuint)
-                .OnComplete(
-                    () => { meshRenderer.material = to; });
+            // DOTween.To(() => 0f, (v) => meshRenderer.material.Lerp(from, to, v), 1, duration)
+            //     .SetEase(Ease.InOutQuint)
+            //     .OnComplete(
+            //         () => { meshRenderer.material = to; });
+
+            StartCoroutine(MaterialAfterDelay(to));
+        }
+
+        private IEnumerator MaterialAfterDelay(Material to)
+        {
+            yield return new WaitForSeconds(duration / 2);
+            meshRenderer.material = to;
         }
     }
 }
