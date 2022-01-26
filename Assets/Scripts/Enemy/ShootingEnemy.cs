@@ -13,6 +13,7 @@ public class ShootingEnemy : EnemyAI
     public float bulletSpeed = 32f;
     public int magazineSize = 6;
     public float reloadSpeed = 3f;
+    public bool magazine=true;
 
     private int currMagazine;
     private float reloadTimer;
@@ -30,7 +31,7 @@ public class ShootingEnemy : EnemyAI
     {
         if (dead) return;
 
-        if (currMagazine <= 0)
+        if (currMagazine <= 0 && magazine)
         {
             reloading = true;
             reloadTimer -= Time.deltaTime;
@@ -78,6 +79,6 @@ public class ShootingEnemy : EnemyAI
     {
         GameObject obj = ObjectPooler.Current.SpawnPool(bulletPoolTag, lookPoint.position, Quaternion.identity);
         obj.GetComponent<Rigidbody>().AddForce((player.position - lookPoint.position).normalized * bulletSpeed);
-        currMagazine--;
+        if(magazine) currMagazine--;
     }
 }

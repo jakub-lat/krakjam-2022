@@ -4,22 +4,27 @@ using UnityEngine;
 using UnityEngine.AI;
 
 [RequireComponent(typeof(NavMeshAgent))]
+[RequireComponent(typeof(Enemy))]
 public abstract class EnemyAI : MonoBehaviour
 {
-    protected NavMeshAgent agent;
+    [HideInInspector]
+    public NavMeshAgent agent;
     protected Transform player;
     public LayerMask ground, playerMask, attackMask;
 
     public Transform lookPoint;
-    public float range;
+    public float range = 5f;
 
-    protected bool dead = false;
+    protected bool dead { get { return e.dead; } }
     protected bool attacked;
+
+    protected Enemy e;
 
     protected void Start()
     {
         player = PlayerInstance.Current.transform;
         agent = GetComponent<NavMeshAgent>();
+        e = GetComponent<Enemy>();
     }
 
     protected void Update()
