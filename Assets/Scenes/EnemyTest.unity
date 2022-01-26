@@ -611,6 +611,7 @@ GameObject:
   - component: {fileID: 925165352}
   - component: {fileID: 925165351}
   - component: {fileID: 925165350}
+  - component: {fileID: 925165353}
   m_Layer: 7
   m_Name: Capsule
   m_TagString: Untagged
@@ -697,6 +698,18 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 925165348}
   m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &925165353
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 925165348}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86ffccf73717411498a5dff04387e291, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &939276766
 GameObject:
   m_ObjectHideFlags: 0
@@ -898,7 +911,6 @@ GameObject:
   - component: {fileID: 1113786341}
   - component: {fileID: 1113786340}
   - component: {fileID: 1113786339}
-  - component: {fileID: 1113786345}
   m_Layer: 7
   m_Name: PlayerCapsule
   m_TagString: Player
@@ -1105,18 +1117,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1113786345
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1113786338}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 86ffccf73717411498a5dff04387e291, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1255414493
 GameObject:
   m_ObjectHideFlags: 0

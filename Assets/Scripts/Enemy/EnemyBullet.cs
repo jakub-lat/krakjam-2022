@@ -7,12 +7,19 @@ public class EnemyBullet : MonoBehaviour
     public LayerMask destroyBullet;
     public string bulletholePoolingTag;
 
-    public void OnTriggerEnter(Collider other)
+    public void OnCollisionEnter(Collision col)
     {
-        if (destroyBullet == (destroyBullet | (1 << other.gameObject.layer)))
+        if (destroyBullet == (destroyBullet | (1 << col.gameObject.layer)))
         {
-            GameObject bulletHole = ObjectPooler.Current.SpawnPool(bulletholePoolingTag, transform.position, Quaternion.LookRotation(other.transform.position-transform.position));
-            bulletHole.transform.parent = other.transform;
+            ContactPoint contact = col.contacts[0];
+            Quaternion rot = Quaternion.FromToRotation(Vector3.up, contact.normal);
+            Vector3 pos = contact.point;
+
+            if (col.gameObject.layer != 7) //if not a player spawn a bullethole
+            {
+                GameObject bulletHole = ObjectPooler.Current.SpawnPool(bulletholePoolingTag, pos, rot);
+                bulletHole.transform.parent = col.transform;
+            }
             Enqueue();
         }
     }
