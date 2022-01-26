@@ -39,14 +39,25 @@ public class ObjectPooler : MonoSingleton<ObjectPooler>
         }
     }
 
-    public GameObject SpawnPool( string tag, Vector3 position, Quaternion rotation)
+    public GameObject SpawnPool( string tag, Vector3 position, Quaternion rotation, GameObject obj=null)
     {
-        GameObject obj;
         if (poolDict[tag].Count<=0) 
         { 
-            Debug.LogError("POOL QUEUE {" + tag + "} GOT EMPTY");
+            if (obj == null)
+            {
+                Debug.LogError("POOL QUEUE {" + tag + "} GOT EMPTY");
+                return null;
+            } else
+            {
+                Debug.LogWarning("POOL QUEUE {" + tag + "} GOT EMPTY");
 
-            return null;
+                GameObject o = Instantiate(obj, transform); 
+                o.transform.position = position;
+                o.transform.rotation = rotation;
+
+                PoolObj po = o.AddComponent<PoolObj>();
+                po.myTag = tag;
+            }
         } 
 
         obj = poolDict[tag].Dequeue();

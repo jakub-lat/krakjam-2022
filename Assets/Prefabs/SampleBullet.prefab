@@ -100,7 +100,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   destroyBullet:
     serializedVersion: 2
-    m_Bits: 1481
+    m_Bits: 392
   bulletholePoolingTag: BulletHole
 --- !u!135 &8191871837833696228
 SphereCollider:
