@@ -15,7 +15,9 @@ namespace Player
         
         
         [SerializeField] private string bulletholePoolingTag;
-        
+        [SerializeField] private string hitParticlePoolingTag;
+
+
         private int currentAmmo;
         private int totalAmmo;
 
@@ -66,7 +68,7 @@ namespace Player
             {
                 if (hit.collider.gameObject.CompareTag("Enemy"))
                 {
-                    // todo
+                    GameObject particle = ObjectPooler.Current.SpawnPool(hitParticlePoolingTag, hit.point, Quaternion.LookRotation(hit.normal));
                 }
                 else
                 {

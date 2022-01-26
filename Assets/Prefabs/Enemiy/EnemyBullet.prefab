@@ -102,6 +102,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 392
   bulletholePoolingTag: BulletHole
+  hitParticlePoolingTag: HitParticle
 --- !u!135 &8191871837833696228
 SphereCollider:
   m_ObjectHideFlags: 0

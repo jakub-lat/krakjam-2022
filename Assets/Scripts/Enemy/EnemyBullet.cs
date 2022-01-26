@@ -6,6 +6,7 @@ public class EnemyBullet : MonoBehaviour
 {
     public LayerMask destroyBullet;
     public string bulletholePoolingTag;
+    public string hitParticlePoolingTag;
 
     public void OnCollisionEnter(Collision col)
     {
@@ -19,6 +20,9 @@ public class EnemyBullet : MonoBehaviour
             {
                 GameObject bulletHole = ObjectPooler.Current.SpawnPool(bulletholePoolingTag, pos, rot);
                 bulletHole.transform.parent = col.transform;
+            } else
+            {
+                GameObject particle = ObjectPooler.Current.SpawnPool(hitParticlePoolingTag, pos, Quaternion.Euler(col.transform.position-transform.position));
             }
             Enqueue();
         }

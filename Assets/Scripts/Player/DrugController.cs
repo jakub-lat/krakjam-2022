@@ -44,7 +44,7 @@ namespace KrakJam2022.Player
         private void Update()
         {
             // todo nie robić tego w update
-            DrugUI.Current.SetInfo($"{currentDoses} | is on drugs: {IsOnDrugs}");
+            if(DrugUI.Current) DrugUI.Current.SetInfo($"{currentDoses} | is on drugs: {IsOnDrugs}");
             
             timer += Time.deltaTime;
             if (IsOnDrugs)
