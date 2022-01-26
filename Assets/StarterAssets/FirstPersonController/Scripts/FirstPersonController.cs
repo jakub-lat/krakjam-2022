@@ -21,7 +21,7 @@ namespace StarterAssets
 		[Tooltip("Sprint speed of the character in m/s")]
 		public float SprintSpeed = 6.0f;
 		[Tooltip("Rotation speed of the character")]
-		public float RotationSpeed = 1.0f;
+		public float MouseSensivity = 1.0f;
 		[Tooltip("Acceleration and deceleration")]
 		public float SpeedChangeRate = 10.0f;
 
@@ -47,20 +47,8 @@ namespace StarterAssets
 		[Tooltip("What layers the character uses as ground")]
 		public LayerMask GroundLayers;
 
-		[Header("Cinemachine")]
-		[Tooltip("The follow target set in the Cinemachine Virtual Camera that the camera will follow")]
-		public GameObject CinemachineCameraTarget;
-		[Tooltip("How far in degrees can you move the camera up")]
-		public float TopClamp = 90.0f;
-		[Tooltip("How far in degrees can you move the camera down")]
-		public float BottomClamp = -90.0f;
-
-		// cinemachine
-		private float rotationY;
-
 		// player
 		private float _speed;
-		private float rotationX;
 		private float _verticalVelocity;
 		private float _terminalVelocity = 53.0f;
 
@@ -70,19 +58,6 @@ namespace StarterAssets
 
 		private CharacterController _controller;
 		private StarterAssetsInputs _input;
-		private GameObject _mainCamera;
-
-		[SerializeField]
-		private float _threshold = 0.01f;
-
-		private void Awake()
-		{
-			// get a reference to our main camera
-			if (_mainCamera == null)
-			{
-				_mainCamera = GameObject.FindGameObjectWithTag("MainCamera");
-			}
-		}
 
 		private void Start()
 		{
@@ -101,31 +76,11 @@ namespace StarterAssets
 			Move();
 		}
 
-		private void LateUpdate()
-		{
-			CameraRotation();
-		}
-
 		private void GroundedCheck()
 		{
 			// set sphere position, with offset
 			Vector3 spherePosition = new Vector3(transform.position.x, transform.position.y - GroundedOffset, transform.position.z);
 			Grounded = Physics.CheckSphere(spherePosition, GroundedRadius, GroundLayers, QueryTriggerInteraction.Ignore);
-		}
-
-		private void CameraRotation()
-		{
-			if (_input.look.sqrMagnitude >= _threshold * _threshold)
-			{
-				rotationY += _input.look.y * RotationSpeed * Time.deltaTime;
-				rotationX = _input.look.x * RotationSpeed * Time.deltaTime;
-
-				rotationY = ClampAngle(rotationY, BottomClamp, TopClamp);
-
-				CinemachineCameraTarget.transform.localRotation = Quaternion.Euler(rotationY, 0, 0);
-
-				transform.Rotate(Vector3.up * rotationX);
-			}
 		}
 
 		private void Move()

@@ -5,7 +5,7 @@ using UnityEngine;
 [RequireComponent(typeof(Animator))]
 public class Enemy : MonoBehaviour
 {
-    public Animator anim;
+    [HideInInspector] public Animator anim;
 
     public bool dead=false;
     [SerializeField] private float hp=100;
