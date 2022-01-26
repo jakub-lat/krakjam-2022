@@ -1,5 +1,6 @@
 ﻿using System;
 using KrakJam2022.Player;
+using Player;
 using UnityEngine;
 
 namespace InteractiveObjects
