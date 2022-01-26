@@ -1,5 +1,50 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &2173622567761178347
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3936200013662396038}
+  - component: {fileID: 8632230874260814362}
+  m_Layer: 0
+  m_Name: ExitBlock
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3936200013662396038
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2173622567761178347}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.02, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 9074998911403675267}
+  m_RootOrder: 10
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &8632230874260814362
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2173622567761178347}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.2, y: 3, z: 2}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &9074998910971398599
 GameObject:
   m_ObjectHideFlags: 0
@@ -331,6 +376,7 @@ Transform:
   - {fileID: 9074998911488061761}
   - {fileID: 9074998911426339189}
   - {fileID: 9074998911844418271}
+  - {fileID: 3936200013662396038}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -346,12 +392,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94647c3288674d318839f8fb783a57d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  exitBlock: {fileID: 2173622567761178347}
   doorsLeft: {fileID: 9074998912543461630}
   doorsRight: {fileID: 9074998912223125581}
   doorsLeftOpenLocalPos: {x: 1.1, y: 0, z: -1.5}
   doorsRightOpenLocalPos: {x: 1.1, y: 0, z: 1.5}
   animDuration: 1
-  closeDelay: 2
+  closeDelay: 0.2
 --- !u!65 &9074998911403675265
 BoxCollider:
   m_ObjectHideFlags: 0

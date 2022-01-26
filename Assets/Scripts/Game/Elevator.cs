@@ -6,6 +6,7 @@ namespace Game
 {
     public class Elevator : MonoBehaviour
     {
+        [SerializeField] private GameObject exitBlock;
         [SerializeField] private Transform doorsLeft, doorsRight;
         [SerializeField] private Vector3 doorsLeftOpenLocalPos, doorsRightOpenLocalPos;
         [SerializeField] private float animDuration, closeDelay;
@@ -14,6 +15,7 @@ namespace Game
 
         private void Start()
         {
+            exitBlock.SetActive(false);
             doorsLeftClosedLocalPos = doorsLeft.localPosition;
             doorsRightClosedLocalPos = doorsRight.localPosition;
         }
@@ -30,6 +32,7 @@ namespace Game
 
         public void Use()
         {
+            exitBlock.SetActive(true);
             Toggle(false);
         }
         
