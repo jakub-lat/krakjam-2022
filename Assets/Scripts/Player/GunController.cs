@@ -18,6 +18,8 @@ namespace Player
         [SerializeField] private string bulletholePoolingTag;
         [SerializeField] private string hitParticlePoolingTag;
 
+        [SerializeField] private ParticleSystem fireParticles;
+
 
         private int currentAmmo;
         private int totalAmmo;
@@ -64,6 +66,8 @@ namespace Player
             isCooldown = true;
             cooldownTimer = fireCooldown;
             currentAmmo--;
+            
+            fireParticles.Play();
             
             if (Physics.Raycast(transform.position, transform.forward, out var hit))
             {
