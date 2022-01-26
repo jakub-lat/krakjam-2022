@@ -24,16 +24,10 @@ namespace KrakJam2022.Player
             currentDoses = initialDoseCount;
         }
 
-        public void OnTakeDrug()
-        {
-            if (!IsOnDrugs && currentDoses > 0)
-            {
-                Use();
-            }
-        }
-        
         public void Use()
         {
+            if (IsOnDrugs || currentDoses <= 0) return;
+            
             currentDoses--;
             timer = 0;
             // todo animation?

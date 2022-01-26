@@ -120,8 +120,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4071760806639490272}
-  - component: {fileID: 4071760806639490274}
-  - component: {fileID: 4071760806639490275}
   m_Layer: 7
   m_Name: PlayerCameraRoot
   m_TagString: CinemachineTarget
@@ -144,41 +142,6 @@ Transform:
   m_Father: {fileID: 4071760806831231205}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4071760806639490274
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4071760806639490273}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 50e7180cb76e46d78d2c4f9e86da0c0d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  layerMask:
-    serializedVersion: 2
-    m_Bits: 1
-  fireCooldown: 0.2
-  reloadDuration: 2
-  maxCurrentAmmo: 10
-  bulletholePoolingTag: BulletHole
-  hitParticlePoolingTag: HitParticle
-  shootingDir: {fileID: 0}
-  noAmmo: 1
---- !u!114 &4071760806639490275
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4071760806639490273}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 108f6f947dd74032ba0493846faeb90b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxDistance: 30
 --- !u!1 &4071760806831231215
 GameObject:
   m_ObjectHideFlags: 0
@@ -195,6 +158,7 @@ GameObject:
   - component: {fileID: 4071760806831231214}
   - component: {fileID: 9212036348525647019}
   - component: {fileID: 3847468548162195743}
+  - component: {fileID: 7633560830439424285}
   m_Layer: 7
   m_Name: Player
   m_TagString: Player
@@ -424,3 +388,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc2cf4bd18a74cccb34eeac82294351d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &7633560830439424285
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4071760806831231215}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f689ee211a35401684befba8e193e6b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  data:
+    normal:
+      moveSpeed: 4
+    psycho:
+      moveSpeed: 8

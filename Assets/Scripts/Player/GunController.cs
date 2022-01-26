@@ -15,9 +15,6 @@ namespace Player
         
         
         [SerializeField] private string bulletholePoolingTag;
-        [SerializeField] private string hitParticlePoolingTag;
-
-        [SerializeField] private Transform shootingDir;
         
         private int currentAmmo;
         private int totalAmmo;
@@ -27,8 +24,6 @@ namespace Player
 
         private bool isReloading = false;
         private float reloadTimer = 0;
-
-        [SerializeField] private bool noAmmo = false;
         
         protected override void Awake()
         {
@@ -49,16 +44,8 @@ namespace Player
             // todo nie robić tego w update
             if(GunUI.Current) GunUI.Current.SetInfo($"ammo: {currentAmmo} / {totalAmmo} {(isReloading ? "Reloading..." : "")}");
         }
-
-        public void OnFire()
-        {
-            if ((!isCooldown && currentAmmo > 0 && !isReloading) || noAmmo)
-            {
-                Shoot();
-            }
-        }
-
-        public void OnReload()
+        
+        public void Reload()
         {
             if (currentAmmo < maxCurrentAmmo && !isReloading)
             {
@@ -67,17 +54,19 @@ namespace Player
             }
         }
 
-        private void Shoot()
+        public void Shoot()
         {
+            if (isCooldown || currentAmmo <= 0 || isReloading) return;
+
             isCooldown = true;
             cooldownTimer = fireCooldown;
             currentAmmo--;
             
-            if (Physics.Raycast(shootingDir.position, shootingDir.forward, out var hit))
+            if (Physics.Raycast(transform.position, transform.forward, out var hit))
             {
                 if (hit.collider.gameObject.CompareTag("Enemy"))
                 {
-                    GameObject particle = ObjectPooler.Current.SpawnPool(hitParticlePoolingTag, hit.point, Quaternion.LookRotation(hit.normal));
+                    // todo
                 }
                 else
                 {
@@ -87,7 +76,7 @@ namespace Player
             }
         }
 
-        private void Reload()
+        private void ReloadFinal()
         {
             currentAmmo = Math.Min(maxCurrentAmmo, totalAmmo);
             totalAmmo -= currentAmmo;
@@ -113,7 +102,7 @@ namespace Player
             {
                 isReloading = false;
                 reloadTimer = 0;
-                Reload();
+                ReloadFinal();
             }
         }
 

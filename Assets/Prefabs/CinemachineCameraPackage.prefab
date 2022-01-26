@@ -202,7 +202,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.7771639, y: 1}
+    m_SensorSize: {x: 2.5536585, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 1
@@ -273,7 +273,8 @@ GameObject:
   - component: {fileID: 4493422712432806855}
   - component: {fileID: 493729954216063436}
   - component: {fileID: 4493422712432806856}
-  - component: {fileID: 782312772}
+  - component: {fileID: 4131951709551603238}
+  - component: {fileID: 5652498236757773010}
   m_Layer: 7
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -370,7 +371,7 @@ MonoBehaviour:
     m_Bits: 1
   m_VolumeTrigger: {fileID: 0}
   m_VolumeFrameworkUpdateModeOption: 2
-  m_RenderPostProcessing: 0
+  m_RenderPostProcessing: 1
   m_Antialiasing: 0
   m_AntialiasingQuality: 2
   m_StopNaN: 0
@@ -427,7 +428,7 @@ MonoBehaviour:
   m_CameraActivatedEvent:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &782312772
+--- !u!114 &4131951709551603238
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -436,10 +437,29 @@ MonoBehaviour:
   m_GameObject: {fileID: 4493422712432806853}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f5854e05bf39f2442a203f17fa68dbd1, type: 3}
+  m_Script: {fileID: 11500000, guid: 108f6f947dd74032ba0493846faeb90b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  letterBoxColor: {r: 0, g: 0, b: 0, a: 1}
-  aspectRatioX: 1.375
-  aspectRatioY: 1
-  minimalPossibleDepth: -100
+  maxDistance: 50
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 9
+--- !u!114 &5652498236757773010
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4493422712432806853}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 50e7180cb76e46d78d2c4f9e86da0c0d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 1
+  fireCooldown: 0.2
+  reloadDuration: 2
+  maxCurrentAmmo: 10
+  bulletholePoolingTag: BulletHole
