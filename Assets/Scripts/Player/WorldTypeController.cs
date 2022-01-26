@@ -2,7 +2,7 @@
 using UnityEngine;
 using WorldChange;
 
-namespace KrakJam2022.Player
+namespace Player
 {
     public class WorldTypeController : MonoSingleton<WorldTypeController>
     {
@@ -13,6 +13,11 @@ namespace KrakJam2022.Player
 
         private WorldType currentWorldType;
         public WorldType CurrentWorldType => currentWorldType;
+
+        private void Start()
+        {
+            SetWorldType(currentWorldType);
+        }
 
         public void SetWorldType(WorldType type)
         {

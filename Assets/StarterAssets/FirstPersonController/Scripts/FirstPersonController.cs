@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Cyberultimate.Unity;
+using UnityEngine;
 #if ENABLE_INPUT_SYSTEM && STARTER_ASSETS_PACKAGES_CHECKED
 using UnityEngine.InputSystem;
 #endif
@@ -12,7 +13,7 @@ namespace StarterAssets
 #if ENABLE_INPUT_SYSTEM && STARTER_ASSETS_PACKAGES_CHECKED
 	[RequireComponent(typeof(PlayerInput))]
 #endif
-	public class FirstPersonController : MonoBehaviour
+	public class FirstPersonController : MonoSingleton<FirstPersonController>
 	{
 		[Header("Player")]
 		[Tooltip("Move speed of the character in m/s")]
