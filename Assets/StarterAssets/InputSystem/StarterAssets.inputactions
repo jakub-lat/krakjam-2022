@@ -69,9 +69,9 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "WorldChange",
+                    "name": "TakeDrug",
                     "type": "Button",
-                    "id": "1d6b77e5-d6a3-4e0f-83a5-038c7b8c9010",
+                    "id": "54d249a3-603c-4948-b549-855e1940008c",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -312,12 +312,12 @@
                 },
                 {
                     "name": "",
-                    "id": "cc36689f-7d7c-4271-9c1b-04e9908ddfa9",
-                    "path": "<Keyboard>/#(F)",
+                    "id": "4bf3641c-4ee7-413f-8491-f91063797e3b",
+                    "path": "<Keyboard>/#(Q)",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "WorldChange",
+                    "action": "TakeDrug",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

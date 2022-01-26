@@ -170,7 +170,7 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
-  field of view: 60
+  field of view: 80
   orthographic: 0
   orthographic size: 5
   m_Depth: -1
@@ -281,7 +281,6 @@ MonoBehaviour:
   fireCooldown: 0.2
   reloadDuration: 2
   maxCurrentAmmo: 10
-  infoText: {fileID: 0}
   bulletholePoolingTag: BulletHole
 --- !u!114 &4071760806639490275
 MonoBehaviour:
@@ -310,6 +309,8 @@ GameObject:
   - component: {fileID: 4071760806831231208}
   - component: {fileID: 4071760806831231209}
   - component: {fileID: 4071760806831231214}
+  - component: {fileID: 5741991091989563615}
+  - component: {fileID: 6483305901195694239}
   m_Layer: 7
   m_Name: PlayerCapsule
   m_TagString: Player
@@ -365,14 +366,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MoveSpeed: 4
-  SprintSpeed: 6
+  SprintSpeed: 8
   RotationSpeed: 1
   SpeedChangeRate: 10
   JumpHeight: 1.2
   Gravity: -15
   JumpTimeout: 0.1
   FallTimeout: 0.15
-  Grounded: 0
   GroundedOffset: -0.14
   GroundedRadius: 0.5
   GroundLayers:
@@ -381,6 +381,7 @@ MonoBehaviour:
   CinemachineCameraTarget: {fileID: 4071760806639490273}
   TopClamp: 90
   BottomClamp: -90
+  _threshold: 0.01
 --- !u!114 &4071760806831231208
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -516,3 +517,31 @@ MonoBehaviour:
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 4071760806631744168}
+--- !u!114 &5741991091989563615
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4071760806831231215}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f1e5b08f3a0d46c194b383848fe985cd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  initialDoseCount: 5
+  drugEffectTime: 30
+  addictionMaxTime: 60
+  addictionEffectsStartTime: 40
+--- !u!114 &6483305901195694239
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4071760806831231215}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc2cf4bd18a74cccb34eeac82294351d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

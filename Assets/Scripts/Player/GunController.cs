@@ -1,9 +1,9 @@
 ﻿using System;
 using Cyberultimate.Unity;
-using TMPro;
+using UI;
 using UnityEngine;
 
-namespace KrakJam2022.Player
+namespace Player
 {
     class GunController : MonoSingleton<GunController>
     {
@@ -12,9 +12,8 @@ namespace KrakJam2022.Player
         [SerializeField] private float fireCooldown;
         [SerializeField] private float reloadDuration;
         [SerializeField] private int maxCurrentAmmo;
-
-        [SerializeField] private TMP_Text infoText;
-
+        
+        
         [SerializeField] private string bulletholePoolingTag;
         
         private int currentAmmo;
@@ -25,7 +24,7 @@ namespace KrakJam2022.Player
 
         private bool isReloading = false;
         private float reloadTimer = 0;
-
+        
         protected override void Awake()
         {
             currentAmmo = maxCurrentAmmo;
@@ -43,7 +42,7 @@ namespace KrakJam2022.Player
             }
 
             // todo nie robić tego w update
-            if(infoText) infoText.text = $"ammo: {currentAmmo} / {totalAmmo} {(isReloading ? "Reloading..." : "")}";
+            GunUI.Current.SetInfo($"ammo: {currentAmmo} / {totalAmmo} {(isReloading ? "Reloading..." : "")}");
         }
 
         public void OnFire()
