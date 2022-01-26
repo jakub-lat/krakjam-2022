@@ -1,12 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Cyberultimate.Unity;
 
-public class PlayerInstance : MonoBehaviour
+public class PlayerInstance : MonoSingleton<PlayerInstance>
 {
-    public static PlayerInstance instance;
-    private void Awake()
-    {
-        instance = this;
-    }
+
 }

@@ -41,7 +41,7 @@ namespace KrakJam2022.Player
             }
 
             // todo nie robić tego w update
-            infoText.text = $"ammo: {currentAmmo} / {totalAmmo} | isReloading: {isReloading} | isCooldown: {isCooldown}";
+            if(infoText) infoText.text = $"ammo: {currentAmmo} / {totalAmmo} | isReloading: {isReloading} | isCooldown: {isCooldown}";
         }
 
         public void OnFire()

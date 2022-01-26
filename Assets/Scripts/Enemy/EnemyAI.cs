@@ -18,7 +18,7 @@ public abstract class EnemyAI : MonoBehaviour
 
     protected void Start()
     {
-        player = PlayerInstance.instance.transform;
+        player = PlayerInstance.Current.transform;
         agent = GetComponent<NavMeshAgent>();
     }
 
@@ -29,7 +29,7 @@ public abstract class EnemyAI : MonoBehaviour
         RaycastHit hit;
         Physics.SphereCast(lookPoint.position, 0.1f, lookPoint.transform.forward /100, out hit, range, attackMask);
 
-        if (hit.transform && hit.transform.gameObject.layer==6)
+        if (hit.transform && playerMask == (playerMask | (1 << hit.transform.gameObject.layer)))
         {
             Attack();
         } else if(!attacked)
