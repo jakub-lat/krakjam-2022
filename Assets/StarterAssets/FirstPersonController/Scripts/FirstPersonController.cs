@@ -45,12 +45,10 @@ namespace StarterAssets
 		[Tooltip("What layers the character uses as ground")]
 		public LayerMask GroundLayers;
 
-		// player
 		private float _speed;
 		private float _verticalVelocity;
 		private float _terminalVelocity = 53.0f;
 
-		// timeout deltatime
 		private float _jumpTimeoutDelta;
 		private float _fallTimeoutDelta;
 
@@ -62,7 +60,6 @@ namespace StarterAssets
 			_controller = GetComponent<CharacterController>();
 			_input = GetComponent<StarterAssetsInputs>();
 
-			// reset our timeouts on start
 			_jumpTimeoutDelta = JumpTimeout;
 			_fallTimeoutDelta = FallTimeout;
 		}
@@ -72,11 +69,11 @@ namespace StarterAssets
 			JumpAndGravity();
 			GroundedCheck();
 			Move();
+			
 		}
 
         private void GroundedCheck()
 		{
-			// set sphere position, with offset
 			Vector3 spherePosition = new Vector3(transform.position.x, transform.position.y - GroundedOffset, transform.position.z);
 			Grounded = Physics.CheckSphere(spherePosition, GroundedRadius, GroundLayers, QueryTriggerInteraction.Ignore);
 		}
@@ -105,34 +102,35 @@ namespace StarterAssets
 			Vector3 inputDirection = new Vector3(_input.move.x, 0.0f, _input.move.y).normalized;
 			if (_input.move != Vector2.zero)
 			{
-				inputDirection = CameraHelper.MainCamera.transform.forward * 
-					_input.move.y + CameraHelper.MainCamera.transform.right * _input.move.x;
+				inputDirection = new Vector3(CameraHelper.MainCamera.transform.forward.x * 
+					_input.move.y, 0, CameraHelper.MainCamera.transform.forward.z * _input.move.y)
+					 + CameraHelper.MainCamera.transform.right * _input.move.x;
 			}
 
 			_controller.Move((inputDirection.normalized * (_speed * Time.deltaTime) + new Vector3(0.0f, _verticalVelocity, 0.0f) * Time.deltaTime));
+		}
+
+		private void Crouch()
+		{
+			print(_input.crouch);
 		}
 
 		private void JumpAndGravity()
 		{
 			if (Grounded)
 			{
-				// reset the fall timeout timer
 				_fallTimeoutDelta = FallTimeout;
 
-				// stop our velocity dropping infinitely when grounded
 				if (_verticalVelocity < 0.0f)
 				{
 					_verticalVelocity = -2f;
 				}
 
-				// Jump
 				if (_input.jump && _jumpTimeoutDelta <= 0.0f)
 				{
-					// the square root of H * -2 * G = how much velocity needed to reach desired height
 					_verticalVelocity = Mathf.Sqrt(JumpHeight * -2f * Gravity);
 				}
 
-				// jump timeout
 				if (_jumpTimeoutDelta >= 0.0f)
 				{
 					_jumpTimeoutDelta -= Time.deltaTime;
@@ -140,31 +138,20 @@ namespace StarterAssets
 			}
 			else
 			{
-				// reset the jump timeout timer
 				_jumpTimeoutDelta = JumpTimeout;
 
-				// fall timeout
 				if (_fallTimeoutDelta >= 0.0f)
 				{
 					_fallTimeoutDelta -= Time.deltaTime;
 				}
 
-				// if we are not grounded, do not jump
 				_input.jump = false;
 			}
 
-			// apply gravity over time if under terminal (multiply by delta time twice to linearly speed up over time)
 			if (_verticalVelocity < _terminalVelocity)
 			{
 				_verticalVelocity += Gravity * Time.deltaTime;
 			}
-		}
-
-		private static float ClampAngle(float lfAngle, float lfMin, float lfMax)
-		{
-			if (lfAngle < -360f) lfAngle += 360f;
-			if (lfAngle > 360f) lfAngle -= 360f;
-			return Mathf.Clamp(lfAngle, lfMin, lfMax);
 		}
 	}
 }

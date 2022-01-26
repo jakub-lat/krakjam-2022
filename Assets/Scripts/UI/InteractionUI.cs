@@ -1,6 +1,6 @@
 ﻿using Cyberultimate.Unity;
 using InteractiveObjects;
-using TMPro;
+using UnityEngine.UI;
 using UnityEngine;
 
 namespace UI
@@ -8,12 +8,12 @@ namespace UI
     public class InteractionUI : MonoSingleton<InteractionUI>
     {
         [SerializeField] private GameObject interactionAvailableInfo;
-        [SerializeField] private TMP_Text objectNameText;
+        [SerializeField] private Text objectNameText;
 
         public void SetObjectInRange(InteractiveObject obj)
         {
             interactionAvailableInfo.SetActive(true);
-            objectNameText.text = obj.interactionName + " (E)";
+            objectNameText.text = $"{obj.interactionName} - E";
         }
 
         public void HideObjectInRange()

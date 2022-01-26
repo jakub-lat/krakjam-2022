@@ -18,6 +18,8 @@ namespace StarterAssets
 		[Header("Movement Settings")]
 		public bool analogMovement;
 
+		public bool crouch;
+
 #if !UNITY_IOS || !UNITY_ANDROID
 		[Header("Mouse Cursor Settings")]
 		public bool cursorLocked = true;
@@ -67,12 +69,27 @@ namespace StarterAssets
 		{
 			GunController.Current.Shoot();
 		}
+
+		public void OnPause()
+        {
+			SetCursorState(false);
+		}
+
+        protected void OnEnable()
+        {
+			SetCursorState(true);
+        }
+
+		public void OnCrouch(InputValue value)
+        {
+			CrouchInput(value.isPressed);
+        }
 #else
 	// old input sys if we do decide to have it (most likely wont)...
 #endif
 
 
-		public void MoveInput(Vector2 newMoveDirection)
+        public void MoveInput(Vector2 newMoveDirection)
 		{
 			move = newMoveDirection;
 		} 
@@ -92,6 +109,11 @@ namespace StarterAssets
 			sprint = newSprintState;
 		}
 
+		public void CrouchInput(bool newCrouchState)
+        {
+			crouch = newCrouchState;
+        }
+
 #if !UNITY_IOS || !UNITY_ANDROID
 
 		private void OnApplicationFocus(bool hasFocus)
@@ -101,6 +123,7 @@ namespace StarterAssets
 
 		private void SetCursorState(bool newState)
 		{
+			Cursor.visible = !newState;
 			Cursor.lockState = newState ? CursorLockMode.Locked : CursorLockMode.None;
 		}
 

@@ -48,7 +48,14 @@ public class LetterboxManager : MonoBehaviour
 		letterboxCam.name = "Letter Box Camera";
 	}
 
-	public void RefreshSize()
+	/*
+    protected void Update()
+    {
+		RefreshSize();
+    }
+	*/
+
+    public void RefreshSize()
 	{
 		float chosenRatio = (aspectRatioX / aspectRatioY);
 		float windowRatio = (float)Screen.width / (float)Screen.height;
