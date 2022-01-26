@@ -21,5 +21,10 @@ namespace WorldChange
             { WorldTypeController.WorldType.Normal, normal },
             { WorldTypeController.WorldType.Psycho, psycho }
         };
+
+        public T GetInverse(WorldTypeController.WorldType index)
+        {
+            return index == WorldTypeController.WorldType.Normal ? psycho : normal;
+        } 
     }
 }
