@@ -281,8 +281,8 @@ MonoBehaviour:
   fireCooldown: 0.2
   reloadDuration: 2
   maxCurrentAmmo: 10
-  infoText: {fileID: 0}
   bulletholePoolingTag: BulletHole
+  hitParticlePoolingTag: HitParticle
 --- !u!114 &4071760806639490275
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -372,7 +372,6 @@ MonoBehaviour:
   Gravity: -15
   JumpTimeout: 0.1
   FallTimeout: 0.15
-  Grounded: 0
   GroundedOffset: -0.14
   GroundedRadius: 0.5
   GroundLayers:
@@ -381,6 +380,7 @@ MonoBehaviour:
   CinemachineCameraTarget: {fileID: 4071760806639490273}
   TopClamp: 90
   BottomClamp: -90
+  _threshold: 0.01
 --- !u!114 &4071760806831231208
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -123,58 +123,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 23800000, guid: b4a9d2bcde7c4ac40aeeb2e43a1e6357, type: 2}
---- !u!1 &98985242 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6966197676403806433, guid: e1dc9e6cc4bef8a48b429d6c237dfbe3,
-    type: 3}
-  m_PrefabInstance: {fileID: 6966197676464748027}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &98985245
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 98985242}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d4143dd653d06dd4386e4299f5b4e1d1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  shootingEnemyData:
-    normal:
-      bulletPoolTag: EnemyBullet
-      attackSpeed: 0.5
-      shootDelay: 0.1
-      bulletSpeed: 500
-      magazineSize: 6
-      reloadSpeed: 3
-      magazine: 1
-      movingSpeed: 3
-      range: 10
-    psycho:
-      bulletPoolTag: EnemyBullet
-      attackSpeed: 0.5
-      shootDelay: 0.1
-      bulletSpeed: 500
-      magazineSize: 6
-      reloadSpeed: 3
-      magazine: 1
-      movingSpeed: 3
-      range: 10
-  meleeEnemyData:
-    normal:
-      attackSpeed: 0.5
-      attackDelay: 0.1
-      knockback: 1
-      movingSpeed: 4
-      range: 1
-    psycho:
-      attackSpeed: 0.5
-      attackDelay: 0.1
-      knockback: 1
-      movingSpeed: 4
-      range: 1
 --- !u!1 &136323169
 GameObject:
   m_ObjectHideFlags: 0
@@ -2240,39 +2188,24 @@ PrefabInstance:
     - target: {fileID: 4800750592774122013, guid: 89310c78b8d9c9843abed8aa333a79a0,
         type: 3}
       propertyPath: pools.Array.size
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4800750592774122013, guid: 89310c78b8d9c9843abed8aa333a79a0,
         type: 3}
       propertyPath: pools.Array.data[2].tag
-      value: ShootingEnemy
-      objectReference: {fileID: 0}
-    - target: {fileID: 4800750592774122013, guid: 89310c78b8d9c9843abed8aa333a79a0,
-        type: 3}
-      propertyPath: pools.Array.data[3].tag
-      value: MeleeEnemy
+      value: HitParticle
       objectReference: {fileID: 0}
     - target: {fileID: 4800750592774122013, guid: 89310c78b8d9c9843abed8aa333a79a0,
         type: 3}
       propertyPath: pools.Array.data[2].size
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 4800750592774122013, guid: 89310c78b8d9c9843abed8aa333a79a0,
-        type: 3}
-      propertyPath: pools.Array.data[3].size
-      value: 10
+      value: 150
       objectReference: {fileID: 0}
     - target: {fileID: 4800750592774122013, guid: 89310c78b8d9c9843abed8aa333a79a0,
         type: 3}
       propertyPath: pools.Array.data[2].prefab
       value: 
-      objectReference: {fileID: 3469753855458287578, guid: d5589d93f9ef0a9458419984bd0d09f5,
+      objectReference: {fileID: 38504765424735230, guid: 3c70e2aef469d484487812a59cdffcd6,
         type: 3}
-    - target: {fileID: 4800750592774122013, guid: 89310c78b8d9c9843abed8aa333a79a0,
-        type: 3}
-      propertyPath: pools.Array.data[3].prefab
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 4800750592774122014, guid: 89310c78b8d9c9843abed8aa333a79a0,
         type: 3}
       propertyPath: m_Name

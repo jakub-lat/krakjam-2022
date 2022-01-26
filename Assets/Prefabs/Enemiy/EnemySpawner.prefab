@@ -104,6 +104,7 @@ GameObject:
   - component: {fileID: 6966197676403806439}
   - component: {fileID: 6966197676403806432}
   - component: {fileID: 98985245}
+  - component: {fileID: 3279235701293491800}
   m_Layer: 0
   m_Name: EnemySpawner
   m_TagString: Untagged
@@ -160,6 +161,52 @@ MonoBehaviour:
   shootingEnemies: []
   meleeEnemies: []
 --- !u!114 &98985245
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6966197676403806433}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d4143dd653d06dd4386e4299f5b4e1d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shootingEnemyData:
+    normal:
+      bulletPoolTag: EnemyBullet
+      attackSpeed: 0.5
+      shootDelay: 0.1
+      bulletSpeed: 500
+      magazineSize: 6
+      reloadSpeed: 3
+      magazine: 1
+      movingSpeed: 3
+      range: 10
+    psycho:
+      bulletPoolTag: EnemyBullet
+      attackSpeed: 0.5
+      shootDelay: 0.1
+      bulletSpeed: 500
+      magazineSize: 6
+      reloadSpeed: 3
+      magazine: 1
+      movingSpeed: 3
+      range: 10
+  meleeEnemyData:
+    normal:
+      attackSpeed: 0.5
+      attackDelay: 0.1
+      knockback: 1
+      movingSpeed: 4
+      range: 1
+    psycho:
+      attackSpeed: 0.5
+      attackDelay: 0.1
+      knockback: 1
+      movingSpeed: 4
+      range: 1
+--- !u!114 &3279235701293491800
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

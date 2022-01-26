@@ -190,7 +190,12 @@ PrefabInstance:
     - target: {fileID: 3469753855458287578, guid: d5589d93f9ef0a9458419984bd0d09f5,
         type: 3}
       propertyPath: m_Name
-      value: MeleeEnemy
+      value: MeleeEnemy Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 3469753855458287578, guid: d5589d93f9ef0a9458419984bd0d09f5,
+        type: 3}
+      propertyPath: m_TagString
+      value: Enemy
       objectReference: {fileID: 0}
     - target: {fileID: 3469753855458287581, guid: d5589d93f9ef0a9458419984bd0d09f5,
         type: 3}
@@ -294,6 +299,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b779926c7c0cd34081997e8d877e32f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  agent: {fileID: 0}
   ground:
     serializedVersion: 2
     m_Bits: 8
@@ -307,6 +313,7 @@ MonoBehaviour:
   range: 1
   attackSpeed: 1.5
   attackDelay: 0.3
+  knockback: 1
   meleeEnemyScript: {fileID: 3250582526713692039}
 --- !u!4 &5494818869529247844 stripped
 Transform:
