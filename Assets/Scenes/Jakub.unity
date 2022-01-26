@@ -805,6 +805,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlayerCapsule
       objectReference: {fileID: 0}
+    - target: {fileID: 6293438582221473370, guid: 06fe48d98e089564482bb60f44ad7b58,
+        type: 3}
+      propertyPath: data.normal.moveSpeed
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6293438582221473370, guid: 06fe48d98e089564482bb60f44ad7b58,
+        type: 3}
+      propertyPath: data.psycho.moveSpeed
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 06fe48d98e089564482bb60f44ad7b58, type: 3}
 --- !u!1 &1373617651
