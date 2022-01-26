@@ -12,6 +12,7 @@ public class PoolObj : MonoBehaviour
         {
             inQueue = true;
             ObjectPooler.Current.poolDict[myTag].Enqueue(gameObject);
+            transform.parent = ObjectPooler.Current.transform;
             gameObject.SetActive(false);
         }
     }

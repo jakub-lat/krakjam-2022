@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3469753854288922441}
   - component: {fileID: 3469753854288922440}
   - component: {fileID: 3469753854288922439}
-  m_Layer: 9
+  m_Layer: 2
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -142,6 +142,8 @@ GameObject:
   - component: {fileID: 3469753855458287580}
   - component: {fileID: 3469753855458287579}
   - component: {fileID: 3469753855458287552}
+  - component: {fileID: 3429438547283700723}
+  - component: {fileID: 5646822652610660351}
   m_Layer: 9
   m_Name: ShootingEnemy
   m_TagString: Untagged
@@ -272,7 +274,7 @@ MonoBehaviour:
     m_Bits: 128
   attackMask:
     serializedVersion: 2
-    m_Bits: 905
+    m_Bits: 921
   lookPoint: {fileID: 3469753854891014475}
   range: 10
   bulletPoolTag: EnemyBullet
@@ -281,3 +283,38 @@ MonoBehaviour:
   bulletSpeed: 500
   magazineSize: 6
   reloadSpeed: 4
+--- !u!95 &3429438547283700723
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3469753855458287578}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &5646822652610660351
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3469753855458287578}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a7b2858b7cba6544ba13a73da08dc1eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  anim: {fileID: 0}
+  dead: 0
+  hp: 0
