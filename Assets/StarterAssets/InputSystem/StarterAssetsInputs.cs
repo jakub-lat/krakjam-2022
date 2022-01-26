@@ -1,5 +1,7 @@
 using UnityEngine;
 #if ENABLE_INPUT_SYSTEM && STARTER_ASSETS_PACKAGES_CHECKED
+using KrakJam2022.Player;
+using Player;
 using UnityEngine.InputSystem;
 #endif
 
@@ -44,6 +46,26 @@ namespace StarterAssets
 		public void OnSprint(InputValue value)
 		{
 			SprintInput(value.isPressed);
+		}
+
+		public void OnInteract()
+		{
+			InteractionChecker.Current.OnInteract();
+		}
+
+		public void OnTakeDrug()
+		{
+			DrugController.Current.Use();
+		}
+
+		public void OnReload()
+		{
+			GunController.Current.Reload();
+		}
+
+		public void OnFire()
+		{
+			GunController.Current.Shoot();
 		}
 #else
 	// old input sys if we do decide to have it (most likely wont)...

@@ -44,16 +44,8 @@ namespace Player
             // todo nie robić tego w update
             if(GunUI.Current) GunUI.Current.SetInfo($"ammo: {currentAmmo} / {totalAmmo} {(isReloading ? "Reloading..." : "")}");
         }
-
-        public void OnFire()
-        {
-            if (!isCooldown && currentAmmo > 0 && !isReloading)
-            {
-                Shoot();
-            }
-        }
-
-        public void OnReload()
+        
+        public void Reload()
         {
             if (currentAmmo < maxCurrentAmmo && !isReloading)
             {
@@ -62,8 +54,10 @@ namespace Player
             }
         }
 
-        private void Shoot()
+        public void Shoot()
         {
+            if (isCooldown || currentAmmo <= 0 || isReloading) return;
+
             isCooldown = true;
             cooldownTimer = fireCooldown;
             currentAmmo--;
@@ -82,7 +76,7 @@ namespace Player
             }
         }
 
-        private void Reload()
+        private void ReloadFinal()
         {
             currentAmmo = Math.Min(maxCurrentAmmo, totalAmmo);
             totalAmmo -= currentAmmo;
@@ -108,7 +102,7 @@ namespace Player
             {
                 isReloading = false;
                 reloadTimer = 0;
-                Reload();
+                ReloadFinal();
             }
         }
 

@@ -1237,7 +1237,7 @@ GameObject:
   - component: {fileID: 1951931104}
   - component: {fileID: 1951931108}
   - component: {fileID: 1951931109}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: AmmoPack
   m_TagString: Interactable
   m_Icon: {fileID: 0}
