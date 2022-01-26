@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using Cyberultimate.Unity;
 using UnityEngine;
 
@@ -19,6 +20,12 @@ namespace Game
         public void NextLevel()
         {
             CurrentLevel++;
+
+            foreach (var child in transform.GetChildren())
+            {
+                Destroy(child.gameObject);
+            }
+
             LevelGenerator.Current.GenerateLevel(difficulty.Evaluate(CurrentLevel / levelCount));
         }
     }

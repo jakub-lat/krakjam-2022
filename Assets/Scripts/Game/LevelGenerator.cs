@@ -18,7 +18,6 @@ namespace Game
             for (var i = 0; i < 9; i++)
             {
                 var part = levelParts[Random.Range(0, levelParts.Count - 1)];
-                Debug.Log(part.name);
                 
                 var pos = bottomLeft;
                 int x = i / 3, z = i % 3;
