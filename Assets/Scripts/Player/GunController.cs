@@ -8,6 +8,7 @@ namespace Player
     class GunController : MonoSingleton<GunController>
     {
         // todo lepsze nazwy zmiennych
+        [SerializeField] private float damage = 25;
         [SerializeField] private LayerMask layerMask;
         [SerializeField] private float fireCooldown;
         [SerializeField] private float reloadDuration;
@@ -68,6 +69,7 @@ namespace Player
             {
                 if (hit.collider.gameObject.CompareTag("Enemy"))
                 {
+                    hit.collider.GetComponent<Enemy>().GotHit(damage);
                     GameObject particle = ObjectPooler.Current.SpawnPool(hitParticlePoolingTag, hit.point, Quaternion.LookRotation(hit.normal));
                 }
                 else

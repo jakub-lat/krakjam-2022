@@ -31,6 +31,12 @@ public class ShootingEnemy : EnemyAI
     {
         if (dead) return;
 
+        if(e.gotHit)
+        {
+            if (reloading) reloadTimer = reloadSpeed;
+            return;
+        }
+
         if (currMagazine <= 0 && magazine)
         {
             reloading = true;
@@ -40,6 +46,9 @@ public class ShootingEnemy : EnemyAI
                 currMagazine = magazineSize;
                 reloadTimer = reloadSpeed;
                 reloading = false;
+            } else if (reloadTimer == reloadSpeed)
+            {
+                //play anim
             }
 
             return;

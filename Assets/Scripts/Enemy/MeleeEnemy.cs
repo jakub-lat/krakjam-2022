@@ -19,21 +19,21 @@ public class MeleeEnemy : EnemyAI
 
     private new void Update()
     {
-        if (dead) return;
+        if (dead || e.gotHit) return;
 
+        Debug.Log("cam");
         base.Update();
 
     }
 
     protected override void Chase()
     {
-        if (dead) return;
+        Debug.Log("mov");
         agent.SetDestination(player.position);
     }
 
     protected override void Attack() 
     {
-        if (dead) return;
         agent.SetDestination(transform.position);
 
         if (!attacked)

@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3469753854288922441}
   - component: {fileID: 3469753854288922440}
   - component: {fileID: 3469753854288922439}
+  - component: {fileID: 3423053912042478867}
   m_Layer: 2
   m_Name: Cube
   m_TagString: Enemy
@@ -26,7 +27,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3469753854288922437}
-  m_LocalRotation: {x: -0, y: -0.70710576, z: -0, w: 0.70710784}
+  m_LocalRotation: {x: 0, y: -0.7071058, z: 0, w: 0.7071078}
   m_LocalPosition: {x: 0.024, y: 0.58, z: 0.553}
   m_LocalScale: {x: 0.45248914, y: 0.11606438, z: 0.10022785}
   m_ConstrainProportionsScale: 0
@@ -97,6 +98,21 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &3423053912042478867
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3469753854288922437}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb011804779f4b3b9a03b0a9d6cb0933, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  materials:
+    normal: {fileID: 2100000, guid: 420f798c616e8ae4ca7d808e52d22e0b, type: 2}
+    psycho: {fileID: 2100000, guid: 69b5c5430ae6bac40966a72a9230c29a, type: 2}
 --- !u!1 &3469753854891014474
 GameObject:
   m_ObjectHideFlags: 0
@@ -144,6 +160,7 @@ GameObject:
   - component: {fileID: 3469753855458287552}
   - component: {fileID: 3429438547283700723}
   - component: {fileID: 5646822652610660351}
+  - component: {fileID: 5002738997963057042}
   m_Layer: 9
   m_Name: ShootingEnemy
   m_TagString: Enemy
@@ -159,7 +176,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3469753855458287578}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -8.76, y: -0.89, z: -3.02}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -295,10 +312,10 @@ Animator:
   m_GameObject: {fileID: 3469753855458287578}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: ca269279efc95be48859a1bffa1cf010, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
-  m_ApplyRootMotion: 0
+  m_ApplyRootMotion: 1
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
   m_WarningMessage: 
@@ -319,4 +336,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   anim: {fileID: 0}
   dead: 0
-  hp: 0
+  gotHit: 0
+  hp: 100
+--- !u!114 &5002738997963057042
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3469753855458287578}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb011804779f4b3b9a03b0a9d6cb0933, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  materials:
+    normal: {fileID: 2100000, guid: 420f798c616e8ae4ca7d808e52d22e0b, type: 2}
+    psycho: {fileID: 2100000, guid: 69b5c5430ae6bac40966a72a9230c29a, type: 2}

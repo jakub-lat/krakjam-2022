@@ -6,22 +6,39 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     [HideInInspector] public Animator anim;
+    private EnemyAI ai;
 
     public bool dead=false;
+    public bool gotHit = false;
     [SerializeField] private float hp=100;
 
     private void Start()
     {
         anim = GetComponent<Animator>();
+        ai = GetComponent<EnemyAI>();
     }
 
     public void GotHit(float amount)
     {
+        if (dead) return;
+
+        Debug.Log("hitt");
+
         hp -= amount;
+        ai.agent.SetDestination(transform.position);
         if (hp <= 0)
         {
             hp = 0;
             dead = true;
+            anim.Play("Dead");
+            return;
         }
+        gotHit = true;
+        anim.Play("Hit");
+    }
+
+    public void HitEnd()
+    {
+        gotHit = false;
     }
 }
