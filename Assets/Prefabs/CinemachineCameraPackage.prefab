@@ -165,7 +165,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 493729954975292881}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -3.87, y: 0.365, z: 6.39}
+  m_LocalPosition: {x: -3.87, y: 2.323, z: 6.39}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -202,7 +202,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.7786753, y: 1}
+    m_SensorSize: {x: 1.7773913, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 1
@@ -275,6 +275,7 @@ GameObject:
   - component: {fileID: 4493422712432806856}
   - component: {fileID: 4131951709551603238}
   - component: {fileID: 5652498236757773010}
+  - component: {fileID: 1541067839}
   m_Layer: 7
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -290,7 +291,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4493422712432806853}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -3.87, y: 0.365, z: 6.39}
+  m_LocalPosition: {x: -3.87, y: 2.323, z: 6.39}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -463,3 +464,19 @@ MonoBehaviour:
   maxCurrentAmmo: 10
   bulletholePoolingTag: BulletHole
   hitParticlePoolingTag: HitParticle
+--- !u!114 &1541067839
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4493422712432806853}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f5854e05bf39f2442a203f17fa68dbd1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  letterBoxColor: {r: 0, g: 0, b: 0, a: 1}
+  aspectRatioX: 1.375
+  aspectRatioY: 1
+  minimalPossibleDepth: -100

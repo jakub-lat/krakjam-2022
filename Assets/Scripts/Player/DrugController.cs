@@ -24,6 +24,11 @@ namespace KrakJam2022.Player
             currentDoses = initialDoseCount;
         }
 
+        public void AddDrugs(int amount)
+        {
+            currentDoses += amount;
+        }
+
         public void Use()
         {
             if (IsOnDrugs || currentDoses <= 0) return;
