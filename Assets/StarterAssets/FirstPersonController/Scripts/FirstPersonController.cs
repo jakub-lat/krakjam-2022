@@ -39,7 +39,7 @@ namespace StarterAssets
 
 		[Header("Player Grounded")]
 		[Tooltip("If the character is grounded or not. Not part of the CharacterController built in grounded check")]
-		public bool Grounded = true;
+		private bool Grounded = true;
 		[Tooltip("Useful for rough ground")]
 		public float GroundedOffset = -0.14f;
 		[Tooltip("The radius of the grounded check. Should match the radius of the CharacterController")]
@@ -56,11 +56,11 @@ namespace StarterAssets
 		public float BottomClamp = -90.0f;
 
 		// cinemachine
-		private float _cinemachineTargetPitch;
+		private float rotationY;
 
 		// player
 		private float _speed;
-		private float _rotationVelocity;
+		private float rotationX;
 		private float _verticalVelocity;
 		private float _terminalVelocity = 53.0f;
 
@@ -72,7 +72,8 @@ namespace StarterAssets
 		private StarterAssetsInputs _input;
 		private GameObject _mainCamera;
 
-		private const float _threshold = 0.01f;
+		[SerializeField]
+		private float _threshold = 0.01f;
 
 		private void Awake()
 		{
@@ -114,20 +115,16 @@ namespace StarterAssets
 
 		private void CameraRotation()
 		{
-			// if there is an input
-			if (_input.look.sqrMagnitude >= _threshold)
+			if (_input.look.sqrMagnitude >= _threshold * _threshold)
 			{
-				_cinemachineTargetPitch += _input.look.y * RotationSpeed * Time.deltaTime;
-				_rotationVelocity = _input.look.x * RotationSpeed * Time.deltaTime;
+				rotationY += _input.look.y * RotationSpeed * Time.deltaTime;
+				rotationX = _input.look.x * RotationSpeed * Time.deltaTime;
 
-				// clamp our pitch rotation
-				_cinemachineTargetPitch = ClampAngle(_cinemachineTargetPitch, BottomClamp, TopClamp);
+				rotationY = ClampAngle(rotationY, BottomClamp, TopClamp);
 
-				// Update Cinemachine camera target pitch
-				CinemachineCameraTarget.transform.localRotation = Quaternion.Euler(_cinemachineTargetPitch, 0.0f, 0.0f);
+				CinemachineCameraTarget.transform.localRotation = Quaternion.Euler(rotationY, 0, 0);
 
-				// rotate the player left and right
-				transform.Rotate(Vector3.up * _rotationVelocity);
+				transform.Rotate(Vector3.up * rotationX);
 			}
 		}
 

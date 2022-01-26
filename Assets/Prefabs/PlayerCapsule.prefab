@@ -170,7 +170,7 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
-  field of view: 60
+  field of view: 80
   orthographic: 0
   orthographic size: 5
   m_Depth: -1
@@ -306,7 +306,6 @@ GameObject:
   - component: {fileID: 4071760806831231205}
   - component: {fileID: 4071760806831231210}
   - component: {fileID: 4071760806831231211}
-  - component: {fileID: 3669573905978253135}
   - component: {fileID: 4071760806831231208}
   - component: {fileID: 4071760806831231209}
   - component: {fileID: 4071760806831231214}
@@ -367,14 +366,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MoveSpeed: 4
-  SprintSpeed: 6
+  SprintSpeed: 8
   RotationSpeed: 1
   SpeedChangeRate: 10
   JumpHeight: 1.2
   Gravity: -15
   JumpTimeout: 0.1
   FallTimeout: 0.15
-  Grounded: 0
   GroundedOffset: -0.14
   GroundedRadius: 0.5
   GroundLayers:
@@ -383,23 +381,7 @@ MonoBehaviour:
   CinemachineCameraTarget: {fileID: 4071760806639490273}
   TopClamp: 90
   BottomClamp: -90
---- !u!114 &3669573905978253135
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4071760806831231215}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f689ee211a35401684befba8e193e6b9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  data:
-    normal:
-      moveSpeed: 4
-    psycho:
-      moveSpeed: 10
+  _threshold: 0.01
 --- !u!114 &4071760806831231208
 MonoBehaviour:
   m_ObjectHideFlags: 0
