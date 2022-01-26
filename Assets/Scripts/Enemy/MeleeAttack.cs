@@ -5,7 +5,7 @@ using UnityEngine;
 public class MeleeAttack : MonoBehaviour
 {
     public bool attacking = false;
-    public float knockback = 10f;
+    [HideInInspector] public float knockback = 10f;
 
     private void OnTriggerEnter(Collider col)
     {

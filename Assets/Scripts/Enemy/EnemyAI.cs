@@ -7,12 +7,13 @@ using UnityEngine.AI;
 [RequireComponent(typeof(Enemy))]
 public abstract class EnemyAI : MonoBehaviour
 {
-    protected NavMeshAgent agent;
+    [HideInInspector]
+    public NavMeshAgent agent;
     protected Transform player;
     public LayerMask ground, playerMask, attackMask;
 
     public Transform lookPoint;
-    public float range;
+    public float range = 5f;
 
     protected bool dead { get { return e.dead; } }
     protected bool attacked;

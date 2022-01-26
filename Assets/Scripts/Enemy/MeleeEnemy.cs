@@ -7,13 +7,14 @@ public class MeleeEnemy : EnemyAI
 {
     public float attackSpeed = 0.5f;
     public float attackDelay = 0.1f;
+    public float knockback = 1f;
 
     public MeleeAttack meleeEnemyScript;
 
     private new void Start()
     {
         base.Start();
-
+        meleeEnemyScript.knockback = knockback;
     }
 
     private new void Update()

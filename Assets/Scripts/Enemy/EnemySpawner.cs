@@ -1,8 +1,9 @@
+using Cyberultimate.Unity;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemySpawner : MonoBehaviour
+public class EnemySpawner : MonoSingleton<EnemySpawner>
 {
     public enum EnemyType { Shooting, Melee }
     [Header("Start Spawning")]
@@ -14,15 +15,20 @@ public class EnemySpawner : MonoBehaviour
     public GameObject shootingEnemy;
     public GameObject meleeEnemy;
 
+    [HideInInspector] public List<GameObject> shootingEnemies;
+    [HideInInspector] public List<GameObject> meleeEnemies;
+
+    private ChangeEnemyProperties changeProps;
+
     public void Spawn(Vector3 pos, Quaternion rot, EnemyType et)
     {
         switch (et)
         {
             case EnemyType.Shooting:
-                Instantiate(shootingEnemy, pos, rot);
+                shootingEnemies.Add(Instantiate(shootingEnemy, pos, rot));
                 break;
             case EnemyType.Melee:
-                Instantiate(meleeEnemy, pos, rot);
+                meleeEnemies.Add(Instantiate(meleeEnemy, pos, rot));
                 break;
         }
     }
@@ -47,5 +53,7 @@ public class EnemySpawner : MonoBehaviour
     private void Start()
     {
         StartSpawning(); //to change
+        changeProps = GetComponent<ChangeEnemyProperties>();
+        changeProps.UpdateEnemies(Player.WorldTypeController.WorldType.Normal);
     }
 }
