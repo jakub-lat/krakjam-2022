@@ -3,10 +3,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CameraHelper : MonoSingleton<CameraHelper>
+public class CameraHelper : MonoBehaviour
 {
-    [SerializeField]
-    private Camera mainCamera = null;
+    private static Camera mainCamera = null;
 
-    public Camera MainCamera => mainCamera;
+    protected void Awake()
+    {
+        mainCamera = GetComponent<Camera>();
+    }
+
+    public static Camera MainCamera => mainCamera;
 }
