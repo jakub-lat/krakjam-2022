@@ -10,7 +10,7 @@ namespace Game
         [SerializeField] private Transform doorsLeft, doorsRight;
         [SerializeField] private Vector3 doorsLeftOpenLocalPos, doorsRightOpenLocalPos;
         [SerializeField] private float animDuration, closeDelay;
-        
+
         private Vector3 doorsLeftClosedLocalPos, doorsRightClosedLocalPos;
 
         private void Start()
@@ -24,24 +24,30 @@ namespace Game
         {
             if (other.gameObject.CompareTag("Player"))
             {
-
-                Toggle(true);
-                // LevelManager.Current.NextLevel();
+                Open();
             }
         }
 
         public void Use()
         {
             exitBlock.SetActive(true);
-            Toggle(false);
+            Close().OnComplete(() => { LevelManager.Current.NextLevel(); });
         }
-        
-        private void Toggle(bool isOpen)
+
+        private void Open()
         {
-            doorsLeft.DOLocalMove(isOpen ? doorsLeftOpenLocalPos : doorsLeftClosedLocalPos, animDuration)
-                .SetEase(Ease.InOutQuint).SetDelay(isOpen ? 0 : closeDelay);
-            doorsRight.DOLocalMove(isOpen ? doorsRightOpenLocalPos : doorsRightClosedLocalPos, animDuration)
-                .SetEase(Ease.InOutQuint).SetDelay(isOpen ? 0 : closeDelay);
+            doorsLeft.DOLocalMove(doorsLeftOpenLocalPos, animDuration)
+                .SetEase(Ease.InOutQuint);
+            doorsRight.DOLocalMove(doorsRightOpenLocalPos, animDuration)
+                .SetEase(Ease.InOutQuint);
+        }
+
+        private Tween Close()
+        {
+            doorsLeft.DOLocalMove(doorsLeftClosedLocalPos, animDuration)
+                .SetEase(Ease.InOutQuint).SetDelay(closeDelay);
+            return doorsRight.DOLocalMove(doorsRightClosedLocalPos, animDuration)
+                .SetEase(Ease.InOutQuint).SetDelay(closeDelay);
         }
     }
 }
