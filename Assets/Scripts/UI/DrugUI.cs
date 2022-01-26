@@ -1,12 +1,12 @@
 ﻿using Cyberultimate.Unity;
-using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace UI
 {
     public class DrugUI : MonoSingleton<DrugUI>
     {
-        [SerializeField] private TMP_Text infoText;
+        [SerializeField] private Text infoText;
 
         public void SetInfo(string text)
         {
