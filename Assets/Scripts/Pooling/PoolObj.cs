@@ -11,7 +11,7 @@ public class PoolObj : MonoBehaviour
         if (!inQueue)
         {
             inQueue = true;
-            ObjectPooler.instance.poolDict[myTag].Enqueue(gameObject);
+            ObjectPooler.Current.poolDict[myTag].Enqueue(gameObject);
             gameObject.SetActive(false);
         }
     }

@@ -1,8 +1,9 @@
+using Cyberultimate.Unity;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ObjectPooler : MonoBehaviour
+public class ObjectPooler : MonoSingleton<ObjectPooler>
 {
     [System.Serializable]
     public class Pool
@@ -14,12 +15,6 @@ public class ObjectPooler : MonoBehaviour
 
     public List<Pool> pools;
     public Dictionary<string, Queue<GameObject>> poolDict;
-
-    public static ObjectPooler instance;
-    private void Awake()
-    {
-        instance = this;
-    }
 
     private void Start()
     {

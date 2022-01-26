@@ -157,6 +157,10 @@ MonoBehaviour:
     prefab: {fileID: 8191871837833696229, guid: 4fcceb105a8b56846bab1a37046c10e5,
       type: 3}
     size: 500
+  - tag: BulletHole
+    prefab: {fileID: 1371085877445601456, guid: 44d4a6af59add1b46a3a3a0106627d30,
+      type: 3}
+    size: 600
 --- !u!4 &365598735
 Transform:
   m_ObjectHideFlags: 0
@@ -1057,7 +1061,7 @@ MonoBehaviour:
   Gravity: -15
   JumpTimeout: 0.1
   FallTimeout: 0.15
-  Grounded: 1
+  Grounded: 0
   GroundedOffset: -0.14
   GroundedRadius: 0.5
   GroundLayers:
@@ -1092,7 +1096,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1113786338}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.027682304, y: 0.00000047683716, z: 1.5696697}
+  m_LocalPosition: {x: -3.87, y: -1.01, z: 6.39}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1816,6 +1820,7 @@ MonoBehaviour:
   reloadDuration: 2
   maxCurrentAmmo: 10
   infoText: {fileID: 0}
+  bulletholePoolingTag: BulletHole
 --- !u!1 &1582249380
 GameObject:
   m_ObjectHideFlags: 0

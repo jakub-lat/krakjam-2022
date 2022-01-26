@@ -13,6 +13,8 @@ namespace KrakJam2022.Player
 
         private void Update()
         {
+            if (!InteractionUI.Current) return;
+
             if (Physics.Raycast(transform.position, transform.forward, out var hit, maxDistance) &&
                 hit.collider.gameObject.CompareTag("Interactable"))
             {
