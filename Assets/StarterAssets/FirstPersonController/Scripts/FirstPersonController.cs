@@ -109,7 +109,6 @@ namespace StarterAssets
 					_input.move.y + CameraHelper.MainCamera.transform.right * _input.move.x;
 			}
 
-			// speed is bad
 			_controller.Move((inputDirection.normalized * (_speed * Time.deltaTime) + new Vector3(0.0f, _verticalVelocity, 0.0f) * Time.deltaTime));
 		}
 
