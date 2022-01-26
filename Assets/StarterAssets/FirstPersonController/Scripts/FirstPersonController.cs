@@ -107,9 +107,10 @@ namespace StarterAssets
 			Vector3 inputDirection = new Vector3(_input.move.x, 0.0f, _input.move.y).normalized;
 			if (_input.move != Vector2.zero)
 			{
-				inputDirection = CameraHelper.Current.MainCamera.transform.forward * _input.move.y + CameraHelper.Current.MainCamera.transform.right * _input.move.x;
+				inputDirection = CameraHelper.MainCamera.transform.forward * _input.move.y + CameraHelper.MainCamera.transform.right * _input.move.x;
 			}
 
+			// speed is bad
 			_controller.Move((inputDirection * 2 + new Vector3(0.0f, _verticalVelocity, 0.0f)) * Time.deltaTime);
 		}
 
