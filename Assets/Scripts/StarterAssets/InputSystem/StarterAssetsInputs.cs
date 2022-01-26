@@ -72,6 +72,7 @@ namespace StarterAssets
 
 		public void OnPause()
         {
+			PauseManager.Current.SwitchPause();
 			SetCursorState(false);
 		}
 
