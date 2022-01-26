@@ -74,7 +74,6 @@ namespace Player
                 if (hit.collider.gameObject.CompareTag("Enemy"))
                 {
                     GameObject particle = ObjectPooler.Current.SpawnPool(hitParticlePoolingTag, hit.point, Quaternion.LookRotation(hit.normal));
-                    particle.transform.parent = hit.collider.transform;
                 }
                 else
                 {

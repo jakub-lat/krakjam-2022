@@ -163,6 +163,7 @@ MonoBehaviour:
   reloadDuration: 2
   maxCurrentAmmo: 10
   bulletholePoolingTag: BulletHole
+  hitParticlePoolingTag: HitParticle
 --- !u!114 &4071760806639490275
 MonoBehaviour:
   m_ObjectHideFlags: 0
