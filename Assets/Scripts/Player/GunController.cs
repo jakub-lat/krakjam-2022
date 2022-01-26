@@ -14,6 +14,8 @@ namespace KrakJam2022.Player
         [SerializeField] private int maxCurrentAmmo;
 
         [SerializeField] private TMP_Text infoText;
+
+        [SerializeField] private GameObject bulletHolePrefab;
         
         private int currentAmmo;
         private int totalAmmo;
@@ -72,6 +74,11 @@ namespace KrakJam2022.Player
                 if (hit.collider.gameObject.CompareTag("Enemy"))
                 {
                     // todo
+                }
+                else
+                {
+                    var bulletHole = Instantiate(bulletHolePrefab, hit.point, Quaternion.LookRotation(hit.normal));
+                    bulletHole.transform.parent = hit.collider.transform;
                 }
             }
         }

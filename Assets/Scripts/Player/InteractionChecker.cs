@@ -1,4 +1,6 @@
-﻿using InteractiveObjects;
+﻿using System;
+using InteractiveObjects;
+using UI;
 using UnityEngine;
 
 namespace KrakJam2022.Player
@@ -6,16 +8,29 @@ namespace KrakJam2022.Player
     public class InteractionChecker : MonoBehaviour
     {
         [SerializeField] private float maxDistance;
-        
+
+        private InteractiveObject currentHit;
+
+        private void Update()
+        {
+            if (Physics.Raycast(transform.position, transform.forward, out var hit, maxDistance) &&
+                hit.collider.gameObject.CompareTag("Interactable"))
+            {
+                currentHit = hit.collider.GetComponent<InteractiveObject>();
+                InteractionUI.Current.SetObjectInRange(currentHit);
+            }
+            else
+            {
+                currentHit = null;
+                InteractionUI.Current.HideObjectInRange();
+            }
+        }
+
         public void OnInteract()
         {
-            // todo feedback kiedy jest się w zasięgu obiektu (np podświetlenie go)
-            if (Physics.Raycast(transform.position, transform.forward, out var hit, maxDistance))
+            if (currentHit != null)
             {
-                if (hit.collider.gameObject.CompareTag("Interactable"))
-                {
-                    hit.collider.GetComponent<InteractiveObject>().Interact();
-                }
+                currentHit.Interact();
             }
         }
     }

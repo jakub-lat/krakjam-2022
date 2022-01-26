@@ -6,7 +6,9 @@ namespace InteractiveObjects
     public abstract class InteractiveObject : MonoBehaviour
     {
         [SerializeField] protected bool destroyAfterUse;
-        
+
+        public string interactionName;
+
         protected abstract void OnInteract();
 
         public void Interact()
