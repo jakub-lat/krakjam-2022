@@ -1,9 +1,10 @@
-﻿using UnityEngine;
+﻿using Cyberultimate.Unity;
+using UnityEngine;
 using WorldChange;
 
 namespace KrakJam2022.Player
 {
-    public class WorldTypeController : MonoBehaviour
+    public class WorldTypeController : MonoSingleton<WorldTypeController>
     {
         public enum WorldType
         {
@@ -13,7 +14,7 @@ namespace KrakJam2022.Player
         private WorldType currentWorldType;
         public WorldType CurrentWorldType => currentWorldType;
 
-        public void ChangeWorldType(WorldType type)
+        public void SetWorldType(WorldType type)
         {
             currentWorldType = type;
 
@@ -26,7 +27,7 @@ namespace KrakJam2022.Player
 
         public void OnWorldChange()
         {
-            ChangeWorldType(currentWorldType == WorldType.Normal ? WorldType.Psycho : WorldType.Normal);
+            SetWorldType(currentWorldType == WorldType.Normal ? WorldType.Psycho : WorldType.Normal);
         }
     }
 }
