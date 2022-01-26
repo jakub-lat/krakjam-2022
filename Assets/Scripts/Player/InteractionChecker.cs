@@ -1,9 +1,8 @@
-﻿using System;
-using InteractiveObjects;
+﻿using InteractiveObjects;
 using UI;
 using UnityEngine;
 
-namespace KrakJam2022.Player
+namespace Player
 {
     public class InteractionChecker : MonoBehaviour
     {

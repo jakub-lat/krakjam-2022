@@ -1,5 +1,6 @@
 ﻿using System;
 using Cyberultimate.Unity;
+using Player;
 using UI;
 using UnityEngine;
 using WorldChange;
@@ -25,8 +26,7 @@ namespace KrakJam2022.Player
 
         public void OnTakeDrug()
         {
-            Debug.Log("OnTakeDrug()");
-            if (currentDoses > 0)
+            if (!IsOnDrugs && currentDoses > 0)
             {
                 Use();
             }
@@ -34,7 +34,6 @@ namespace KrakJam2022.Player
         
         public void Use()
         {
-            Debug.Log("Drugs: USE");
             currentDoses--;
             timer = 0;
             // todo animation?
