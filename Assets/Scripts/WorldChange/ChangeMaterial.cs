@@ -21,6 +21,7 @@ namespace WorldChange
 
         public override void OnWorldTypeChange(WorldTypeController.WorldType type)
         {
+            // todo make it work with shader graph shaders
             var from = materials.GetInverse(type);
             var to = materials[type];
 
