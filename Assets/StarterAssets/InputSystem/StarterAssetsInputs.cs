@@ -67,12 +67,22 @@ namespace StarterAssets
 		{
 			GunController.Current.Shoot();
 		}
+
+		public void OnPause()
+        {
+			SetCursorState(false);
+		}
+
+        protected void OnEnable()
+        {
+			SetCursorState(true);
+        }
 #else
 	// old input sys if we do decide to have it (most likely wont)...
 #endif
 
 
-		public void MoveInput(Vector2 newMoveDirection)
+        public void MoveInput(Vector2 newMoveDirection)
 		{
 			move = newMoveDirection;
 		} 
@@ -101,6 +111,7 @@ namespace StarterAssets
 
 		private void SetCursorState(bool newState)
 		{
+			Cursor.visible = !newState;
 			Cursor.lockState = newState ? CursorLockMode.Locked : CursorLockMode.None;
 		}
 
