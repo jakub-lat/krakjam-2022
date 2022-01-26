@@ -1656,6 +1656,11 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 0.365
       objectReference: {fileID: 0}
+    - target: {fileID: 5652498236757773010, guid: a045af21090212449b51769c1140a2b4,
+        type: 3}
+      propertyPath: hitParticlePoolingTag
+      value: HitParticle
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 782312772, guid: a045af21090212449b51769c1140a2b4, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: a045af21090212449b51769c1140a2b4, type: 3}
