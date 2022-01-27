@@ -29,16 +29,18 @@ public abstract class EnemyAI : MonoBehaviour
 
     protected void Update()
     {
-        transform.LookAt(player.transform.position);
+        
 
         RaycastHit hit;
         Physics.SphereCast(lookPoint.position, 0.1f, lookPoint.transform.forward /100, out hit, range, attackMask);
 
         if (hit.transform && playerMask == (playerMask | (1 << hit.transform.gameObject.layer)))
         {
+            transform.LookAt(new Vector3(player.transform.position.x, transform.position.y, player.transform.position.z));
             Attack();
         } else if(!attacked)
         {
+
             Chase();
         }
     }
