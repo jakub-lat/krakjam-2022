@@ -29,8 +29,6 @@ namespace UsableItems
 
         [SerializeField] private Color warningColorAmmo = Color.yellow;
         [SerializeField] private Color dangerColorAmmo = Color.red;
-        [SerializeField] private float trailSpeed = 400f;
-
         [SerializeField] private Collider gunCollider;
             
         private float trailDurationMultiplier => 10 / trailSpeed;
