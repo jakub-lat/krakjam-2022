@@ -126,6 +126,7 @@ namespace StarterAssets
 
 		private void Crouch()
 		{
+			// print(CameraHelper.MainCamera.transform.forward);
 			if (_input.crouch)
             {
 				if (checkValue == 0)
@@ -133,6 +134,7 @@ namespace StarterAssets
 					checkValue = _speed;
 				}
 
+				// sliding
 				if (checkValue > 7.5F)
                 {
 					if (MoveSpeed < crouchSpeed)
@@ -148,7 +150,10 @@ namespace StarterAssets
 					MoveSpeed = normalSpeed / 1.5f;
                 }
 
-				_controller.height = crouchedHeight;
+				if (_controller.height > crouchedHeight)
+                {
+					_controller.height -= Time.deltaTime * 3.5f;
+				}
             }
 
 			else

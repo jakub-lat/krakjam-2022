@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Player;
 using UnityEngine;
 
 public class EnemyBullet : MonoBehaviour
@@ -7,6 +8,7 @@ public class EnemyBullet : MonoBehaviour
     public LayerMask destroyBullet;
     public string bulletholePoolingTag;
     public string hitParticlePoolingTag;
+    public float damage;
 
     public void OnCollisionEnter(Collision col)
     {
@@ -23,6 +25,7 @@ public class EnemyBullet : MonoBehaviour
             } else
             {
                 GameObject particle = ObjectPooler.Current.SpawnPool(hitParticlePoolingTag, pos, Quaternion.Euler(col.transform.position-transform.position));
+                col.gameObject.GetComponent<PlayerHealth>().Health -= damage;
             }
             Enqueue();
         }
