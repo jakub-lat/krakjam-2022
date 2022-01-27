@@ -111,7 +111,7 @@ namespace UsableItems
             fireParticles.Play();
 
             var trail = Instantiate(trailPrefab, trailSpawnPoint.position, Quaternion.identity);
-
+            
             if (Physics.Raycast(CameraHelper.MainCamera.transform.position, transform.forward, out var hit) && !hit.collider.isTrigger)
             {
                 trail.transform.DOMove(hit.point, trailDurationMultiplier * Vector3.Distance(trail.transform.position, hit.point))

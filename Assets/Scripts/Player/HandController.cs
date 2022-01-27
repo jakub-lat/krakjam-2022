@@ -35,12 +35,14 @@ namespace Player
             CurrentItem = item;
             CurrentItem.OnPickup();
 
+
             var rb = CurrentItem.gameObject.GetComponent<Rigidbody>();
             rb.isKinematic = true;
 
             CurrentItem.transform.SetParent(transform, true);
             CurrentItem.transform.DOLocalRotate(Vector3.zero, pickupTransitionDuration);
             CurrentItem.transform.DOLocalMove(Vector3.zero, pickupTransitionDuration).SetEase(Ease.InOutQuint);
+            CurrentItem.transform.DOScale(Vector3.one, pickupTransitionDuration);
         }
 
         public void DropItem()
@@ -49,6 +51,8 @@ namespace Player
 
             CurrentItem.transform.SetParent(null, true);
             CurrentItem.OnDrop();
+            
+            CurrentItem.transform.localScale = Vector3.one;
 
             var rb = CurrentItem.gameObject.GetComponent<Rigidbody>();
             rb.isKinematic = false;
