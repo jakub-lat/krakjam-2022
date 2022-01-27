@@ -22,6 +22,7 @@ namespace Game
         {
             (startingElevator, finishElevator) = (finishElevator, startingElevator);
             NextLevel();
+            player.position = startingPosA.position;
         }
 
         public void NextLevel()
