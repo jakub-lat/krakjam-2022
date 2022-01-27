@@ -153,7 +153,7 @@ public class GenerateRoom : MonoBehaviour
                 Debug.Log(S);
                 while(!leftSqMask.ContainsKey(S)) continue;
                 
-                List<Square> newList = l;
+                var newList = new List<Square>(l);
                 newList.Add(leftSqMask[S][Random.Range(0,leftSqMask[S].Count)]);
                 cLimit++;
 
