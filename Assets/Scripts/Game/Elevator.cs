@@ -18,6 +18,9 @@ namespace Game
         private Vector2 floorTextStartPos;
 
         private Vector3 doorsLeftClosedLocalPos, doorsRightClosedLocalPos;
+
+        public bool openOnStart;
+        public bool active;
         
         private void Start()
         {
@@ -28,10 +31,17 @@ namespace Game
             UpdateFloorText();
 
             floorTextStartPos = floorText.rectTransform.anchoredPosition;
+
+            if (openOnStart)
+            {
+                Open();
+            }
         }
 
         public void OnTriggerEnter(Collider other)
         {
+            if (!active) return;
+
             if (other.gameObject.CompareTag("Player"))
             {
                 Open();
@@ -40,14 +50,19 @@ namespace Game
 
         public void Use()
         {
+            if (!active) return;
             UpdateFloorText();
             exitBlock.SetActive(true);
             Close().OnComplete(() =>
             {
+                LevelManager.Current.NextLevel();
                 floorText.rectTransform.DOAnchorPos(floorTextEndPos, animDuration)
                     .SetEase(Ease.OutCirc)
                     .SetDelay(startMovingDelay)
-                    .OnComplete(() => { LevelManager.Current.NextLevel(); });
+                    .OnComplete(() =>
+                    {
+                        Open();
+                    });
             });
         }
 
@@ -57,17 +72,17 @@ namespace Game
             floorText.text = $"{lvl + 2}\n{lvl + 1}";
         }
 
-        private void Open()
+        public Tween Open()
         {
             doorsLeft.DOLocalMove(doorsLeftOpenLocalPos, animDuration)
                 .SetLink(gameObject)
                 .SetEase(Ease.InOutQuint);
-            doorsRight.DOLocalMove(doorsRightOpenLocalPos, animDuration)
+            return doorsRight.DOLocalMove(doorsRightOpenLocalPos, animDuration)
                 .SetLink(gameObject)
                 .SetEase(Ease.InOutQuint);
         }
 
-        private Tween Close()
+        public Tween Close()
         {
             doorsLeft.DOLocalMove(doorsLeftClosedLocalPos, animDuration)
                 .SetLink(gameObject)

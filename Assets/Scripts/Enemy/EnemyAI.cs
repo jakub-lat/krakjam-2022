@@ -19,6 +19,7 @@ public abstract class EnemyAI : MonoBehaviour
     public float fleeMultiplier = 5f;
     public float moveSpeed = 3f;
     public float fleeSpeed = 5f;
+    public bool flee = false;
 
     protected bool dead { get { return e.dead; } }
     protected bool attacked;
@@ -35,15 +36,16 @@ public abstract class EnemyAI : MonoBehaviour
     protected void Update()
     {
         RaycastHit hit;
+        RaycastHit hit2;
         float dist = Vector3.Distance(transform.position, player.transform.position);
-        if (!Physics.Raycast(transform.position, player.transform.position, out hit, default, attackMask) && dist > followRange) return;
+        if (!Physics.Raycast(transform.position, player.transform.position, out hit2, default, attackMask) && dist > followRange) return;
 
         
         Physics.SphereCast(lookPoint.position, 0.1f, lookPoint.transform.forward /100, out hit, attackRange, attackMask);
 
         if (hit.transform && playerMask == (playerMask | (1 << hit.transform.gameObject.layer)))
         {
-            if(dist <= fleeRange && !attacked)
+            if(flee && dist <= fleeRange && !attacked)
             {
                 agent.speed = fleeSpeed;
                 RunFromPlayer();
@@ -65,7 +67,7 @@ public abstract class EnemyAI : MonoBehaviour
 
     public void RunFromPlayer()
     {
-        
+        Debug.Log("run");
         Vector3 runTo = transform.position + (transform.position - player.position).normalized * fleeMultiplier;
 
         NavMeshHit hit;

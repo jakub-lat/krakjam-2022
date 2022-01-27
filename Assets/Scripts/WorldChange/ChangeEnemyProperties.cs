@@ -24,6 +24,8 @@ public class ShootingEnemyProperties
     public float fleeMultiplier = 5f;
     public float moveSpeed = 3f;
     public float fleeSpeed = 5f;
+    public bool flee=false;
+    public float damage = 10f;
 }
 
 [Serializable]
@@ -39,6 +41,8 @@ public class MeleeEnemyProperties
     public float fleeMultiplier = 5f;
     public float moveSpeed = 3f;
     public float fleeSpeed = 5f;
+    public bool flee = false;
+    public float damage =10f;
 }
 
 public class ChangeEnemyProperties : WorldChangeLogic
@@ -62,7 +66,7 @@ public class ChangeEnemyProperties : WorldChangeLogic
 
     public void UpdateEnemies(WorldTypeController.WorldType type)
     {
-        var p = shootingEnemyData[type];
+        ShootingEnemyProperties p = shootingEnemyData[type];
         foreach (GameObject g in EnemySpawner.Current.shootingEnemies)
         {
             ShootingEnemy se = g.GetComponent<ShootingEnemy>();
@@ -82,9 +86,12 @@ public class ChangeEnemyProperties : WorldChangeLogic
 
             se.moveSpeed = p.moveSpeed;
             se.fleeSpeed = p.fleeSpeed;
+            se.flee = p.flee;
+
+            se.bulletDamage = p.damage;
         }
 
-        var p2 = meleeEnemyData[type];
+        MeleeEnemyProperties p2 = meleeEnemyData[type];
         foreach (GameObject g in EnemySpawner.Current.meleeEnemies)
         {
             MeleeEnemy se = g.GetComponent<MeleeEnemy>();
@@ -92,12 +99,15 @@ public class ChangeEnemyProperties : WorldChangeLogic
             se.attackDelay = p2.attackDelay;
             se.knockback = p2.knockback;
             se.attackRange = p2.attackRange;
-            se.followRange = p.followRange;
-            se.fleeRange = p.fleeRange;
-            se.fleeMultiplier = p.fleeMultiplier;
+            se.followRange = p2.followRange;
+            se.fleeRange = p2.fleeRange;
+            se.fleeMultiplier = p2.fleeMultiplier;
 
-            se.moveSpeed = p.moveSpeed;
-            se.fleeSpeed = p.fleeSpeed;
+            se.moveSpeed = p2.moveSpeed;
+            se.fleeSpeed = p2.fleeSpeed;
+            se.flee = p2.flee;
+
+            se.damage = p2.damage;
         }
     }
 }

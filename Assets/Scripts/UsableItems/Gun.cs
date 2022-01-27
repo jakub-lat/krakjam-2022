@@ -1,13 +1,13 @@
 ﻿using System;
-using Cyberultimate.Unity;
 using DG.Tweening;
 using LetterBattle.Utility;
+using Player;
 using UI;
 using UnityEngine;
 
-namespace Player
+namespace UsableItems
 {
-    class GunController : MonoSingleton<GunController>
+    public class Gun : UsableItem
     {
         // todo lepsze nazwy zmiennych
         [SerializeField] private float damage = 25;
@@ -29,6 +29,10 @@ namespace Player
 
         [SerializeField] private Color warningColorAmmo = Color.yellow;
         [SerializeField] private Color dangerColorAmmo = Color.red;
+        [SerializeField] private float trailSpeed = 400f;
+
+        [SerializeField] private Collider gunCollider;
+            
         private float trailDurationMultiplier => 10 / trailSpeed;
 
 
@@ -41,14 +45,15 @@ namespace Player
         private bool isReloading = false;
         private float reloadTimer = 0;
 
-        protected override void Awake()
+        public static Gun Current => HandController.Current.CurrentItem is Gun gun ? gun : null;
+
+        private void Awake()
         {
             currentAmmo = maxCurrentAmmo;
             totalAmmo = maxCurrentAmmo * 10;
-            base.Awake();
         }
 
-        public void Update()
+        private void Update()
         {
             ShootCooldown();
 
@@ -69,6 +74,23 @@ namespace Player
                 first = $"<color={ColorHelper.GetColorHex(warningColorAmmo, true)}>{currentAmmo}</color>";
             }
             if (GunUI.Current) GunUI.Current.SetInfo($"{first} / {totalAmmo}");
+        }
+        
+        public override void Use()
+        {
+            Shoot();
+        }
+
+        public override void OnPickup()
+        {
+            base.OnPickup();
+            gunCollider.isTrigger = true;
+        }
+
+        public override void OnDrop()
+        {
+            base.OnDrop();
+            gunCollider.isTrigger = false;
         }
 
         public void Reload()
@@ -92,7 +114,7 @@ namespace Player
 
             var trail = Instantiate(trailPrefab, trailSpawnPoint.position, Quaternion.identity);
 
-            if (Physics.Raycast(transform.position, transform.forward, out var hit) && !hit.collider.isTrigger)
+            if (Physics.Raycast(CameraHelper.MainCamera.transform.position, transform.forward, out var hit) && !hit.collider.isTrigger)
             {
                 trail.transform.DOMove(hit.point, trailDurationMultiplier * Vector3.Distance(trail.transform.position, hit.point))
                     .SetLink(gameObject);

@@ -9,9 +9,10 @@ namespace InteractiveObjects
     {
         [SerializeField] private int amount;
 
-        protected override void OnInteract()
+        protected override bool OnInteract()
         {
             DrugController.Current.AddDrugs(amount);
+            return true;
         }
     }
 }

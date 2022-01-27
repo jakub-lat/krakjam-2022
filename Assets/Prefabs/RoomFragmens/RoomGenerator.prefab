@@ -62,6 +62,8 @@ MonoBehaviour:
   spawnerCount: 15
   boundaryWall: {fileID: 5107830021413910054, guid: 594e0d80c1465f143a6c28d4675dfea5,
     type: 3}
+  window: {fileID: 446096981085295640, guid: 3ef474dac4c250249a8953c53aa56915, type: 3}
+  windowSeparation: 2
   debug: 0
 --- !u!114 &728314931
 MonoBehaviour:
