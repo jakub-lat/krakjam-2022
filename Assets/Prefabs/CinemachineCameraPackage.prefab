@@ -5101,7 +5101,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4493422712432806857}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2756736818089634978
 MonoBehaviour:
@@ -5369,6 +5369,15 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 493729955257980615}
     m_Modifications:
+    - target: {fileID: 1110843965, guid: 85800d860274b5b4d93bf7a8e01d6a73, type: 3}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 449753422950871024, guid: 85800d860274b5b4d93bf7a8e01d6a73,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 4003909957856962553, guid: 85800d860274b5b4d93bf7a8e01d6a73,
         type: 3}
       propertyPath: trailSpeed
@@ -5389,11 +5398,6 @@ PrefabInstance:
         type: 3}
       propertyPath: trailSpawnPoint
       value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 4663107867592262413, guid: 85800d860274b5b4d93bf7a8e01d6a73,
-        type: 3}
-      propertyPath: maxDistance
-      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 5168676552018519778, guid: 85800d860274b5b4d93bf7a8e01d6a73,
         type: 3}

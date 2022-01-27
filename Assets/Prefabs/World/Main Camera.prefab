@@ -184,7 +184,7 @@ MonoBehaviour:
   maxDistance: 5
   layerMask:
     serializedVersion: 2
-    m_Bits: 9
+    m_Bits: 265
 --- !u!1 &7892528685788613434
 GameObject:
   m_ObjectHideFlags: 0
