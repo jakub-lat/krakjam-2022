@@ -43,6 +43,8 @@ public class GenerateRoom : MonoBehaviour
     public float spaceX = 1, spaceZ = 1;
     public int spawnerCount=5;
     public GameObject boundaryWall;
+    public GameObject window;
+    public int windowSeparation = 4;
     public bool debug = false;
 
     private void Start()
@@ -87,53 +89,118 @@ public class GenerateRoom : MonoBehaviour
             z += 2*spaceZ;
         }
 
+        int windowCounter = 0;
         int i = 0, mask = 1;
         for (float s = 1; s<int.MaxValue; s = Mathf.Pow(2,i) )
         {
             int curr = (int)Mathf.Floor(s);
             if ((curr & f.rows[0].mtop)>0) //postaw œcianê
             {
-                Instantiate(boundaryWall, transform.position + new Vector3(i*spaceX, 0, 0), Quaternion.Euler(new Vector3(0, 180, 0)), transform);
+                GameObject toSpawn = boundaryWall;
+                if(windowCounter>=windowSeparation)
+                {
+                    toSpawn = window;
+                    windowCounter = 0;
+                }
+                Instantiate(toSpawn, transform.position + new Vector3(i*spaceX, 0, 0), Quaternion.Euler(new Vector3(0, 180, 0)), transform);
                 
             }
             if ((curr & f.rows[height-1].mdown) > 0)
             {
-                Instantiate(boundaryWall, transform.position + new Vector3(i*spaceX, 0, (spaceZ * height * 2)-spaceZ), Quaternion.Euler(new Vector3(0, 0, 0)), transform);
+                GameObject toSpawn = boundaryWall;
+                if (windowCounter >= windowSeparation)
+                {
+                    toSpawn = window;
+                    windowCounter = 0;
+                }
+                Instantiate(toSpawn, transform.position + new Vector3(i*spaceX, 0, (spaceZ * height * 2)-spaceZ), Quaternion.Euler(new Vector3(0, 0, 0)), transform);
             }
             i++;
             mask = Revmask2(mask);
 
             //if (s >= int.MaxValue) break;
+            windowCounter++;
         }
 
         for (i = 0; i < height; i++)
         {
+
             if (f.rows[i].squares[0].mleft == 1)
             {
-                Instantiate(boundaryWall, transform.position + new Vector3(0, 0, i * spaceZ*2), Quaternion.Euler(new Vector3(0, 270, 0)), transform);
+                GameObject toSpawn = boundaryWall;
+                if (windowCounter >= windowSeparation)
+                {
+                    toSpawn = window;
+                    windowCounter = 0;
+                }
+                Instantiate(toSpawn, transform.position + new Vector3(0, 0, i * spaceZ*2), Quaternion.Euler(new Vector3(0, 270, 0)), transform);
             }
             else if (f.rows[i].squares[0].mleft == 2)
             {
-                Instantiate(boundaryWall, transform.position + new Vector3(0, 0, i * spaceZ*2+spaceZ), Quaternion.Euler(new Vector3(0, 270, 0)), transform);
+                GameObject toSpawn = boundaryWall;
+                if (windowCounter >= windowSeparation)
+                {
+                    toSpawn = window;
+                    windowCounter = 0;
+                }
+                Instantiate(toSpawn, transform.position + new Vector3(0, 0, i * spaceZ*2+spaceZ), Quaternion.Euler(new Vector3(0, 270, 0)), transform);
             }
             else if (f.rows[i].squares[0].mleft == 3)
             {
-                Instantiate(boundaryWall, transform.position + new Vector3(0, 0, i * spaceZ *2), Quaternion.Euler(new Vector3(0, 270, 0)), transform);
-                Instantiate(boundaryWall, transform.position + new Vector3(0, 0, i  * spaceZ *2+spaceZ), Quaternion.Euler(new Vector3(0, 270, 0)), transform);
+                GameObject toSpawn = boundaryWall;
+                if (windowCounter >= windowSeparation)
+                {
+                    toSpawn = window;
+                    windowCounter = 1;
+                }
+                Instantiate(toSpawn, transform.position + new Vector3(0, 0, i * spaceZ *2), Quaternion.Euler(new Vector3(0, 270, 0)), transform);
+                toSpawn = boundaryWall;
+                if (windowCounter >= windowSeparation)
+                {
+                    toSpawn = window;
+                    windowCounter = 0;
+                }
+                Instantiate(toSpawn, transform.position + new Vector3(0, 0, i  * spaceZ *2+spaceZ), Quaternion.Euler(new Vector3(0, 270, 0)), transform);
             }
+            windowCounter++;
             if (f.rows[i].squares[width - 1].mright == 1)
             {
-                Instantiate(boundaryWall, transform.position + new Vector3(width * spaceX * 4, 0, i * spaceZ*2), Quaternion.Euler(new Vector3(0, 270, 0)), transform);
+                GameObject toSpawn = boundaryWall;
+                if (windowCounter >= windowSeparation)
+                {
+                    toSpawn = window;
+                    windowCounter = 0;
+                }
+                Instantiate(toSpawn, transform.position + new Vector3(width * spaceX * 4, 0, i * spaceZ*2), Quaternion.Euler(new Vector3(0, 270, 0)), transform);
             }
             else if (f.rows[i].squares[width - 1].mright == 2)
             {
-                Instantiate(boundaryWall, transform.position + new Vector3(width * spaceX * 4, 0, i * spaceZ*2+spaceZ), Quaternion.Euler(new Vector3(0, 270, 0)), transform);
+                GameObject toSpawn = boundaryWall;
+                if (windowCounter >= windowSeparation)
+                {
+                    toSpawn = window;
+                    windowCounter = 0;
+                }
+                Instantiate(toSpawn, transform.position + new Vector3(width * spaceX * 4, 0, i * spaceZ*2+spaceZ), Quaternion.Euler(new Vector3(0, 270, 0)), transform);
             }
             else if (f.rows[i].squares[width - 1].mright == 3)
             {
-                Instantiate(boundaryWall, transform.position + new Vector3(width * spaceX * 4, 0, i * spaceZ*2), Quaternion.Euler(new Vector3(0, 270, 0)), transform);
-                Instantiate(boundaryWall, transform.position + new Vector3(width * spaceX * 4, 0, i * spaceZ*2+spaceZ), Quaternion.Euler(new Vector3(0, 270, 0)), transform);
+                GameObject toSpawn = boundaryWall;
+                if (windowCounter >= windowSeparation)
+                {
+                    toSpawn = window;
+                    windowCounter = 1;
+                }
+                Instantiate(toSpawn, transform.position + new Vector3(width * spaceX * 4, 0, i * spaceZ*2), Quaternion.Euler(new Vector3(0, 270, 0)), transform);
+                toSpawn = boundaryWall;
+                if (windowCounter >= windowSeparation)
+                {
+                    toSpawn = window;
+                    windowCounter = 0;
+                }
+                Instantiate(toSpawn, transform.position + new Vector3(width * spaceX * 4, 0, i * spaceZ*2+spaceZ), Quaternion.Euler(new Vector3(0, 270, 0)), transform);
             }
+            windowCounter++;
         }
     }
 
