@@ -5,6 +5,8 @@ using UnityEngine.AI;
 
 public class ShootingEnemy : EnemyAI
 {
+    public float moveBackRange = 5f;
+
     [Header("Shooting")]
     public string bulletPoolTag;
 
@@ -14,6 +16,7 @@ public class ShootingEnemy : EnemyAI
     public float bulletDamage = 5f;
     public int magazineSize = 6;
     public float reloadSpeed = 3f;
+    public float dispersion = 10f;
     public bool magazine=true;
 
     private int currMagazine;
@@ -88,7 +91,11 @@ public class ShootingEnemy : EnemyAI
     private void Shoot()
     {
         GameObject obj = ObjectPooler.Current.SpawnPool(bulletPoolTag, lookPoint.position, Quaternion.identity);
-        obj.GetComponent<Rigidbody>().AddForce((player.position - lookPoint.position).normalized * bulletSpeed);
+
+        Vector3 dir = (player.position - lookPoint.position).normalized * bulletSpeed;
+        Vector3 dispDir = new Vector3(Random.Range(-dispersion, dispersion), Random.Range(-dispersion, dispersion), Random.Range(-dispersion, dispersion));
+
+        obj.GetComponent<Rigidbody>().AddForce(dir+dispDir);
         obj.GetComponent<EnemyBullet>().damage = bulletDamage;
         if(magazine) currMagazine--;
     }

@@ -58,6 +58,7 @@ MonoBehaviour:
   width: 7
   spaceX: 5
   spaceZ: 5
+  spawnerCount: 15
   boundaryWall: {fileID: 5107830021413910054, guid: 594e0d80c1465f143a6c28d4675dfea5,
     type: 3}
   debug: 0

@@ -50,6 +50,8 @@ public class EnemySpawner : MonoSingleton<EnemySpawner>
             Vector3 t = spawnpoints[Random.Range(0, spawnpoints.Count)];
             Spawn(t, Quaternion.identity, EnemyType.Melee);
         }
+
+        ChangeEnemyProperties.instance.UpdateEnemies(WorldTypeController.WorldType.Normal);
     }
 
     private void Start()
