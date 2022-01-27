@@ -36,12 +36,14 @@ public struct Floor
 
 public class GenerateRoom : MonoBehaviour
 {
-    public List<L> fragments;
+    private List<L> fragments;
+    public List<GameObject> puzzleObj;
     public int height=1, width = 1;
-    public float spaceX = 1, spaceY = 1;
+    public float spaceX = 1, spaceZ = 1;
 
     private void Start()
     {
+        fragments = PuzzlesToFragments(puzzleObj);
         Floor f = GenerateStruct(height, width);
         Generate(f);
     }
@@ -51,17 +53,18 @@ public class GenerateRoom : MonoBehaviour
 
     public void Generate(Floor f)
     {
-        float y = 0;
+        float z = 0;
+        Debug.Log("rows: "+f.rows.Count);
         foreach(Row r in f.rows)
         {
             float x = 0;
             foreach(Square s in r.squares)
             {
-                Instantiate(s.a.prefab, new Vector3(x, y, 0), Quaternion.Euler(Vector3.zero), transform);
-                Instantiate(s.b.prefab, new Vector3(x+3*spaceX, y+spaceY, 0), Quaternion.Euler(new Vector3(0,180,0)), transform);
+                Instantiate(s.a.prefab, new Vector3(x, 0, z), Quaternion.Euler(Vector3.zero), transform);
+                Instantiate(s.b.prefab, new Vector3(x+3*spaceX,0, z+spaceZ), Quaternion.Euler(new Vector3(0,180,0)), transform);
                 x += 4 * spaceX;
             }
-            y += 2*spaceY;
+            z += 2*spaceZ;
         }
     }
 
@@ -86,6 +89,28 @@ public class GenerateRoom : MonoBehaviour
         Floor f = GetFloor(allRows,height);
 
         return f;
+    }
+
+    public List<L> PuzzlesToFragments(List<GameObject> l)
+    {
+        List<L> res = new List<L>();
+
+        foreach(GameObject o in l)
+        {
+            if(!o.GetComponent<Puzzle>()) { Debug.LogWarning("Puzzle doesnt have a puzzle component"); continue; }
+
+            Puzzle p = o.GetComponent<Puzzle>();
+
+            L newL = new L();
+            newL.minside = p.GetInside();
+            newL.mlong = p.GetLong();
+            newL.mside = p.GetSide();
+            newL.mshort = p.GetShort();
+            newL.prefab = o;
+            res.Add(newL);
+        }
+
+        return res;
     }
 
     public List<Square> GetAllL(List<L> frag)
@@ -123,9 +148,22 @@ public class GenerateRoom : MonoBehaviour
                     newS.a = curr;
                     newS.b = next;
                     newS.mleft = curr.mside;
-                    newS.mright = ~(-next.mside);
+
+                    int d = 3;
+                    if (next.mside == 2) d = 1;
+                    else if (next.mside == 1) d = 2;
+                    else if (next.mside == 0) { d = 0; Debug.LogWarning("A fragments side has no exit"); }
+
+                    newS.mright = d;
+
+
                     newS.mtop = curr.mlong+next.mshort;
-                    newS.mdown = ~(-(curr.mshort+next.mlong));
+
+                    d = (curr.mshort + next.mlong) & ((~0) << 2);
+                    if (d == 12) newS.mdown = 3;
+                    else if (d == 4) newS.mdown = 2;
+                    else if (d == 8) newS.mdown = 1;
+                    newS.mdown += ((curr.mshort+next.mlong)<<2)&((1<<4)-1);
 
                     res.Add(newS);
                 }
@@ -147,11 +185,11 @@ public class GenerateRoom : MonoBehaviour
         foreach (List<Square> l in prevOpt) //start row with this square
         {
             Square curr = l[size - 1];
-            Debug.Log(curr.mright);
+            Debug.Log("mr: "+curr.mright);
             for (int S = curr.mright; S > 0; S = (S - 1) & curr.mright) //every submask
             {
-                Debug.Log(S);
-                while(!leftSqMask.ContainsKey(S)) continue;
+                Debug.Log("S: "+S);
+                if(!leftSqMask.ContainsKey(S)) continue;
                 
                 List<Square> newList = l;
                 newList.Add(leftSqMask[S][Random.Range(0,leftSqMask[S].Count)]);
@@ -204,12 +242,17 @@ public class GenerateRoom : MonoBehaviour
             int i = 0;
             foreach(Square s in sl)
             {
-                mtop += s.mtop << i;
-                mdown += s.mdown << i;
+                mtop += s.mtop << 4*i;
+                mdown += s.mdown << 4*i;
                 i++;
             }
             newRow.mtop = mtop;
-            newRow.mdown = ~(-mdown);
+            newRow.mdown = mdown;
+
+            res.Add(newRow);
+
+            Debug.Log("top: " + mtop);
+            Debug.Log("bot: " + mdown);
         }
 
 
@@ -223,6 +266,7 @@ public class GenerateRoom : MonoBehaviour
         int currSize = 1;
         Row curr = frag[Random.Range(0, frag.Count)];
         List<int> myMasks = new List<int>();
+        sel.Add(curr);
 
         while (currSize < size)
         {
@@ -233,17 +277,19 @@ public class GenerateRoom : MonoBehaviour
                 myMasks.Add(S);
             }
 
-            int currM=0;
+            int currM=0, i=0;
             if (myMasks.Count > 0)
             {
-                currM = myMasks[Random.Range(0, myMasks.Count)]; //get random submask
+                i = Random.Range(0, myMasks.Count);
+                currM = myMasks[i]; //get random submask
             }
 
 
             while (myMasks.Count > 0 && (!topRowMask.ContainsKey(currM) || topRowMask[currM].Count <= 0)) // while the curr submask is not good get next one and check
             {
-                myMasks.RemoveAt(currM);
-                currM = myMasks[Random.Range(0, myMasks.Count)];
+                myMasks.RemoveAt(i);
+                i = Random.Range(0, myMasks.Count);
+                currM = myMasks[i]; //get random submask
             }
 
             if(myMasks.Count<=0 && (!topRowMask.ContainsKey(currM) || topRowMask[currM].Count <= 0)) //if still no submask good 
