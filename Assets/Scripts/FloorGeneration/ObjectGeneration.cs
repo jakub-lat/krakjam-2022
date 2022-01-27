@@ -22,6 +22,7 @@ public class ObjectGeneration : MonoSingleton<ObjectGeneration>
     [HideInInspector] public Dictionary<ObjectType, List<GameObject>> dict;
 
     public List<GenObject> objects;
+    public float minRangeFromPlayer = 10f;
 
     private new void Awake()
     {

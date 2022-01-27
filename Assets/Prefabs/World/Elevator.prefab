@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 799221834}
-  m_Layer: 2
+  m_Layer: 8
   m_Name: Spawn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -43,7 +43,7 @@ GameObject:
   - component: {fileID: 2137609638}
   - component: {fileID: 2137609637}
   - component: {fileID: 2137609636}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cube_5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -139,7 +139,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3936200013662396038}
   - component: {fileID: 8632230874260814362}
-  m_Layer: 2
+  m_Layer: 8
   m_Name: ExitBlock
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -185,7 +185,7 @@ GameObject:
   - component: {fileID: 8824060595273093688}
   - component: {fileID: 5849930856105449407}
   - component: {fileID: 6774589801164764141}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: FloorText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -269,7 +269,7 @@ GameObject:
   - component: {fileID: 4469274637934732535}
   - component: {fileID: 5004443514814826875}
   - component: {fileID: 887347124}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -385,7 +385,7 @@ GameObject:
   - component: {fileID: 9074998910971398650}
   - component: {fileID: 9074998910971398597}
   - component: {fileID: 1835328029066767898}
-  m_Layer: 3
+  m_Layer: 8
   m_Name: Cube_3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -498,7 +498,7 @@ GameObject:
   - component: {fileID: 9074998911005416864}
   - component: {fileID: 9074998911005416867}
   - component: {fileID: 871005125288174364}
-  m_Layer: 3
+  m_Layer: 8
   m_Name: Cube_4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -611,7 +611,7 @@ GameObject:
   - component: {fileID: 9074998911250079962}
   - component: {fileID: 9074998911250080037}
   - component: {fileID: 4878424921125106793}
-  m_Layer: 3
+  m_Layer: 8
   m_Name: Cube_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -722,7 +722,7 @@ GameObject:
   - component: {fileID: 9074998911403675267}
   - component: {fileID: 9074998911403675264}
   - component: {fileID: 9074998911403675265}
-  m_Layer: 2
+  m_Layer: 8
   m_Name: Elevator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -779,7 +779,7 @@ MonoBehaviour:
   floorText: {fileID: 6774589801164764141}
   floorTextEndPos: {x: 0, y: -25}
   startMovingDelay: 1
-  openOnStart: 0
+  openOnStart: 1
   active: 0
 --- !u!65 &9074998911403675265
 BoxCollider:
@@ -807,7 +807,7 @@ GameObject:
   - component: {fileID: 9074998911426339179}
   - component: {fileID: 9074998911426339178}
   - component: {fileID: 2411079734192037271}
-  m_Layer: 3
+  m_Layer: 8
   m_Name: Cube_8
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -920,7 +920,7 @@ GameObject:
   - component: {fileID: 9074998911488061767}
   - component: {fileID: 9074998911488061766}
   - component: {fileID: 8403542193560777884}
-  m_Layer: 3
+  m_Layer: 8
   m_Name: Cube_7
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1033,7 +1033,7 @@ GameObject:
   - component: {fileID: 9074998911631202416}
   - component: {fileID: 9074998911631202419}
   - component: {fileID: 7139226707160208391}
-  m_Layer: 3
+  m_Layer: 8
   m_Name: Cube_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1144,7 +1144,7 @@ GameObject:
   - component: {fileID: 9074998911844418271}
   - component: {fileID: 9074998911844418268}
   - component: {fileID: 9074998911844418269}
-  m_Layer: 2
+  m_Layer: 8
   m_Name: CloseTrigger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1204,7 +1204,7 @@ GameObject:
   - component: {fileID: 9074998912223125571}
   - component: {fileID: 9074998912223125570}
   - component: {fileID: 8667152109536339131}
-  m_Layer: 3
+  m_Layer: 8
   m_Name: DoorsR
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1317,7 +1317,7 @@ GameObject:
   - component: {fileID: 9074998912338707442}
   - component: {fileID: 9074998912338707453}
   - component: {fileID: 1425234331511352588}
-  m_Layer: 3
+  m_Layer: 8
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1430,7 +1430,7 @@ GameObject:
   - component: {fileID: 9074998912543461628}
   - component: {fileID: 9074998912543461631}
   - component: {fileID: 2941546396263294114}
-  m_Layer: 3
+  m_Layer: 8
   m_Name: DoorsL
   m_TagString: Untagged
   m_Icon: {fileID: 0}

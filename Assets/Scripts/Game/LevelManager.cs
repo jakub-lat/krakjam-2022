@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Linq;
-using System.Threading;
-using System.Threading.Tasks;
 using Cyberultimate.Unity;
 using UnityEngine;
 
@@ -21,9 +19,17 @@ namespace Game
         public Transform player;
         public Transform cameraHolder;
 
+        private int width, height;
+        private float spaceX, spaceZ;
+
         private void Start()
         {
             (startingElevator, finishElevator) = (finishElevator, startingElevator);
+            width = GenerateRoom.Current.width;
+            height = GenerateRoom.Current.height;
+            spaceX = GenerateRoom.Current.spaceX;
+            spaceZ = GenerateRoom.Current.spaceZ;
+
             NextLevel();
             player.position = startingPosA.position;
             cameraHolder.localRotation = startingPosA.localRotation;
@@ -38,7 +44,7 @@ namespace Game
             EnemySpawner.Current.StartSpawning();
 
             (startingElevator, finishElevator) = (finishElevator, startingElevator);
-
+            
             startingElevator.Open();
             startingElevator.active = false;
             finishElevator.active = true;

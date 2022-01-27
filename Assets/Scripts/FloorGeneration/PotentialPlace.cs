@@ -8,6 +8,7 @@ public class PotentialPlace : MonoBehaviour
 
     private void Awake()
     {
+        if (Vector3.Distance(transform.position, Game.LevelManager.Current.startingElevator.transform.position) <= ObjectGeneration.Current.minRangeFromPlayer) Destroy(gameObject);
         ObjectGeneration.Current.dict[type].Add(gameObject);
     }
 }

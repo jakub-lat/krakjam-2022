@@ -6,6 +6,8 @@ using UnityEngine;
 public class EnemySpawner : MonoSingleton<EnemySpawner>
 {
     public enum EnemyType { Shooting, Melee }
+
+    public float minRangeFromPlayer = 30f;
     [Header("Start Spawning")]
     public float posY = 2;
     public int shootingEnemyAmount = 2;
@@ -69,7 +71,17 @@ public class EnemySpawner : MonoSingleton<EnemySpawner>
             float x = Random.Range(0, width * 4) * spaceX + pos.x;
             float z = Random.Range(0, height * 2) * spaceZ + pos.z;
 
-            spawnpoints.Add(new Vector3(x, pos.y + posY, z));
+            Vector3 npos = new Vector3(x, pos.y + posY, z);
+
+            while (Vector3.Distance(npos, Game.LevelManager.Current.startingElevator.transform.position) <= minRangeFromPlayer)
+            {
+                x = Random.Range(0, width * 4) * spaceX + pos.x;
+                z = Random.Range(0, height * 2) * spaceZ + pos.z;
+
+                npos = new Vector3(x, pos.y + posY, z);
+            }
+
+            spawnpoints.Add(npos);
         }
     }
 }

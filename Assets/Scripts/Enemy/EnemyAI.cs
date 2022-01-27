@@ -67,7 +67,6 @@ public abstract class EnemyAI : MonoBehaviour
 
     public void RunFromPlayer()
     {
-        Debug.Log("run");
         Vector3 runTo = transform.position + (transform.position - player.position).normalized * fleeMultiplier;
 
         NavMeshHit hit;

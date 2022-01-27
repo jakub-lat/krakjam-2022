@@ -86,3 +86,4 @@ MonoBehaviour:
     count: 5
     prefab: {fileID: 1639877660984890077, guid: bc83b8dcc9c375c45b8dcded754e0434,
       type: 3}
+  minRangeFromPlayer: 20
