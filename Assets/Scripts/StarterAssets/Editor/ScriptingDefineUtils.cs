@@ -1,4 +1,5 @@
-﻿using UnityEditor;
+﻿#if UNITY_EDITOR
+using UnityEditor;
 
 namespace StarterAssets
 {
@@ -34,3 +35,5 @@ namespace StarterAssets
         }
     }
 }
+
+#endif

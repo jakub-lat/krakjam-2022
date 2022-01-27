@@ -1,3 +1,4 @@
+#if UNITY_EDITOR
 using System.Linq;
 using UnityEditor;
 using UnityEngine;
@@ -138,3 +139,4 @@ namespace StarterAssets
 #endif
     }
 }
+#endif
