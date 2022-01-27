@@ -26,7 +26,7 @@ RenderSettings:
   m_AmbientIntensity: 1
   m_AmbientMode: 3
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
-  m_SkyboxMaterial: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
+  m_SkyboxMaterial: {fileID: 2100000, guid: 0bf4e40ed4b9a02469ff9ada66d23e7f, type: 2}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.1961923, g: 0.20356575, b: 0.21112996, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1126,6 +1126,11 @@ PrefabInstance:
       propertyPath: m_Follow
       value: 
       objectReference: {fileID: 966449310}
+    - target: {fileID: 493729954975292880, guid: a045af21090212449b51769c1140a2b4,
+        type: 3}
+      propertyPath: m_Lens.m_SensorSize.x
+      value: 1.7785467
+      objectReference: {fileID: 0}
     - target: {fileID: 493729955257980612, guid: a045af21090212449b51769c1140a2b4,
         type: 3}
       propertyPath: m_Name
@@ -1253,7 +1258,7 @@ PrefabInstance:
     - target: {fileID: 9074998911403675267, guid: 525ff3a0e5253b648a142741089a8c0d,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.48
+      value: -0.627
       objectReference: {fileID: 0}
     - target: {fileID: 9074998911403675267, guid: 525ff3a0e5253b648a142741089a8c0d,
         type: 3}
@@ -1939,6 +1944,7 @@ GameObject:
   - component: {fileID: 1813401552}
   - component: {fileID: 1813401554}
   - component: {fileID: 1813401551}
+  - component: {fileID: 1813401555}
   m_Layer: 0
   m_Name: Global Volume
   m_TagString: Untagged
@@ -2011,6 +2017,22 @@ MonoBehaviour:
   blendDistance: 0
   weight: 0
   sharedProfile: {fileID: 11400000, guid: 7d8713ee26d13e048a6203c02cdd23e4, type: 2}
+--- !u!114 &1813401555
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1813401550}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b4109397ec94ee5b929e6887b467c07, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skyboxes:
+    normal: {fileID: 2100000, guid: 0bf4e40ed4b9a02469ff9ada66d23e7f, type: 2}
+    psycho: {fileID: 2100000, guid: 2b5d69a2d6ff993459bdfb230a3bf12a, type: 2}
+  duration: 1
 --- !u!1001 &1975147840
 PrefabInstance:
   m_ObjectHideFlags: 0
