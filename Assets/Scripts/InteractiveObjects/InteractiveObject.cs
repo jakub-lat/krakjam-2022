@@ -9,12 +9,12 @@ namespace InteractiveObjects
 
         public string interactionName;
 
-        protected abstract void OnInteract();
+        protected abstract bool OnInteract();
 
         public void Interact()
         {
-            OnInteract();
-            if (destroyAfterUse)
+            var res = OnInteract();
+            if (res && destroyAfterUse)
             {
                 Destroy(gameObject);
             }

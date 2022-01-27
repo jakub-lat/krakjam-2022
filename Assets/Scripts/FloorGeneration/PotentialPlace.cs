@@ -9,6 +9,6 @@ public class PotentialPlace : MonoBehaviour
     private void Awake()
     {
         ObjectGeneration.Current.dict[type].Add(gameObject);
-        Debug.Log(ObjectGeneration.Current.dict[type].Count);
+        // Debug.Log(ObjectGeneration.Current.dict[type].Count);
     }
 }

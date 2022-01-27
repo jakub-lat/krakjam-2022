@@ -12,6 +12,7 @@ namespace UI
 
         public void SetObjectInRange(InteractiveObject obj)
         {
+            if (obj == null) return;
             interactionAvailableInfo.SetActive(true);
             objectNameText.text = $"{obj.interactionName} - E";
         }

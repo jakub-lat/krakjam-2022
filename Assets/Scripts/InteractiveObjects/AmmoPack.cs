@@ -2,6 +2,7 @@
 using KrakJam2022.Player;
 using Player;
 using UnityEngine;
+using UsableItems;
 
 namespace InteractiveObjects
 {
@@ -9,9 +10,12 @@ namespace InteractiveObjects
     {
         [SerializeField] private int amount;
 
-        protected override void OnInteract()
+        protected override bool OnInteract()
         {
-            GunController.Current.AddAmmo(amount);
+            if (Gun.Current == null) return false;
+            
+            Gun.Current.AddAmmo(amount);
+            return true;
         }
     }
 }
