@@ -161,6 +161,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attacking: 0
   knockback: 1
+  damage: 10
 --- !u!1001 &8964008348461938991
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -173,6 +174,16 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: b58273b0c7cf3e049a4d78e3b85605b1, type: 2}
+    - target: {fileID: 858034246508722596, guid: d5589d93f9ef0a9458419984bd0d09f5,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 858034246508722596, guid: d5589d93f9ef0a9458419984bd0d09f5,
+        type: 3}
+      propertyPath: m_TagString
+      value: EnemyHead
+      objectReference: {fileID: 0}
     - target: {fileID: 3423053912042478867, guid: d5589d93f9ef0a9458419984bd0d09f5,
         type: 3}
       propertyPath: materials.normal
@@ -293,6 +304,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4764376724908018649, guid: d5589d93f9ef0a9458419984bd0d09f5,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 5002738997963057042, guid: d5589d93f9ef0a9458419984bd0d09f5,
         type: 3}
       propertyPath: materials.normal
@@ -360,6 +376,7 @@ MonoBehaviour:
   attackSpeed: 1.5
   attackDelay: 0.3
   knockback: 1
+  damage: 10
   meleeEnemyScript: {fileID: 3250582526713692039}
 --- !u!4 &5494818869529247844 stripped
 Transform:

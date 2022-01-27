@@ -23,22 +23,24 @@ namespace WorldChange
 
         public override void OnWorldTypeChange(WorldTypeController.WorldType type)
         {
-            // todo make it work with shader graph shaders
             var from = materials.GetInverse(type);
             var to = materials[type];
 
-            // DOTween.To(() => 0f, (v) => meshRenderer.material.Lerp(from, to, v), 1, duration)
-            //     .SetEase(Ease.InOutQuint)
-            //     .OnComplete(
-            //         () => { meshRenderer.material = to; });
+            var temp = new Material(from);
+            meshRenderer.material = temp;
+            
+            DOTween.To(() => 0f, (v) => meshRenderer.material.Lerp(from, to, v), 1, duration)
+                .SetEase(Ease.InOutQuint)
+                .OnComplete(
+                    () => { meshRenderer.material = to; });
 
-            StartCoroutine(MaterialAfterDelay(to));
+            // StartCoroutine(MaterialAfterDelay(to));
         }
 
-        private IEnumerator MaterialAfterDelay(Material to)
-        {
-            yield return new WaitForSeconds(duration / 2);
-            meshRenderer.material = to;
-        }
+        // private IEnumerator MaterialAfterDelay(Material to)
+        // {
+        //     yield return new WaitForSeconds(duration / 2);
+        //     meshRenderer.material = to;
+        // }
     }
 }

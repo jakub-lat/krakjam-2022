@@ -73,7 +73,6 @@ namespace StarterAssets
 		public void OnPause()
         {
 			PauseManager.Current.SwitchPause();
-			SetCursorState(cursorLocked);
 		}
 
         protected void OnEnable()
@@ -122,7 +121,7 @@ namespace StarterAssets
 			SetCursorState(cursorLocked);
 		}
 
-		private void SetCursorState(bool newState)
+		public void SetCursorState(bool newState)
 		{
 			Cursor.visible = !newState;
 			Cursor.lockState = newState ? CursorLockMode.Locked : CursorLockMode.None;

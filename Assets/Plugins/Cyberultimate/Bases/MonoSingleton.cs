@@ -13,7 +13,14 @@ namespace Cyberultimate.Unity
         public static T Current { get; private set; }
         protected virtual void Awake()
         {
-            Current = (T)this;
+            if (Current != null)
+            {
+                Destroy(this);
+            }
+            else
+            {
+                Current = (T)this;
+            }
         }
     }
 }
