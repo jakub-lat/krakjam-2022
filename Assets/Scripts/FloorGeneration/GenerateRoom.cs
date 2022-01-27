@@ -41,6 +41,7 @@ public class GenerateRoom : MonoBehaviour
     public int height=1, width = 1;
     public float spaceX = 1, spaceZ = 1;
     public GameObject boundaryWall;
+    public bool debug = false;
 
     private void Start()
     {
@@ -55,7 +56,7 @@ public class GenerateRoom : MonoBehaviour
     public void Generate(Floor f)
     {
         float z = 0;
-        Debug.Log("rows: "+f.rows.Count);
+        if(debug) Debug.Log("rows: "+f.rows.Count);
 
         for(float i = 0; i < width * spaceX*4; i += spaceX)
         {
@@ -107,7 +108,7 @@ public class GenerateRoom : MonoBehaviour
             first = false;
         }
 
-        Debug.Log(allRows.Count);
+        if (debug) Debug.Log(allRows.Count);
         Floor f = GetFloor(allRows,height);
 
         return f;
@@ -155,16 +156,16 @@ public class GenerateRoom : MonoBehaviour
 
         foreach (L curr in frag)
         {
-            for (int S = curr.minside; S>0; S = (S - 1) & curr.minside) //every submask
+            for (int S = curr.minside; S > 0; S = (S - 1) & curr.minside) //every submask
             {
                 string s = curr.prefab.name + ": " + S;
-                if (!map.ContainsKey(S)) { Debug.Log(s + " failed A"); continue; }
-                foreach( L next in map[S]) //every potential to submask
+                if (!map.ContainsKey(S)) { if (debug) Debug.Log(s + " failed A"); continue; }
+                foreach (L next in map[S]) //every potential to submask
                 {
                     //check if good
 
-                    if (curr.mlong + next.mshort <= 0) { Debug.Log(s + " failed B"); continue; } //top bad
-                        if (curr.mshort + next.mlong <= 0) { Debug.Log(s + " failed C"); continue; } //bottom bad
+                    if (curr.mlong + next.mshort <= 0) { if (debug) Debug.Log(s + " failed B"); continue; } //top bad
+                    if (curr.mshort + next.mlong <= 0) { if (debug) Debug.Log(s + " failed C"); continue; } //bottom bad
 
                     //add one square
                     {
@@ -188,11 +189,11 @@ public class GenerateRoom : MonoBehaviour
                         else if (d == 8) newS.mdown = 1;
                         newS.mdown += ((curr.mshort + next.mlong) << 2) & ((1 << 4) - 1);
 
-                        Debug.Log(s + " gut");
+                        if (debug) Debug.Log(s + " gut");
                         res.Add(newS);
                     }
                     //add a square with reversed positions
-                    if(curr.prefab != next.prefab){
+                    if (curr.prefab != next.prefab) {
                         Square newS = new Square();
                         newS.a = next;
                         newS.b = curr;
@@ -213,15 +214,17 @@ public class GenerateRoom : MonoBehaviour
                         else if (d == 8) newS.mdown = 1;
                         newS.mdown += ((next.mshort + curr.mlong) << 2) & ((1 << 4) - 1);
 
-                        Debug.Log(s + " gut reverse");
+                        if (debug) Debug.Log(s + " gut reverse");
                         res.Add(newS);
                     }
                 }
             }
         }
 
-        Debug.Log("Frag: " + frag.Count);
-        Debug.Log("Squares: " + res.Count);
+        if (debug) { 
+            Debug.Log("Frag: " + frag.Count);
+            Debug.Log("Squares: " + res.Count);
+        }
         
 
         return res;
@@ -239,10 +242,10 @@ public class GenerateRoom : MonoBehaviour
             foreach (List<Square> l in prevOpt) //start row with this square
             {
                 Square curr = l[size - 1];
-                Debug.Log("mr: " + curr.mright);
+                if (debug) Debug.Log("mr: " + curr.mright);
                 for (int S = curr.mright; S > 0; S = (S - 1) & curr.mright) //every lower submask
                 {
-                    Debug.Log("S: " + S);
+                    if (debug) Debug.Log("S: " + S);
                     if (!leftSqMask.ContainsKey(S)) continue;
 
                     var newList = new List<Square>(l);
@@ -250,7 +253,7 @@ public class GenerateRoom : MonoBehaviour
                     newList.Add(leftSqMask[S][j]);
                     cLimit++;
                     res.Add(newList);
-                    Debug.Log(S.ToString() + " mask is gut");
+                    if (debug) Debug.Log(S.ToString() + " mask is gut");
 
                     if (cLimit >= limit) break;
                 }
@@ -259,7 +262,7 @@ public class GenerateRoom : MonoBehaviour
                 {
                     if (S == 2 && curr.mright == 1) S += 1;
 
-                    Debug.Log("S: " + S);
+                    if (debug) Debug.Log("S: " + S);
                     if (!leftSqMask.ContainsKey(S)) continue;
 
                     var newList = new List<Square>(l);
@@ -267,21 +270,21 @@ public class GenerateRoom : MonoBehaviour
                     newList.Add(leftSqMask[S][j]);
                     cLimit++;
                     res.Add(newList);
-                    Debug.Log(S.ToString() + " mask is gut");
+                    if (debug) Debug.Log(S.ToString() + " mask is gut");
 
                     if (cLimit >= limit || S == 3) break;
                 }
                 if (cLimit >= limit) break;
             }
 
-            Debug.Log("ii " + res.Count.ToString());
+            if (debug) Debug.Log("ii " + res.Count.ToString());
 
             prevOpt = res;
             size++;
             res = new List<List<Square>>();
         }
 
-        Debug.Log("ii " + prevOpt.Count.ToString());
+        if (debug) Debug.Log("ii " + prevOpt.Count.ToString());
         return prevOpt;
     }
 
@@ -296,11 +299,11 @@ public class GenerateRoom : MonoBehaviour
             chains.Add( new List<Square>(){s} );
         }
 
-        Debug.Log("ch bef: "+chains.Count);
+        if (debug) Debug.Log("ch bef: "+chains.Count);
 
         chains = GetAllSqChains(chains, 1, size, limit);
 
-        Debug.Log("ch aft: "+chains.Count);
+        if (debug) Debug.Log("ch aft: "+chains.Count);
 
         List<Row> res = new List<Row>();
 
@@ -410,13 +413,16 @@ public class GenerateRoom : MonoBehaviour
                 int j = Random.Range(0, topRowMask[currM].Count);
                 Row newR = topRowMask[currM][j];
 
-                Debug.Log("New row added with botM: " + currM + " at index: " + j);
-                string s = "Row contains: ";
-                foreach(Square sq in newR.squares)
+                if (debug)
                 {
-                    s += "{" + sq.a.prefab.name + ", " + sq.b.prefab.name + "}, ";
+                    Debug.Log("New row added with botM: " + currM + " at index: " + j);
+                    string s = "Row contains: ";
+                    foreach (Square sq in newR.squares)
+                    {
+                        s += "{" + sq.a.prefab.name + ", " + sq.b.prefab.name + "}, ";
+                    }
+                    Debug.Log(s);
                 }
-                Debug.Log(s);
                 sel.Add(newR);
                 curr = newR;
                 currSize++;
