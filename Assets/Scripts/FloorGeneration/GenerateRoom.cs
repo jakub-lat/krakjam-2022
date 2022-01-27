@@ -41,6 +41,7 @@ public class GenerateRoom : MonoBehaviour
     public List<GameObject> puzzleObj;
     public int height=1, width = 1;
     public float spaceX = 1, spaceZ = 1;
+    public int spawnerCount=5;
     public GameObject boundaryWall;
     public bool debug = false;
 
@@ -52,6 +53,10 @@ public class GenerateRoom : MonoBehaviour
 
         NavMeshBuilder.ClearAllNavMeshes();
         NavMeshBuilder.BuildNavMesh();
+
+
+        EnemySpawner.Current.SetupSpawners(transform.position, width, height, spaceX, spaceZ, spawnerCount);
+        EnemySpawner.Current.StartSpawning();
     }
 
     Dictionary<int, List<Square>> leftSqMask = new Dictionary<int, List<Square>>();
@@ -158,71 +163,70 @@ public class GenerateRoom : MonoBehaviour
             }
         }
 
+        int i = 0;
         foreach (L curr in frag)
         {
-            for (int S = curr.minside; S > 0; S = (S - 1) & curr.minside) //every submask
+            for (int j=i;j<frag.Count;j++) //every potential to submask
             {
-                string s = curr.prefab.name + ": " + S;
-                if (!map.ContainsKey(S)) { if (debug) Debug.Log(s + " failed A"); continue; }
-                foreach (L next in map[S]) //every potential to submask
+                L next = frag[j];
+                if ((next.minside & curr.minside) <= 0) { if (debug) Debug.Log(" failed A"); continue; } //inside is bad
+                //check if good
+
+                if (curr.mlong + next.mshort <= 0) { if (debug) Debug.Log(" failed B"); continue; } //top bad
+                if (curr.mshort + next.mlong <= 0) { if (debug) Debug.Log(" failed C"); continue; } //bottom bad
+
+                //add one square
                 {
-                    //check if good
+                    Square newS = new Square();
+                    newS.a = curr;
+                    newS.b = next;
+                    newS.mleft = curr.mside;
 
-                    if (curr.mlong + next.mshort <= 0) { if (debug) Debug.Log(s + " failed B"); continue; } //top bad
-                    if (curr.mshort + next.mlong <= 0) { if (debug) Debug.Log(s + " failed C"); continue; } //bottom bad
+                    int d = 3;
+                    if (next.mside == 2) d = 1;
+                    else if (next.mside == 1) d = 2;
+                    else if (next.mside == 0) { d = 0; Debug.LogWarning("A fragments side has no exit"); }
 
-                    //add one square
-                    {
-                        Square newS = new Square();
-                        newS.a = curr;
-                        newS.b = next;
-                        newS.mleft = curr.mside;
+                    newS.mright = d;
 
-                        int d = 3;
-                        if (next.mside == 2) d = 1;
-                        else if (next.mside == 1) d = 2;
-                        else if (next.mside == 0) { d = 0; Debug.LogWarning("A fragments side has no exit"); }
+                    newS.mtop = curr.mlong + next.mshort;
 
-                        newS.mright = d;
+                    d = (curr.mshort + next.mlong) & ((~0) << 2);
+                    if (d == 12) newS.mdown = 3;
+                    else if (d == 4) newS.mdown = 2;
+                    else if (d == 8) newS.mdown = 1;
+                    newS.mdown += ((curr.mshort + next.mlong) << 2) & ((1 << 4) - 1);
 
-                        newS.mtop = curr.mlong + next.mshort;
+                    if (debug) Debug.Log(" gut");
+                    res.Add(newS);
+                }
+                //add a square with reversed positions
+                if (curr.prefab != next.prefab) {
+                    Square newS = new Square();
+                    newS.a = next;
+                    newS.b = curr;
+                    newS.mleft = next.mside;
 
-                        d = (curr.mshort + next.mlong) & ((~0) << 2);
-                        if (d == 12) newS.mdown = 3;
-                        else if (d == 4) newS.mdown = 2;
-                        else if (d == 8) newS.mdown = 1;
-                        newS.mdown += ((curr.mshort + next.mlong) << 2) & ((1 << 4) - 1);
+                    int d = 3;
+                    if (curr.mside == 2) d = 1;
+                    else if (curr.mside == 1) d = 2;
+                    else if (curr.mside == 0) { d = 0; Debug.LogWarning("A fragments side has no exit"); }
 
-                        if (debug) Debug.Log(s + " gut");
-                        res.Add(newS);
-                    }
-                    //add a square with reversed positions
-                    if (curr.prefab != next.prefab) {
-                        Square newS = new Square();
-                        newS.a = next;
-                        newS.b = curr;
-                        newS.mleft = next.mside;
+                    newS.mright = d;
 
-                        int d = 3;
-                        if (curr.mside == 2) d = 1;
-                        else if (curr.mside == 1) d = 2;
-                        else if (curr.mside == 0) { d = 0; Debug.LogWarning("A fragments side has no exit"); }
+                    newS.mtop = next.mlong + curr.mshort;
 
-                        newS.mright = d;
+                    d = (next.mshort + curr.mlong) & ((~0) << 2);
+                    if (d == 12) newS.mdown = 3;
+                    else if (d == 4) newS.mdown = 2;
+                    else if (d == 8) newS.mdown = 1;
+                    newS.mdown += ((next.mshort + curr.mlong) << 2) & ((1 << 4) - 1);
 
-                        newS.mtop = next.mlong + curr.mshort;
-
-                        d = (next.mshort + curr.mlong) & ((~0) << 2);
-                        if (d == 12) newS.mdown = 3;
-                        else if (d == 4) newS.mdown = 2;
-                        else if (d == 8) newS.mdown = 1;
-                        newS.mdown += ((next.mshort + curr.mlong) << 2) & ((1 << 4) - 1);
-
-                        if (debug) Debug.Log(s + " gut reverse");
-                        res.Add(newS);
-                    }
+                    if (debug) Debug.Log(" gut reverse");
+                    res.Add(newS);
                 }
             }
+            i++;
         }
 
         if (debug) { 
