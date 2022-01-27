@@ -32,12 +32,10 @@ public class MeleeEnemy : EnemyAI
         //if (Vector3.Distance(transform.position, player.transform.position) < attackRange) return;
 
         agent.SetDestination(player.position);
-        Debug.Log("ch");
     }
 
     protected override void Attack() 
     {
-        Debug.Log("at");
         agent.SetDestination(transform.position);
 
         if (!attacked)
