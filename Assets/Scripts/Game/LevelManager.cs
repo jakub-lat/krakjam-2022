@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Linq;
+using System.Threading;
+using System.Threading.Tasks;
 using Cyberultimate.Unity;
 using UnityEngine;
 
@@ -30,22 +32,24 @@ namespace Game
         public void NextLevel()
         {
             CurrentLevel++;
-//finishElevator.Open();
 
-            // player.position = f ? startingPosA.position : startingPosB.position;
-
-            GenerateRoom.Current.transform.KillAllChildren();
-            GenerateRoom.Current.Generate();
-
-            ObjectGeneration.Current.GenerateObjects();
-
+            GenerateLevel();
+            
             EnemySpawner.Current.StartSpawning();
 
             (startingElevator, finishElevator) = (finishElevator, startingElevator);
-            
+
             startingElevator.Open();
             startingElevator.active = false;
             finishElevator.active = true;
+        }
+
+        private void GenerateLevel()
+        {
+            GenerateRoom.Current.transform.KillAllChildren();
+            GenerateRoom.Current.Generate();
+            ObjectGeneration.Current.GenerateObjects();
+            Debug.Log("done");
         }
     }
 }
