@@ -49,7 +49,7 @@ namespace KrakJam2022.Player
         private void Update()
         {
             // todo nie robić tego w update
-            if(DrugUI.Current) DrugUI.Current.SetInfo($"{currentDoses} | is on drugs: {IsOnDrugs}");
+            if(DrugUI.Current) DrugUI.Current.SetInfo(currentDoses);
             
             timer += Time.deltaTime;
             if (IsOnDrugs)

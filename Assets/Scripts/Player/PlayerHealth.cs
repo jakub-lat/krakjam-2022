@@ -18,8 +18,12 @@ namespace Player
 
         private void Die()
         {
-            // todo die
-            Debug.Log("YOU DIED");
+            if (PauseManager.Current.IsDead)
+            {
+                return;
+            }
+
+            PauseManager.Current.SwitchDeath();
         }
 
         // todo - cool UI

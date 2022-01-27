@@ -7,11 +7,16 @@ namespace UI
 {
     public class DrugUI : MonoSingleton<DrugUI>
     {
-        [SerializeField] private Text infoText;
+        [SerializeField] private GameObject drugPrefab = null;
+        [SerializeField] private Transform drugParent = null;  // don't do drugs, kids.
 
-        public void SetInfo(string text)
+        public void SetInfo(int howMany)
         {
-            infoText.text = text;
+            drugParent.KillAllChildren(); // i warned ya
+            for (int i = 0; i < howMany; i++)
+            {
+                Instantiate(drugPrefab, drugParent);
+            }
         }
     }
 }

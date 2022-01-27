@@ -16,7 +16,7 @@ public class ChangePlayerProperties : WorldChangeLogic
 
     private FirstPersonController fpsc;
 
-    private void Start()
+    private void Awake()
     {
         fpsc = GetComponent<FirstPersonController>();
     }
