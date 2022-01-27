@@ -21,6 +21,7 @@ namespace Scoreboard
         public int kills;
         public int headshots;
         public int deaths;
+        public int score;
         public GameRunLevel[] levels;
     }
 
@@ -35,6 +36,6 @@ namespace Scoreboard
         public int kills;
         public int headshots;
         public int deaths;
-
+        public int score;
     }
 }

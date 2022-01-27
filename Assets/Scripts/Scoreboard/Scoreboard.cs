@@ -12,11 +12,12 @@ namespace Scoreboard
     public class Scoreboard : MonoSingleton<Scoreboard>
     {
         private const string BaseUrl = "https://krakjam2022scoreboard.cubepotato.eu";
-        private const string Secret = "vUtrRzVaLfp4PPM";
+
+        [SerializeField] private TextAsset configFile;
+        private string Secret => configFile.text;
 
         private const string TokenKey = "SCOREBOARD_TOKEN";
         private string Token => PlayerPrefs.GetString(TokenKey);
-        
 
         public async void Register(string name)
         {
