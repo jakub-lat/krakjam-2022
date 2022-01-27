@@ -6979,6 +6979,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 351627716}
     m_Modifications:
+    - target: {fileID: 363367446085824874, guid: f7447ea9a76276d48bed1ff57cecd2a9,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 9.108368
+      objectReference: {fileID: 0}
+    - target: {fileID: 493621127672573192, guid: f7447ea9a76276d48bed1ff57cecd2a9,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 63.7729
+      objectReference: {fileID: 0}
+    - target: {fileID: 493621127672573192, guid: f7447ea9a76276d48bed1ff57cecd2a9,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -512.8015
+      objectReference: {fileID: 0}
     - target: {fileID: 6493998847649833281, guid: f7447ea9a76276d48bed1ff57cecd2a9,
         type: 3}
       propertyPath: m_Pivot.x
@@ -7088,6 +7103,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PauseUI
+      objectReference: {fileID: 0}
+    - target: {fileID: 7882104090409702761, guid: f7447ea9a76276d48bed1ff57cecd2a9,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 9.108368
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f7447ea9a76276d48bed1ff57cecd2a9, type: 3}
