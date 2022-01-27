@@ -5451,6 +5451,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4003909957856962553, guid: 85800d860274b5b4d93bf7a8e01d6a73,
         type: 3}
+      propertyPath: trailSpeed
+      value: 400
+      objectReference: {fileID: 0}
+    - target: {fileID: 4003909957856962553, guid: 85800d860274b5b4d93bf7a8e01d6a73,
+        type: 3}
       propertyPath: trailPrefab
       value: 
       objectReference: {fileID: 6171525930764327526, guid: f077f16e11a894840864064ffc73e9eb,
