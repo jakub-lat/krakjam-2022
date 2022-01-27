@@ -11,11 +11,13 @@ namespace WorldChange
 
         private void Start()
         {
-            RenderSettings.skybox = skyboxes[WorldTypeController.WorldType.Normal];
+            // RenderSettings.skybox = skyboxes[WorldTypeController.WorldType.Normal];
         }
 
         public override void OnWorldTypeChange(WorldTypeController.WorldType type)
         {
+            Debug.Log($"world changing to {type}");
+            
             var from = skyboxes.GetInverse(type);
             var to = skyboxes[type];
 

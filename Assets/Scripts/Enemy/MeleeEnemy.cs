@@ -23,14 +23,14 @@ public class MeleeEnemy : EnemyAI
     {
         if (dead || e.gotHit) return;
 
-        Debug.Log("cam");
+        // Debug.Log("cam");
         base.Update();
 
     }
 
     protected override void Chase()
     {
-        Debug.Log("mov");
+        // Debug.Log("mov");
         agent.SetDestination(player.position);
     }
 
