@@ -11,23 +11,37 @@ public class PauseManager : MonoSingleton<PauseManager>
     [SerializeField]
     private GameObject gameOverObject = null;
 
-    private bool isPaused = false;
+    [SerializeField]
+    private StarterAssets.StarterAssetsInputs input = null;
+
+    public bool IsPaused { get; private set; } = false;
+    public bool IsDead { get; private set; } = false;
 
     public void SwitchPause()
     {
-        isPaused = !isPaused;
-        Pause(pauseObject, isPaused);
+        IsPaused = !IsPaused;
+        Pause(pauseObject, IsPaused);
     }
 
     public void SwitchDeath()
     {
-        isPaused = !isPaused;
-        Pause(gameOverObject, isPaused);
+        IsDead = !IsDead;
+        IsPaused = true;
+        Pause(gameOverObject, IsDead);
     }
 
     public void Pause(GameObject obj, bool isTrue)
     {
-        TimeScaling.Status.Register(obj, isTrue ? 0 : 1);
+        input.SetCursorState(!isTrue);
+        if (isTrue)
+        {
+            TimeScaling.Status.Register(obj, 0);
+        }
+
+        else
+        {
+            TimeScaling.Status.Unregister(obj);
+        }
         obj.SetActive(isTrue);
     }
 }

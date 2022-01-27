@@ -14,4 +14,9 @@ public class PauseObject : MonoBehaviour
     {
         SceneManager.LoadScene("MainMenu");
     }
+
+    public void OnRevive()
+    {
+        SceneManager.LoadScene("Jakub");
+    }
 }

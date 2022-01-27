@@ -18,6 +18,11 @@ namespace Player
 
         private void Die()
         {
+            if (PauseManager.Current.IsDead)
+            {
+                return;
+            }
+
             PauseManager.Current.SwitchDeath();
         }
 
