@@ -1,5 +1,6 @@
 ﻿using System;
 using Cyberultimate.Unity;
+using DG.Tweening;
 using UI;
 using UnityEngine;
 
@@ -20,6 +21,9 @@ namespace Player
         [SerializeField] private string hitParticlePoolingTag;
 
         [SerializeField] private ParticleSystem fireParticles;
+
+        [SerializeField] private GameObject trailPrefab;
+        [SerializeField] private Transform trailSpawnPoint;
 
 
         private int currentAmmo;
@@ -72,24 +76,35 @@ namespace Player
             
             if (Physics.Raycast(transform.position, transform.forward, out var hit))
             {
-                if (hit.collider.gameObject.CompareTag("Enemy"))
-                {
-                    hit.collider.GetComponent<Enemy>().GotHit(damage);
-                    HitmarkManager.Current.GetNormalHit();
-                    GameObject particle = ObjectPooler.Current.SpawnPool(hitParticlePoolingTag, hit.point, Quaternion.LookRotation(hit.normal));
-                }
-                else if (hit.collider.gameObject.CompareTag("EnemyHead"))
-                {
-                    print("BOOM! HEADSHOT!");
-                    hit.collider.transform.parent.GetComponent<Enemy>().GotHit(headshotDamage);
-                    HitmarkManager.Current.GetHeadshotHit();
-                    GameObject particle = ObjectPooler.Current.SpawnPool(hitParticlePoolingTag, hit.point, Quaternion.LookRotation(hit.normal));
-                }
-                else
-                {
-                    GameObject bulletHole = ObjectPooler.Current.SpawnPool(bulletholePoolingTag, hit.point, Quaternion.LookRotation(hit.normal));
-                    bulletHole.transform.parent = hit.collider.transform;
-                }
+                var trail = Instantiate(trailPrefab, trailSpawnPoint.position, Quaternion.identity);
+                trail.transform.DOMove(hit.point, 0.1f * Vector3.Distance(trail.transform.position, hit.point)).OnComplete(
+                    () =>
+                    {
+                        if (hit.collider.gameObject.CompareTag("Enemy"))
+                        {
+                            hit.collider.GetComponent<Enemy>().GotHit(damage);
+                            HitmarkManager.Current.GetNormalHit();
+                            GameObject particle = ObjectPooler.Current.SpawnPool(hitParticlePoolingTag, hit.point, Quaternion.LookRotation(hit.normal));
+                        }
+                        else if (hit.collider.gameObject.CompareTag("EnemyHead"))
+                        {
+                            print("BOOM! HEADSHOT!");
+                            hit.collider.transform.parent.GetComponent<Enemy>().GotHit(headshotDamage);
+                            HitmarkManager.Current.GetHeadshotHit();
+                            GameObject particle = ObjectPooler.Current.SpawnPool(hitParticlePoolingTag, hit.point, Quaternion.LookRotation(hit.normal));
+                        }
+                        else
+                        {
+                            GameObject bulletHole = ObjectPooler.Current.SpawnPool(bulletholePoolingTag, hit.point, Quaternion.LookRotation(hit.normal));
+                            bulletHole.transform.parent = hit.collider.transform;
+                        }
+
+                    });
+            }
+            else
+            {
+                var trail = Instantiate(trailPrefab, trailSpawnPoint.position, Quaternion.identity);
+                trail.transform.DOMove(transform.forward * 40f, 0.1f * 40f);
             }
         }
 

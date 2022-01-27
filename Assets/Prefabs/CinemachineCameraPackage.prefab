@@ -112,6 +112,7 @@ Transform:
   m_Children:
   - {fileID: 1740734703}
   - {fileID: 2110131150}
+  - {fileID: 4729061986549784505}
   m_Father: {fileID: 4493422712432806857}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -177,7 +178,7 @@ GameObject:
   - component: {fileID: 1740734705}
   - component: {fileID: 1740734704}
   m_Layer: 7
-  m_Name: Particle System
+  m_Name: FireEffect
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5315,7 +5316,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 493729954975292881}
-  m_LocalRotation: {x: -0.36126074, y: 0.3579842, z: 0.16325456, w: 0.845391}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -3.87, y: 2.845, z: 6.39}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -5353,7 +5354,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.7789292, y: 1}
+    m_SensorSize: {x: 1.7785467, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 1
@@ -5410,6 +5411,37 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &6249291489788678655
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4729061986549784505}
+  m_Layer: 7
+  m_Name: TrailSpawn
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4729061986549784505
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6249291489788678655}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0.172}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 768711223}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &8782313762801495339
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5419,9 +5451,20 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4003909957856962553, guid: 85800d860274b5b4d93bf7a8e01d6a73,
         type: 3}
+      propertyPath: trailPrefab
+      value: 
+      objectReference: {fileID: 6171525930764327526, guid: f077f16e11a894840864064ffc73e9eb,
+        type: 3}
+    - target: {fileID: 4003909957856962553, guid: 85800d860274b5b4d93bf7a8e01d6a73,
+        type: 3}
       propertyPath: fireParticles
       value: 
       objectReference: {fileID: 1740734705}
+    - target: {fileID: 4003909957856962553, guid: 85800d860274b5b4d93bf7a8e01d6a73,
+        type: 3}
+      propertyPath: trailSpawnPoint
+      value: 
+      objectReference: {fileID: 4729061986549784505}
     - target: {fileID: 5168676552018519778, guid: 85800d860274b5b4d93bf7a8e01d6a73,
         type: 3}
       propertyPath: m_RootOrder

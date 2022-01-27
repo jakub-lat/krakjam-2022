@@ -5,7 +5,7 @@ namespace Player
 {
     public class PlayerHealth : MonoSingleton<PlayerHealth>
     {
-        private float health;
+        [SerializeField] private float health;
         public float Health
         {
             get => health;
