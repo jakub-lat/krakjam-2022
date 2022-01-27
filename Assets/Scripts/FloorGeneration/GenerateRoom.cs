@@ -43,6 +43,8 @@ public class GenerateRoom : MonoBehaviour
     public float spaceX = 1, spaceZ = 1;
     public int spawnerCount=5;
     public GameObject boundaryWall;
+    public GameObject window;
+    public int windowSeparation = 4;
     public bool debug = false;
 
     private void Start()
@@ -74,18 +76,6 @@ public class GenerateRoom : MonoBehaviour
         float z = 0;
         if(debug) Debug.Log("rows: "+f.rows.Count);
 
-        for(float i = 0; i < width * spaceX*4; i += spaceX)
-        {
-            Instantiate(boundaryWall, transform.position+ new Vector3(i, 0, 0), Quaternion.Euler(new Vector3(0, 180, 0)), transform);
-            Instantiate(boundaryWall, transform.position + new Vector3(i, 0, spaceZ*height*2), Quaternion.Euler(new Vector3(0, 180, 0)), transform);
-        }
-
-        for(float i = 0; i < spaceZ * height*2; i += spaceZ)
-        {
-            Instantiate(boundaryWall, transform.position + new Vector3(0, 0, i), Quaternion.Euler(new Vector3(0, 270, 0)), transform);
-            Instantiate(boundaryWall, transform.position + new Vector3(width * spaceX * 4, 0, i), Quaternion.Euler(new Vector3(0, 270, 0)), transform);
-        }
-
         foreach(Row r in f.rows)
         {
             float x = 0;
@@ -97,6 +87,120 @@ public class GenerateRoom : MonoBehaviour
                 x += 4 * spaceX;
             }
             z += 2*spaceZ;
+        }
+
+        int windowCounter = 0;
+        int i = 0, mask = 1;
+        for (float s = 1; s<int.MaxValue; s = Mathf.Pow(2,i) )
+        {
+            int curr = (int)Mathf.Floor(s);
+            if ((curr & f.rows[0].mtop)>0) //postaw œcianê
+            {
+                GameObject toSpawn = boundaryWall;
+                if(windowCounter>=windowSeparation)
+                {
+                    toSpawn = window;
+                    windowCounter = 0;
+                }
+                Instantiate(toSpawn, transform.position + new Vector3(i*spaceX, 0, 0), Quaternion.Euler(new Vector3(0, 180, 0)), transform);
+                
+            }
+            if ((curr & f.rows[height-1].mdown) > 0)
+            {
+                GameObject toSpawn = boundaryWall;
+                if (windowCounter >= windowSeparation)
+                {
+                    toSpawn = window;
+                    windowCounter = 0;
+                }
+                Instantiate(toSpawn, transform.position + new Vector3(i*spaceX, 0, (spaceZ * height * 2)-spaceZ), Quaternion.Euler(new Vector3(0, 0, 0)), transform);
+            }
+            i++;
+            mask = Revmask2(mask);
+
+            //if (s >= int.MaxValue) break;
+            windowCounter++;
+        }
+
+        for (i = 0; i < height; i++)
+        {
+
+            if (f.rows[i].squares[0].mleft == 1)
+            {
+                GameObject toSpawn = boundaryWall;
+                if (windowCounter >= windowSeparation)
+                {
+                    toSpawn = window;
+                    windowCounter = 0;
+                }
+                Instantiate(toSpawn, transform.position + new Vector3(0, 0, i * spaceZ*2), Quaternion.Euler(new Vector3(0, 270, 0)), transform);
+            }
+            else if (f.rows[i].squares[0].mleft == 2)
+            {
+                GameObject toSpawn = boundaryWall;
+                if (windowCounter >= windowSeparation)
+                {
+                    toSpawn = window;
+                    windowCounter = 0;
+                }
+                Instantiate(toSpawn, transform.position + new Vector3(0, 0, i * spaceZ*2+spaceZ), Quaternion.Euler(new Vector3(0, 270, 0)), transform);
+            }
+            else if (f.rows[i].squares[0].mleft == 3)
+            {
+                GameObject toSpawn = boundaryWall;
+                if (windowCounter >= windowSeparation)
+                {
+                    toSpawn = window;
+                    windowCounter = 1;
+                }
+                Instantiate(toSpawn, transform.position + new Vector3(0, 0, i * spaceZ *2), Quaternion.Euler(new Vector3(0, 270, 0)), transform);
+                toSpawn = boundaryWall;
+                if (windowCounter >= windowSeparation)
+                {
+                    toSpawn = window;
+                    windowCounter = 0;
+                }
+                Instantiate(toSpawn, transform.position + new Vector3(0, 0, i  * spaceZ *2+spaceZ), Quaternion.Euler(new Vector3(0, 270, 0)), transform);
+            }
+            windowCounter++;
+            if (f.rows[i].squares[width - 1].mright == 1)
+            {
+                GameObject toSpawn = boundaryWall;
+                if (windowCounter >= windowSeparation)
+                {
+                    toSpawn = window;
+                    windowCounter = 0;
+                }
+                Instantiate(toSpawn, transform.position + new Vector3(width * spaceX * 4, 0, i * spaceZ*2), Quaternion.Euler(new Vector3(0, 270, 0)), transform);
+            }
+            else if (f.rows[i].squares[width - 1].mright == 2)
+            {
+                GameObject toSpawn = boundaryWall;
+                if (windowCounter >= windowSeparation)
+                {
+                    toSpawn = window;
+                    windowCounter = 0;
+                }
+                Instantiate(toSpawn, transform.position + new Vector3(width * spaceX * 4, 0, i * spaceZ*2+spaceZ), Quaternion.Euler(new Vector3(0, 270, 0)), transform);
+            }
+            else if (f.rows[i].squares[width - 1].mright == 3)
+            {
+                GameObject toSpawn = boundaryWall;
+                if (windowCounter >= windowSeparation)
+                {
+                    toSpawn = window;
+                    windowCounter = 1;
+                }
+                Instantiate(toSpawn, transform.position + new Vector3(width * spaceX * 4, 0, i * spaceZ*2), Quaternion.Euler(new Vector3(0, 270, 0)), transform);
+                toSpawn = boundaryWall;
+                if (windowCounter >= windowSeparation)
+                {
+                    toSpawn = window;
+                    windowCounter = 0;
+                }
+                Instantiate(toSpawn, transform.position + new Vector3(width * spaceX * 4, 0, i * spaceZ*2+spaceZ), Quaternion.Euler(new Vector3(0, 270, 0)), transform);
+            }
+            windowCounter++;
         }
     }
 
@@ -152,6 +256,72 @@ public class GenerateRoom : MonoBehaviour
         return res;
     }
 
+    int Revmask2(int a)
+    {
+        switch (a)
+        {
+            case 0:
+                return 0;
+            case 1:
+                return 2;
+            case 2:
+                return 1;
+            case 3:
+                return 3;
+            default:
+                return -1;
+        }
+    }
+
+    int Revmask4(int a)
+    {
+        /*
+        int res = 0,d;
+        d = (a) & ((~0) << 2);
+        if (d == 12) res = 3;
+        else if (d == 4) res = 2;
+        else if (d == 8) res = 1;
+        res += ((a) << 2) & ((1 << 4) - 1);*/
+
+        switch (a)
+        {
+            case 0:
+                return 0;
+            case 1:
+                return 8;
+            case 2:
+                return 4;
+            case 3:
+                return 12;
+            case 4:
+                return 2;
+            case 5:
+                return 10;
+            case 6:
+                return 6;
+            case 7:
+                return 14;
+            case 8:
+                return 1;
+            case 9:
+                return 9;
+            case 10:
+                return 5;
+            case 11:
+                return 13;
+            case 12:
+                return 3;
+            case 13:
+                return 11;
+            case 14:
+                return 7;
+            case 15:
+                return 15;
+            default:
+                return -1;
+        }
+    }
+
     public List<Square> GetAllL(List<L> frag)
     {
         List<Square> res = new List<Square>();
@@ -176,7 +346,7 @@ public class GenerateRoom : MonoBehaviour
             for (int j=i;j<frag.Count;j++) //every potential to submask
             {
                 L next = frag[j];
-                if ((next.minside & curr.minside) <= 0) { if (debug) Debug.Log(" failed A"); continue; } //inside is bad
+                if ((Revmask4(next.minside) & curr.minside) <= 0) { if (debug) Debug.Log(" failed A"); continue; } //inside is bad
                 //check if good
 
                 if (curr.mlong + next.mshort <= 0) { if (debug) Debug.Log(" failed B"); continue; } //top bad
@@ -189,20 +359,14 @@ public class GenerateRoom : MonoBehaviour
                     newS.b = next;
                     newS.mleft = curr.mside;
 
-                    int d = 3;
-                    if (next.mside == 2) d = 1;
-                    else if (next.mside == 1) d = 2;
-                    else if (next.mside == 0) { d = 0; Debug.LogWarning("A fragments side has no exit"); }
+                    int d = Revmask2(next.mside);
+                    if (d==-1) Debug.LogWarning("A fragments side has no exit");
 
                     newS.mright = d;
 
                     newS.mtop = curr.mlong + next.mshort;
 
-                    d = (curr.mshort + next.mlong) & ((~0) << 2);
-                    if (d == 12) newS.mdown = 3;
-                    else if (d == 4) newS.mdown = 2;
-                    else if (d == 8) newS.mdown = 1;
-                    newS.mdown += ((curr.mshort + next.mlong) << 2) & ((1 << 4) - 1);
+                    newS.mdown = Revmask4(curr.mshort + next.mlong);
 
                     if (debug) Debug.Log(" gut");
                     res.Add(newS);
@@ -214,20 +378,14 @@ public class GenerateRoom : MonoBehaviour
                     newS.b = curr;
                     newS.mleft = next.mside;
 
-                    int d = 3;
-                    if (curr.mside == 2) d = 1;
-                    else if (curr.mside == 1) d = 2;
-                    else if (curr.mside == 0) { d = 0; Debug.LogWarning("A fragments side has no exit"); }
+                    int d = Revmask2(curr.mside);
+                    if (d == -1) Debug.LogWarning("A fragments side has no exit");
 
                     newS.mright = d;
 
                     newS.mtop = next.mlong + curr.mshort;
 
-                    d = (next.mshort + curr.mlong) & ((~0) << 2);
-                    if (d == 12) newS.mdown = 3;
-                    else if (d == 4) newS.mdown = 2;
-                    else if (d == 8) newS.mdown = 1;
-                    newS.mdown += ((next.mshort + curr.mlong) << 2) & ((1 << 4) - 1);
+                    newS.mdown = Revmask4(next.mshort + curr.mlong);
 
                     if (debug) Debug.Log(" gut reverse");
                     res.Add(newS);

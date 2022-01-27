@@ -155,6 +155,8 @@ namespace UsableItems
         private void ReloadTimer()
         {
             reloadTimer -= Time.deltaTime;
+            ReloadUI.Current.SetInfo(reloadTimer, reloadDuration);
+
             if (reloadTimer <= 0)
             {
                 isReloading = false;

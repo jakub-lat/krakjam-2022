@@ -1,18 +1,20 @@
+using Cyberultimate.Unity;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
-public class ReloadUI : MonoBehaviour
+public class ReloadUI : MonoSingleton<ReloadUI>
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [SerializeField]
+    private Image reloadCircle = null;
 
-    // Update is called once per frame
-    void Update()
+    public void SetInfo(float timer, float duration)
     {
-        
+        reloadCircle.fillAmount = (-timer / duration) + 1;
+        if (reloadCircle.fillAmount >= 1)
+        {
+            reloadCircle.fillAmount = 0;
+        }
     }
 }

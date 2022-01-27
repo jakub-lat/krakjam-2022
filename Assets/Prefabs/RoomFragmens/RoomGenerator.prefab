@@ -62,6 +62,8 @@ MonoBehaviour:
   spawnerCount: 15
   boundaryWall: {fileID: 5107830021413910054, guid: 594e0d80c1465f143a6c28d4675dfea5,
     type: 3}
+  window: {fileID: 446096981085295640, guid: 3ef474dac4c250249a8953c53aa56915, type: 3}
+  windowSeparation: 2
   debug: 0
 --- !u!114 &728314931
 MonoBehaviour:
@@ -77,6 +79,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objects:
   - type: 1
-    count: 1
+    count: 5
     prefab: {fileID: 6090475789755086876, guid: 773440e19a61f7d45a17d9467543ebdf,
+      type: 3}
+  - type: 0
+    count: 5
+    prefab: {fileID: 1639877660984890077, guid: bc83b8dcc9c375c45b8dcded754e0434,
       type: 3}
