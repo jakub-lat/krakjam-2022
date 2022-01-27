@@ -94,7 +94,7 @@ namespace StarterAssets
 
 		private void Move()
 		{
-			float targetSpeed = _input.sprint ? SprintSpeed : MoveSpeed;
+			float targetSpeed = _input.sprint && !_input.crouch ? SprintSpeed : MoveSpeed;
 			if (_input.move == Vector2.zero) targetSpeed = 0.0f;
 
 		
@@ -137,16 +137,15 @@ namespace StarterAssets
                 {
 					if (MoveSpeed < crouchSpeed)
                     {
-						MoveSpeed *= 1.15f;
+						MoveSpeed *= 1.05f;
 					}
 
-					print("SLIDE!");
-					checkValue -= Time.deltaTime * 2;
+					checkValue -= Time.deltaTime * 1.4f;
                 }
 
 				else
                 {
-					MoveSpeed = normalSpeed;
+					MoveSpeed = normalSpeed / 1.5f;
                 }
 
 				_controller.height = crouchedHeight;
