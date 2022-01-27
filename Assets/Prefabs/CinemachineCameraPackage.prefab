@@ -164,7 +164,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 493729954975292881}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 1.897, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -202,7 +202,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.7777778, y: 1}
+    m_SensorSize: {x: 1.7771174, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 1
@@ -259,57 +259,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &7892528685788613434
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 449753422950871024}
-  - component: {fileID: 2756736818089634978}
-  m_Layer: 7
-  m_Name: Hand
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &449753422950871024
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7892528685788613434}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.7, y: -0.65, z: 1.2}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 4493422712432806857}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2756736818089634978
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7892528685788613434}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 095fdf011f7443b8b3f086bd70a2bf26, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pickupTransitionDuration: 0.4
-  punchLayerMask:
-    serializedVersion: 2
-    m_Bits: 513
-  punchDistance: 2
-  punchCooldownTime: 0.5
-  punchDamage: 30
 --- !u!1001 &8782313762801495339
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -317,32 +266,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 493729955257980615}
     m_Modifications:
-    - target: {fileID: 4003909957856962553, guid: 85800d860274b5b4d93bf7a8e01d6a73,
-        type: 3}
-      propertyPath: trailSpeed
-      value: 400
-      objectReference: {fileID: 0}
-    - target: {fileID: 4003909957856962553, guid: 85800d860274b5b4d93bf7a8e01d6a73,
-        type: 3}
-      propertyPath: trailPrefab
-      value: 
-      objectReference: {fileID: 6171525930764327526, guid: f077f16e11a894840864064ffc73e9eb,
-        type: 3}
-    - target: {fileID: 4003909957856962553, guid: 85800d860274b5b4d93bf7a8e01d6a73,
-        type: 3}
-      propertyPath: fireParticles
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 4003909957856962553, guid: 85800d860274b5b4d93bf7a8e01d6a73,
-        type: 3}
-      propertyPath: trailSpawnPoint
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 4663107867592262413, guid: 85800d860274b5b4d93bf7a8e01d6a73,
-        type: 3}
-      propertyPath: maxDistance
-      value: 5
-      objectReference: {fileID: 0}
     - target: {fileID: 5168676552018519778, guid: 85800d860274b5b4d93bf7a8e01d6a73,
         type: 3}
       propertyPath: m_RootOrder
@@ -398,35 +321,12 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5168676552018519788, guid: 85800d860274b5b4d93bf7a8e01d6a73,
-        type: 3}
-      propertyPath: m_Antialiasing
-      value: 2
-      objectReference: {fileID: 0}
     - target: {fileID: 5168676552018519790, guid: 85800d860274b5b4d93bf7a8e01d6a73,
         type: 3}
       propertyPath: m_Name
       value: Main Camera
       objectReference: {fileID: 0}
-    - target: {fileID: 5168676552018519791, guid: 85800d860274b5b4d93bf7a8e01d6a73,
-        type: 3}
-      propertyPath: m_FocalLength
-      value: 14.3010435
-      objectReference: {fileID: 0}
-    - target: {fileID: 5168676552018519791, guid: 85800d860274b5b4d93bf7a8e01d6a73,
-        type: 3}
-      propertyPath: near clip plane
-      value: 0.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5168676552018519791, guid: 85800d860274b5b4d93bf7a8e01d6a73,
-        type: 3}
-      propertyPath: m_CullingMask.m_Bits
-      value: 2147483647
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 952467156545997411, guid: 85800d860274b5b4d93bf7a8e01d6a73, type: 3}
-    - {fileID: 8782313764014029076, guid: 85800d860274b5b4d93bf7a8e01d6a73, type: 3}
-    - {fileID: 4003909957856962553, guid: 85800d860274b5b4d93bf7a8e01d6a73, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 85800d860274b5b4d93bf7a8e01d6a73, type: 3}
 --- !u!4 &4493422712432806857 stripped
 Transform:
