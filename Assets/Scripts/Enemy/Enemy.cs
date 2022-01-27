@@ -11,6 +11,9 @@ public class Enemy : MonoBehaviour
     public bool dead=false;
     public bool gotHit = false;
     [SerializeField] private float hp=100;
+    [SerializeField] private GameObject myHead = null;
+    [SerializeField] private Canvas popupCanvas = null;
+    public Canvas PopupCanvas => popupCanvas;
 
     private void Start()
     {
@@ -28,6 +31,9 @@ public class Enemy : MonoBehaviour
         {
             hp = 0;
             dead = true;
+            this.gameObject.tag = "Untagged";
+            myHead.tag = "Untagged";
+
             anim.Play("Dead");
             return;
         }
