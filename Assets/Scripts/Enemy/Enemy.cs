@@ -22,8 +22,6 @@ public class Enemy : MonoBehaviour
     {
         if (dead) return;
 
-        Debug.Log("hitt");
-
         hp -= amount;
         ai.agent.SetDestination(transform.position);
         if (hp <= 0)

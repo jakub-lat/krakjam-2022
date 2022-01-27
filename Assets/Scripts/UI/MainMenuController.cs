@@ -9,4 +9,9 @@ public class MainMenuController : MonoBehaviour
     {
         SceneManager.LoadScene("Jakub");
     }
+
+    public void OnQuit()
+    {
+        Application.Quit(0);
+    }
 }
