@@ -31,8 +31,12 @@ namespace Game
             spaceZ = GenerateRoom.Current.spaceZ;
 
             NextLevel();
-            player.position = startingPosA.position;
-            cameraHolder.localRotation = startingPosA.localRotation;
+            if (startingPosA != null)
+            {
+                player.position = startingPosA.position;
+                cameraHolder.localRotation = startingPosA.localRotation;
+            }
+
         }
 
         public void NextLevel()
