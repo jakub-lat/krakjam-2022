@@ -35,6 +35,7 @@ namespace Game
             if (openOnStart)
             {
                 Open();
+                exitBlock.SetActive(false);
             }
         }
 
@@ -69,7 +70,7 @@ namespace Game
         private void UpdateFloorText()
         {
             var lvl = LevelManager.Current.CurrentLevel;
-            floorText.text = $"{lvl + 2}\n{lvl + 1}";
+            floorText.text = $"{lvl + 1}\n{lvl}";
         }
 
         public Tween Open()

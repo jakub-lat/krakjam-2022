@@ -20,25 +20,29 @@ namespace Game
 
         private void Start()
         {
+            (startingElevator, finishElevator) = (finishElevator, startingElevator);
             NextLevel();
         }
 
-        bool f = true;
         public void NextLevel()
         {
             CurrentLevel++;
+//finishElevator.Open();
 
-            startingElevator.active = !f;
-            finishElevator.active = f;
-            //finishElevator.Open();
+            // player.position = f ? startingPosA.position : startingPosB.position;
 
-            player.position = f ? startingPosA.position : startingPosB.position;
-
+            GenerateRoom.Current.transform.KillAllChildren();
             GenerateRoom.Current.Generate();
 
             ObjectGeneration.Current.GenerateObjects();
 
             EnemySpawner.Current.StartSpawning();
+
+            (startingElevator, finishElevator) = (finishElevator, startingElevator);
+            
+            startingElevator.Open();
+            startingElevator.active = false;
+            finishElevator.active = true;
         }
     }
 }
