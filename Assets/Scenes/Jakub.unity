@@ -1238,6 +1238,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pauseObject: {fileID: 1204151184}
+  gameOverObject: {fileID: 1834103805}
 --- !u!1001 &887347122
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2033,6 +2034,12 @@ MonoBehaviour:
     normal: {fileID: 2100000, guid: 0bf4e40ed4b9a02469ff9ada66d23e7f, type: 2}
     psycho: {fileID: 2100000, guid: 2b5d69a2d6ff993459bdfb230a3bf12a, type: 2}
   duration: 1
+--- !u!1 &1834103805 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1834103805, guid: f7447ea9a76276d48bed1ff57cecd2a9,
+    type: 3}
+  m_PrefabInstance: {fileID: 6493998848931157607}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1975147840
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2476,11 +2483,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PauseUI
-      objectReference: {fileID: 0}
-    - target: {fileID: 6493998847911769591, guid: f7447ea9a76276d48bed1ff57cecd2a9,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f7447ea9a76276d48bed1ff57cecd2a9, type: 3}
