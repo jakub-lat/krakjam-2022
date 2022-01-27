@@ -78,7 +78,6 @@ public class GenerateRoom : MonoBehaviour
 
         }
 
-        Debug.Log(allSq.Count);
         List<Row> allRows = GetAllRows(allSq, width);
         foreach(Row r in allRows)
         {
@@ -135,40 +134,72 @@ public class GenerateRoom : MonoBehaviour
         {
             for (int S = curr.minside; S>0; S = (S - 1) & curr.minside) //every submask
             {
-                if (!map.ContainsKey(S)) continue;
+                string s = curr.prefab.name + ": " + S;
+                if (!map.ContainsKey(S)) { Debug.Log(s + " failed A"); continue; }
                 foreach( L next in map[S]) //every potential to submask
                 {
                     //check if good
 
-                    if (curr.mlong + next.mshort <=0) continue; //top bad
-                    if (curr.mshort + next.mlong <= 0) continue; //bottom bad
+                    if (curr.mlong + next.mshort <= 0) { Debug.Log(s + " failed B"); continue; } //top bad
+                        if (curr.mshort + next.mlong <= 0) { Debug.Log(s + " failed C"); continue; } //bottom bad
 
-                    //add a square
-                    Square newS = new Square();
-                    newS.a = curr;
-                    newS.b = next;
-                    newS.mleft = curr.mside;
+                    //add one square
+                    {
+                        Square newS = new Square();
+                        newS.a = curr;
+                        newS.b = next;
+                        newS.mleft = curr.mside;
 
-                    int d = 3;
-                    if (next.mside == 2) d = 1;
-                    else if (next.mside == 1) d = 2;
-                    else if (next.mside == 0) { d = 0; Debug.LogWarning("A fragments side has no exit"); }
+                        int d = 3;
+                        if (next.mside == 2) d = 1;
+                        else if (next.mside == 1) d = 2;
+                        else if (next.mside == 0) { d = 0; Debug.LogWarning("A fragments side has no exit"); }
 
-                    newS.mright = d;
+                        newS.mright = d;
 
+                        newS.mtop = curr.mlong + next.mshort;
 
-                    newS.mtop = curr.mlong+next.mshort;
+                        d = (curr.mshort + next.mlong) & ((~0) << 2);
+                        if (d == 12) newS.mdown = 3;
+                        else if (d == 4) newS.mdown = 2;
+                        else if (d == 8) newS.mdown = 1;
+                        newS.mdown += ((curr.mshort + next.mlong) << 2) & ((1 << 4) - 1);
 
-                    d = (curr.mshort + next.mlong) & ((~0) << 2);
-                    if (d == 12) newS.mdown = 3;
-                    else if (d == 4) newS.mdown = 2;
-                    else if (d == 8) newS.mdown = 1;
-                    newS.mdown += ((curr.mshort+next.mlong)<<2)&((1<<4)-1);
+                        Debug.Log(s + " gut");
+                        res.Add(newS);
+                    }
+                    //add a square with reversed positions
+                    if(curr.prefab != next.prefab){
+                        Square newS = new Square();
+                        newS.a = next;
+                        newS.b = curr;
+                        newS.mleft = next.mside;
 
-                    res.Add(newS);
+                        int d = 3;
+                        if (curr.mside == 2) d = 1;
+                        else if (curr.mside == 1) d = 2;
+                        else if (curr.mside == 0) { d = 0; Debug.LogWarning("A fragments side has no exit"); }
+
+                        newS.mright = d;
+
+                        newS.mtop = next.mlong + curr.mshort;
+
+                        d = (next.mshort + curr.mlong) & ((~0) << 2);
+                        if (d == 12) newS.mdown = 3;
+                        else if (d == 4) newS.mdown = 2;
+                        else if (d == 8) newS.mdown = 1;
+                        newS.mdown += ((next.mshort + curr.mlong) << 2) & ((1 << 4) - 1);
+
+                        Debug.Log(s + " gut");
+                        res.Add(newS);
+                    }
                 }
             }
         }
+
+        Debug.Log("Frag: " + frag.Count);
+        Debug.Log("Squares: " + res.Count);
+        
 
         return res;
     }
@@ -192,13 +223,13 @@ public class GenerateRoom : MonoBehaviour
                 if(!leftSqMask.ContainsKey(S)) continue;
                 
                 var newList = new List<Square>(l);
-                newList.Add(leftSqMask[S][Random.Range(0,leftSqMask[S].Count)]);
+                int j = Random.Range(0, leftSqMask[S].Count);
+                newList.Add(leftSqMask[S][j]);
                 cLimit++;
-
                 res.Add(newList);
                 Debug.Log(S.ToString() + " mask is gut");
-                    
-                break;
+
+                if (cLimit >= limit) break;
             }
             i++;
             if (cLimit >= limit) break;
@@ -212,7 +243,7 @@ public class GenerateRoom : MonoBehaviour
         return res;
     }
 
-    public List<Row> GetAllRows(List<Square> frag, int size, int limit=10)
+    public List<Row> GetAllRows(List<Square> frag, int size, int limit=100)
     {
         if (size > 8) size = 8;
 
@@ -223,11 +254,11 @@ public class GenerateRoom : MonoBehaviour
             chains.Add( new List<Square>(){s} );
         }
 
-        Debug.Log(chains.Count);
+        Debug.Log("ch bef: "+chains.Count);
 
         chains = GetAllSqChains(chains, 1, size, limit);
 
-        Debug.Log(chains.Count);
+        Debug.Log("ch aft: "+chains.Count);
 
         List<Row> res = new List<Row>();
 
