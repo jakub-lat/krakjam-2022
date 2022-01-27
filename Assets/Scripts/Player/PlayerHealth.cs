@@ -19,6 +19,7 @@ namespace Player
         private void Die()
         {
             // todo die
+            Debug.Log("YOU DIED");
         }
 
         // todo - cool UI
