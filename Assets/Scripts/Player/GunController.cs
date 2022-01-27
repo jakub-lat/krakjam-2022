@@ -24,6 +24,8 @@ namespace Player
 
         [SerializeField] private GameObject trailPrefab;
         [SerializeField] private Transform trailSpawnPoint;
+        [SerializeField] private float trailSpeed = 50f;
+        private float trailDurationMultiplier => 10 / trailSpeed;
 
 
         private int currentAmmo;
@@ -78,37 +80,35 @@ namespace Player
 
             if (Physics.Raycast(transform.position, transform.forward, out var hit))
             {
-                trail.transform.DOMove(hit.point, 0.1f * Vector3.Distance(trail.transform.position, hit.point))
-                    .SetLink(gameObject)
-                    .OnComplete(
-                        () =>
-                        {
-                            if (hit.collider.gameObject.CompareTag("Enemy"))
-                            {
-                                hit.collider.GetComponent<Enemy>().GotHit(damage);
-                                HitmarkManager.Current.GetNormalHit();
-                                GameObject particle = ObjectPooler.Current.SpawnPool(hitParticlePoolingTag, hit.point,
-                                    Quaternion.LookRotation(hit.normal));
-                            }
-                            else if (hit.collider.gameObject.CompareTag("EnemyHead"))
-                            {
-                                print("BOOM! HEADSHOT!");
-                                hit.collider.transform.parent.GetComponent<Enemy>().GotHit(headshotDamage);
-                                HitmarkManager.Current.GetHeadshotHit();
-                                GameObject particle = ObjectPooler.Current.SpawnPool(hitParticlePoolingTag, hit.point,
-                                    Quaternion.LookRotation(hit.normal));
-                            }
-                            else
-                            {
-                                GameObject bulletHole = ObjectPooler.Current.SpawnPool(bulletholePoolingTag, hit.point,
-                                    Quaternion.LookRotation(hit.normal));
-                                bulletHole.transform.parent = hit.collider.transform;
-                            }
-                        });
+                trail.transform.DOMove(hit.point, trailDurationMultiplier * Vector3.Distance(trail.transform.position, hit.point))
+                    .SetLink(gameObject);
+                    
+                if (hit.collider.gameObject.CompareTag("Enemy"))
+                {
+                    hit.collider.GetComponent<Enemy>().GotHit(damage);
+                    HitmarkManager.Current.GetNormalHit();
+                    GameObject particle = ObjectPooler.Current.SpawnPool(hitParticlePoolingTag, hit.point,
+                        Quaternion.LookRotation(hit.normal));
+                }
+                else if (hit.collider.gameObject.CompareTag("EnemyHead"))
+                {
+                    print("BOOM! HEADSHOT!");
+                    hit.collider.transform.parent.GetComponent<Enemy>().GotHit(headshotDamage);
+                    HitmarkManager.Current.GetHeadshotHit();
+                    GameObject particle = ObjectPooler.Current.SpawnPool(hitParticlePoolingTag, hit.point,
+                        Quaternion.LookRotation(hit.normal));
+                }
+                else
+                {
+                    GameObject bulletHole = ObjectPooler.Current.SpawnPool(bulletholePoolingTag, hit.point,
+                        Quaternion.LookRotation(hit.normal));
+                    bulletHole.transform.parent = hit.collider.transform;
+                }
+
             }
             else
             {
-                trail.transform.DOMove(transform.forward * 40f, 0.1f * 40f).SetLink(gameObject);
+                trail.transform.DOMove(transform.forward * 40f, trailDurationMultiplier * 40f).SetLink(gameObject);
             }
         }
 
