@@ -18,7 +18,7 @@ namespace Game
         private Vector2 floorTextStartPos;
 
         private Vector3 doorsLeftClosedLocalPos, doorsRightClosedLocalPos;
-
+        
         private void Start()
         {
             exitBlock.SetActive(false);
