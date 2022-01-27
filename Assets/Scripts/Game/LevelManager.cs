@@ -12,8 +12,7 @@ namespace Game
 
         public int CurrentLevel { get; private set; }
 
-        public Transform startingPosA;
-        public Transform startingPosB;
+        public Transform startingPos;
         public Elevator startingElevator;
         public Elevator finishElevator;
         public Transform player;
@@ -23,8 +22,8 @@ namespace Game
         {
             (startingElevator, finishElevator) = (finishElevator, startingElevator);
             NextLevel();
-            player.position = startingPosA.position;
-            cameraHolder.localRotation = startingPosA.localRotation;
+            player.position = startingPos.position;
+            cameraHolder.localRotation = startingPos.localRotation;
         }
 
         public void NextLevel()

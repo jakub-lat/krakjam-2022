@@ -70,11 +70,11 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  startingPosA: {fileID: 0}
-  startingPosB: {fileID: 0}
+  startingPos: {fileID: 0}
   startingElevator: {fileID: 0}
   finishElevator: {fileID: 0}
   player: {fileID: 0}
+  cameraHolder: {fileID: 0}
 --- !u!114 &2667818113581105012
 MonoBehaviour:
   m_ObjectHideFlags: 0
