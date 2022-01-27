@@ -108,7 +108,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3936200013662396038}
   - component: {fileID: 8632230874260814362}
-  m_Layer: 3
+  m_Layer: 2
   m_Name: ExitBlock
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -691,7 +691,7 @@ GameObject:
   - component: {fileID: 9074998911403675267}
   - component: {fileID: 9074998911403675264}
   - component: {fileID: 9074998911403675265}
-  m_Layer: 3
+  m_Layer: 2
   m_Name: Elevator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1110,7 +1110,7 @@ GameObject:
   - component: {fileID: 9074998911844418271}
   - component: {fileID: 9074998911844418268}
   - component: {fileID: 9074998911844418269}
-  m_Layer: 3
+  m_Layer: 2
   m_Name: CloseTrigger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
