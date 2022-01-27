@@ -198,13 +198,13 @@ MonoBehaviour:
       attackDelay: 0.1
       knockback: 1
       movingSpeed: 4
-      range: 1
+      range: 0.7
     psycho:
       attackSpeed: 0.5
       attackDelay: 0.1
       knockback: 1
       movingSpeed: 3
-      range: 1
+      range: 0.7
 --- !u!1 &6966197676495295208
 GameObject:
   m_ObjectHideFlags: 0

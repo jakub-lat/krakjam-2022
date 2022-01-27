@@ -14,7 +14,7 @@ namespace Game
 
         private void Start()
         {
-            LevelGenerator.Current.GenerateLevel(difficulty.Evaluate(CurrentLevel / levelCount));
+            // LevelGenerator.Current.GenerateLevel(difficulty.Evaluate(CurrentLevel / levelCount));
         }
 
         public void NextLevel()
@@ -26,7 +26,7 @@ namespace Game
                 Destroy(child.gameObject);
             }
 
-            LevelGenerator.Current.GenerateLevel(difficulty.Evaluate(CurrentLevel / levelCount));
+            // LevelGenerator.Current.GenerateLevel(difficulty.Evaluate(CurrentLevel / levelCount));
         }
     }
 }

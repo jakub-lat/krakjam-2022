@@ -45,6 +45,16 @@ namespace StarterAssets
 		[Tooltip("What layers the character uses as ground")]
 		public LayerMask GroundLayers;
 
+		[Header("Crouching")]
+		[SerializeField]
+		private float crouchedHeight = 0;
+		private float defaultHeight;
+		private float normalSpeed;
+
+		[SerializeField]
+		private float crouchSpeed;
+
+
 		private float _speed;
 		private float _verticalVelocity;
 		private float _terminalVelocity = 53.0f;
@@ -55,9 +65,13 @@ namespace StarterAssets
 		private CharacterController _controller;
 		private StarterAssetsInputs _input;
 
+		private float checkValue;
+
 		private void Start()
 		{
 			_controller = GetComponent<CharacterController>();
+			defaultHeight = _controller.height;
+			normalSpeed = MoveSpeed;
 			_input = GetComponent<StarterAssetsInputs>();
 
 			_jumpTimeoutDelta = JumpTimeout;
@@ -69,7 +83,7 @@ namespace StarterAssets
 			JumpAndGravity();
 			GroundedCheck();
 			Move();
-			
+			Crouch();
 		}
 
         private void GroundedCheck()
@@ -80,7 +94,7 @@ namespace StarterAssets
 
 		private void Move()
 		{
-			float targetSpeed = _input.sprint ? SprintSpeed : MoveSpeed;
+			float targetSpeed = _input.sprint && !_input.crouch ? SprintSpeed : MoveSpeed;
 			if (_input.move == Vector2.zero) targetSpeed = 0.0f;
 
 		
@@ -112,7 +126,37 @@ namespace StarterAssets
 
 		private void Crouch()
 		{
-			print(_input.crouch);
+			if (_input.crouch)
+            {
+				if (checkValue == 0)
+                {
+					checkValue = _speed;
+				}
+
+				if (checkValue > 7.5F)
+                {
+					if (MoveSpeed < crouchSpeed)
+                    {
+						MoveSpeed *= 1.05f;
+					}
+
+					checkValue -= Time.deltaTime * 1.4f;
+                }
+
+				else
+                {
+					MoveSpeed = normalSpeed / 1.5f;
+                }
+
+				_controller.height = crouchedHeight;
+            }
+
+			else
+            {
+				checkValue = 0;
+				MoveSpeed = normalSpeed;
+				_controller.height = defaultHeight;
+			}
 		}
 
 		private void JumpAndGravity()

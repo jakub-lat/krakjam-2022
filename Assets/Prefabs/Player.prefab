@@ -29,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 4071760804872941609}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 1, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1, y: 1.3446964, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4071760806831231205}
@@ -135,7 +135,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4071760806639490273}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.375, z: 0}
+  m_LocalPosition: {x: 0, y: 1.897, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -194,7 +194,7 @@ CharacterController:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Height: 2
+  m_Height: 2.5
   m_Radius: 0.5
   m_SlopeLimit: 45
   m_StepOffset: 0.25
@@ -216,7 +216,7 @@ MonoBehaviour:
   MoveSpeed: 8
   SprintSpeed: 10.5
   SpeedChangeRate: 4
-  JumpHeight: 1.2
+  JumpHeight: 1.7
   Gravity: -15
   JumpTimeout: 0.1
   FallTimeout: 0.15
@@ -225,6 +225,8 @@ MonoBehaviour:
   GroundLayers:
     serializedVersion: 2
     m_Bits: 8
+  crouchedHeight: 0
+  crouchSpeed: 12
 --- !u!114 &4071760806831231208
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -239,7 +241,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pushLayers:
     serializedVersion: 2
-    m_Bits: 2048
+    m_Bits: 8
   canPush: 1
   strength: 0.6
 --- !u!114 &4071760806831231209

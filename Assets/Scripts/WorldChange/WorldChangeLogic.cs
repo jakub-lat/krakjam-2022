@@ -1,11 +1,8 @@
-﻿using KrakJam2022.Player;
-using Player;
+﻿
 using UnityEngine;
 
-namespace WorldChange
+
+public abstract class WorldChangeLogic : MonoBehaviour
 {
-    public abstract class WorldChangeLogic : MonoBehaviour
-    {
-        public abstract void OnWorldTypeChange(WorldTypeController.WorldType type);
-    }
+    public abstract void OnWorldTypeChange(WorldTypeController.WorldType type);
 }

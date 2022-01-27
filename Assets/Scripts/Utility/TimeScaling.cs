@@ -1,7 +1,6 @@
 ﻿using System;
-using LetterBattle.Utility;
 using UnityEngine;
-namespace LetterBattle
+namespace LetterBattle.Utility
 {
     //down time scaling is prioritized
     public static class TimeScaling

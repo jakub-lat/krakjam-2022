@@ -72,7 +72,8 @@ namespace StarterAssets
 
 		public void OnPause()
         {
-			SetCursorState(false);
+			PauseManager.Current.SwitchPause();
+			SetCursorState(cursorLocked);
 		}
 
         protected void OnEnable()
