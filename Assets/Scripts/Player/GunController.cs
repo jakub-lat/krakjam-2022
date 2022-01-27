@@ -78,7 +78,7 @@ namespace Player
 
             var trail = Instantiate(trailPrefab, trailSpawnPoint.position, Quaternion.identity);
 
-            if (Physics.Raycast(transform.position, transform.forward, out var hit))
+            if (Physics.Raycast(transform.position, transform.forward, out var hit) && !hit.collider.isTrigger)
             {
                 trail.transform.DOMove(hit.point, trailDurationMultiplier * Vector3.Distance(trail.transform.position, hit.point))
                     .SetLink(gameObject);

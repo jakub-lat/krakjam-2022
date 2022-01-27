@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5052492125061912269}
   - component: {fileID: 5052492125061912268}
+  - component: {fileID: 728314931}
   m_Layer: 0
   m_Name: RoomGenerator
   m_TagString: Untagged
@@ -58,6 +59,28 @@ MonoBehaviour:
   width: 7
   spaceX: 5
   spaceZ: 5
+  spawnerCount: 15
   boundaryWall: {fileID: 5107830021413910054, guid: 594e0d80c1465f143a6c28d4675dfea5,
     type: 3}
   debug: 0
+--- !u!114 &728314931
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5052492125061912271}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b4439eeb59099e54594c25a0a11605cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objects:
+  - type: 1
+    count: 5
+    prefab: {fileID: 6090475789755086876, guid: 773440e19a61f7d45a17d9467543ebdf,
+      type: 3}
+  - type: 0
+    count: 5
+    prefab: {fileID: 1639877660984890077, guid: bc83b8dcc9c375c45b8dcded754e0434,
+      type: 3}

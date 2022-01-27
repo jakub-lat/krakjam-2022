@@ -48,8 +48,16 @@ public class GenerateRoom : MonoBehaviour
     private void Start()
     {
         fragments = PuzzlesToFragments(puzzleObj);
+        Generate();
+    }
+
+    Dictionary<int, List<Square>> leftSqMask = new Dictionary<int, List<Square>>();
+    Dictionary<int, List<Row>> topRowMask = new Dictionary<int, List<Row>>();
+
+    public void Generate()
+    {
         Floor f = GenerateStruct(height, width);
-        Generate(f);
+        GenerateFloor(f);
 
         NavMeshBuilder.ClearAllNavMeshes();
         NavMeshBuilder.BuildNavMesh();
@@ -57,12 +65,11 @@ public class GenerateRoom : MonoBehaviour
 
         EnemySpawner.Current.SetupSpawners(transform.position, width, height, spaceX, spaceZ, spawnerCount);
         EnemySpawner.Current.StartSpawning();
+
+        ObjectGeneration.Current.GenerateObjects();
     }
 
-    Dictionary<int, List<Square>> leftSqMask = new Dictionary<int, List<Square>>();
-    Dictionary<int, List<Row>> topRowMask = new Dictionary<int, List<Row>>();
-
-    public void Generate(Floor f)
+    public void GenerateFloor(Floor f)
     {
         float z = 0;
         if(debug) Debug.Log("rows: "+f.rows.Count);
@@ -145,6 +152,18 @@ public class GenerateRoom : MonoBehaviour
         return res;
     }
 
+    int Revmask4(int a)
+    {
+        int res = 0,d;
+        d = (a) & ((~0) << 2);
+        if (d == 12) res = 3;
+        else if (d == 4) res = 2;
+        else if (d == 8) res = 1;
+        res += ((a) << 2) & ((1 << 4) - 1);
+
+        return res;
+    }
+
     public List<Square> GetAllL(List<L> frag)
     {
         List<Square> res = new List<Square>();
@@ -169,7 +188,7 @@ public class GenerateRoom : MonoBehaviour
             for (int j=i;j<frag.Count;j++) //every potential to submask
             {
                 L next = frag[j];
-                if ((next.minside & curr.minside) <= 0) { if (debug) Debug.Log(" failed A"); continue; } //inside is bad
+                if ((Revmask4(next.minside) & curr.minside) <= 0) { if (debug) Debug.Log(" failed A"); continue; } //inside is bad
                 //check if good
 
                 if (curr.mlong + next.mshort <= 0) { if (debug) Debug.Log(" failed B"); continue; } //top bad
@@ -191,11 +210,7 @@ public class GenerateRoom : MonoBehaviour
 
                     newS.mtop = curr.mlong + next.mshort;
 
-                    d = (curr.mshort + next.mlong) & ((~0) << 2);
-                    if (d == 12) newS.mdown = 3;
-                    else if (d == 4) newS.mdown = 2;
-                    else if (d == 8) newS.mdown = 1;
-                    newS.mdown += ((curr.mshort + next.mlong) << 2) & ((1 << 4) - 1);
+                    newS.mdown = Revmask4(curr.mshort + next.mlong);
 
                     if (debug) Debug.Log(" gut");
                     res.Add(newS);
@@ -216,11 +231,7 @@ public class GenerateRoom : MonoBehaviour
 
                     newS.mtop = next.mlong + curr.mshort;
 
-                    d = (next.mshort + curr.mlong) & ((~0) << 2);
-                    if (d == 12) newS.mdown = 3;
-                    else if (d == 4) newS.mdown = 2;
-                    else if (d == 8) newS.mdown = 1;
-                    newS.mdown += ((next.mshort + curr.mlong) << 2) & ((1 << 4) - 1);
+                    newS.mdown = Revmask4(next.mshort + curr.mlong);
 
                     if (debug) Debug.Log(" gut reverse");
                     res.Add(newS);
