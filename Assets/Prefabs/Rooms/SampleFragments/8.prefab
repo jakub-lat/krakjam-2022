@@ -12,12 +12,12 @@ GameObject:
   - component: {fileID: 1180514830888982807}
   - component: {fileID: 1180514830888982804}
   - component: {fileID: 1180514830888982805}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cube 1_3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &1180514830888982802
 Transform:
@@ -109,12 +109,12 @@ GameObject:
   - component: {fileID: 1180514831211817686}
   - component: {fileID: 1180514831211817687}
   - component: {fileID: 1180514831211817684}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cube 1_4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &1180514831211817685
 Transform:
@@ -206,12 +206,12 @@ GameObject:
   - component: {fileID: 6828705877830622219}
   - component: {fileID: 7012535948654198524}
   - component: {fileID: 8068191609478559604}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cube 1_5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &4017689861356193844
 Transform:
@@ -303,12 +303,12 @@ GameObject:
   - component: {fileID: 1795797215859400307}
   - component: {fileID: 9087494765907136216}
   - component: {fileID: 5409114291441027869}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cube 1_7
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &6818557553879793579
 Transform:
@@ -400,12 +400,12 @@ GameObject:
   - component: {fileID: 4590199968669672864}
   - component: {fileID: 3526681950451327534}
   - component: {fileID: 6785738181366500140}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cube 1_6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &2631259086175172033
 Transform:

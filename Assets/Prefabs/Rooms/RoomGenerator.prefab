@@ -1,0 +1,63 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &5052492125061912271
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5052492125061912269}
+  - component: {fileID: 5052492125061912268}
+  m_Layer: 0
+  m_Name: RoomGenerator
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5052492125061912269
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5052492125061912271}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5052492125061912268
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5052492125061912271}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f074e5c6d8f3ab419966ce333901fbc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  puzzleObj:
+  - {fileID: 5318008780922169044, guid: 4c8d844fe611d1440876769d98cdc62e, type: 3}
+  - {fileID: 7194161646183967227, guid: fac7fe78e9228f743969552e7a9c8a18, type: 3}
+  - {fileID: 1083177913356111607, guid: 0794b9594320b1449980051cc18afec3, type: 3}
+  - {fileID: 4890111297781593640, guid: 5af6e59979796904bbb963bdffd4956c, type: 3}
+  - {fileID: 8115858108183884790, guid: f6ccafe6ba123144ea2d7bd8e5cac017, type: 3}
+  - {fileID: 5147145093122402617, guid: c43fb37149d67a94d965f04da83b73f3, type: 3}
+  - {fileID: 1405856333768864210, guid: 49823e86f03998740aad7d0ac8464d9c, type: 3}
+  - {fileID: 2040894661406141496, guid: e6c84501f6ab22640b9f33851e82d064, type: 3}
+  - {fileID: 5657908020888974131, guid: 4b8692cc73b7d4545a52617ea47a8fec, type: 3}
+  height: 6
+  width: 7
+  spaceX: 5
+  spaceZ: 5
+  boundaryWall: {fileID: 5107830021413910054, guid: 594e0d80c1465f143a6c28d4675dfea5,
+    type: 3}
+  debug: 0
