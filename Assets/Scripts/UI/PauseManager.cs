@@ -17,6 +17,8 @@ public class PauseManager : MonoSingleton<PauseManager>
     public bool IsPaused { get; private set; } = false;
     public bool IsDead { get; private set; } = false;
 
+    public GameObject LastObject { get; private set; } = null;
+
     public void SwitchPause()
     {
         IsPaused = !IsPaused;
@@ -43,5 +45,6 @@ public class PauseManager : MonoSingleton<PauseManager>
             TimeScaling.Status.Unregister(obj);
         }
         obj.SetActive(isTrue);
+        LastObject = obj;
     }
 }
