@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Puzzle : MonoBehaviour
 {
-
     [Header("Is this part open?")]
     public bool shortest;
     public bool longA;

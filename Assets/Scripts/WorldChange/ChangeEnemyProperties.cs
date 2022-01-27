@@ -16,9 +16,14 @@ public class ShootingEnemyProperties
     public int magazineSize = 6;
     public float reloadSpeed = 3f;
     public bool magazine = true;
+    public float dispersion = 1f;
 
-    public float movingSpeed=3.5f;
-    public float range = 5f;
+    public float attackRange = 10f;
+    public float followRange = 30f;
+    public float fleeRange = 0f;
+    public float fleeMultiplier = 5f;
+    public float moveSpeed = 3f;
+    public float fleeSpeed = 5f;
 }
 
 [Serializable]
@@ -28,8 +33,12 @@ public class MeleeEnemyProperties
     public float attackDelay = 0.1f;
     public float knockback = 1f;
 
-    public float movingSpeed=3.5f;
-    public float range = 5f;
+    public float attackRange = 5f;
+    public float followRange = 30f;
+    public float fleeRange = 0f;
+    public float fleeMultiplier = 5f;
+    public float moveSpeed = 3f;
+    public float fleeSpeed = 5f;
 }
 
 public class ChangeEnemyProperties : WorldChangeLogic
@@ -39,6 +48,12 @@ public class ChangeEnemyProperties : WorldChangeLogic
     private WorldTypeDict<ShootingEnemyProperties> shootingEnemyData;
     [SerializeField]
     private WorldTypeDict<MeleeEnemyProperties> meleeEnemyData;
+
+    public static ChangeEnemyProperties instance;
+    private void Awake()
+    {
+        instance = this;
+    }
 
     public override void OnWorldTypeChange(WorldTypeController.WorldType type)
     {
@@ -58,10 +73,15 @@ public class ChangeEnemyProperties : WorldChangeLogic
             se.magazineSize = p.magazineSize;
             se.reloadSpeed = p.reloadSpeed;
             se.magazine = p.magazine;
-            se.range = p.range;
+            se.attackRange = p.attackRange;
+            se.followRange = p.followRange;
+            se.dispersion = p.dispersion;
 
-            NavMeshAgent n = g.GetComponent<NavMeshAgent>();
-            n.speed = p.movingSpeed;
+            se.fleeRange = p.fleeRange;
+            se.fleeMultiplier = p.fleeMultiplier;
+
+            se.moveSpeed = p.moveSpeed;
+            se.fleeSpeed = p.fleeSpeed;
         }
 
         var p2 = meleeEnemyData[type];
@@ -71,10 +91,13 @@ public class ChangeEnemyProperties : WorldChangeLogic
             se.attackSpeed = p2.attackSpeed;
             se.attackDelay = p2.attackDelay;
             se.knockback = p2.knockback;
-            se.range = p2.range;
+            se.attackRange = p2.attackRange;
+            se.followRange = p.followRange;
+            se.fleeRange = p.fleeRange;
+            se.fleeMultiplier = p.fleeMultiplier;
 
-            NavMeshAgent n = g.GetComponent<NavMeshAgent>();
-            n.speed = p2.movingSpeed;
+            se.moveSpeed = p.moveSpeed;
+            se.fleeSpeed = p.fleeSpeed;
         }
     }
 }
