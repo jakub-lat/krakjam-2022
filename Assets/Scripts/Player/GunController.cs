@@ -47,7 +47,7 @@ namespace Player
             }
 
             // todo nie robić tego w update
-            if(GunUI.Current) GunUI.Current.SetInfo($"ammo: {currentAmmo} / {totalAmmo} {(isReloading ? "Reloading..." : "")}");
+            if(GunUI.Current) GunUI.Current.SetInfo($"{currentAmmo} / {totalAmmo}");
         }
         
         public void Reload()

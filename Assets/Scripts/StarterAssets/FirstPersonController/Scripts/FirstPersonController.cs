@@ -126,6 +126,7 @@ namespace StarterAssets
 
 		private void Crouch()
 		{
+			// To-Do: if you slide and change direction, then stop sliding.
 			// print(CameraHelper.MainCamera.transform.forward);
 			if (_input.crouch)
             {
@@ -160,7 +161,11 @@ namespace StarterAssets
             {
 				checkValue = 0;
 				MoveSpeed = normalSpeed;
-				_controller.height = defaultHeight;
+				if (_controller.height < defaultHeight)
+                {
+					_controller.height += Time.deltaTime * 6;
+				}
+
 			}
 		}
 
