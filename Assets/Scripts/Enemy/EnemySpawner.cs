@@ -27,10 +27,10 @@ public class EnemySpawner : MonoSingleton<EnemySpawner>
         switch (et)
         {
             case EnemyType.Shooting:
-                shootingEnemies.Add(Instantiate(shootingEnemy, pos, rot));
+                shootingEnemies.Add(Instantiate(shootingEnemy, pos, rot,transform));
                 break;
             case EnemyType.Melee:
-                meleeEnemies.Add(Instantiate(meleeEnemy, pos, rot));
+                meleeEnemies.Add(Instantiate(meleeEnemy, pos, rot, transform));
                 break;
         }
     }
