@@ -12,12 +12,12 @@ GameObject:
   - component: {fileID: 46639732}
   - component: {fileID: 46639731}
   - component: {fileID: 46639730}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cube_4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &46639729
 Transform:
@@ -109,12 +109,12 @@ GameObject:
   - component: {fileID: 1035593285}
   - component: {fileID: 1035593284}
   - component: {fileID: 1035593283}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cube_5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &1035593282
 Transform:
@@ -209,17 +209,17 @@ PrefabInstance:
     - target: {fileID: 7608580996147200949, guid: 0aba3a2dcebae1d4f9ff26687487b56f,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.0031362
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7608580996147200949, guid: 0aba3a2dcebae1d4f9ff26687487b56f,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.011579514
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7608580996147200949, guid: 0aba3a2dcebae1d4f9ff26687487b56f,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.47502625
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7608580996147200949, guid: 0aba3a2dcebae1d4f9ff26687487b56f,
         type: 3}
@@ -259,7 +259,7 @@ PrefabInstance:
     - target: {fileID: 7608580996147200950, guid: 0aba3a2dcebae1d4f9ff26687487b56f,
         type: 3}
       propertyPath: m_Name
-      value: Puzzle1
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9062051636803806595, guid: 0aba3a2dcebae1d4f9ff26687487b56f,
         type: 3}

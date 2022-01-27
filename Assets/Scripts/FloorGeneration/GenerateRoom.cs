@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEditor.AI;
 
 [System.Serializable]
 public struct L
@@ -48,6 +49,9 @@ public class GenerateRoom : MonoBehaviour
         fragments = PuzzlesToFragments(puzzleObj);
         Floor f = GenerateStruct(height, width);
         Generate(f);
+
+        NavMeshBuilder.ClearAllNavMeshes();
+        NavMeshBuilder.BuildNavMesh();
     }
 
     Dictionary<int, List<Square>> leftSqMask = new Dictionary<int, List<Square>>();
@@ -60,14 +64,14 @@ public class GenerateRoom : MonoBehaviour
 
         for(float i = 0; i < width * spaceX*4; i += spaceX)
         {
-            Instantiate(boundaryWall, new Vector3(i, 0, 0), Quaternion.Euler(new Vector3(0, 180, 0)), transform);
-            Instantiate(boundaryWall, new Vector3(i, 0, spaceZ*height*2-1), Quaternion.Euler(new Vector3(0, 0, 0)), transform);
+            Instantiate(boundaryWall, transform.position+ new Vector3(i, 0, 0), Quaternion.Euler(new Vector3(0, 180, 0)), transform);
+            Instantiate(boundaryWall, transform.position + new Vector3(i, 0, spaceZ*height*2), Quaternion.Euler(new Vector3(0, 180, 0)), transform);
         }
 
         for(float i = 0; i < spaceZ * height*2; i += spaceZ)
         {
-            Instantiate(boundaryWall, new Vector3(0, 0, i), Quaternion.Euler(new Vector3(0, 270, 0)), transform);
-            Instantiate(boundaryWall, new Vector3(width * spaceX * 4-1, 0, i), Quaternion.Euler(new Vector3(0, 90, 0)), transform);
+            Instantiate(boundaryWall, transform.position + new Vector3(0, 0, i), Quaternion.Euler(new Vector3(0, 270, 0)), transform);
+            Instantiate(boundaryWall, transform.position + new Vector3(width * spaceX * 4, 0, i), Quaternion.Euler(new Vector3(0, 270, 0)), transform);
         }
 
         foreach(Row r in f.rows)
@@ -75,8 +79,8 @@ public class GenerateRoom : MonoBehaviour
             float x = 0;
             foreach(Square s in r.squares)
             {
-                Instantiate(s.a.prefab, new Vector3(x, 0, z), Quaternion.Euler(Vector3.zero), transform);
-                Instantiate(s.b.prefab, new Vector3(x+3*spaceX,0, z+spaceZ), Quaternion.Euler(new Vector3(0,180,0)), transform);
+                Instantiate(s.a.prefab, transform.position + new Vector3(x, 0, z), Quaternion.Euler(Vector3.zero), transform);
+                Instantiate(s.b.prefab, transform.position + new Vector3(x+3*spaceX,0, z+spaceZ), Quaternion.Euler(new Vector3(0,180,0)), transform);
 
                 x += 4 * spaceX;
             }
