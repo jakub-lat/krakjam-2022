@@ -60,17 +60,23 @@ namespace Game
         private void Open()
         {
             doorsLeft.DOLocalMove(doorsLeftOpenLocalPos, animDuration)
+                .SetLink(gameObject)
                 .SetEase(Ease.InOutQuint);
             doorsRight.DOLocalMove(doorsRightOpenLocalPos, animDuration)
+                .SetLink(gameObject)
                 .SetEase(Ease.InOutQuint);
         }
 
         private Tween Close()
         {
             doorsLeft.DOLocalMove(doorsLeftClosedLocalPos, animDuration)
-                .SetEase(Ease.InOutQuint).SetDelay(closeDelay);
+                .SetLink(gameObject)
+                .SetEase(Ease.InOutQuint)
+                .SetDelay(closeDelay);
             return doorsRight.DOLocalMove(doorsRightClosedLocalPos, animDuration)
-                .SetEase(Ease.InOutQuint).SetDelay(closeDelay);
+                .SetLink(gameObject)
+                .SetEase(Ease.InOutQuint)
+                .SetDelay(closeDelay);
         }
     }
 }
