@@ -44,8 +44,7 @@ namespace Game
             exitBlock.SetActive(true);
             Close().OnComplete(() =>
             {
-                DOTween.To(() => floorText.rectTransform.anchoredPosition,
-                        (v) => floorText.rectTransform.anchoredPosition = v, floorTextEndPos, animDuration)
+                floorText.rectTransform.DOAnchorPos(floorTextEndPos, animDuration)
                     .SetEase(Ease.OutCirc)
                     .SetDelay(startMovingDelay)
                     .OnComplete(() => { LevelManager.Current.NextLevel(); });
