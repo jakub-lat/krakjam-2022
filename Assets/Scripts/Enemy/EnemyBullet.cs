@@ -18,22 +18,25 @@ public class EnemyBullet : MonoBehaviour
             Quaternion rot = Quaternion.FromToRotation(Vector3.up, contact.normal);
             Vector3 pos = contact.point;
 
-            if (col.transform.tag != "Player") //if not a player spawn a bullethole
+            if (col.transform.tag == "Player")
+            {
+                GameObject particle = ObjectPooler.Current.SpawnPool(hitParticlePoolingTag, pos,
+                    Quaternion.Euler(col.transform.position - transform.position));
+                PlayerHealth.Current.Health -= damage;
+            }
+            else
             {
                 GameObject bulletHole = ObjectPooler.Current.SpawnPool(bulletholePoolingTag, pos, rot);
                 bulletHole.transform.parent = col.transform;
-            } else
-            {
-                GameObject particle = ObjectPooler.Current.SpawnPool(hitParticlePoolingTag, pos, Quaternion.Euler(col.transform.position-transform.position));
-                col.gameObject.GetComponent<PlayerHealth>().Health -= damage;
             }
+
             Enqueue();
         }
     }
 
     private void OnEnable()
     {
-        Invoke(nameof(Enqueue),20f);
+        Invoke(nameof(Enqueue), 20f);
     }
 
     private void Enqueue()
