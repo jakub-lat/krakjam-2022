@@ -48,8 +48,16 @@ public class GenerateRoom : MonoBehaviour
     private void Start()
     {
         fragments = PuzzlesToFragments(puzzleObj);
+        Generate();
+    }
+
+    Dictionary<int, List<Square>> leftSqMask = new Dictionary<int, List<Square>>();
+    Dictionary<int, List<Row>> topRowMask = new Dictionary<int, List<Row>>();
+
+    public void Generate()
+    {
         Floor f = GenerateStruct(height, width);
-        Generate(f);
+        GenerateFloor(f);
 
         NavMeshBuilder.ClearAllNavMeshes();
         NavMeshBuilder.BuildNavMesh();
@@ -57,12 +65,11 @@ public class GenerateRoom : MonoBehaviour
 
         EnemySpawner.Current.SetupSpawners(transform.position, width, height, spaceX, spaceZ, spawnerCount);
         EnemySpawner.Current.StartSpawning();
+
+        ObjectGeneration.Current.GenerateObjects();
     }
 
-    Dictionary<int, List<Square>> leftSqMask = new Dictionary<int, List<Square>>();
-    Dictionary<int, List<Row>> topRowMask = new Dictionary<int, List<Row>>();
-
-    public void Generate(Floor f)
+    public void GenerateFloor(Floor f)
     {
         float z = 0;
         if(debug) Debug.Log("rows: "+f.rows.Count);
