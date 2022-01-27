@@ -94,7 +94,6 @@ public class ChangeEnemyProperties : WorldChangeLogic
         MeleeEnemyProperties p2 = meleeEnemyData[type];
         foreach (GameObject g in EnemySpawner.Current.meleeEnemies)
         {
-            Debug.Log(g);
             MeleeEnemy se = g.GetComponent<MeleeEnemy>();
             se.attackSpeed = p2.attackSpeed;
             se.attackDelay = p2.attackDelay;
