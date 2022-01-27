@@ -40,6 +40,8 @@ namespace Game
 
         public void OnTriggerEnter(Collider other)
         {
+            if (!active) return;
+
             if (other.gameObject.CompareTag("Player"))
             {
                 Open();
