@@ -69,6 +69,7 @@ namespace StarterAssets
 
 		private void Start()
 		{
+			this.transform.eulerAngles = new Vector3(0, 90, 0);
 			_controller = GetComponent<CharacterController>();
 			defaultHeight = _controller.height;
 			normalSpeed = MoveSpeed;

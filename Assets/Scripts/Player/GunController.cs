@@ -1,6 +1,7 @@
 ﻿using System;
 using Cyberultimate.Unity;
 using DG.Tweening;
+using LetterBattle.Utility;
 using UI;
 using UnityEngine;
 
@@ -25,6 +26,9 @@ namespace Player
         [SerializeField] private GameObject trailPrefab;
         [SerializeField] private Transform trailSpawnPoint;
         [SerializeField] private float trailSpeed = 50f;
+
+        [SerializeField] private Color warningColorAmmo = Color.yellow;
+        [SerializeField] private Color dangerColorAmmo = Color.red;
         private float trailDurationMultiplier => 10 / trailSpeed;
 
 
@@ -54,7 +58,17 @@ namespace Player
             }
 
             // todo nie robić tego w update
-            if (GunUI.Current) GunUI.Current.SetInfo($"{currentAmmo} / {totalAmmo}");
+            string first = currentAmmo.ToString();
+            float ammo = ((float)currentAmmo / maxCurrentAmmo);
+            if (ammo < 0.3f)
+            {
+                first = $"<color={ColorHelper.GetColorHex(dangerColorAmmo, true)}>{currentAmmo}</color>";
+            }
+            else if (ammo < 0.6f)
+            {
+                first = $"<color={ColorHelper.GetColorHex(warningColorAmmo, true)}>{currentAmmo}</color>";
+            }
+            if (GunUI.Current) GunUI.Current.SetInfo($"{first} / {totalAmmo}");
         }
 
         public void Reload()
@@ -85,8 +99,10 @@ namespace Player
                     
                 if (hit.collider.gameObject.CompareTag("Enemy"))
                 {
-                    hit.collider.GetComponent<Enemy>().GotHit(damage);
+                    Enemy enemy = hit.collider.GetComponent<Enemy>();
+                    enemy.GotHit(damage);
                     HitmarkManager.Current.GetNormalHit();
+                    PopupManager.Current.SpawnStandardDamage(enemy);
                     GameObject particle = ObjectPooler.Current.SpawnPool(hitParticlePoolingTag, hit.point,
                         Quaternion.LookRotation(hit.normal));
                 }
