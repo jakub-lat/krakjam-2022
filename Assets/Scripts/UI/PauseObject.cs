@@ -20,6 +20,6 @@ public class PauseObject : MonoBehaviour
     public void OnRevive()
     {
         TimeScaling.Status.Unregister(PauseManager.Current.LastObject);
-        SceneManager.LoadScene("Jakub");
+        SceneManager.LoadScene("Game");
     }
 }
