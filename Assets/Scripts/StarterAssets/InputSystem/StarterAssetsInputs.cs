@@ -1,4 +1,5 @@
 using UnityEngine;
+using UsableItems;
 #if ENABLE_INPUT_SYSTEM && STARTER_ASSETS_PACKAGES_CHECKED
 using KrakJam2022.Player;
 using Player;
@@ -62,12 +63,17 @@ namespace StarterAssets
 
 		public void OnReload()
 		{
-			GunController.Current.Reload();
+			Gun.Current?.Reload();
 		}
 
 		public void OnFire()
 		{
-			GunController.Current.Shoot();
+			HandController.Current.UseCurrentItem();
+		}
+
+		public void OnDropItem()
+		{
+			HandController.Current.DropItem();
 		}
 
 		public void OnPause()
