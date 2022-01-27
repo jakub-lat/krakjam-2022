@@ -79,7 +79,7 @@ MonoBehaviour:
       attackRange: 30
       followRange: 40
       fleeRange: 5
-      fleeMultiplier: 10
+      fleeMultiplier: 2
       moveSpeed: 3
       fleeSpeed: 8
     psycho:
@@ -94,7 +94,7 @@ MonoBehaviour:
       attackRange: 30
       followRange: 30
       fleeRange: 0
-      fleeMultiplier: 3
+      fleeMultiplier: 2
       moveSpeed: 3
       fleeSpeed: 5
   meleeEnemyData:

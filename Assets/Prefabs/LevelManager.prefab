@@ -70,6 +70,11 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+  startingPosA: {fileID: 0}
+  startingPosB: {fileID: 0}
+  startingElevator: {fileID: 0}
+  finishElevator: {fileID: 0}
+  player: {fileID: 0}
 --- !u!114 &2667818113581105012
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -82,9 +87,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13ce079219b0479f9479744fe4ed8748, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelParts:
-  - {fileID: -9058858404970519781, guid: e48d515041d577e459b0107a041c28f4, type: 3}
-  - {fileID: -9058858404970519781, guid: 96e7584eb9c4fdd4f82aa93f7d2353a0, type: 3}
-  - {fileID: -9058858404970519781, guid: 8d6d8ec4987bf9947943d76c9d7910ff, type: 3}
-  - {fileID: -9058858404970519781, guid: ed52313d664c6a643b0ac95bb99200d8, type: 3}
-  levelPartSize: 20

@@ -12,21 +12,31 @@ namespace Game
 
         public int CurrentLevel { get; private set; }
 
+        public Transform startingPosA;
+        public Transform startingPosB;
+        public Elevator startingElevator;
+        public Elevator finishElevator;
+        public Transform player;
+
         private void Start()
         {
-            // LevelGenerator.Current.GenerateLevel(difficulty.Evaluate(CurrentLevel / levelCount));
+            NextLevel();
         }
 
+        bool f = true;
         public void NextLevel()
         {
             CurrentLevel++;
 
-            foreach (var child in transform.GetChildren())
-            {
-                Destroy(child.gameObject);
-            }
+            startingElevator.enabled = !f;
+            finishElevator.enabled = f;
 
-            // LevelGenerator.Current.GenerateLevel(difficulty.Evaluate(CurrentLevel / levelCount));
+            player.position = f ? startingPosA.position : startingPosB.position;
+            player.rotation = f ? startingPosA.rotation : startingPosB.rotation;
+
+            GenerateRoom.Current.Generate();
+
+            ObjectGeneration.Current.GenerateObjects();
         }
     }
 }

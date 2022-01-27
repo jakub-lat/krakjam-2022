@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor.AI;
+using Cyberultimate.Unity;
 
 [System.Serializable]
 public struct L
@@ -35,7 +36,7 @@ public struct Floor
     public List<Row> rows;
 }
 
-public class GenerateRoom : MonoBehaviour
+public class GenerateRoom : MonoSingleton<GenerateRoom>
 {
     private List<L> fragments;
     public List<GameObject> puzzleObj;
@@ -47,10 +48,10 @@ public class GenerateRoom : MonoBehaviour
     public int windowSeparation = 4;
     public bool debug = false;
 
-    private void Start()
+    private new void Awake()
     {
+        base.Awake();
         fragments = PuzzlesToFragments(puzzleObj);
-        Generate();
     }
 
     Dictionary<int, List<Square>> leftSqMask = new Dictionary<int, List<Square>>();
@@ -64,11 +65,8 @@ public class GenerateRoom : MonoBehaviour
         NavMeshBuilder.ClearAllNavMeshes();
         NavMeshBuilder.BuildNavMesh();
 
-
         EnemySpawner.Current.SetupSpawners(transform.position, width, height, spaceX, spaceZ, spawnerCount);
         EnemySpawner.Current.StartSpawning();
-
-        ObjectGeneration.Current.GenerateObjects();
     }
 
     public void GenerateFloor(Floor f)
