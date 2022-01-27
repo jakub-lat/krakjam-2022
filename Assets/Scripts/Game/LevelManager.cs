@@ -17,12 +17,14 @@ namespace Game
         public Elevator startingElevator;
         public Elevator finishElevator;
         public Transform player;
+        public Transform cameraHolder;
 
         private void Start()
         {
             (startingElevator, finishElevator) = (finishElevator, startingElevator);
             NextLevel();
             player.position = startingPosA.position;
+            cameraHolder.localRotation = startingPosA.localRotation;
         }
 
         public void NextLevel()
