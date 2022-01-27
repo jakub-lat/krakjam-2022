@@ -77,6 +77,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objects:
   - type: 1
-    count: 1
+    count: 5
     prefab: {fileID: 6090475789755086876, guid: 773440e19a61f7d45a17d9467543ebdf,
+      type: 3}
+  - type: 0
+    count: 5
+    prefab: {fileID: 1639877660984890077, guid: bc83b8dcc9c375c45b8dcded754e0434,
       type: 3}
