@@ -28,15 +28,17 @@ namespace Game
         {
             CurrentLevel++;
 
-            startingElevator.enabled = !f;
-            finishElevator.enabled = f;
+            startingElevator.active = !f;
+            finishElevator.active = f;
+            //finishElevator.Open();
 
             player.position = f ? startingPosA.position : startingPosB.position;
-            player.rotation = f ? startingPosA.rotation : startingPosB.rotation;
 
             GenerateRoom.Current.Generate();
 
             ObjectGeneration.Current.GenerateObjects();
+
+            EnemySpawner.Current.StartSpawning();
         }
     }
 }

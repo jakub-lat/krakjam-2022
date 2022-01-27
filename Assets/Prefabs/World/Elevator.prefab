@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 799221833}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.89, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -1.442, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -779,6 +779,8 @@ MonoBehaviour:
   floorText: {fileID: 6774589801164764141}
   floorTextEndPos: {x: 0, y: -25}
   startMovingDelay: 1
+  openOnStart: 0
+  active: 0
 --- !u!65 &9074998911403675265
 BoxCollider:
   m_ObjectHideFlags: 0

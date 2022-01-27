@@ -66,7 +66,6 @@ public class GenerateRoom : MonoSingleton<GenerateRoom>
         NavMeshBuilder.BuildNavMesh();
 
         EnemySpawner.Current.SetupSpawners(transform.position, width, height, spaceX, spaceZ, spawnerCount);
-        EnemySpawner.Current.StartSpawning();
     }
 
     public void GenerateFloor(Floor f)

@@ -46,8 +46,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   posY: 2
-  shootingEnemyAmount: 7
-  meleeEnemyAmount: 7
+  shootingEnemyAmount: 0
+  meleeEnemyAmount: 1
   shootingEnemy: {fileID: 3469753855458287578, guid: d5589d93f9ef0a9458419984bd0d09f5,
     type: 3}
   meleeEnemy: {fileID: 5494818868886480629, guid: 54e4e1fb6193b7f4e848e7c158924667,
@@ -71,7 +71,7 @@ MonoBehaviour:
       bulletPoolTag: EnemyBullet
       attackSpeed: 0.5
       shootDelay: 0.1
-      bulletSpeed: 900
+      bulletSpeed: 1000
       magazineSize: 6
       reloadSpeed: 3
       magazine: 1
@@ -82,6 +82,8 @@ MonoBehaviour:
       fleeMultiplier: 2
       moveSpeed: 3
       fleeSpeed: 8
+      flee: 1
+      damage: 20
     psycho:
       bulletPoolTag: EnemyBullet
       attackSpeed: 0.5
@@ -93,28 +95,34 @@ MonoBehaviour:
       dispersion: 100
       attackRange: 30
       followRange: 30
-      fleeRange: 0
+      fleeRange: -1
       fleeMultiplier: 2
       moveSpeed: 3
       fleeSpeed: 5
+      flee: 0
+      damage: 25
   meleeEnemyData:
     normal:
       attackSpeed: 0.5
       attackDelay: 0.1
       knockback: 1
-      attackRange: 5
+      attackRange: 1
       followRange: 45
-      fleeRange: 0
+      fleeRange: -1
       fleeMultiplier: 5
       moveSpeed: 4
       fleeSpeed: 5
+      flee: 0
+      damage: 50
     psycho:
       attackSpeed: 0.5
       attackDelay: 0.1
       knockback: 1
-      attackRange: 5
+      attackRange: 1
       followRange: 45
-      fleeRange: 0
+      fleeRange: -1
       fleeMultiplier: 5
       moveSpeed: 4
       fleeSpeed: 5
+      flee: 0
+      damage: 55
