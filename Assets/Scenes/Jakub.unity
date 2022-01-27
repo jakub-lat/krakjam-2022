@@ -988,11 +988,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 3936200013662396038, guid: 525ff3a0e5253b648a142741089a8c0d,
+    - target: {fileID: 6431198638786763216, guid: 525ff3a0e5253b648a142741089a8c0d,
         type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 1.056
-      objectReference: {fileID: 0}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 1029450381}
     - target: {fileID: 9074998911403675267, guid: 525ff3a0e5253b648a142741089a8c0d,
         type: 3}
       propertyPath: m_RootOrder
@@ -1052,16 +1052,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Elevator
-      objectReference: {fileID: 0}
-    - target: {fileID: 9074998911844418268, guid: 525ff3a0e5253b648a142741089a8c0d,
-        type: 3}
-      propertyPath: m_Size.x
-      value: 0.59
-      objectReference: {fileID: 0}
-    - target: {fileID: 9074998911844418271, guid: 525ff3a0e5253b648a142741089a8c0d,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -0.334
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 525ff3a0e5253b648a142741089a8c0d, type: 3}
@@ -1139,6 +1129,12 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4071760806639490272, guid: 06fe48d98e089564482bb60f44ad7b58,
     type: 3}
   m_PrefabInstance: {fileID: 966449309}
+  m_PrefabAsset: {fileID: 0}
+--- !u!20 &1029450381 stripped
+Camera:
+  m_CorrespondingSourceObject: {fileID: 4493422712432806852, guid: a045af21090212449b51769c1140a2b4,
+    type: 3}
+  m_PrefabInstance: {fileID: 782312770}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1151428135 stripped
 GameObject:

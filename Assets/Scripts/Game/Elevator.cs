@@ -1,6 +1,7 @@
 ﻿using System;
 using DG.Tweening;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace Game
 {
@@ -11,6 +12,11 @@ namespace Game
         [SerializeField] private Vector3 doorsLeftOpenLocalPos, doorsRightOpenLocalPos;
         [SerializeField] private float animDuration, closeDelay;
 
+        [SerializeField] private Text floorText;
+        [SerializeField] private Vector2 floorTextEndPos;
+        [SerializeField] private float startMovingDelay;
+        private Vector2 floorTextStartPos;
+
         private Vector3 doorsLeftClosedLocalPos, doorsRightClosedLocalPos;
 
         private void Start()
@@ -18,6 +24,10 @@ namespace Game
             exitBlock.SetActive(false);
             doorsLeftClosedLocalPos = doorsLeft.localPosition;
             doorsRightClosedLocalPos = doorsRight.localPosition;
+
+            UpdateFloorText();
+
+            floorTextStartPos = floorText.rectTransform.anchoredPosition;
         }
 
         public void OnTriggerEnter(Collider other)
@@ -30,8 +40,22 @@ namespace Game
 
         public void Use()
         {
+            UpdateFloorText();
             exitBlock.SetActive(true);
-            Close().OnComplete(() => { LevelManager.Current.NextLevel(); });
+            Close().OnComplete(() =>
+            {
+                DOTween.To(() => floorText.rectTransform.anchoredPosition,
+                        (v) => floorText.rectTransform.anchoredPosition = v, floorTextEndPos, animDuration)
+                    .SetEase(Ease.OutCirc)
+                    .SetDelay(startMovingDelay)
+                    .OnComplete(() => { LevelManager.Current.NextLevel(); });
+            });
+        }
+
+        private void UpdateFloorText()
+        {
+            var lvl = LevelManager.Current.CurrentLevel;
+            floorText.text = $"{lvl + 2}\n{lvl + 1}";
         }
 
         private void Open()
