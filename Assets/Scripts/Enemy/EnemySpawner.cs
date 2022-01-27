@@ -7,7 +7,7 @@ public class EnemySpawner : MonoSingleton<EnemySpawner>
 {
     public enum EnemyType { Shooting, Melee }
     [Header("Start Spawning")]
-    public List<Transform> spawnpoints;
+    public float posY = 2;
     public int shootingEnemyAmount = 2;
     public int meleeEnemyAmount = 0;
 
@@ -19,6 +19,8 @@ public class EnemySpawner : MonoSingleton<EnemySpawner>
     [HideInInspector] public List<GameObject> meleeEnemies;
 
     private ChangeEnemyProperties changeProps;
+    private List<Vector3> spawnpoints;
+
 
     public void Spawn(Vector3 pos, Quaternion rot, EnemyType et)
     {
@@ -39,21 +41,33 @@ public class EnemySpawner : MonoSingleton<EnemySpawner>
 
         for(int i = 0; i < shootingEnemyAmount; i++)
         {
-            Transform t = spawnpoints[Random.Range(0, spawnpoints.Count)];
-            Spawn(t.position, t.rotation, EnemyType.Shooting);
+            Vector3 t = spawnpoints[Random.Range(0, spawnpoints.Count)];
+            Spawn(t, Quaternion.identity, EnemyType.Shooting);
         }
 
         for (int i = 0; i < meleeEnemyAmount; i++)
         {
-            Transform t = spawnpoints[Random.Range(0, spawnpoints.Count)];
-            Spawn(t.position, t.rotation, EnemyType.Melee);
+            Vector3 t = spawnpoints[Random.Range(0, spawnpoints.Count)];
+            Spawn(t, Quaternion.identity, EnemyType.Melee);
         }
     }
 
     private void Start()
     {
-        StartSpawning(); //to change
+        // StartSpawning(); //to change
         changeProps = GetComponent<ChangeEnemyProperties>();
         changeProps.UpdateEnemies(WorldTypeController.WorldType.Normal);
+    }
+
+    public void SetupSpawners(Vector3 pos, float width, float height, float spaceX, float spaceZ, int amount)
+    {
+        spawnpoints = new List<Vector3>();
+        for(int i = 0; i < amount; i++)
+        {
+            float x = Random.Range(0, width * 4) * spaceX + pos.x;
+            float z = Random.Range(0, height * 2) * spaceZ + pos.z;
+
+            spawnpoints.Add(new Vector3(x, pos.y + posY, z));
+        }
     }
 }
