@@ -1,6 +1,9 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using Cyberultimate.Unity;
+using Player;
+using Scoreboard;
 using UnityEngine;
 
 namespace Game
@@ -37,18 +40,21 @@ namespace Game
                 cameraHolder.localRotation = startingPosA.localRotation;
             }
 
+            Scoreboard.Scoreboard.Current.NewRun();
         }
 
         public void NextLevel()
         {
             CurrentLevel++;
+            
+            Scoreboard.Scoreboard.Current.PostLevelData();
 
             GenerateLevel();
-            
+
             EnemySpawner.Current.StartSpawning();
 
             (startingElevator, finishElevator) = (finishElevator, startingElevator);
-            
+
             startingElevator.Open();
             startingElevator.active = false;
             finishElevator.active = true;

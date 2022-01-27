@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace Scoreboard
 {
@@ -8,7 +9,7 @@ namespace Scoreboard
         public long id;
         public string name;
         public string token;
-        public GameRun[] gameRuns;
+        public List<GameRun> gameRuns;
     }
 
     [Serializable]
@@ -22,7 +23,7 @@ namespace Scoreboard
         public int headshots;
         public int deaths;
         public int score;
-        public GameRunLevel[] levels;
+        public List<GameRunLevel> levels;
     }
 
     [Serializable]

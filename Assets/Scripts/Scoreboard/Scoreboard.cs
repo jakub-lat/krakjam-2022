@@ -19,6 +19,11 @@ namespace Scoreboard
         private const string TokenKey = "SCOREBOARD_TOKEN";
         private string Token => PlayerPrefs.GetString(TokenKey);
 
+        
+        public GameRun runData;
+        public GameRunLevel levelData;
+
+
         public async void Register(string name)
         {
             using var client = new HttpClient();
@@ -31,7 +36,26 @@ namespace Scoreboard
             PlayerPrefs.SetString(TokenKey, data.token);
             Debug.Log("registered, token: " + data.token);
         }
-        
+
+        public async void NewRun()
+        {
+            runData = new GameRun
+            {
+                startTime = DateTimeOffset.UtcNow.ToUnixTimeSeconds(),
+            };
+            runData = await PostData("/run", runData);
+        }
+
+        public async void PostLevelData()
+        {
+            levelData.endTime = DateTimeOffset.UtcNow.ToUnixTimeSeconds(); 
+            await PostData("/level", levelData);
+            levelData = new GameRunLevel
+            {
+                startTime = DateTimeOffset.UtcNow.ToUnixTimeSeconds()
+            };
+        }
+
         public async Task<List<Player>> GetScoreboard()
         {
             using var client = new HttpClient();
@@ -47,7 +71,7 @@ namespace Scoreboard
             return JsonUtility.FromJson<Player>(res);
         }
 
-        public async void PostData<T>(string path, T data)
+        public async Task<T> PostData<T>(string path, T data)
         {
             using var client = new HttpClient();
             client.DefaultRequestHeaders.Add("Authorization", Token);
@@ -59,6 +83,8 @@ namespace Scoreboard
             var res = await client.PostAsync(BaseUrl + path,
                 new StringContent(body, Encoding.UTF8, "application/json"));
             res.EnsureSuccessStatusCode();
+
+            return JsonUtility.FromJson<T>(await res.Content.ReadAsStringAsync());
         }
     }
 }
