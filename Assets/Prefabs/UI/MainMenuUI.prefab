@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 639240791}
   - component: {fileID: 639240790}
   m_Layer: 5
-  m_Name: Text (Legacy)_1
+  m_Name: MadeBy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -92,7 +92,7 @@ GameObject:
   - component: {fileID: 839976234}
   - component: {fileID: 839976233}
   m_Layer: 5
-  m_Name: Text (Legacy)_2
+  m_Name: Version
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -427,7 +427,7 @@ GameObject:
   - component: {fileID: 6522448451418192466}
   - component: {fileID: 6522448451418192465}
   m_Layer: 5
-  m_Name: Image
+  m_Name: PulseLeft
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -503,7 +503,7 @@ GameObject:
   - component: {fileID: 6522448451601408644}
   - component: {fileID: 6522448451601408643}
   m_Layer: 5
-  m_Name: Image_1
+  m_Name: PulseRight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -659,7 +659,7 @@ GameObject:
   - component: {fileID: 6522448451909988014}
   - component: {fileID: 6522448451909988013}
   m_Layer: 5
-  m_Name: Image
+  m_Name: BackgroundLogo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
