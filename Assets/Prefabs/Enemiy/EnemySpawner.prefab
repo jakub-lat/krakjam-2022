@@ -79,7 +79,7 @@ MonoBehaviour:
       dispersion: 40
       attackRange: 30
       followRange: 30
-      fleeRange: 5
+      fleeRange: 2
       fleeMultiplier: 2
       moveSpeed: 3
       fleeSpeed: 8
@@ -115,6 +115,7 @@ MonoBehaviour:
       fleeSpeed: 5
       flee: 0
       damage: 50
+      shooting: 1
     psycho:
       attackSpeed: 0.5
       attackDelay: 0.1
@@ -127,3 +128,21 @@ MonoBehaviour:
       fleeSpeed: 5
       flee: 0
       damage: 55
+      shooting: 0
+  meleeShootingModeData:
+    bulletPoolTag: EnemyBullet
+    attackSpeed: 2
+    shootDelay: 0.3
+    bulletSpeed: 300
+    magazineSize: 6
+    reloadSpeed: 3
+    magazine: 0
+    dispersion: 30
+    attackRange: 10
+    followRange: 30
+    fleeRange: 20
+    fleeMultiplier: 6
+    moveSpeed: 4
+    fleeSpeed: 8
+    flee: 1
+    damage: 15
