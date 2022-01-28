@@ -400,11 +400,12 @@ MonoBehaviour:
   fleeMultiplier: 5
   moveSpeed: 3
   fleeSpeed: 5
+  flee: 0
   moveBackRange: 5
   bulletPoolTag: EnemyBullet
   attackSpeed: 0.3
   shootDelay: 0.1
-  bulletSpeed: 500
+  bulletSpeed: 600
   bulletDamage: 5
   magazineSize: 6
   reloadSpeed: 4

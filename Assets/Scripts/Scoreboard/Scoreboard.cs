@@ -4,6 +4,7 @@ using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 using Cyberultimate.Unity;
+using Game;
 using Unity.VisualScripting.IonicZip;
 using UnityEngine;
 
@@ -20,7 +21,7 @@ namespace Scoreboard
         private string Token => PlayerPrefs.GetString(TokenKey);
         private bool LoggedIn => !string.IsNullOrEmpty(Token);
 
-        
+
         public GameRun runData;
         public GameRunLevel levelData;
 
@@ -45,14 +46,20 @@ namespace Scoreboard
                 startTime = DateTimeOffset.UtcNow.ToUnixTimeSeconds(),
             };
             runData = await PostData("/run", runData);
+            levelData = new GameRunLevel
+            {
+                startTime = DateTimeOffset.UtcNow.ToUnixTimeSeconds(),
+                level = LevelManager.Current.CurrentLevel,
+            };
         }
 
         public async void PostLevelData()
         {
-            levelData.endTime = DateTimeOffset.UtcNow.ToUnixTimeSeconds(); 
+            levelData.endTime = DateTimeOffset.UtcNow.ToUnixTimeSeconds();
             await PostData("/level", levelData);
             levelData = new GameRunLevel
             {
+                level = LevelManager.Current.CurrentLevel,
                 startTime = DateTimeOffset.UtcNow.ToUnixTimeSeconds()
             };
         }
@@ -63,11 +70,11 @@ namespace Scoreboard
             var res = await client.GetStringAsync(BaseUrl);
             return JsonUtility.FromJson<List<Player>>(res);
         }
-        
+
         public async Task<Player> GetCurrentPlayer()
         {
             if (!LoggedIn) return null;
-            
+
             using var client = new HttpClient();
             client.DefaultRequestHeaders.Add("Authorization", Token);
             var res = await client.GetStringAsync(BaseUrl);
@@ -77,7 +84,7 @@ namespace Scoreboard
         public async Task<T> PostData<T>(string path, T data)
         {
             if (!LoggedIn) return data;
-            
+
             using var client = new HttpClient();
             client.DefaultRequestHeaders.Add("Authorization", Token);
 
