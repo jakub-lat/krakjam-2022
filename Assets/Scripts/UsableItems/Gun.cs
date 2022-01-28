@@ -31,7 +31,7 @@ namespace UsableItems
         [SerializeField] private Color warningColorAmmo = Color.yellow;
         [SerializeField] private Color dangerColorAmmo = Color.red;
         [SerializeField] private Collider gunCollider;
-
+            
         private float trailDurationMultiplier => 10 / trailSpeed;
 
 
@@ -74,10 +74,9 @@ namespace UsableItems
             {
                 first = $"<color={ColorHelper.GetColorHex(warningColorAmmo, true)}>{currentAmmo}</color>";
             }
-
             if (GunUI.Current) GunUI.Current.SetInfo($"{first} / {totalAmmo}");
         }
-
+        
         public override void Use()
         {
             Shoot();
@@ -150,12 +149,6 @@ namespace UsableItems
                         Quaternion.LookRotation(hit.normal));
                     bulletHole.transform.parent = hit.collider.transform;
                 }
-            }
-
-            else
-            {
-                trail.transform.DOMove(CameraHelper.MainCamera.transform.forward, trailDurationMultiplier * 30)
-                    .SetLink(this.gameObject);
             }
         }
 

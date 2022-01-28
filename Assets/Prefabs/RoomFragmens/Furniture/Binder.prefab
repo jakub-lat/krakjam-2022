@@ -144,7 +144,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   materials:
     normal: {fileID: 2100000, guid: 113d6a8edac5f2549bb9293986df7ffe, type: 2}
-    psycho: {fileID: 2100000, guid: d13b3137ae6001149992f087973b969b, type: 2}
+    psycho: {fileID: 2100000, guid: f6ab6992039257b4db248a01bc35a1f1, type: 2}
 --- !u!114 &2259644895808585199
 MonoBehaviour:
   m_ObjectHideFlags: 0

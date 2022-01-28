@@ -159,7 +159,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   materials:
     normal: {fileID: 2100000, guid: 0a7a0ee17ddcb9042a335bd19fad48da, type: 2}
-    psycho: {fileID: 2100000, guid: 209d2e9c93ef12a41986296d22cf5595, type: 2}
+    psycho: {fileID: 2100000, guid: f6ab6992039257b4db248a01bc35a1f1, type: 2}
 --- !u!1 &4941887292184004308 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1188256223936568184, guid: 4ff0cf93620342f4cb145377cf025f1a,
@@ -210,7 +210,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   materials:
     normal: {fileID: 2100000, guid: 0a7a0ee17ddcb9042a335bd19fad48da, type: 2}
-    psycho: {fileID: 2100000, guid: 209d2e9c93ef12a41986296d22cf5595, type: 2}
+    psycho: {fileID: 2100000, guid: f6ab6992039257b4db248a01bc35a1f1, type: 2}
 --- !u!1 &6352887078552527101 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 4ff0cf93620342f4cb145377cf025f1a,
