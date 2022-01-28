@@ -45,9 +45,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5039aead7547c5049b40e9649158d090, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  minRangeFromPlayer: 30
   posY: 2
-  shootingEnemyAmount: 0
-  meleeEnemyAmount: 1
+  shootingEnemyAmount: 7
+  meleeEnemyAmount: 7
   shootingEnemy: {fileID: 3469753855458287578, guid: d5589d93f9ef0a9458419984bd0d09f5,
     type: 3}
   meleeEnemy: {fileID: 5494818868886480629, guid: 54e4e1fb6193b7f4e848e7c158924667,
@@ -77,9 +78,9 @@ MonoBehaviour:
       magazine: 1
       dispersion: 40
       attackRange: 30
-      followRange: 40
+      followRange: 20
       fleeRange: 5
-      fleeMultiplier: 2
+      fleeMultiplier: 5
       moveSpeed: 3
       fleeSpeed: 8
       flee: 1
@@ -94,7 +95,7 @@ MonoBehaviour:
       magazine: 1
       dispersion: 100
       attackRange: 30
-      followRange: 30
+      followRange: 20
       fleeRange: -1
       fleeMultiplier: 2
       moveSpeed: 3
@@ -107,7 +108,7 @@ MonoBehaviour:
       attackDelay: 0.1
       knockback: 1
       attackRange: 1
-      followRange: 45
+      followRange: 20
       fleeRange: -1
       fleeMultiplier: 5
       moveSpeed: 4
@@ -119,7 +120,7 @@ MonoBehaviour:
       attackDelay: 0.1
       knockback: 1
       attackRange: 1
-      followRange: 45
+      followRange: 20
       fleeRange: -1
       fleeMultiplier: 5
       moveSpeed: 4
