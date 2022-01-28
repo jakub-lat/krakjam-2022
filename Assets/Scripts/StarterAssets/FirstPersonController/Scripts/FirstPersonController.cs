@@ -60,6 +60,8 @@ namespace StarterAssets
 		private float _verticalVelocity;
 		private float _terminalVelocity = 53.0f;
 
+		private float _secondSpeed;
+
 		private float _jumpTimeoutDelta;
 		private float _fallTimeoutDelta;
 
@@ -80,12 +82,6 @@ namespace StarterAssets
 
 			_jumpTimeoutDelta = JumpTimeout;
 			_fallTimeoutDelta = FallTimeout;
-			StartCoroutine(Wait());
-		}
-
-		private IEnumerator Wait()
-        {
-			yield return null;
 			bars = GameObject.FindGameObjectWithTag("Jojo").GetComponent<ParticleSystem>();
 		}
 
@@ -110,14 +106,14 @@ namespace StarterAssets
 			if (_input.move == Vector2.zero) targetSpeed = 0.0f;
 
 		
-			float currentHorizontalSpeed = new Vector3(_controller.velocity.x, 0.0f, _controller.velocity.z).magnitude;
+			_secondSpeed = new Vector3(_controller.velocity.x, 0.0f, _controller.velocity.z).magnitude;
 
 			float speedOffset = 0.1f;
 			float inputMagnitude = _input.analogMovement ? _input.move.magnitude : 1f;
 
-			if (currentHorizontalSpeed < targetSpeed - speedOffset || currentHorizontalSpeed > targetSpeed + speedOffset)
+			if (_secondSpeed < targetSpeed - speedOffset || _secondSpeed > targetSpeed + speedOffset)
 			{
-				_speed = Mathf.Lerp(currentHorizontalSpeed, targetSpeed * inputMagnitude, Time.deltaTime * SpeedChangeRate);
+				_speed = Mathf.Lerp(_secondSpeed, targetSpeed * inputMagnitude, Time.deltaTime * SpeedChangeRate);
 				_speed = Mathf.Round(_speed * 1000f) / 1000f;
 			}
 			else
@@ -138,11 +134,7 @@ namespace StarterAssets
 
 		private void ShowBarsEffect()
         {
-			if (bars == null)
-            {
-				return;
-            }
-			if (_speed > 7.5f)
+			if (_speed > 9)
             {
 				bars.Play();
             }
@@ -161,7 +153,7 @@ namespace StarterAssets
             {
 				if (checkValue == 0)
                 {
-					checkValue = _speed;
+					checkValue = _secondSpeed;
 				}
 
 				// sliding

@@ -202,7 +202,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.7780173, y: 1}
+    m_SensorSize: {x: 1.7767441, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 1
@@ -530,7 +530,7 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1258290253458186183}
   m_PrefabAsset: {fileID: 0}
---- !u!95 &7771099344899546351
+--- !u!95 &1313211026116489668
 Animator:
   serializedVersion: 4
   m_ObjectHideFlags: 0
@@ -550,12 +550,11 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!95 &1313211026116489668
+--- !u!95 &7771099344899546351
 Animator:
   serializedVersion: 4
   m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 7771099344899546351, guid: 85800d860274b5b4d93bf7a8e01d6a73,
-    type: 3}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2141234575705842326}
@@ -578,6 +577,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 493729955257980615}
     m_Modifications:
+    - target: {fileID: 1110843964, guid: 85800d860274b5b4d93bf7a8e01d6a73, type: 3}
+      propertyPath: m_Name
+      value: Jojo
+      objectReference: {fileID: 0}
     - target: {fileID: 1110843964, guid: 85800d860274b5b4d93bf7a8e01d6a73, type: 3}
       propertyPath: m_TagString
       value: Jojo

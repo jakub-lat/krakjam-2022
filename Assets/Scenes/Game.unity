@@ -518,10 +518,30 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8782313763911536407, guid: a045af21090212449b51769c1140a2b4,
+    - target: {fileID: 8782313763911536404, guid: a045af21090212449b51769c1140a2b4,
         type: 3}
-      propertyPath: m_Name
-      value: Jojo
+      propertyPath: stopAction
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8782313763911536404, guid: a045af21090212449b51769c1140a2b4,
+        type: 3}
+      propertyPath: scalingMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8782313763911536404, guid: a045af21090212449b51769c1140a2b4,
+        type: 3}
+      propertyPath: moveWithTransform
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8782313763911536404, guid: a045af21090212449b51769c1140a2b4,
+        type: 3}
+      propertyPath: EmissionModule.rateOverTime.scalar
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 8782313763911536405, guid: a045af21090212449b51769c1140a2b4,
+        type: 3}
+      propertyPath: m_LengthScale
+      value: 8.64
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a045af21090212449b51769c1140a2b4, type: 3}
@@ -617,6 +637,31 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.y
       value: -0.288
+      objectReference: {fileID: 0}
+    - target: {fileID: 3940058023259037914, guid: 3d41f6f167988c0469d268b31b82c8d6,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3940058023259037914, guid: 3d41f6f167988c0469d268b31b82c8d6,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4817611200713626910, guid: 3d41f6f167988c0469d268b31b82c8d6,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4817611200713626910, guid: 3d41f6f167988c0469d268b31b82c8d6,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4817611200713626910, guid: 3d41f6f167988c0469d268b31b82c8d6,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5903540461458353516, guid: 3d41f6f167988c0469d268b31b82c8d6,
         type: 3}
