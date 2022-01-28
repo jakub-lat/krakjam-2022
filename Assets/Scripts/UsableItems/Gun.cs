@@ -147,11 +147,6 @@ namespace UsableItems
                     bulletHole.transform.parent = hit.collider.transform;
                 }
             }
-
-            else
-            {
-                trail.transform.DOMove(CameraHelper.MainCamera.transform.forward, trailDurationMultiplier * 30).SetLink(this.gameObject);
-            }
         }
 
         private void ReloadFinal()
