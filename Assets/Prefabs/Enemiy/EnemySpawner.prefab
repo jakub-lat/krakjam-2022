@@ -138,10 +138,10 @@ MonoBehaviour:
     reloadSpeed: 3
     magazine: 0
     dispersion: 30
-    attackRange: 10
+    attackRange: 15
     followRange: 30
-    fleeRange: 20
-    fleeMultiplier: 6
+    fleeRange: 8
+    fleeMultiplier: 2
     moveSpeed: 4
     fleeSpeed: 8
     flee: 1

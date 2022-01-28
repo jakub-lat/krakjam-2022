@@ -53,9 +53,10 @@ public abstract class EnemyAI : MonoBehaviour
 
         if (hit.transform && playerMask == (playerMask | (1 << hit.transform.gameObject.layer)))
         {
-            if(flee && dist <= fleeRange && !attacked)
+            if(flee && dist <= fleeRange)
             {
                 fleeing = true;
+                return;
             }
 
             agent.speed = moveSpeed;
