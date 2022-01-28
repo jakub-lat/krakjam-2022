@@ -70,7 +70,7 @@ namespace Game
             var levelDifficulty = difficulty.Evaluate(CurrentLevel);
 
             GenerateRoom.Current.transform.KillAllChildren();
-            GenerateRoom.Current.Generate();
+            GenerateRoom.Current.Generate(CurrentLevel-1);
             ObjectGeneration.Current.GenerateObjects();
             Debug.Log("generation done");
 

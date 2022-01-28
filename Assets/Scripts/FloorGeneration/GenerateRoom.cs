@@ -38,6 +38,7 @@ public struct Floor
 
 public class GenerateRoom : MonoSingleton<GenerateRoom>
 {
+    public int floorCount = 5;
     private List<L> fragments;
     public List<GameObject> puzzleObj;
     public int height=1, width = 1;
@@ -59,23 +60,31 @@ public class GenerateRoom : MonoSingleton<GenerateRoom>
         base.Awake();
         fragments = PuzzlesToFragments(puzzleObj);
         surface = GetComponent<NavMeshSurface>();
+        floors = new List<Floor>();
+
+        for (int i = 0; i < floorCount; i++)
+        {
+            Floor f = GenerateStruct(height, width);
+            floors.Add(f);
+        }
     }
 
     Dictionary<int, List<Square>> leftSqMask = new Dictionary<int, List<Square>>();
     Dictionary<int, List<Row>> topRowMask = new Dictionary<int, List<Row>>();
+    private List<Floor> floors;
 
     private void Start()
     {
         GenerateRoof();
     }
 
-    public void Generate()
+
+
+    public void Generate(int level)
     {
-        Floor f = GenerateStruct(height, width);
-        GenerateFloor(f);
-        
-        /*UnityEditor.AI.NavMeshBuilder.ClearAllNavMeshes();
-        UnityEditor.AI.NavMeshBuilder.BuildNavMesh();*/
+        if(level<0 || level>floorCount) { Debug.LogError("Didnt find floor " + level); return; }
+
+        GenerateFloor(floors[level]);
 
         surface.RemoveData();
         surface.BuildNavMesh();
