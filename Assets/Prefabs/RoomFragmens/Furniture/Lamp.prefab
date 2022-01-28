@@ -264,4 +264,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   materials:
     normal: {fileID: 2100000, guid: 0a7a0ee17ddcb9042a335bd19fad48da, type: 2}
-    psycho: {fileID: 2100000, guid: 209d2e9c93ef12a41986296d22cf5595, type: 2}
+    psycho: {fileID: 2100000, guid: f6ab6992039257b4db248a01bc35a1f1, type: 2}
