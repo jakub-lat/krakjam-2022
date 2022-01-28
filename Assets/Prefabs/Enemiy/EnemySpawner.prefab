@@ -133,7 +133,7 @@ MonoBehaviour:
       damage: 55
       shooting: 0
   meleeShootingModeData:
-    bulletPoolTag: EnemyBullet
+    bulletPoolTag: WorkerBullet
     attackSpeed: 2
     shootDelay: 0.3
     bulletSpeed: 300

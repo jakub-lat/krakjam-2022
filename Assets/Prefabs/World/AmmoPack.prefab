@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 1639877660984890079}
   - component: {fileID: 4995562224663505619}
   - component: {fileID: 165399853870800424}
+  - component: {fileID: 3619155514031246530}
   m_Layer: 0
   m_Name: AmmoPack
   m_TagString: Interactable
@@ -129,3 +130,16 @@ MonoBehaviour:
   materials:
     normal: {fileID: 2100000, guid: 2a60fee154b3b2f43a83f296169d9973, type: 2}
     psycho: {fileID: 2100000, guid: d203e58890db20c478cdc38da0e15018, type: 2}
+--- !u!65 &3619155514031246530
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1639877660984890077}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2, y: 2, z: 2}
+  m_Center: {x: 0, y: 0, z: 0}

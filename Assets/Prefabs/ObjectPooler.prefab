@@ -49,7 +49,7 @@ MonoBehaviour:
   - tag: EnemyBullet
     prefab: {fileID: 8191871837833696229, guid: 4fcceb105a8b56846bab1a37046c10e5,
       type: 3}
-    size: 500
+    size: 300
   - tag: BulletHole
     prefab: {fileID: 1371085877445601456, guid: 44d4a6af59add1b46a3a3a0106627d30,
       type: 3}
@@ -61,6 +61,10 @@ MonoBehaviour:
     prefab: {fileID: 1149482461466763063, guid: 506927d6b7721154880962c83086db37,
       type: 3}
     size: 25
+  - tag: WorkerBullet
+    prefab: {fileID: 3979438509768647779, guid: bbb4a4708b835fb448a7d07ac79a1214,
+      type: 3}
+    size: 100
 --- !u!114 &91497220
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -95,6 +95,7 @@ public class ShootingEnemy : EnemyAI
         Vector3 dir = (player.position - lookPoint.position).normalized * bulletSpeed;
         Vector3 dispDir = new Vector3(Random.Range(-dispersion, dispersion), Random.Range(-dispersion, dispersion), Random.Range(-dispersion, dispersion));
 
+        obj.transform.forward = dir + dispDir;
         obj.GetComponent<Rigidbody>().AddForce(dir+dispDir);
         obj.GetComponent<EnemyBullet>().damage = bulletDamage;
         if(magazine) currMagazine--;
