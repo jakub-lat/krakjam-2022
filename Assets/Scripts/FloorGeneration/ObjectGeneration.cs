@@ -23,6 +23,7 @@ public class ObjectGeneration : MonoSingleton<ObjectGeneration>
 
     public List<GenObject> objects;
     public float minRangeFromPlayer = 10f;
+    public float minFurnitureRangeFromPlayer = 5f;
 
     private new void Awake()
     {

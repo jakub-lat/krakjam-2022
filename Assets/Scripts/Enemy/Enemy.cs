@@ -33,11 +33,17 @@ public class Enemy : MonoBehaviour
             
             hp = 0;
             dead = true;
-            this.gameObject.tag = "Untagged";
+            gameObject.tag = "Untagged";
             myHead.tag = "Untagged";
 
             anim.Play("Dead");
-            //GetComponent<Collider>().enabled = false;
+
+            GetComponent<Collider>().isTrigger = true;
+            foreach(Collider c in GetComponentsInChildren<Collider>())
+            {
+                c.enabled = false;
+            }
+
             return;
         }
         gotHit = true;
