@@ -51,8 +51,7 @@ namespace StarterAssets
         private float crouchedHeight = 0;
         private float defaultHeight;
 
-        [SerializeField]
-        private float slideSpeed = 10;
+        public float SlideSpeed = 10;
 
         [SerializeField]
         private float speedStartCrouch = 6;
@@ -86,8 +85,13 @@ namespace StarterAssets
 
         private float targetSpeed;
 
+        [SerializeField]
+        private BasicRigidBodyPush push;
+        private float normalPush;
+
         private void Start()
         {
+            normalPush = push.strength;
             cooldownSlideValue = Time.time + howLongSlide;
             cooldownCrouchValue = Time.time + waitForNextCrouch;
             this.transform.eulerAngles = new Vector3(0, 90, 0);
@@ -191,12 +195,12 @@ namespace StarterAssets
                 {
                     if (_speed > SprintSpeed / 2)
                     {
-                        targetSpeed = slideSpeed;
-                        //print("sliding!");
+                        targetSpeed = SlideSpeed;
+                        print("sliding!");
 
                         if ((Time.time > cooldownSlideValue))
                         {
-                            //print("stop slide");
+                            print("stop slide");
                             targetSpeed = crouchSpeed;
                         }
 
