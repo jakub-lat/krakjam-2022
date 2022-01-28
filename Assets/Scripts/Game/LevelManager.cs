@@ -27,14 +27,12 @@ namespace Game
 
         private void Start()
         {
-            (startingElevator, finishElevator, elevator1Z) = (finishElevator, startingElevator, elevator2Z);
+            (startingElevator, finishElevator) = (finishElevator, startingElevator);
             width = GenerateRoom.Current.width;
             height = GenerateRoom.Current.height;
             spaceX = GenerateRoom.Current.spaceX;
             spaceZ = GenerateRoom.Current.spaceZ;
-
-            elevator2Z = (int) (startingElevator.transform.position.z / spaceZ)+1;
-
+            
             if (startingPosA != null)
             {
                 player.position = startingPosA.position;
@@ -43,17 +41,20 @@ namespace Game
 
             NextLevel();
 
-            Scoreboard.Scoreboard.Current.NewRun();
+            Scoreboard.GameScoreboard.Current.NewRun();
         }
 
         public void NextLevel()
         {
+            if (CurrentLevel > 0)
+            {
+                Scoreboard.GameScoreboard.Current.PostLevelData();
+            }
+
             CurrentLevel++;
 
-            (startingElevator, finishElevator, elevator1Z) = (finishElevator, startingElevator, elevator2Z);
-
-            Scoreboard.Scoreboard.Current.PostLevelData();
-
+            (startingElevator, finishElevator) = (finishElevator, startingElevator);
+            
             GenerateLevel();
 
             EnemySpawner.Current.transform.KillAllChildren();
@@ -64,17 +65,14 @@ namespace Game
             finishElevator.active = true;
         }
 
-        private int elevator1Z;
-        private int elevator2Z;
         private void GenerateLevel()
         {
-            elevator2Z = UnityEngine.Random.Range(0, height * 2);
-            Vector3 newElevatorPos = new Vector3(finishElevator.transform.position.x, finishElevator.transform.position.y,elevator2Z*spaceZ);
+            Vector3 newElevatorPos = new Vector3(finishElevator.transform.position.x, finishElevator.transform.position.y,UnityEngine.Random.Range(0,height*2)*spaceZ);
 
             finishElevator.transform.position = newElevatorPos;
 
             GenerateRoom.Current.transform.KillAllChildren();
-            GenerateRoom.Current.Generate(elevator1Z, elevator2Z);
+            GenerateRoom.Current.Generate();
             ObjectGeneration.Current.GenerateObjects();
             Debug.Log("done");
         }

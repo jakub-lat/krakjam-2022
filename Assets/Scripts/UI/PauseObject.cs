@@ -27,7 +27,7 @@ public class PauseObject : MonoSingleton<PauseObject>
 
     public void OnOpen()
     {
-        var data = Scoreboard.Scoreboard.Current.levelData;
+        var data = Scoreboard.GameScoreboard.Current.levelData;
         statsText.text = string.Join("\n", new[] { data.level, data.score, data.kills, data.headshots, data.deaths }.Select(x => x.ToString()));
     }
 

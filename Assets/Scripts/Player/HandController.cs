@@ -43,6 +43,7 @@ namespace Player
             CurrentItem.transform.DOLocalRotate(Vector3.zero, pickupTransitionDuration);
             CurrentItem.transform.DOLocalMove(Vector3.zero, pickupTransitionDuration).SetEase(Ease.InOutQuint);
             CurrentItem.transform.DOScale(Vector3.one, pickupTransitionDuration);
+            CurrentItem.tag = "Untagged";
         }
 
         public void DropItem()
@@ -51,6 +52,7 @@ namespace Player
 
             CurrentItem.transform.SetParent(null, true);
             CurrentItem.OnDrop();
+            CurrentItem.tag = "Interactable";
             
             CurrentItem.transform.localScale = Vector3.one;
 

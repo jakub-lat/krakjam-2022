@@ -28,7 +28,7 @@ public class Enemy : MonoBehaviour
         ai.agent.SetDestination(transform.position);
         if (hp <= 0)
         {
-            Scoreboard.Scoreboard.Current.levelData.kills++;
+            Scoreboard.GameScoreboard.Current.levelData.kills++;
             
             hp = 0;
             dead = true;

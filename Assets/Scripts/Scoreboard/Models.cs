@@ -29,8 +29,8 @@ namespace Scoreboard
     [Serializable]
     public class GameRunLevel
     {
-        public int id;
-        public int gameRunID;
+        public long id;
+        public long gameRunID;
         public long startTime;
         public long endTime;
         public int level;
