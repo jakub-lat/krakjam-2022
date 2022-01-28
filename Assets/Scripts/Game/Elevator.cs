@@ -77,6 +77,7 @@ namespace Game
             active = false;
             
             music.Play();
+            music.DOFade(1, closeDelay);
 
             UpdateFloorText();
             exitBlock.SetActive(true);
@@ -103,7 +104,7 @@ namespace Game
         {
             Print("open");
             
-            music.Stop();
+            music.DOFade(0, closeDelay).OnComplete(() => music.Stop());
             
             doorsLeft.DOLocalMove(doorsLeftOpenLocalPos, animDuration)
                 .SetLink(gameObject)
