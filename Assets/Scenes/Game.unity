@@ -372,6 +372,17 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1545557203}
     m_Modifications:
+    - target: {fileID: 5052492125061912268, guid: 86b8cdb22faebf6478e55220e296baa1,
+        type: 3}
+      propertyPath: roofLamp
+      value: 
+      objectReference: {fileID: 8937471098577728598, guid: 950dd080daf7dfd4182709306d229891,
+        type: 3}
+    - target: {fileID: 5052492125061912268, guid: 86b8cdb22faebf6478e55220e296baa1,
+        type: 3}
+      propertyPath: roofContainer
+      value: 
+      objectReference: {fileID: 1391137793}
     - target: {fileID: 5052492125061912269, guid: 86b8cdb22faebf6478e55220e296baa1,
         type: 3}
       propertyPath: m_RootOrder
@@ -1194,6 +1205,37 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 6493998848931157607}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1391137792
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1391137793}
+  m_Layer: 0
+  m_Name: RoofContainer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1391137793
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1391137792}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1603097901}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1417088688
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1345,6 +1387,7 @@ Transform:
   - {fileID: 887347123}
   - {fileID: 2000954054}
   - {fileID: 480267186}
+  - {fileID: 1391137793}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

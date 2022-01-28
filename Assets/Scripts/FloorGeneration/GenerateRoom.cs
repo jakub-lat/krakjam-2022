@@ -41,11 +41,15 @@ public class GenerateRoom : MonoSingleton<GenerateRoom>
     private List<L> fragments;
     public List<GameObject> puzzleObj;
     public int height=1, width = 1;
-    public float spaceX = 1, spaceZ = 1;
+    public float spaceX = 1, spaceZ = 1, spaceY = 2;
     public int spawnerCount=5;
     public GameObject boundaryWall;
     public GameObject window;
+    public GameObject roofTile;
+    public Transform roofContainer;
+    public GameObject roofLamp;
     public int windowSeparation = 4;
+    public int roofLampSeparation = 4;
     public bool debug = false;
 
     private NavMeshSurface surface;
@@ -59,6 +63,11 @@ public class GenerateRoom : MonoSingleton<GenerateRoom>
 
     Dictionary<int, List<Square>> leftSqMask = new Dictionary<int, List<Square>>();
     Dictionary<int, List<Row>> topRowMask = new Dictionary<int, List<Row>>();
+
+    private void Start()
+    {
+        GenerateRoof();
+    }
 
     public void Generate()
     {
@@ -208,6 +217,26 @@ public class GenerateRoom : MonoSingleton<GenerateRoom>
                     Instantiate(toSpawn, transform.position + new Vector3(width * spaceX * 4 - spaceX, 0, i * spaceZ * 2 + spaceZ), Quaternion.Euler(new Vector3(0, 90, 0)), transform);
             }
             windowCounter++;
+        }
+    }
+
+    public void GenerateRoof()
+    {
+        int counter = 0;
+        for(float i = 0; i < width * 4 * spaceX; i += spaceX)
+        {
+            for (float j = 0; j < height * 2 * spaceZ; j += spaceZ)
+            {
+                counter++;
+                if (counter > roofLampSeparation)
+                {
+                    Instantiate(roofLamp, new Vector3(i, spaceY, j), Quaternion.identity, roofContainer);
+                    counter = 0;
+                } else
+                {
+                    Instantiate(roofTile, new Vector3(i, spaceY, j), Quaternion.identity, roofContainer);
+                }
+            }
         }
     }
 
