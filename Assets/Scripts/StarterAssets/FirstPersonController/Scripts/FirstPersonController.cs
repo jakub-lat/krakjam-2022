@@ -192,11 +192,11 @@ namespace StarterAssets
                     if (_speed > SprintSpeed / 2)
                     {
                         targetSpeed = slideSpeed;
-                        print("sliding!");
+                        //print("sliding!");
 
                         if ((Time.time > cooldownSlideValue))
                         {
-                            print("stop slide");
+                            //print("stop slide");
                             targetSpeed = crouchSpeed;
                         }
 
