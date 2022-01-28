@@ -92,6 +92,11 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 12
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 6c1f0c351722b554db256485f246aea0,
+        type: 3}
+      propertyPath: m_TagString
+      value: Interactable
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6c1f0c351722b554db256485f246aea0, type: 3}
 --- !u!1 &1344296753972196871 stripped
@@ -130,6 +135,38 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -166887373798719108, guid: 6c1f0c351722b554db256485f246aea0, type: 3}
+--- !u!65 &8461062959705529518
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1344296753972196871}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.012, y: 0.005, z: 0.0019}
+  m_Center: {x: 0.00029999975, y: -0.00028041602, z: -0.00015803216}
+--- !u!114 &3422433973124131163
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1344296753972196871}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6544283c15ec4789a6e0b15a7be20561, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  destroyAfterUse: 0
+  interactionName: Keyboard
+  rotationOffset: {x: 32.18, y: 221.23, z: 77.3}
+  positionOffset: {x: -0.1173, y: -0.08, z: -0.175}
+  damage: 50
+  distance: 4
+  cooldownTime: 1
 --- !u!114 &5482504043265140913
 MonoBehaviour:
   m_ObjectHideFlags: 0
