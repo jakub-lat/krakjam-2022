@@ -43,7 +43,7 @@ namespace Player
             CurrentItem.transform.DOLocalRotate(Vector3.zero, pickupTransitionDuration);
             CurrentItem.transform.DOLocalMove(Vector3.zero, pickupTransitionDuration).SetEase(Ease.InOutQuint);
             CurrentItem.transform.DOScale(Vector3.one, pickupTransitionDuration);
-            CurrentItem.tag = "";
+            CurrentItem.tag = "Untagged";
         }
 
         public void DropItem()
