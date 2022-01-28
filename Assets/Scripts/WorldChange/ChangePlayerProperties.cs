@@ -44,7 +44,7 @@ public class ChangePlayerProperties : WorldChangeLogic
     protected override void Start()
     {
         fpsc = GetComponent<FirstPersonController>();
-        noise = CinemachineVCamInstance.Current.Cam.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>();
+        noise = CinemachineVCamInstance.Current.Cam?.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>();
         base.Start();
     }
 
@@ -78,7 +78,7 @@ public class ChangePlayerProperties : WorldChangeLogic
     {
         if (noise == null)
         {
-            noise = CinemachineVCamInstance.Current.Cam.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>();
+            noise = CinemachineVCamInstance.Current.Cam?.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>();
         }
     }
 }

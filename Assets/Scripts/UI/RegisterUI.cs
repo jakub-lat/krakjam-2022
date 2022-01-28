@@ -1,7 +1,10 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using UnityEngine;
 using DG.Tweening;
+using Scoreboard;
 using UnityEngine.SceneManagement;
 using Button = UnityEngine.UI.Button;
 using UnityEngine.UI;
@@ -20,11 +23,35 @@ public class RegisterUI : MonoBehaviour
     [SerializeField]
     private Button cancelButton = null;
 
+    [SerializeField] private Button submitBtn;
     [SerializeField] private InputField nameInput;
+    [SerializeField] private Text loadingText;
+    [SerializeField] private Text errorText;
 
     protected void Start()
     {
         window.localScale = new Vector3(0, 0, 0);
+        loadingText.enabled = false;
+        errorText.enabled = false;
+        
+        TryLogin();
+    }
+
+    private async void TryLogin()
+    {
+        if (GameScoreboard.Current.LoggedIn)
+        {
+            try
+            {
+                await GameScoreboard.Current.GetCurrentPlayer();
+                submitBtn.enabled = false;
+                LoadScene();
+            }
+            catch (Exception e)
+            {
+                Debug.LogWarning(e);
+            }
+        }
     }
 
     public void SetupContactForm()
@@ -40,7 +67,37 @@ public class RegisterUI : MonoBehaviour
 
     public void OnSubmit()
     {
-        // setup scoreboard here
+        if (string.IsNullOrWhiteSpace(nameInput.text))
+        {
+            errorText.enabled = true;
+            errorText.text = "Please enter your name correctly.";
+            return;
+        }
+        
+        submitBtn.enabled = false;
+        errorText.enabled = false;
+        loadingText.enabled = true;
+        
+        PlayerPrefs.DeleteKey(GameScoreboard.TokenKey);
+
+        try
+        {
+            GameScoreboard.Current.Register(nameInput.text);
+        }
+        catch
+        {
+            // errorText.text = $"Something went wrong!";
+            errorText.enabled = true;
+            Invoke(nameof(LoadScene), 2f);
+            return;
+        }
+
+        loadingText.enabled = false;
+        LoadScene();
+    }
+
+    private void LoadScene()
+    {
         SceneManager.LoadScene("MainMenu");
     }
 

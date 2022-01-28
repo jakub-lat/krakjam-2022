@@ -41,17 +41,20 @@ namespace Game
 
             NextLevel();
 
-            Scoreboard.Scoreboard.Current.NewRun();
+            Scoreboard.GameScoreboard.Current.NewRun();
         }
 
         public void NextLevel()
         {
+            if (CurrentLevel > 0)
+            {
+                Scoreboard.GameScoreboard.Current.PostLevelData();
+            }
+
             CurrentLevel++;
 
             (startingElevator, finishElevator) = (finishElevator, startingElevator);
-
-            Scoreboard.Scoreboard.Current.PostLevelData();
-
+            
             GenerateLevel();
 
             EnemySpawner.Current.transform.KillAllChildren();
