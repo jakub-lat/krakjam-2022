@@ -19,11 +19,15 @@ namespace Game
 
         private Vector3 doorsLeftClosedLocalPos, doorsRightClosedLocalPos;
 
+        private AudioSource music;
+        
         public bool openOnStart;
         public bool active;
         
         private void Start()
         {
+            music = GetComponent<AudioSource>();
+            
             exitBlock.SetActive(false);
             doorsLeftClosedLocalPos = doorsLeft.localPosition;
             doorsRightClosedLocalPos = doorsRight.localPosition;
@@ -34,7 +38,8 @@ namespace Game
 
             if (openOnStart)
             {
-                Open();
+                music.Play();
+                Invoke(nameof(Open), 5f);
                 exitBlock.SetActive(false);
             }
         }
@@ -71,6 +76,8 @@ namespace Game
 
             active = false;
             
+            music.Play();
+
             UpdateFloorText();
             exitBlock.SetActive(true);
             Close().OnComplete(() =>
@@ -95,13 +102,16 @@ namespace Game
         public Tween Open()
         {
             Print("open");
+            
+            music.Stop();
+            
             doorsLeft.DOLocalMove(doorsLeftOpenLocalPos, animDuration)
                 .SetLink(gameObject)
                 .SetEase(Ease.InOutQuint).OnComplete(() =>
                 {
                     exitBlock.SetActive(false);
                 });
-            
+
             return doorsRight.DOLocalMove(doorsRightOpenLocalPos, animDuration)
                 .SetLink(gameObject)
                 .SetEase(Ease.InOutQuint);
