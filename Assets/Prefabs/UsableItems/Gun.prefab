@@ -5261,7 +5261,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   destroyAfterUse: 0
   interactionName: Gun
-  damage: 25
+  rotationOffset: {x: 0, y: 0, z: 0}
+  positionOffset: {x: 0, y: 0, z: 0}
+  damage: 50
   headshotDamage: 50
   layerMask:
     serializedVersion: 2
