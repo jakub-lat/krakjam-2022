@@ -50,13 +50,13 @@ public class PauseObject : MonoSingleton<PauseObject>
 
     public void OnQuit()
     {
-        TimeScaling.Status.Unregister(PauseManager.Current.LastObject);
+        Time.timeScale = 1;
         SceneManager.LoadScene("MainMenu");
     }
 
     public void OnRevive()
     {
-        TimeScaling.Status.Unregister(PauseManager.Current.LastObject);
+        Time.timeScale = 1;
         SceneManager.LoadScene("Game");
     }
 
