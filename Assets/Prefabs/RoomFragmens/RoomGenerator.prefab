@@ -60,11 +60,17 @@ MonoBehaviour:
   width: 7
   spaceX: 5
   spaceZ: 5
+  spaceY: 5
   spawnerCount: 20
   boundaryWall: {fileID: 5107830021413910054, guid: 594e0d80c1465f143a6c28d4675dfea5,
     type: 3}
   window: {fileID: 446096981085295640, guid: 3ef474dac4c250249a8953c53aa56915, type: 3}
+  roofTile: {fileID: 8937471098577728598, guid: 1e1ce79ac5a1aff45a8ce85b32654a71,
+    type: 3}
+  roofContainer: {fileID: 0}
+  roofLamp: {fileID: 0}
   windowSeparation: 2
+  roofLampSeparation: 4
   debug: 0
 --- !u!114 &728314931
 MonoBehaviour:

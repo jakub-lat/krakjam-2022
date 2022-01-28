@@ -56,7 +56,7 @@ namespace Game
 
         public void OnTriggerEnter(Collider other)
         {
-            Print("trigger enter");
+            //Print("trigger enter");
             if (!active) return;
 
             if (other.gameObject.CompareTag("Player"))
@@ -67,7 +67,7 @@ namespace Game
 
         public void OnTriggerExit(Collider other)
         {
-            Print("trigger exit");
+            //Print("trigger exit");
             if (!active && other.gameObject.CompareTag("Player"))
             {
                 Invoke(nameof(Close), 0.5f);
