@@ -4,15 +4,18 @@ using UnityEngine;
 
 public class ElevatorRemover : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public float removeDist = 2f;
+    public LayerMask removeMask;
 
-    // Update is called once per frame
-    void Update()
+    public void Remove()
     {
-        
+
+        foreach(Transform o in GenerateRoom.Current.GetComponentsInChildren<Transform>())
+        {
+            if (Vector3.Distance(o.position,transform.position)<=removeDist && removeMask == (removeMask | (1 << o.gameObject.layer)))
+            {
+                o.gameObject.SetActive(false);
+            }
+        }
     }
 }

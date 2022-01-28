@@ -26,6 +26,8 @@ namespace Game
 
         [SerializeField]
         private float startWaitTime = 5f;
+
+        public ElevatorRemover elevatorRemover;
         
         private void Start()
         {

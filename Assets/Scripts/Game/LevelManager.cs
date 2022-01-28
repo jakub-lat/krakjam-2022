@@ -74,7 +74,11 @@ namespace Game
             GenerateRoom.Current.transform.KillAllChildren();
             GenerateRoom.Current.Generate();
             ObjectGeneration.Current.GenerateObjects();
-            Debug.Log("done");
+            Debug.Log("generation done");
+
+            finishElevator.elevatorRemover.Remove();
+            startingElevator.elevatorRemover.Remove();
+            
         }
     }
 }

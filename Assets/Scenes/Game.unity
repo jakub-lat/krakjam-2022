@@ -787,16 +787,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1603097901}
     m_Modifications:
-    - target: {fileID: 4744400657192596794, guid: 525ff3a0e5253b648a142741089a8c0d,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 2.75
-      objectReference: {fileID: 0}
-    - target: {fileID: 4744400657192596794, guid: 525ff3a0e5253b648a142741089a8c0d,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 1.07
-      objectReference: {fileID: 0}
     - target: {fileID: 9074998911403675267, guid: 525ff3a0e5253b648a142741089a8c0d,
         type: 3}
       propertyPath: m_RootOrder
@@ -805,7 +795,7 @@ PrefabInstance:
     - target: {fileID: 9074998911403675267, guid: 525ff3a0e5253b648a142741089a8c0d,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -3.44
+      value: -3.7
       objectReference: {fileID: 0}
     - target: {fileID: 9074998911403675267, guid: 525ff3a0e5253b648a142741089a8c0d,
         type: 3}
@@ -865,37 +855,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 887347122}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &887347124 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4938747615448815148, guid: 525ff3a0e5253b648a142741089a8c0d,
-    type: 3}
-  m_PrefabInstance: {fileID: 887347122}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &887347125
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 887347124}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e048a83334d70864189f2857274d575e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!65 &887347126
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 887347124}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 2.97, y: 3.4, z: 3.31}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &912753435
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1626,7 +1585,7 @@ PrefabInstance:
     - target: {fileID: 9074998911403675267, guid: 525ff3a0e5253b648a142741089a8c0d,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 135.4379
+      value: 138.74
       objectReference: {fileID: 0}
     - target: {fileID: 9074998911403675267, guid: 525ff3a0e5253b648a142741089a8c0d,
         type: 3}
