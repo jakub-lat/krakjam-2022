@@ -55,16 +55,14 @@ public class ChangePlayerProperties : WorldChangeLogic
         fpsc.MoveSpeed = currentProps.moveSpeed.value;
         fpsc.SprintSpeed = currentProps.sprintSpeed.value;
 
+        SetNoiseIfNull();
         noise.m_AmplitudeGain = currentProps.cameraNoiseAmplitude.value;
         noise.m_FrequencyGain = currentProps.cameraNoiseFrequency.value;
     }
 
     private void Update()
     {
-        if (noise == null)
-        {
-            noise = CinemachineVCamInstance.Current.Cam.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>();
-        }
+        SetNoiseIfNull();
         
         var props = currentProps;
         
@@ -74,5 +72,13 @@ public class ChangePlayerProperties : WorldChangeLogic
 
         noise.m_AmplitudeGain = props.cameraNoiseAmplitude.ChangeOverTime(noise.m_AmplitudeGain);
         noise.m_FrequencyGain = props.cameraNoiseFrequency.ChangeOverTime(noise.m_FrequencyGain);
+    }
+
+    private void SetNoiseIfNull()
+    {
+        if (noise == null)
+        {
+            noise = CinemachineVCamInstance.Current.Cam.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>();
+        }
     }
 }
