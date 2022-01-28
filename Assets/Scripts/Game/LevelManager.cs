@@ -40,17 +40,15 @@ namespace Game
             }
 
             NextLevel();
-
-            Scoreboard.GameScoreboard.Current.NewRun();
+            if (!Scoreboard.GameScoreboard.Current.runDataSet)
+            {
+                Debug.Log("OKKKKKKKKKKKKK");
+                Scoreboard.GameScoreboard.Current.NewRun();
+            }
         }
 
         public void NextLevel()
         {
-            if (CurrentLevel > 0)
-            {
-                Scoreboard.GameScoreboard.Current.PostLevelData();
-            }
-
             CurrentLevel++;
 
             (startingElevator, finishElevator) = (finishElevator, startingElevator);
