@@ -1,4 +1,5 @@
 ﻿using Cyberultimate.Unity;
+using System.Collections;
 using UnityEngine;
 #if ENABLE_INPUT_SYSTEM && STARTER_ASSETS_PACKAGES_CHECKED
 using UnityEngine.InputSystem;
@@ -67,6 +68,8 @@ namespace StarterAssets
 
 		private float checkValue;
 
+		private ParticleSystem bars = null;
+
 		private void Start()
 		{
 			this.transform.eulerAngles = new Vector3(0, 90, 0);
@@ -77,6 +80,13 @@ namespace StarterAssets
 
 			_jumpTimeoutDelta = JumpTimeout;
 			_fallTimeoutDelta = FallTimeout;
+			StartCoroutine(Wait());
+		}
+
+		private IEnumerator Wait()
+        {
+			yield return null;
+			bars = GameObject.FindGameObjectWithTag("Jojo").GetComponent<ParticleSystem>();
 		}
 
 		private void Update()
@@ -85,6 +95,7 @@ namespace StarterAssets
 			GroundedCheck();
 			Move();
 			Crouch();
+			ShowBarsEffect();
 		}
 
         private void GroundedCheck()
@@ -124,6 +135,23 @@ namespace StarterAssets
 
 			_controller.Move((inputDirection.normalized * (_speed * Time.deltaTime) + new Vector3(0.0f, _verticalVelocity, 0.0f) * Time.deltaTime));
 		}
+
+		private void ShowBarsEffect()
+        {
+			if (bars == null)
+            {
+				return;
+            }
+			if (_speed > 7.5f)
+            {
+				bars.Play();
+            }
+
+			else
+            {
+				bars.Stop();
+            }
+        }
 
 		private void Crouch()
 		{
