@@ -1,8 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEditor.AI;
 using Cyberultimate.Unity;
+using UnityEngine.AI;
+using UnityEditor.AI;
 
 [System.Serializable]
 public struct L
@@ -62,9 +63,11 @@ public class GenerateRoom : MonoSingleton<GenerateRoom>
         Floor f = GenerateStruct(height, width);
         GenerateFloor(f);
 
-        NavMeshBuilder.ClearAllNavMeshes();
-        NavMeshBuilder.BuildNavMesh();
 
+
+        // need replacement with navmeshsurface! CAN'T BUILD
+        UnityEditor.AI.NavMeshBuilder.ClearAllNavMeshes();
+        UnityEditor.AI.NavMeshBuilder.BuildNavMesh();
         EnemySpawner.Current.SetupSpawners(transform.position, width, height, spaceX, spaceZ, spawnerCount);
     }
 
@@ -80,6 +83,7 @@ public class GenerateRoom : MonoSingleton<GenerateRoom>
             {
                 Instantiate(s.a.prefab, transform.position + new Vector3(x, 0, z), Quaternion.Euler(Vector3.zero), transform);
                 Instantiate(s.b.prefab, transform.position + new Vector3(x+3*spaceX,0, z+spaceZ), Quaternion.Euler(new Vector3(0,180,0)), transform);
+
 
                 x += 4 * spaceX;
             }
