@@ -376,7 +376,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f1e5b08f3a0d46c194b383848fe985cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  initialDoseCount: 3
+  initialDoseCount: 0
   drugEffectTime: 30
   addictionMaxTime: 120
   addictionEffectsStartTime: 100

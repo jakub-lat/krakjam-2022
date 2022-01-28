@@ -57,17 +57,8 @@ namespace Player
             var rb = CurrentItem.gameObject.GetComponent<Rigidbody>();
             rb.isKinematic = false;
 
-            // StartCoroutine(PushAfterTime(0.2f, rb, 5f));
-
             CurrentItem = null;
         }
-
-        // IEnumerator PushAfterTime(float time, Rigidbody rb, float force)
-        // {
-        //     yield return new WaitForSeconds(time);
-        //     Debug.Log(transform.forward);
-        //     rb.AddForce(transform.forward.normalized * force, ForceMode.Impulse); 
-        // }
 
         private void PunchAttack()
         {
@@ -78,8 +69,10 @@ namespace Player
             {
                 if (hit.collider.CompareTag("Enemy"))
                 {
-                    hit.collider.GetComponent<Enemy>().GotHit(punchDamage);
+                    Enemy enemy = hit.collider.transform.parent.GetComponent<Enemy>();
+                    enemy.GotHit(punchDamage);
                     HitmarkManager.Current.GetNormalHit();
+                    PopupManager.Current.SpawnStandardDamage(enemy, (int)punchDamage);
                 }
                 // todo animation
                 // todo punching with items?

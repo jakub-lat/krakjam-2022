@@ -203,7 +203,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.7770563, y: 1}
+    m_SensorSize: {x: 1.7768924, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 1
@@ -286,6 +286,10 @@ PrefabInstance:
     - target: {fileID: 1110843964, guid: 85800d860274b5b4d93bf7a8e01d6a73, type: 3}
       propertyPath: m_TagString
       value: Jojo
+      objectReference: {fileID: 0}
+    - target: {fileID: 1110843967, guid: 85800d860274b5b4d93bf7a8e01d6a73, type: 3}
+      propertyPath: stopAction
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 449753422950871024, guid: 85800d860274b5b4d93bf7a8e01d6a73,
         type: 3}

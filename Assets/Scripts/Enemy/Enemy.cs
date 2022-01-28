@@ -12,6 +12,7 @@ public class Enemy : MonoBehaviour
     public bool gotHit = false;
     [SerializeField] private float hp=100;
     [SerializeField] private GameObject myHead = null;
+    [SerializeField] private GameObject myBody = null;
 
     private void Start()
     {
@@ -31,12 +32,12 @@ public class Enemy : MonoBehaviour
             
             hp = 0;
             dead = true;
-            gameObject.tag = "Untagged";
             myHead.tag = "Untagged";
+            myBody.tag = "Untagged";
 
             anim.Play("Dead");
 
-            GetComponent<Collider>().isTrigger = true;
+            myBody.GetComponent<Collider>().isTrigger = true;
             foreach(Collider c in GetComponentsInChildren<Collider>())
             {
                 c.enabled = false;
