@@ -65,6 +65,9 @@ namespace StarterAssets
         private float howLongSlide;
 
         [SerializeField]
+        private float slideForce;
+
+        [SerializeField]
         private float waitForNextCrouch = 1;
 
         private float cooldownSlideValue;
@@ -109,10 +112,9 @@ namespace StarterAssets
             JumpAndGravity();
             GroundedCheck();
             Move();
-
+            Run();
             Crouch();
             ShowBarsEffect();
-            Run();
         }
 
         private void GroundedCheck()
@@ -197,7 +199,7 @@ namespace StarterAssets
                     {
                         targetSpeed = SlideSpeed;
                         print("sliding!");
-                        push.strength *= 5;
+                        push.strength *= slideForce;
 
                         if ((Time.time > cooldownSlideValue))
                         {

@@ -228,10 +228,11 @@ MonoBehaviour:
     m_Bits: 8
   crouchedHeight: 0
   SlideSpeed: 10
-  speedStartCrouch: 6
-  speedEndCrouch: 8
+  speedStartCrouch: 14
+  speedEndCrouch: 12
   crouchSpeed: 3.5
   howLongSlide: 0.8
+  slideForce: 0
   waitForNextCrouch: 1
   push: {fileID: 4071760806831231208}
 --- !u!114 &4071760806831231208
@@ -413,12 +414,12 @@ MonoBehaviour:
   data:
     normal:
       moveSpeed:
-        value: 6
-        changeOverTime: -0.5
+        value: 6.5
+        changeOverTime: -0.4
         edgeValue: 3
       sprintSpeed:
-        value: 8
-        changeOverTime: -0.2
+        value: 9
+        changeOverTime: -0.15
         edgeValue: 5
       slideSpeed:
         value: 9.25
@@ -442,11 +443,11 @@ MonoBehaviour:
         changeOverTime: 0
         edgeValue: 0
       sprintSpeed:
-        value: 11.5
+        value: 10.5
         changeOverTime: 0
         edgeValue: 0
       slideSpeed:
-        value: 13.5
+        value: 13
         changeOverTime: 0
         edgeValue: 0
       strengthPush:
@@ -473,4 +474,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3adaa031bea436e8702e051b7ef920f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 100
+  health: 300

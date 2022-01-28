@@ -44,4 +44,37 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15ba2ac29756484593e14ed41cd13de7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  configFile: {fileID: 4900000, guid: ce7a7d9311d05854f92aa937019977b1, type: 3}
+  configFile: {fileID: 4900000, guid: 81aba6a6aa94b6d4285822ad6343f296, type: 3}
+  runDataSet: 0
+  runData:
+    id: 0
+    playerID: 0
+    startTime: 0
+    endTime: 0
+    kills: 0
+    headshots: 0
+    deaths: 0
+    score: 0
+    levels: []
+    player:
+      id: 0
+      name: 
+      token: 
+      gameRuns: []
+  levelData:
+    position: 0
+    id: 0
+    playerID: 0
+    player:
+      id: 0
+      name: 
+      token: 
+      gameRuns: []
+    gameRunID: 0
+    startTime: 0
+    endTime: 0
+    level: 0
+    kills: 0
+    headshots: 0
+    deaths: 0
+    score: 0
