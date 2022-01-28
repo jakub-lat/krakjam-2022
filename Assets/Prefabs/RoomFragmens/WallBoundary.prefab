@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5107830021413910053}
   - component: {fileID: 5960351096787947539}
   m_Layer: 0
-  m_Name: WallSample
+  m_Name: WallBoundary
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -118,7 +118,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: 72f62178358aa1f43a2ead0b540e00ca, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -166,5 +166,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   materials:
-    normal: {fileID: 2100000, guid: c8b132226823fea44bcd94c102b27e7c, type: 2}
-    psycho: {fileID: 2100000, guid: 114d7171ad47e5045967edc6de5efd26, type: 2}
+    normal: {fileID: 2100000, guid: 72f62178358aa1f43a2ead0b540e00ca, type: 2}
+    psycho: {fileID: 2100000, guid: 10beb902f9784694ca8d23d37eecae27, type: 2}

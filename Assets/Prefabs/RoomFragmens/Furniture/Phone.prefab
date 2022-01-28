@@ -77,6 +77,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -4374939591018596380, guid: 211adc6398398844dab4a07352a21dc9,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 863339fb8c0a6b946a41dd247c73964b, type: 2}
+    - target: {fileID: -1746856280283003142, guid: 211adc6398398844dab4a07352a21dc9,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 863339fb8c0a6b946a41dd247c73964b, type: 2}
     - target: {fileID: 919132149155446097, guid: 211adc6398398844dab4a07352a21dc9,
         type: 3}
       propertyPath: m_Name
@@ -90,31 +100,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1860911718529492953}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &4951013685323145015
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1518311796375739016}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fb5e425a2fa0b6e4c8f8a40b865633dd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!65 &1527178819518056964
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1518311796375739016}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.34, y: 0.12, z: 0.61}
-  m_Center: {x: -0.03, y: -0.01, z: 0}
 --- !u!54 &9184235760040101667
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -131,3 +116,70 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!65 &1527178819518056964
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1518311796375739016}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.34, y: 0.12, z: 0.61}
+  m_Center: {x: -0.03, y: -0.01, z: 0}
+--- !u!114 &4951013685323145015
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1518311796375739016}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb5e425a2fa0b6e4c8f8a40b865633dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &2597951702622580286 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4458156907076471271, guid: 211adc6398398844dab4a07352a21dc9,
+    type: 3}
+  m_PrefabInstance: {fileID: 1860911718529492953}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &651763338951660928
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2597951702622580286}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb011804779f4b3b9a03b0a9d6cb0933, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  materials:
+    normal: {fileID: 2100000, guid: 863339fb8c0a6b946a41dd247c73964b, type: 2}
+    psycho: {fileID: 2100000, guid: 016941fcb9f097d47a38887bd19fa363, type: 2}
+--- !u!1 &3661718254328471167 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3099109876245215654, guid: 211adc6398398844dab4a07352a21dc9,
+    type: 3}
+  m_PrefabInstance: {fileID: 1860911718529492953}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1875251743515946562
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3661718254328471167}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb011804779f4b3b9a03b0a9d6cb0933, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  materials:
+    normal: {fileID: 2100000, guid: 863339fb8c0a6b946a41dd247c73964b, type: 2}
+    psycho: {fileID: 2100000, guid: 016941fcb9f097d47a38887bd19fa363, type: 2}
