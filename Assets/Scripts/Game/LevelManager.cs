@@ -1,6 +1,9 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using Cyberultimate.Unity;
+using Player;
+using Scoreboard;
 using UnityEngine;
 
 namespace Game
@@ -12,7 +15,8 @@ namespace Game
 
         public int CurrentLevel { get; private set; }
 
-        public Transform startingPos;
+        public Transform startingPosA;
+        public Transform startingPosB;
         public Elevator startingElevator;
         public Elevator finishElevator;
         public Transform player;
@@ -30,32 +34,38 @@ namespace Game
             spaceZ = GenerateRoom.Current.spaceZ;
 
             NextLevel();
-            player.position = startingPos.position;
-            cameraHolder.localRotation = startingPos.localRotation;
+            if (startingPosA != null)
+            {
+                player.position = startingPosA.position;
+                cameraHolder.localRotation = startingPosA.localRotation;
+            }
+
+            Scoreboard.Scoreboard.Current.NewRun();
         }
 
         public void NextLevel()
         {
             CurrentLevel++;
+            
+            Scoreboard.Scoreboard.Current.PostLevelData();
+
+            GenerateLevel();
+
+            EnemySpawner.Current.StartSpawning();
 
             (startingElevator, finishElevator) = (finishElevator, startingElevator);
-            
+
             startingElevator.Open();
             startingElevator.active = false;
             finishElevator.active = true;
+        }
 
-            var pos = new Vector3(finishElevator.transform.position.x, finishElevator.transform.position.y, UnityEngine.Random.Range(0, height*2) * spaceZ);
-
-            finishElevator.transform.position = pos;
-
+        private void GenerateLevel()
+        {
             GenerateRoom.Current.transform.KillAllChildren();
             GenerateRoom.Current.Generate();
-
             ObjectGeneration.Current.GenerateObjects();
-
-            EnemySpawner.Current.transform.KillAllChildren();
-            EnemySpawner.Current.StartSpawning();
-      
+            Debug.Log("done");
         }
     }
 }

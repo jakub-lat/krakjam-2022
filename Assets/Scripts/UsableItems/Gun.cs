@@ -111,7 +111,7 @@ namespace UsableItems
             fireParticles.Play();
 
             var trail = Instantiate(trailPrefab, trailSpawnPoint.position, Quaternion.identity);
-
+            
             if (Physics.Raycast(CameraHelper.MainCamera.transform.position, transform.forward, out var hit) && !hit.collider.isTrigger)
             {
                 trail.transform.DOMove(hit.point, trailDurationMultiplier * Vector3.Distance(trail.transform.position, hit.point))
@@ -140,11 +140,11 @@ namespace UsableItems
                         Quaternion.LookRotation(hit.normal));
                     bulletHole.transform.parent = hit.collider.transform;
                 }
-
             }
             else
             {
-                trail.transform.DOMove(transform.forward * 40f, trailDurationMultiplier * 40f).SetLink(gameObject);
+                // todo fix
+                trail.transform.DOMove(Camera.main.transform.forward * 30f, trailDurationMultiplier * 30f).SetLink(gameObject);
             }
         }
 

@@ -49,6 +49,14 @@ namespace Game
             }
         }
 
+        public void OnTriggerExit(Collider other)
+        {
+            if (!active && other.gameObject.CompareTag("Player"))
+            {
+                Invoke(nameof(Close), 0.5f);
+            }
+        }
+
         public void Use()
         {
             if (!active) return;
@@ -77,7 +85,11 @@ namespace Game
         {
             doorsLeft.DOLocalMove(doorsLeftOpenLocalPos, animDuration)
                 .SetLink(gameObject)
-                .SetEase(Ease.InOutQuint);
+                .SetEase(Ease.InOutQuint).OnComplete(() =>
+                {
+                    exitBlock.SetActive(false);
+                });
+            
             return doorsRight.DOLocalMove(doorsRightOpenLocalPos, animDuration)
                 .SetLink(gameObject)
                 .SetEase(Ease.InOutQuint);

@@ -407,8 +407,10 @@ MonoBehaviour:
   data:
     normal:
       moveSpeed: 6
+      sprintSpeed: 10.5
     psycho:
-      moveSpeed: 10
+      moveSpeed: 8
+      sprintSpeed: 12
 --- !u!114 &2580507051579308642
 MonoBehaviour:
   m_ObjectHideFlags: 0

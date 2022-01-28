@@ -32,7 +32,7 @@ namespace WorldChange
             DOTween.To(() => 0f, (v) => meshRenderer.material.Lerp(from, to, v), 1, duration)
                 .SetEase(Ease.InOutQuint)
                 .OnComplete(
-                    () => { meshRenderer.material = to; });
+                    () => { meshRenderer.material = to; }).SetLink(this.gameObject);
 
             // StartCoroutine(MaterialAfterDelay(to));
         }

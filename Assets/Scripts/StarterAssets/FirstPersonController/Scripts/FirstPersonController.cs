@@ -1,4 +1,5 @@
 ﻿using Cyberultimate.Unity;
+using System.Collections;
 using UnityEngine;
 #if ENABLE_INPUT_SYSTEM && STARTER_ASSETS_PACKAGES_CHECKED
 using UnityEngine.InputSystem;
@@ -59,6 +60,8 @@ namespace StarterAssets
 		private float _verticalVelocity;
 		private float _terminalVelocity = 53.0f;
 
+		private float _secondSpeed;
+
 		private float _jumpTimeoutDelta;
 		private float _fallTimeoutDelta;
 
@@ -66,6 +69,8 @@ namespace StarterAssets
 		private StarterAssetsInputs _input;
 
 		private float checkValue;
+
+		private ParticleSystem bars = null;
 
 		private void Start()
 		{
@@ -77,6 +82,7 @@ namespace StarterAssets
 
 			_jumpTimeoutDelta = JumpTimeout;
 			_fallTimeoutDelta = FallTimeout;
+			bars = GameObject.FindGameObjectWithTag("Jojo").GetComponent<ParticleSystem>();
 		}
 
 		private void Update()
@@ -85,6 +91,7 @@ namespace StarterAssets
 			GroundedCheck();
 			Move();
 			Crouch();
+			ShowBarsEffect();
 		}
 
         private void GroundedCheck()
@@ -99,14 +106,14 @@ namespace StarterAssets
 			if (_input.move == Vector2.zero) targetSpeed = 0.0f;
 
 		
-			float currentHorizontalSpeed = new Vector3(_controller.velocity.x, 0.0f, _controller.velocity.z).magnitude;
+			_secondSpeed = new Vector3(_controller.velocity.x, 0.0f, _controller.velocity.z).magnitude;
 
 			float speedOffset = 0.1f;
 			float inputMagnitude = _input.analogMovement ? _input.move.magnitude : 1f;
 
-			if (currentHorizontalSpeed < targetSpeed - speedOffset || currentHorizontalSpeed > targetSpeed + speedOffset)
+			if (_secondSpeed < targetSpeed - speedOffset || _secondSpeed > targetSpeed + speedOffset)
 			{
-				_speed = Mathf.Lerp(currentHorizontalSpeed, targetSpeed * inputMagnitude, Time.deltaTime * SpeedChangeRate);
+				_speed = Mathf.Lerp(_secondSpeed, targetSpeed * inputMagnitude, Time.deltaTime * SpeedChangeRate);
 				_speed = Mathf.Round(_speed * 1000f) / 1000f;
 			}
 			else
@@ -125,6 +132,19 @@ namespace StarterAssets
 			_controller.Move((inputDirection.normalized * (_speed * Time.deltaTime) + new Vector3(0.0f, _verticalVelocity, 0.0f) * Time.deltaTime));
 		}
 
+		private void ShowBarsEffect()
+        {
+			if (_speed > 9)
+            {
+				bars.Play();
+            }
+
+			else
+            {
+				bars.Stop();
+            }
+        }
+
 		private void Crouch()
 		{
 			// To-Do: if you slide and change direction, then stop sliding.
@@ -133,7 +153,7 @@ namespace StarterAssets
             {
 				if (checkValue == 0)
                 {
-					checkValue = _speed;
+					checkValue = _secondSpeed;
 				}
 
 				// sliding
