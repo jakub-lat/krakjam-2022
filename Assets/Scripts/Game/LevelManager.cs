@@ -28,13 +28,13 @@ namespace Game
 
         private void Start()
         {
-            (startingElevator, finishElevator, elevator1Z) = (finishElevator, startingElevator, elevator2Z);
+            (startingElevator, finishElevator) = (finishElevator, startingElevator);
             width = GenerateRoom.Current.width;
             height = GenerateRoom.Current.height;
             spaceX = GenerateRoom.Current.spaceX;
             spaceZ = GenerateRoom.Current.spaceZ;
 
-            elevator2Z = (int)(finishElevator.transform.position.z / spaceZ);
+            elevator1Z = (int)(finishElevator.transform.position.z / spaceZ);
             
             if (startingPosA != null)
             {
@@ -56,7 +56,7 @@ namespace Game
 
             CurrentLevel++;
 
-            (startingElevator, finishElevator, elevator1Z) = (finishElevator, startingElevator, elevator2Z);
+            (startingElevator, finishElevator) = (finishElevator, startingElevator);
             
             GenerateLevel();
 
