@@ -45,9 +45,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5039aead7547c5049b40e9649158d090, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  minRangeFromPlayer: 30
   posY: 2
-  shootingEnemyAmount: 0
-  meleeEnemyAmount: 1
+  shootingEnemyAmount: 30
+  meleeEnemyAmount: 5
   shootingEnemy: {fileID: 3469753855458287578, guid: d5589d93f9ef0a9458419984bd0d09f5,
     type: 3}
   meleeEnemy: {fileID: 5494818868886480629, guid: 54e4e1fb6193b7f4e848e7c158924667,
