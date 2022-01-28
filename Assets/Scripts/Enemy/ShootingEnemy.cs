@@ -33,7 +33,7 @@ public class ShootingEnemy : EnemyAI
     private bool reloading = false;
     private new void Update()
     {
-        if (dead) return;
+        if (dead || !isEnabled) return;
 
         if(e.gotHit)
         {

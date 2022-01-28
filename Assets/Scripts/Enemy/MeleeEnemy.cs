@@ -21,7 +21,7 @@ public class MeleeEnemy : EnemyAI
 
     private new void Update()
     {
-        if (dead || e.gotHit) return;
+        if (dead || e.gotHit || !isEnabled) return;
 
         base.Update();
 

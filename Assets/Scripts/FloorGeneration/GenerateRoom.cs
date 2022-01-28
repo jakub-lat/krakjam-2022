@@ -60,11 +60,10 @@ public class GenerateRoom : MonoSingleton<GenerateRoom>
     Dictionary<int, List<Square>> leftSqMask = new Dictionary<int, List<Square>>();
     Dictionary<int, List<Row>> topRowMask = new Dictionary<int, List<Row>>();
 
-    public void Generate(int elevator1Z=-1, int elevator2Z = -1)
+    public void Generate()
     {
-        Debug.Log(elevator1Z + " " + elevator2Z);
         Floor f = GenerateStruct(height, width);
-        GenerateFloor(f, elevator1Z, elevator2Z);
+        GenerateFloor(f);
         
         /*UnityEditor.AI.NavMeshBuilder.ClearAllNavMeshes();
         UnityEditor.AI.NavMeshBuilder.BuildNavMesh();*/
@@ -75,7 +74,8 @@ public class GenerateRoom : MonoSingleton<GenerateRoom>
         EnemySpawner.Current.SetupSpawners(transform.position, width, height, spaceX, spaceZ, spawnerCount);
     }
 
-    public void GenerateFloor(Floor f, int elevator1Z, int elevator2Z)
+
+    public void GenerateFloor(Floor f)
     {
         float z = 0;
         if(debug) Debug.Log("rows: "+f.rows.Count);
@@ -87,8 +87,6 @@ public class GenerateRoom : MonoSingleton<GenerateRoom>
             {
                 Instantiate(s.a.prefab, transform.position + new Vector3(x, 0, z), Quaternion.Euler(Vector3.zero), transform);
                 Instantiate(s.b.prefab, transform.position + new Vector3(x+3*spaceX,0, z+spaceZ), Quaternion.Euler(new Vector3(0,180,0)), transform);
-
-
                 x += 4 * spaceX;
             }
             z += 2*spaceZ;
@@ -130,7 +128,7 @@ public class GenerateRoom : MonoSingleton<GenerateRoom>
         for (i = 0; i < height; i++)
         {
 
-            if (f.rows[i].squares[0].mleft == 1 && (elevator1Z == -1 || i * 2 != elevator1Z))
+            if (f.rows[i].squares[0].mleft == 1)
             {
                 GameObject toSpawn = boundaryWall;
                 if (windowCounter >= windowSeparation)
@@ -140,7 +138,7 @@ public class GenerateRoom : MonoSingleton<GenerateRoom>
                 }
                 Instantiate(toSpawn, transform.position + new Vector3(0, 0, i * spaceZ*2), Quaternion.Euler(new Vector3(0, 270, 0)), transform);
             }
-            else if (f.rows[i].squares[0].mleft == 2 && (elevator1Z == -1 || i * 2+1 != elevator1Z))
+            else if (f.rows[i].squares[0].mleft == 2)
             {
                 GameObject toSpawn = boundaryWall;
                 if (windowCounter >= windowSeparation)
@@ -160,10 +158,7 @@ public class GenerateRoom : MonoSingleton<GenerateRoom>
                     windowCounter = 1;
                 }
 
-                if (elevator1Z == -1 || i * 2 != elevator1Z)
-                {
-                    Instantiate(toSpawn, transform.position + new Vector3(0, 0, i * spaceZ * 2), Quaternion.Euler(new Vector3(0, 270, 0)), transform);
-                }
+                Instantiate(toSpawn, transform.position + new Vector3(0, 0, i * spaceZ * 2), Quaternion.Euler(new Vector3(0, 270, 0)), transform);
 
                 toSpawn = boundaryWall;
                 if (windowCounter >= windowSeparation)
@@ -171,13 +166,10 @@ public class GenerateRoom : MonoSingleton<GenerateRoom>
                     toSpawn = window;
                     windowCounter = 0;
                 }
-                if (elevator1Z == -1 || i * 2 +1 != elevator1Z)
-                {
                     Instantiate(toSpawn, transform.position + new Vector3(0, 0, i * spaceZ * 2 + spaceZ), Quaternion.Euler(new Vector3(0, 270, 0)), transform);
-                }
             }
             windowCounter++;
-            if (f.rows[i].squares[width - 1].mright == 1 && (elevator2Z == -1 || i * 2 != elevator2Z))
+            if (f.rows[i].squares[width - 1].mright == 1)
             {
                 GameObject toSpawn = boundaryWall;
                 if (windowCounter >= windowSeparation)
@@ -185,9 +177,9 @@ public class GenerateRoom : MonoSingleton<GenerateRoom>
                     toSpawn = window;
                     windowCounter = 0;
                 }
-                Instantiate(toSpawn, transform.position + new Vector3(width * spaceX * 4, 0, i * spaceZ*2), Quaternion.Euler(new Vector3(0, 270, 0)), transform);
+                Instantiate(toSpawn, transform.position + new Vector3(width * spaceX * 4 - spaceX, 0, i * spaceZ*2), Quaternion.Euler(new Vector3(0, 90, 0)), transform);
             }
-            else if (f.rows[i].squares[width - 1].mright == 2 && (elevator2Z == -1 || i * 2+1 != elevator2Z))
+            else if (f.rows[i].squares[width - 1].mright == 2)
             {
                 GameObject toSpawn = boundaryWall;
                 if (windowCounter >= windowSeparation)
@@ -195,7 +187,7 @@ public class GenerateRoom : MonoSingleton<GenerateRoom>
                     toSpawn = window;
                     windowCounter = 0;
                 }
-                Instantiate(toSpawn, transform.position + new Vector3(width * spaceX * 4, 0, i * spaceZ*2+spaceZ), Quaternion.Euler(new Vector3(0, 270, 0)), transform);
+                Instantiate(toSpawn, transform.position + new Vector3(width * spaceX * 4 - spaceX, 0, i * spaceZ*2+spaceZ), Quaternion.Euler(new Vector3(0, 90, 0)), transform);
             }
             else if (f.rows[i].squares[width - 1].mright == 3)
             {
@@ -206,20 +198,14 @@ public class GenerateRoom : MonoSingleton<GenerateRoom>
                     toSpawn = window;
                     windowCounter = 1;
                 }
-                if (elevator2Z == -1 || i * 2 != elevator2Z)
-                {
-                    Instantiate(toSpawn, transform.position + new Vector3(width * spaceX * 4, 0, i * spaceZ * 2), Quaternion.Euler(new Vector3(0, 270, 0)), transform);
-                }
+                    Instantiate(toSpawn, transform.position + new Vector3(width * spaceX * 4 - spaceX, 0, i * spaceZ * 2), Quaternion.Euler(new Vector3(0, 90, 0)), transform);
                 toSpawn = boundaryWall;
                 if (windowCounter >= windowSeparation)
                 {
                     toSpawn = window;
                     windowCounter = 0;
                 }
-                if (elevator2Z == -1 || i * 2+1 != elevator2Z)
-                {
-                    Instantiate(toSpawn, transform.position + new Vector3(width * spaceX * 4, 0, i * spaceZ * 2 + spaceZ), Quaternion.Euler(new Vector3(0, 270, 0)), transform);
-                }
+                    Instantiate(toSpawn, transform.position + new Vector3(width * spaceX * 4 - spaceX, 0, i * spaceZ * 2 + spaceZ), Quaternion.Euler(new Vector3(0, 90, 0)), transform);
             }
             windowCounter++;
         }
