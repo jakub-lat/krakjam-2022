@@ -5,7 +5,7 @@ using UnityEngine;
 
 public abstract class WorldChangeLogic : MonoBehaviour
 {
-    private void Start()
+    protected virtual void Start()
     {
         OnWorldTypeChange(WorldTypeController.Current.CurrentWorldType);
     }

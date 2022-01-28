@@ -406,11 +406,39 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   data:
     normal:
-      moveSpeed: 6
-      sprintSpeed: 10.5
+      moveSpeed:
+        value: 6
+        changeOverTime: -0.5
+        edgeValue: 3
+      sprintSpeed:
+        value: 8
+        changeOverTime: -0.2
+        edgeValue: 5
+      cameraNoiseAmplitude:
+        value: 1.5
+        changeOverTime: 0.5
+        edgeValue: 3
+      cameraNoiseFrequency:
+        value: 1.5
+        changeOverTime: 0.5
+        edgeValue: 2
     psycho:
-      moveSpeed: 8
-      sprintSpeed: 12
+      moveSpeed:
+        value: 8
+        changeOverTime: 0
+        edgeValue: 0
+      sprintSpeed:
+        value: 12
+        changeOverTime: 0
+        edgeValue: 0
+      cameraNoiseAmplitude:
+        value: 1
+        changeOverTime: 0
+        edgeValue: 0
+      cameraNoiseFrequency:
+        value: 1
+        changeOverTime: 0
+        edgeValue: 0
 --- !u!114 &2580507051579308642
 MonoBehaviour:
   m_ObjectHideFlags: 0
