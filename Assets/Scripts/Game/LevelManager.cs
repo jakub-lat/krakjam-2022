@@ -47,14 +47,15 @@ namespace Game
         public void NextLevel()
         {
             CurrentLevel++;
-            
+
+            (startingElevator, finishElevator) = (finishElevator, startingElevator);
+
             Scoreboard.Scoreboard.Current.PostLevelData();
 
             GenerateLevel();
 
-            EnemySpawner.Current.StartSpawning();
-
-            (startingElevator, finishElevator) = (finishElevator, startingElevator);
+            EnemySpawner.Current.transform.KillAllChildren();
+            EnemySpawner.Current.StartSpawning(); 
 
             startingElevator.Open();
             startingElevator.active = false;
@@ -63,6 +64,10 @@ namespace Game
 
         private void GenerateLevel()
         {
+            Vector3 newElevatorPos = new Vector3(finishElevator.transform.position.x, finishElevator.transform.position.y,UnityEngine.Random.Range(0,height*2)*spaceZ);
+
+            finishElevator.transform.position = newElevatorPos;
+
             GenerateRoom.Current.transform.KillAllChildren();
             GenerateRoom.Current.Generate();
             ObjectGeneration.Current.GenerateObjects();
