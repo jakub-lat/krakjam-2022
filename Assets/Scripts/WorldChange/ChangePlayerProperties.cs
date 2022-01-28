@@ -27,6 +27,8 @@ public class PlayerPropertiesData
 {
     public PlayerProperty moveSpeed;
     public PlayerProperty sprintSpeed;
+    public PlayerProperty slideSpeed;
+    public PlayerProperty strengthPush;
     public PlayerProperty cameraNoiseAmplitude;
     public PlayerProperty cameraNoiseFrequency;
 }
@@ -40,10 +42,12 @@ public class ChangePlayerProperties : WorldChangeLogic
 
     private FirstPersonController fpsc;
     private CinemachineBasicMultiChannelPerlin noise;
+    private BasicRigidBodyPush push;
 
     protected override void Start()
     {
         fpsc = GetComponent<FirstPersonController>();
+        push = GetComponent<BasicRigidBodyPush>(); 
         noise = CinemachineVCamInstance.Current.Cam?.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>();
         base.Start();
     }
@@ -51,9 +55,18 @@ public class ChangePlayerProperties : WorldChangeLogic
     public override void OnWorldTypeChange(WorldTypeController.WorldType type)
     {
         currentProps = data[type];
-        
-        fpsc.MoveSpeed = currentProps.moveSpeed.value;
-        fpsc.SprintSpeed = currentProps.sprintSpeed.value;
+
+        if (push != null)
+        {
+            push.strength = currentProps.strengthPush.value;
+        }
+
+        if (fpsc != null)
+        {
+            fpsc.MoveSpeed = currentProps.moveSpeed.value;
+            fpsc.SprintSpeed = currentProps.sprintSpeed.value;
+            fpsc.SlideSpeed = currentProps.slideSpeed.value;
+        }
 
         SetNoiseIfNull();
         if (noise != null)
@@ -68,10 +81,14 @@ public class ChangePlayerProperties : WorldChangeLogic
         SetNoiseIfNull();
         
         var props = currentProps;
-        
+
+        push.strength = props.strengthPush.ChangeOverTime(push.strength);
+
         // todo move speed changing doesn't work
         fpsc.MoveSpeed = props.moveSpeed.ChangeOverTime(fpsc.MoveSpeed);
         fpsc.SprintSpeed = props.sprintSpeed.ChangeOverTime(fpsc.SprintSpeed);
+        fpsc.SlideSpeed = props.slideSpeed.ChangeOverTime(fpsc.SlideSpeed);
+
 
         if (noise != null)
         {

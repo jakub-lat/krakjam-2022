@@ -34,7 +34,7 @@ public class PauseManager : MonoSingleton<PauseManager>
 
     public void Pause(GameObject obj, bool isTrue)
     {
-        input.SetCursorState(!isTrue);
+        input.SetCursorState(isTrue);
         if (isTrue)
         {
             Time.timeScale = 0;

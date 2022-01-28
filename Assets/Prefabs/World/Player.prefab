@@ -217,7 +217,7 @@ MonoBehaviour:
   MoveSpeed: 8
   SprintSpeed: 10.5
   SpeedChangeRate: 4
-  JumpHeight: 1.7
+  JumpHeight: 1.4
   Gravity: -15
   JumpTimeout: 0.1
   FallTimeout: 0.15
@@ -227,12 +227,13 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8
   crouchedHeight: 0
-  slideSpeed: 10
+  SlideSpeed: 10
   speedStartCrouch: 6
   speedEndCrouch: 8
-  crouchSpeed: 2
+  crouchSpeed: 3.5
   howLongSlide: 0.8
   waitForNextCrouch: 1
+  push: {fileID: 4071760806831231208}
 --- !u!114 &4071760806831231208
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -249,7 +250,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 6144
   canPush: 1
-  strength: 0.6
+  strength: 2
 --- !u!114 &4071760806831231209
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -419,6 +420,14 @@ MonoBehaviour:
         value: 8
         changeOverTime: -0.2
         edgeValue: 5
+      slideSpeed:
+        value: 9.25
+        changeOverTime: -0.15
+        edgeValue: 5.5
+      strengthPush:
+        value: 2
+        changeOverTime: 0
+        edgeValue: 0
       cameraNoiseAmplitude:
         value: 1.5
         changeOverTime: 0.5
@@ -433,7 +442,15 @@ MonoBehaviour:
         changeOverTime: 0
         edgeValue: 0
       sprintSpeed:
-        value: 12
+        value: 11.5
+        changeOverTime: 0
+        edgeValue: 0
+      slideSpeed:
+        value: 13.5
+        changeOverTime: 0
+        edgeValue: 0
+      strengthPush:
+        value: 11.5
         changeOverTime: 0
         edgeValue: 0
       cameraNoiseAmplitude:

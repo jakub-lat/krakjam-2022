@@ -83,7 +83,7 @@ namespace StarterAssets
 
         protected void OnEnable()
         {
-			SetCursorState(true);
+			SetCursorState(false);
         }
 
 		public void OnCrouch(InputValue value)
@@ -129,13 +129,17 @@ namespace StarterAssets
 
 		private void OnApplicationFocus(bool hasFocus)
 		{
-			SetCursorState(cursorLocked);
+			SetCursorState(!cursorLocked);
 		}
 
+		/// <summary>
+		/// true == paused, false == not paused
+		/// </summary>
+		/// <param name="newState"></param>
 		public void SetCursorState(bool newState)
 		{
-			Cursor.visible = !newState;
-			Cursor.lockState = newState ? CursorLockMode.Locked : CursorLockMode.None;
+			Cursor.visible = newState;
+			Cursor.lockState = newState ? CursorLockMode.None : CursorLockMode.Locked;
 		}
 
 #endif
