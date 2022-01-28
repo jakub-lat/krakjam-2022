@@ -56,10 +56,7 @@ namespace Game
             (startingElevator, finishElevator) = (finishElevator, startingElevator);
             
             GenerateLevel();
-
-            EnemySpawner.Current.transform.KillAllChildren();
-            EnemySpawner.Current.StartSpawning(); 
-
+            
             // startingElevator.Open();
             startingElevator.active = false;
             finishElevator.active = true;
@@ -68,8 +65,9 @@ namespace Game
         private void GenerateLevel()
         {
             Vector3 newElevatorPos = new Vector3(finishElevator.transform.position.x, finishElevator.transform.position.y, UnityEngine.Random.Range(0, height * 2) * spaceZ);
-
             finishElevator.transform.position = newElevatorPos;
+
+            var levelDifficulty = difficulty.Evaluate(CurrentLevel);
 
             GenerateRoom.Current.transform.KillAllChildren();
             GenerateRoom.Current.Generate();
@@ -79,6 +77,8 @@ namespace Game
             finishElevator.elevatorRemover.Remove();
             startingElevator.elevatorRemover.Remove();
             
+            EnemySpawner.Current.transform.KillAllChildren();
+            EnemySpawner.Current.StartSpawning();
         }
     }
 }
