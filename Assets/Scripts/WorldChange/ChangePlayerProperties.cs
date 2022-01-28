@@ -61,6 +61,11 @@ public class ChangePlayerProperties : WorldChangeLogic
 
     private void Update()
     {
+        if (noise == null)
+        {
+            noise = CinemachineVCamInstance.Current.Cam.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>();
+        }
+        
         var props = currentProps;
         
         // todo move speed changing doesn't work
