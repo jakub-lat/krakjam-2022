@@ -45,3 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   poolTag: PopupText
+  duration: 4
+  ease: 24
+  minMaxScale: {x: 0.6, y: 0.85}
+  minMaxPosition: {x: -1.5, y: 1.5}

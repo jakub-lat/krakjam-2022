@@ -82,10 +82,25 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 0a7a0ee17ddcb9042a335bd19fad48da, type: 2}
+    - target: {fileID: -695447662404000410, guid: 4ff0cf93620342f4cb145377cf025f1a,
+        type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 4ff0cf93620342f4cb145377cf025f1a,
         type: 3}
       propertyPath: m_Name
       value: Box
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 4ff0cf93620342f4cb145377cf025f1a,
+        type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 1188256223936568184, guid: 4ff0cf93620342f4cb145377cf025f1a,
+        type: 3}
+      propertyPath: m_Layer
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 1701301799562459933, guid: 4ff0cf93620342f4cb145377cf025f1a,
         type: 3}
