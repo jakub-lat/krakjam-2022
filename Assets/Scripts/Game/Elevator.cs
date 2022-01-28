@@ -41,7 +41,7 @@ namespace Game
 
         private void Print(string text)
         {
-            Debug.Log($"{gameObject.name} (active: {active}): {text}");
+            // Debug.Log($"{gameObject.name} (active: {active}): {text}");
         }
 
         public void OnTriggerEnter(Collider other)
