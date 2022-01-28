@@ -49,6 +49,14 @@ namespace Game
             }
         }
 
+        public void OnTriggerExit(Collider other)
+        {
+            if (!active && other.gameObject.CompareTag("Player"))
+            {
+                Invoke(nameof(Close), 0.5f);
+            }
+        }
+
         public void Use()
         {
             if (!active) return;

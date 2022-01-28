@@ -18,6 +18,7 @@ namespace Scoreboard
 
         private const string TokenKey = "SCOREBOARD_TOKEN";
         private string Token => PlayerPrefs.GetString(TokenKey);
+        private bool LoggedIn => !string.IsNullOrEmpty(Token);
 
         
         public GameRun runData;
@@ -65,6 +66,8 @@ namespace Scoreboard
         
         public async Task<Player> GetCurrentPlayer()
         {
+            if (!LoggedIn) return null;
+            
             using var client = new HttpClient();
             client.DefaultRequestHeaders.Add("Authorization", Token);
             var res = await client.GetStringAsync(BaseUrl);
@@ -73,6 +76,8 @@ namespace Scoreboard
 
         public async Task<T> PostData<T>(string path, T data)
         {
+            if (!LoggedIn) return data;
+            
             using var client = new HttpClient();
             client.DefaultRequestHeaders.Add("Authorization", Token);
 

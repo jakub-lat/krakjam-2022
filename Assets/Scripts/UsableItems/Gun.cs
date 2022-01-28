@@ -140,11 +140,11 @@ namespace UsableItems
                         Quaternion.LookRotation(hit.normal));
                     bulletHole.transform.parent = hit.collider.transform;
                 }
-
             }
             else
             {
-                trail.transform.DOMove(transform.forward * 40f, trailDurationMultiplier * 40f).SetLink(gameObject);
+                // todo fix
+                trail.transform.DOMove(Camera.main.transform.forward * 30f, trailDurationMultiplier * 30f).SetLink(gameObject);
             }
         }
 
