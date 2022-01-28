@@ -15,17 +15,17 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 6c1f0c351722b554db256485f246aea0,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 18.2322
+      value: 18
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 6c1f0c351722b554db256485f246aea0,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 18.232203
+      value: 18
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 6c1f0c351722b554db256485f246aea0,
         type: 3}
       propertyPath: m_LocalScale.z
-      value: 18.232203
+      value: 18
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 6c1f0c351722b554db256485f246aea0,
         type: 3}
@@ -86,6 +86,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Keyboard
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 6c1f0c351722b554db256485f246aea0,
+        type: 3}
+      propertyPath: m_Layer
+      value: 12
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6c1f0c351722b554db256485f246aea0, type: 3}
