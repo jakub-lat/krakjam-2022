@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 6205229079707470466}
   - component: {fileID: 6519051988884928639}
   - component: {fileID: 4992232887827195050}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: wallDoor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -160,7 +160,7 @@ GameObject:
   - component: {fileID: 6275664599083402116}
   - component: {fileID: 5374762871231988155}
   - component: {fileID: 7036754053631352697}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -243,8 +243,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: -9.313226e-10, z: 0}
+  m_Size: {x: 1, y: 1.042927, z: 4.0055842}
+  m_Center: {x: -0.000000051468493, y: -0.021463925, z: 2.0238822}
 --- !u!114 &7036754053631352697
 MonoBehaviour:
   m_ObjectHideFlags: 0

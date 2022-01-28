@@ -90,7 +90,7 @@ namespace Game
         {
             if (!active) return;
             
-            Print("use");
+            //Print("use");
 
             active = false;
             
@@ -101,14 +101,14 @@ namespace Game
             exitBlock.SetActive(true);
             Close().OnComplete(() =>
             {
-                Print("closed");
+                //Print("closed");
                 LevelManager.Current.NextLevel();
                 floorText.rectTransform.DOAnchorPos(floorTextEndPos, animDuration)
                     .SetEase(Ease.OutCirc)
                     .SetDelay(startMovingDelay)
                     .OnComplete(() =>
                     {
-                        Print("floor text completed - opening");
+                        //Print("floor text completed - opening");
                         Open();
                     }).SetLink(this.gameObject);
             }).SetLink(this.gameObject);
@@ -122,7 +122,7 @@ namespace Game
 
         public Tween Open()
         {
-            Print("open");
+            //Print("open");
             
             music.DOFade(0, closeDelay).OnComplete(() => music.Stop());
             
@@ -140,7 +140,7 @@ namespace Game
 
         public Tween Close()
         {
-            Print("close");
+            //Print("close");
             doorsLeft.DOLocalMove(doorsLeftClosedLocalPos, animDuration)
                 .SetLink(gameObject)
                 .SetEase(Ease.InOutQuint)
