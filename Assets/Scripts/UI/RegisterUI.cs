@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
 using UnityEngine.SceneManagement;
+using Button = UnityEngine.UI.Button;
 using UnityEngine.UI;
 
 public class RegisterUI : MonoBehaviour
@@ -18,6 +19,8 @@ public class RegisterUI : MonoBehaviour
 
     [SerializeField]
     private Button cancelButton = null;
+
+    [SerializeField] private InputField nameInput;
 
     protected void Start()
     {
