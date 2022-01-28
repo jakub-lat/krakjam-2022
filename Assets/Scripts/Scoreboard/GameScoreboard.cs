@@ -12,7 +12,8 @@ namespace Scoreboard
 {
     public class GameScoreboard : MonoSingleton<GameScoreboard>
     {
-        private const string BaseUrl = "https://krakjam2022scoreboard.cubepotato.eu"; // https://krakjam2022scoreboard.cubepotato.eu
+        private const string
+            BaseUrl = "https://krakjam2022scoreboard.cubepotato.eu"; // https://krakjam2022scoreboard.cubepotato.eu
 
         [SerializeField] private TextAsset configFile;
         private string Secret => configFile.text.Trim();
@@ -21,6 +22,8 @@ namespace Scoreboard
         private string Token => PlayerPrefs.GetString(TokenKey);
         public bool LoggedIn => !string.IsNullOrEmpty(Token);
 
+
+        public bool runDataSet = false;
 
         public GameRun runData = null;
         public GameRunLevel levelData = null;
@@ -36,8 +39,10 @@ namespace Scoreboard
         {
             base.Awake();
             Debug.Log($"token: {Token}");
+
             DontDestroyOnLoad(gameObject);
         }
+
 
         public async void Register(string name)
         {
@@ -60,6 +65,7 @@ namespace Scoreboard
             {
                 startTime = DateTimeOffset.UtcNow.ToUnixTimeSeconds(),
             };
+            runDataSet = true;
             runData = await PostData("/run", runData);
             // Debug.Log("SCOREBOARD: new run: "+JsonConvert.SerializeObject(runData));
             ResetLevelData();
@@ -87,7 +93,7 @@ namespace Scoreboard
             var res = await client.GetStringAsync(BaseUrl);
             return JsonConvert.DeserializeObject<List<Player>>(res);
         }
-        
+
         public async Task<ScoreboardForLevelResponse> GetScoreboardForLevel(int level, int count)
         {
             using var client = new HttpClient();
@@ -123,6 +129,7 @@ namespace Scoreboard
             HandleError(res);
 
             var str = await res.Content.ReadAsStringAsync();
+            Debug.Log(typeof(T).Name + ": " + str);
             return JsonConvert.DeserializeObject<T>(str);
         }
 

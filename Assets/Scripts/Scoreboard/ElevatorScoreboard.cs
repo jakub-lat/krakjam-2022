@@ -69,7 +69,7 @@ namespace Scoreboard
         private void RenderRow(GameRunLevel x, bool isCurrent)
         {
             idCol.text += "\n" + Colorize(x.position.ToString(), isCurrent);
-            nameCol.text += "\n" + Colorize(Truncate(x.player.name, 15), isCurrent);
+            nameCol.text += "\n" + Colorize(Truncate(x.player.name.ToUpper(), 15), isCurrent);
             scoreCol.text += "\n" + Colorize(x.score.ToString(), isCurrent);
             killsCol.text += "\n" + Colorize(x.kills.ToString(), isCurrent);
             // headshotsCol.text += "\n" + Colorize(x.headshots.ToString(), isCurrent);

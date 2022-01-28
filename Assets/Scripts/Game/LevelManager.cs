@@ -40,9 +40,9 @@ namespace Game
             }
 
             NextLevel();
-
-            if (Scoreboard.GameScoreboard.Current.runData == null)
+            if (!Scoreboard.GameScoreboard.Current.runDataSet)
             {
+                Debug.Log("OKKKKKKKKKKKKK");
                 Scoreboard.GameScoreboard.Current.NewRun();
             }
         }
