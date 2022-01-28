@@ -37,12 +37,15 @@ public class PauseManager : MonoSingleton<PauseManager>
         input.SetCursorState(!isTrue);
         if (isTrue)
         {
-            TimeScaling.Status.Register(obj, 0);
+            Time.timeScale = 0;
+            // TimeScaling.Status.Register(obj, 0);
         }
 
         else
         {
-            TimeScaling.Status.Unregister(obj);
+            Time.timeScale = 1;
+            // screw u biegus, these scripts of yours are shady
+            // TimeScaling.Status.Unregister(obj);
         }
         obj.SetActive(isTrue);
         LastObject = obj;

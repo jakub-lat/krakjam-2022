@@ -97,6 +97,10 @@ public class ChangeEnemyProperties : WorldChangeLogic
         ShootingEnemyProperties sd = shootingEnemyData[type];
         foreach (GameObject g in EnemySpawner.Current.shootingEnemies)
         {
+            if (g == null)
+            {
+                continue;
+            }
             SetShootingData(g, sd);
         }
 

@@ -227,7 +227,12 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8
   crouchedHeight: 0
-  crouchSpeed: 12
+  slideSpeed: 10
+  speedStartCrouch: 6
+  speedEndCrouch: 8
+  crouchSpeed: 2
+  howLongSlide: 0.8
+  waitForNextCrouch: 1
 --- !u!114 &4071760806831231208
 MonoBehaviour:
   m_ObjectHideFlags: 0
