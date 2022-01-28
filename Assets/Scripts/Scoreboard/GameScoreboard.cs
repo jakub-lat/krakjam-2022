@@ -22,8 +22,8 @@ namespace Scoreboard
         public bool LoggedIn => !string.IsNullOrEmpty(Token);
 
 
-        public GameRun runData = new();
-        public GameRunLevel levelData = new();
+        public GameRun runData = null;
+        public GameRunLevel levelData = null;
 
 
         [Serializable]
@@ -36,6 +36,7 @@ namespace Scoreboard
         {
             base.Awake();
             Debug.Log($"token: {Token}");
+            DontDestroyOnLoad(gameObject);
         }
 
         public async void Register(string name)
@@ -61,11 +62,7 @@ namespace Scoreboard
             };
             runData = await PostData("/run", runData);
             // Debug.Log("SCOREBOARD: new run: "+JsonConvert.SerializeObject(runData));
-            levelData = new GameRunLevel
-            {
-                startTime = DateTimeOffset.UtcNow.ToUnixTimeSeconds(),
-                level = LevelManager.Current.CurrentLevel,
-            };
+            ResetLevelData();
         }
 
         public async Task PostLevelData()
@@ -73,11 +70,14 @@ namespace Scoreboard
             levelData.endTime = DateTimeOffset.UtcNow.ToUnixTimeSeconds();
             levelData.gameRunID = runData.id;
             var res = await PostData("/level", levelData);
-            // Debug.Log("SCOREBOARD: new level: "+JsonConvert.SerializeObject(res));
+        }
+
+        public void ResetLevelData()
+        {
             levelData = new GameRunLevel
             {
                 level = LevelManager.Current.CurrentLevel,
-                startTime = DateTimeOffset.UtcNow.ToUnixTimeSeconds()
+                startTime = DateTimeOffset.UtcNow.ToUnixTimeSeconds(),
             };
         }
 

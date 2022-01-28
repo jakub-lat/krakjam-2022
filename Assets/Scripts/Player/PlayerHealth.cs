@@ -1,4 +1,5 @@
 ﻿using Cyberultimate.Unity;
+using Scoreboard;
 using UnityEngine;
 
 namespace Player
@@ -22,6 +23,8 @@ namespace Player
             {
                 return;
             }
+
+            GameScoreboard.Current.levelData.deaths++;
 
             PauseManager.Current.SwitchDeath();
         }

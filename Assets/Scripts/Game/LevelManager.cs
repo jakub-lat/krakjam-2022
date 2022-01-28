@@ -41,7 +41,10 @@ namespace Game
 
             NextLevel();
 
-            Scoreboard.GameScoreboard.Current.NewRun();
+            if (Scoreboard.GameScoreboard.Current.runData == null)
+            {
+                Scoreboard.GameScoreboard.Current.NewRun();
+            }
         }
 
         public void NextLevel()

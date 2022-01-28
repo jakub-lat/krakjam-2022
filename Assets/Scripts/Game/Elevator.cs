@@ -75,6 +75,7 @@ namespace Game
         {
             await GameScoreboard.Current.PostLevelData();
             await GetComponent<ElevatorScoreboard>().Show(LevelManager.Current.CurrentLevel);
+            GameScoreboard.Current.ResetLevelData();
         }
 
         public void OnTriggerExit(Collider other)
