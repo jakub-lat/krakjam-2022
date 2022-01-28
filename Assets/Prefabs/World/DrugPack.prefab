@@ -112,8 +112,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destroyAfterUse: 1
-  interactionName: Drug pack
-  amount: 3
+  interactionName: Pills
+  amount: 2
 --- !u!114 &3990089158236214457
 MonoBehaviour:
   m_ObjectHideFlags: 0

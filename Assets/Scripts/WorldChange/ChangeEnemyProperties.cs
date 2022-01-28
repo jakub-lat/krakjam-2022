@@ -43,6 +43,8 @@ public class MeleeEnemyProperties
     public float fleeSpeed = 5f;
     public bool flee = false;
     public float damage =10f;
+
+    public bool shooting = false;
 }
 
 public class ChangeEnemyProperties : WorldChangeLogic
@@ -52,6 +54,8 @@ public class ChangeEnemyProperties : WorldChangeLogic
     private WorldTypeDict<ShootingEnemyProperties> shootingEnemyData;
     [SerializeField]
     private WorldTypeDict<MeleeEnemyProperties> meleeEnemyData;
+    [SerializeField]
+    private ShootingEnemyProperties meleeShootingModeData;
 
     public static ChangeEnemyProperties instance;
     private void Awake()
@@ -64,50 +68,64 @@ public class ChangeEnemyProperties : WorldChangeLogic
         UpdateEnemies(type);
     }
 
+    void SetShootingData(GameObject g, ShootingEnemyProperties sd)
+    {
+        ShootingEnemy se = g.GetComponent<ShootingEnemy>();
+        se.bulletPoolTag = sd.bulletPoolTag;
+        se.attackSpeed = sd.attackSpeed;
+        se.shootDelay = sd.shootDelay;
+        se.bulletSpeed = sd.bulletSpeed;
+        se.magazineSize = sd.magazineSize;
+        se.reloadSpeed = sd.reloadSpeed;
+        se.magazine = sd.magazine;
+        se.attackRange = sd.attackRange;
+        se.followRange = sd.followRange;
+        se.dispersion = sd.dispersion;
+
+        se.fleeRange = sd.fleeRange;
+        se.fleeMultiplier = sd.fleeMultiplier;
+
+        se.moveSpeed = sd.moveSpeed;
+        se.fleeSpeed = sd.fleeSpeed;
+        se.flee = sd.flee;
+
+        se.bulletDamage = sd.damage;
+    }
+
     public void UpdateEnemies(WorldTypeController.WorldType type)
     {
         ShootingEnemyProperties sd = shootingEnemyData[type];
         foreach (GameObject g in EnemySpawner.Current.shootingEnemies)
         {
-            ShootingEnemy se = g.GetComponent<ShootingEnemy>();
-            se.bulletPoolTag = sd.bulletPoolTag;
-            se.attackSpeed = sd.attackSpeed;
-            se.shootDelay = sd.shootDelay;
-            se.bulletSpeed = sd.bulletSpeed;
-            se.magazineSize = sd.magazineSize;
-            se.reloadSpeed = sd.reloadSpeed;
-            se.magazine = sd.magazine;
-            se.attackRange = sd.attackRange;
-            se.followRange = sd.followRange;
-            se.dispersion = sd.dispersion;
-
-            se.fleeRange = sd.fleeRange;
-            se.fleeMultiplier = sd.fleeMultiplier;
-
-            se.moveSpeed = sd.moveSpeed;
-            se.fleeSpeed = sd.fleeSpeed;
-            se.flee = sd.flee;
-
-            se.bulletDamage = sd.damage;
+            SetShootingData(g, sd);
         }
 
         MeleeEnemyProperties md = meleeEnemyData[type];
         foreach (GameObject g in EnemySpawner.Current.meleeEnemies)
         {
-            MeleeEnemy se = g.GetComponent<MeleeEnemy>();
-            se.attackSpeed = md.attackSpeed;
-            se.attackDelay = md.attackDelay;
-            se.knockback = md.knockback;
-            se.attackRange = md.attackRange;
-            se.followRange = md.followRange;
-            se.fleeRange = md.fleeRange;
-            se.fleeMultiplier = md.fleeMultiplier;
+            g.GetComponent<ShootingEnemy>().enabled = md.shooting;
+            g.GetComponent<MeleeEnemy>().enabled = !md.shooting;
 
-            se.moveSpeed = md.moveSpeed;
-            se.fleeSpeed = md.fleeSpeed;
-            se.flee = md.flee;
+            if (md.shooting)
+            {
+                SetShootingData(g, meleeShootingModeData);
+            } else
+            {
+                MeleeEnemy se = g.GetComponent<MeleeEnemy>();
+                se.attackSpeed = md.attackSpeed;
+                se.attackDelay = md.attackDelay;
+                se.knockback = md.knockback;
+                se.attackRange = md.attackRange;
+                se.followRange = md.followRange;
+                se.fleeRange = md.fleeRange;
+                se.fleeMultiplier = md.fleeMultiplier;
 
-            se.damage = md.damage;
+                se.moveSpeed = md.moveSpeed;
+                se.fleeSpeed = md.fleeSpeed;
+                se.flee = md.flee;
+
+                se.damage = md.damage;
+            }
         }
     }
 }
