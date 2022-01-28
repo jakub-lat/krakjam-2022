@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using Cyberultimate.Unity;
 using UnityEngine.AI;
-using UnityEditor.AI;
 
 [System.Serializable]
 public struct L
@@ -62,12 +61,15 @@ public class GenerateRoom : MonoSingleton<GenerateRoom>
     {
         Floor f = GenerateStruct(height, width);
         GenerateFloor(f);
-
+        
 
 
         // need replacement with navmeshsurface! CAN'T BUILD
         UnityEditor.AI.NavMeshBuilder.ClearAllNavMeshes();
         UnityEditor.AI.NavMeshBuilder.BuildNavMesh();
+
+        //GetComponent<NavMeshSurface>().BuildNavMesh();
+
         EnemySpawner.Current.SetupSpawners(transform.position, width, height, spaceX, spaceZ, spawnerCount);
     }
 
