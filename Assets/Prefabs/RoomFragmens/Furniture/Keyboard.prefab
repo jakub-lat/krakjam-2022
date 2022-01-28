@@ -77,6 +77,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 6c1f0c351722b554db256485f246aea0,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 0a7a0ee17ddcb9042a335bd19fad48da, type: 2}
     - target: {fileID: 919132149155446097, guid: 6c1f0c351722b554db256485f246aea0,
         type: 3}
       propertyPath: m_Name
@@ -90,20 +95,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 2190595600279669590}
   m_PrefabAsset: {fileID: 0}
---- !u!64 &6525305283421194057
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1344296753972196871}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: -166887373798719108, guid: 6c1f0c351722b554db256485f246aea0, type: 3}
 --- !u!54 &2305891171425616452
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -120,6 +111,20 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!64 &6525305283421194057
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1344296753972196871}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -166887373798719108, guid: 6c1f0c351722b554db256485f246aea0, type: 3}
 --- !u!114 &5482504043265140913
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -132,3 +137,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb5e425a2fa0b6e4c8f8a40b865633dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &6222496682482671052
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1344296753972196871}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb011804779f4b3b9a03b0a9d6cb0933, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  materials:
+    normal: {fileID: 2100000, guid: 0a7a0ee17ddcb9042a335bd19fad48da, type: 2}
+    psycho: {fileID: 2100000, guid: 209d2e9c93ef12a41986296d22cf5595, type: 2}

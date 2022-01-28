@@ -45,7 +45,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5039aead7547c5049b40e9649158d090, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minRangeFromPlayer: 30
+  minRangeFromPlayer: 45
   posY: 2
   shootingEnemyAmount: 5
   meleeEnemyAmount: 7
@@ -78,7 +78,7 @@ MonoBehaviour:
       magazine: 1
       dispersion: 40
       attackRange: 30
-      followRange: 40
+      followRange: 30
       fleeRange: 5
       fleeMultiplier: 2
       moveSpeed: 3
@@ -108,7 +108,7 @@ MonoBehaviour:
       attackDelay: 0.1
       knockback: 1
       attackRange: 1
-      followRange: 45
+      followRange: 25
       fleeRange: -1
       fleeMultiplier: 5
       moveSpeed: 4
@@ -120,7 +120,7 @@ MonoBehaviour:
       attackDelay: 0.1
       knockback: 1
       attackRange: 1
-      followRange: 45
+      followRange: 25
       fleeRange: -1
       fleeMultiplier: 5
       moveSpeed: 6
