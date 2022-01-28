@@ -26,7 +26,6 @@ public abstract class EnemyAI : MonoBehaviour
 
     protected bool dead { get { return e.dead; } }
     protected bool attacked;
-    private bool fleeing = false;
 
     protected Enemy e;
 
@@ -42,26 +41,21 @@ public abstract class EnemyAI : MonoBehaviour
         RaycastHit hit;
         RaycastHit hit2;
         float dist = Vector3.Distance(transform.position, player.transform.position);
-        if (!Physics.Raycast(transform.position, player.transform.position, out hit2, default, attackMask) && dist > followRange) return;
+
+        Physics.Raycast(transform.position, player.transform.position, out hit2, default, attackMask);
+        if ((!hit2.transform || playerMask != (playerMask | (1 << hit2.transform.gameObject.layer))) && dist > followRange) return;
 
         
         Physics.SphereCast(lookPoint.position, 0.1f, lookPoint.transform.forward /100, out hit, attackRange, attackMask);
 
-        if (fleeing)
+        if (flee && dist<=fleeRange)
         {
             RunFromPlayer();
-            fleeing = false;
             return;
         }
 
         if (hit.transform && playerMask == (playerMask | (1 << hit.transform.gameObject.layer)))
         {
-            if(flee && dist <= fleeRange)
-            {
-                fleeing = true;
-                return;
-            }
-
             agent.speed = moveSpeed;
             transform.LookAt(new Vector3(player.transform.position.x, transform.position.y, player.transform.position.z));
             Attack();
