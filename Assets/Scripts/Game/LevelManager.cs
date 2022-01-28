@@ -42,7 +42,6 @@ namespace Game
             NextLevel();
             if (!Scoreboard.GameScoreboard.Current.runDataSet)
             {
-                Debug.Log("OKKKKKKKKKKKKK");
                 Scoreboard.GameScoreboard.Current.NewRun();
             }
         }
@@ -76,7 +75,7 @@ namespace Game
             finishElevator.elevatorRemover.Remove();
             startingElevator.elevatorRemover.Remove();
             
-            EnemySpawner.Current.transform.KillAllChildren();
+            EnemySpawner.Current.KillAll();
             EnemySpawner.Current.StartSpawning();
 
             GenerateRoom.Current.RefreshMesh();

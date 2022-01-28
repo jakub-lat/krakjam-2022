@@ -113,4 +113,11 @@ public class EnemySpawner : MonoSingleton<EnemySpawner>
             spawnpoints.Add(npos);
         }
     }
+
+    public void KillAll()
+    {
+        transform.KillAllChildren();
+        shootingEnemies.Clear();
+        meleeEnemies.Clear();
+    }
 }
