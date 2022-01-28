@@ -18,6 +18,7 @@ namespace WorldChange
         private void Awake()
         {
             meshRenderer = GetComponent<MeshRenderer>();
+            DOTween.SetTweensCapacity(2500, 100);
         }
         
 

@@ -8,12 +8,12 @@ public class PopupManager : MonoSingleton<PopupManager>
     [SerializeField]
     private string poolTag = "PopupText";
 
-    public void SpawnStandardDamage(Enemy enemy)
+    [SerializeField]
+    private float offset;
+
+    public void SpawnStandardDamage(Enemy enemy, int dmg)
     {
-        GameObject obj = ObjectPooler.Current.SpawnPool(poolTag, new Vector3(0, 1, 0), Quaternion.identity);
-        obj.transform.position = new Vector3(0, 1, 0);
-        obj.transform.localPosition = new Vector3(0, 1, 0);
-        
-        obj.transform.SetParent(enemy.PopupCanvas.transform);
+        GameObject obj = ObjectPooler.Current.SpawnPool(poolTag, enemy.transform.position + new Vector3(0, 1.5f, 0), enemy.transform.rotation);
+        obj.GetComponent<TextMesh>().text = dmg.ToString();
     }
 }

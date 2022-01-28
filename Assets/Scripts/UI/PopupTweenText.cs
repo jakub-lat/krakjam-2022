@@ -8,4 +8,9 @@ public class PopupTweenText : MonoBehaviour
     {
         print("test");
     }
+
+    protected void Start()
+    {
+        print("test2");
+    }
 }

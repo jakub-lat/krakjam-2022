@@ -58,6 +58,8 @@ namespace UsableItems
             if (isReloading)
             {
                 ReloadTimer();
+                if (GunUI.Current) GunUI.Current.SetInfo($"?? / {totalAmmo}");
+                return;
             }
 
             // todo nie robić tego w update
@@ -120,9 +122,9 @@ namespace UsableItems
                 if (hit.collider.gameObject.CompareTag("Enemy"))
                 {
                     Enemy enemy = hit.collider.GetComponent<Enemy>();
-                    enemy.GotHit(damage);
+                    enemy?.GotHit(damage);
                     HitmarkManager.Current.GetNormalHit();
-                    PopupManager.Current.SpawnStandardDamage(enemy);
+                    PopupManager.Current.SpawnStandardDamage(enemy, (int)damage);
                     GameObject particle = ObjectPooler.Current.SpawnPool(hitParticlePoolingTag, hit.point,
                         Quaternion.LookRotation(hit.normal));
                 }

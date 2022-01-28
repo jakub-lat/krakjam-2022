@@ -71,8 +71,8 @@ namespace Game
                     .OnComplete(() =>
                     {
                         Open();
-                    });
-            });
+                    }).SetLink(this.gameObject);
+            }).SetLink(this.gameObject);
         }
 
         private void UpdateFloorText()

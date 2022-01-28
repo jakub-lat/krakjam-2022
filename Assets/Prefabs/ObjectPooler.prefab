@@ -57,6 +57,10 @@ MonoBehaviour:
   - tag: HitParticle
     prefab: {fileID: 38504765424735230, guid: 3c70e2aef469d484487812a59cdffcd6, type: 3}
     size: 150
+  - tag: PopupText
+    prefab: {fileID: 1149482461466763063, guid: 506927d6b7721154880962c83086db37,
+      type: 3}
+    size: 25
 --- !u!114 &91497220
 MonoBehaviour:
   m_ObjectHideFlags: 0
