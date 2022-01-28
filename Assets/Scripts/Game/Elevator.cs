@@ -46,7 +46,7 @@ namespace Game
 
         private void Print(string text)
         {
-            // Debug.Log($"{gameObject.name} (active: {active}): {text}");
+            Debug.Log($"{gameObject.name} (active: {active}): {text}");
         }
 
         public void OnTriggerEnter(Collider other)
@@ -71,8 +71,9 @@ namespace Game
 
         public void Use()
         {
-            Print("use");
             if (!active) return;
+            
+            Print("use");
 
             active = false;
             
@@ -83,12 +84,14 @@ namespace Game
             exitBlock.SetActive(true);
             Close().OnComplete(() =>
             {
+                Print("closed");
                 LevelManager.Current.NextLevel();
                 floorText.rectTransform.DOAnchorPos(floorTextEndPos, animDuration)
                     .SetEase(Ease.OutCirc)
                     .SetDelay(startMovingDelay)
                     .OnComplete(() =>
                     {
+                        Print("floor text completed - opening");
                         Open();
                     }).SetLink(this.gameObject);
             }).SetLink(this.gameObject);
