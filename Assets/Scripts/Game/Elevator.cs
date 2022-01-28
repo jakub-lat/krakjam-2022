@@ -58,7 +58,7 @@ namespace Game
 
         public void OnTriggerEnter(Collider other)
         {
-            //Print("trigger enter");
+            Print("trigger enter");
             if (!active) return;
 
             if (other.gameObject.CompareTag("Player"))
@@ -80,7 +80,7 @@ namespace Game
 
         public void OnTriggerExit(Collider other)
         {
-            //Print("trigger exit");
+            Print("trigger exit");
             if (!active && other.gameObject.CompareTag("Player"))
             {
                 Invoke(nameof(Close), 0.5f);
@@ -91,7 +91,7 @@ namespace Game
         {
             if (!active) return;
             
-            //Print("use");
+            Print("use");
 
             active = false;
             
@@ -102,14 +102,14 @@ namespace Game
             exitBlock.SetActive(true);
             Close().OnComplete(() =>
             {
-                //Print("closed");
+                Print("closed");
                 LevelManager.Current.NextLevel();
                 floorText.rectTransform.DOAnchorPos(floorTextEndPos, animDuration)
                     .SetEase(Ease.OutCirc)
                     .SetDelay(startMovingDelay)
                     .OnComplete(() =>
                     {
-                        //Print("floor text completed - opening");
+                        Print("floor text completed - opening");
                         Open();
                     }).SetLink(this.gameObject);
             }).SetLink(this.gameObject);
@@ -123,7 +123,7 @@ namespace Game
 
         public Tween Open()
         {
-            //Print("open");
+            // Print("open");
             
             music.DOFade(0, closeDelay).OnComplete(() => music.Stop());
             
@@ -141,7 +141,7 @@ namespace Game
 
         public Tween Close()
         {
-            //Print("close");
+            // Print("close");
             doorsLeft.DOLocalMove(doorsLeftClosedLocalPos, animDuration)
                 .SetLink(gameObject)
                 .SetEase(Ease.InOutQuint)

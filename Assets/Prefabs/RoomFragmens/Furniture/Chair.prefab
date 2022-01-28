@@ -92,6 +92,11 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 12
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 6793540cea18883439db17e53b25e4a9,
+        type: 3}
+      propertyPath: m_TagString
+      value: Interactable
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6793540cea18883439db17e53b25e4a9, type: 3}
 --- !u!1 &4718349018350452832 stripped
@@ -142,6 +147,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb5e425a2fa0b6e4c8f8a40b865633dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1479065033402603143
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4718349018350452832}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6544283c15ec4789a6e0b15a7be20561, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  destroyAfterUse: 0
+  interactionName: chair
+  rotationOffset: {x: -112.62, y: 43.9, z: -407.07}
+  positionOffset: {x: 0.217, y: -0.7, z: 0.32}
+  damage: 100
+  distance: 3
+  cooldownTime: 2
 --- !u!114 &4487137688776293597
 MonoBehaviour:
   m_ObjectHideFlags: 0
