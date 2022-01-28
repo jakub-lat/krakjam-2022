@@ -111,7 +111,7 @@ GameObject:
   - component: {fileID: 3469753854288922440}
   - component: {fileID: 3469753854288922439}
   - component: {fileID: 3423053912042478867}
-  m_Layer: 2
+  m_Layer: 9
   m_Name: Nose
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -220,7 +220,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3469753854891014475}
-  m_Layer: 9
+  m_Layer: 2
   m_Name: Shoot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -258,7 +258,7 @@ GameObject:
   - component: {fileID: 5646822652610660351}
   m_Layer: 9
   m_Name: ShootingEnemy
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

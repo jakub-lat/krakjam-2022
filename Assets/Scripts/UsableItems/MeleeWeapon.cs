@@ -1,6 +1,7 @@
 ﻿using System;
 using LetterBattle.Utility;
 using Player;
+using Unity.VisualScripting;
 using UnityEngine;
 
 namespace UsableItems
@@ -27,11 +28,11 @@ namespace UsableItems
             if (!cooldown.Push()) return;
             
             if (Physics.Raycast(CameraHelper.MainCamera.transform.position, CameraHelper.MainCamera.transform.forward,
-                out var hit, distance, HandController.Current.attackLayerMask))
+                out var hit, distance, HandController.Current.attackLayerMask, QueryTriggerInteraction.Ignore))
             {
                 if (hit.collider.CompareTag("Enemy"))
                 {
-                    Enemy enemy = hit.collider.transform.parent.GetComponent<Enemy>();
+                    Enemy enemy = hit.collider.transform.GetComponentInParent<Enemy>();
                     enemy.GotHit(damage);
                     HitmarkManager.Current.GetNormalHit();
                     PopupManager.Current.SpawnStandardDamage(enemy, damage);
