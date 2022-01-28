@@ -159,7 +159,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   materials:
     normal: {fileID: 2100000, guid: 68d6b0a721d286c47b42118c3d2e4a16, type: 2}
-    psycho: {fileID: 2100000, guid: 6360af2b5f9dbd24996e826e1be7a72c, type: 2}
+    psycho: {fileID: 2100000, guid: f6ab6992039257b4db248a01bc35a1f1, type: 2}
 --- !u!1 &1145065983118583363 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5415878176942649256, guid: 9e56d58dc460f684b950248b78a8c2e3,
@@ -180,7 +180,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   materials:
     normal: {fileID: 2100000, guid: 68d6b0a721d286c47b42118c3d2e4a16, type: 2}
-    psycho: {fileID: 2100000, guid: 6360af2b5f9dbd24996e826e1be7a72c, type: 2}
+    psycho: {fileID: 2100000, guid: f6ab6992039257b4db248a01bc35a1f1, type: 2}
 --- !u!1 &1693148215086660766 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6030956126282839413, guid: 9e56d58dc460f684b950248b78a8c2e3,
@@ -201,7 +201,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   materials:
     normal: {fileID: 2100000, guid: 68d6b0a721d286c47b42118c3d2e4a16, type: 2}
-    psycho: {fileID: 2100000, guid: 6360af2b5f9dbd24996e826e1be7a72c, type: 2}
+    psycho: {fileID: 2100000, guid: f6ab6992039257b4db248a01bc35a1f1, type: 2}
 --- !u!1 &2548873760293016203 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -1760224802791351456, guid: 9e56d58dc460f684b950248b78a8c2e3,
@@ -222,7 +222,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   materials:
     normal: {fileID: 2100000, guid: 68d6b0a721d286c47b42118c3d2e4a16, type: 2}
-    psycho: {fileID: 2100000, guid: 6360af2b5f9dbd24996e826e1be7a72c, type: 2}
+    psycho: {fileID: 2100000, guid: f6ab6992039257b4db248a01bc35a1f1, type: 2}
 --- !u!1 &5191645562345321658 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 9e56d58dc460f684b950248b78a8c2e3,
@@ -274,4 +274,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   materials:
     normal: {fileID: 2100000, guid: 863339fb8c0a6b946a41dd247c73964b, type: 2}
-    psycho: {fileID: 2100000, guid: 016941fcb9f097d47a38887bd19fa363, type: 2}
+    psycho: {fileID: 2100000, guid: f6ab6992039257b4db248a01bc35a1f1, type: 2}
