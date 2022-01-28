@@ -48,10 +48,13 @@ public class GenerateRoom : MonoSingleton<GenerateRoom>
     public int windowSeparation = 4;
     public bool debug = false;
 
+    private NavMeshSurface surface;
+
     private new void Awake()
     {
         base.Awake();
         fragments = PuzzlesToFragments(puzzleObj);
+        surface = GetComponent<NavMeshSurface>();
     }
 
     Dictionary<int, List<Square>> leftSqMask = new Dictionary<int, List<Square>>();
@@ -62,13 +65,11 @@ public class GenerateRoom : MonoSingleton<GenerateRoom>
         Floor f = GenerateStruct(height, width);
         GenerateFloor(f);
         
+        /*UnityEditor.AI.NavMeshBuilder.ClearAllNavMeshes();
+        UnityEditor.AI.NavMeshBuilder.BuildNavMesh();*/
 
-
-        // need replacement with navmeshsurface! CAN'T BUILD
-        UnityEditor.AI.NavMeshBuilder.ClearAllNavMeshes();
-        UnityEditor.AI.NavMeshBuilder.BuildNavMesh();
-
-        //GetComponent<NavMeshSurface>().BuildNavMesh();
+        surface.RemoveData();
+        surface.BuildNavMesh();
 
         EnemySpawner.Current.SetupSpawners(transform.position, width, height, spaceX, spaceZ, spawnerCount);
     }
