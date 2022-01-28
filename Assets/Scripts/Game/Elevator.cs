@@ -77,7 +77,7 @@ namespace Game
             active = false;
             
             music.Play();
-            music.volume = 1;
+            music.DOFade(1, closeDelay);
 
             UpdateFloorText();
             exitBlock.SetActive(true);
