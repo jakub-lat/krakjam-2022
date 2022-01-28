@@ -258,7 +258,7 @@ GameObject:
   - component: {fileID: 5646822652610660351}
   m_Layer: 9
   m_Name: ShootingEnemy
-  m_TagString: Enemy
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -407,9 +407,10 @@ GameObject:
   - component: {fileID: 2217058394012131726}
   - component: {fileID: 832550722777320050}
   - component: {fileID: 9065211083911194158}
+  - component: {fileID: 8544428689710902352}
   m_Layer: 9
   m_Name: Body
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -494,3 +495,17 @@ MonoBehaviour:
   materials:
     normal: {fileID: 2100000, guid: 420f798c616e8ae4ca7d808e52d22e0b, type: 2}
     psycho: {fileID: 2100000, guid: 69b5c5430ae6bac40966a72a9230c29a, type: 2}
+--- !u!136 &8544428689710902352
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7800815433300636657}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.5
+  m_Height: 2.6102855
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.30514276, z: 0}

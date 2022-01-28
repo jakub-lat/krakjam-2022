@@ -34,7 +34,7 @@ public class PopupManager : MonoSingleton<PopupManager>
 
     private TextMesh GetFundaments(Enemy enemy, int dmg, Vector3 maxScale, float positionX)
     {
-        GameObject obj = ObjectPooler.Current.SpawnPool(poolTag, enemy.transform.position + new Vector3(positionX, 1.5f, 0), enemy.transform.rotation);
+        GameObject obj = ObjectPooler.Current.SpawnPool(poolTag, enemy.transform.position + new Vector3(positionX, 0, 0), enemy.transform.rotation);
         
         TextMesh text = obj.GetComponent<TextMesh>();
         text.transform.localScale = new Vector3(0, 0, 0);

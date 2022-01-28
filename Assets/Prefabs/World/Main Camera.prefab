@@ -463,7 +463,7 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1676685123329301590}
   m_PrefabAsset: {fileID: 0}
---- !u!95 &2960004449432170303
+--- !u!95 &2039787120387760999
 Animator:
   serializedVersion: 4
   m_ObjectHideFlags: 0
@@ -483,7 +483,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!95 &2039787120387760999
+--- !u!95 &2960004449432170303
 Animator:
   serializedVersion: 4
   m_ObjectHideFlags: 0
@@ -517,8 +517,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5793938111607194644, guid: 7b3385f143aeb9b45af21723606be603,
         type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5793938111607194644, guid: 7b3385f143aeb9b45af21723606be603,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5793938111607194644, guid: 7b3385f143aeb9b45af21723606be603,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5793938111607194644, guid: 7b3385f143aeb9b45af21723606be603,
+        type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 5793938111607194644, guid: 7b3385f143aeb9b45af21723606be603,
         type: 3}
@@ -528,7 +543,7 @@ PrefabInstance:
     - target: {fileID: 5793938111607194644, guid: 7b3385f143aeb9b45af21723606be603,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 2.63
+      value: 2.630003
       objectReference: {fileID: 0}
     - target: {fileID: 5793938111607194644, guid: 7b3385f143aeb9b45af21723606be603,
         type: 3}
@@ -538,17 +553,17 @@ PrefabInstance:
     - target: {fileID: 5793938111607194644, guid: 7b3385f143aeb9b45af21723606be603,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 5793938111607194644, guid: 7b3385f143aeb9b45af21723606be603,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 5793938111607194644, guid: 7b3385f143aeb9b45af21723606be603,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 5793938111607194644, guid: 7b3385f143aeb9b45af21723606be603,
         type: 3}
@@ -568,7 +583,7 @@ PrefabInstance:
     - target: {fileID: 5793938111607194645, guid: 7b3385f143aeb9b45af21723606be603,
         type: 3}
       propertyPath: m_Name
-      value: Particle System
+      value: Jojo
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7b3385f143aeb9b45af21723606be603, type: 3}
