@@ -115,15 +115,18 @@ namespace UsableItems
 
             var trail = Instantiate(trailPrefab, trailSpawnPoint.position, Quaternion.identity);
 
-            if (Physics.Raycast(CameraHelper.MainCamera.transform.position, CameraHelper.MainCamera.transform.forward, out var hit) && !hit.collider.isTrigger)
+            if (Physics.Raycast(CameraHelper.MainCamera.transform.position, CameraHelper.MainCamera.transform.forward,
+                out var hit, float.PositiveInfinity, layerMask,
+                QueryTriggerInteraction.Ignore))
             {
                 // WE NEED END VALUE NOT DIRECTION
-                trail.transform.DOMove(hit.point, trailDurationMultiplier * Vector3.Distance(trail.transform.position, hit.point))
-                   .SetLink(gameObject);
+                trail.transform.DOMove(hit.point,
+                        trailDurationMultiplier * Vector3.Distance(trail.transform.position, hit.point))
+                    .SetLink(gameObject);
 
                 if (hit.collider.gameObject.CompareTag("Enemy"))
                 {
-                    Enemy enemy = hit.collider.transform.parent.GetComponent<Enemy>();
+                    Enemy enemy = hit.collider.transform.GetComponentInParent<Enemy>();
                     enemy.GotHit(damage);
                     HitmarkManager.Current.GetNormalHit();
                     PopupManager.Current.SpawnStandardDamage(enemy, (int)damage);
@@ -132,7 +135,7 @@ namespace UsableItems
                 }
                 else if (hit.collider.gameObject.CompareTag("EnemyHead"))
                 {
-                    Enemy enemy = hit.collider.transform.parent.GetComponent<Enemy>();
+                    Enemy enemy = hit.collider.transform.GetComponentInParent<Enemy>();
                     enemy.GotHit(headshotDamage);
                     PopupManager.Current.SpawnHeadshotDamage(enemy, (int)headshotDamage);
                     HitmarkManager.Current.GetHeadshotHit();
