@@ -49,6 +49,9 @@ MonoBehaviour:
   posY: 2
   shootingEnemyAmount: 5
   meleeEnemyAmount: 7
+  elevatorEnemiesTime: 20
+  elevatorEnemies: {fileID: 4224456082400782636, guid: 66618cc24177e9045a3972843a05ca79,
+    type: 3}
   shootingEnemy: {fileID: 3469753855458287578, guid: d5589d93f9ef0a9458419984bd0d09f5,
     type: 3}
   meleeEnemy: {fileID: 5494818868886480629, guid: 54e4e1fb6193b7f4e848e7c158924667,

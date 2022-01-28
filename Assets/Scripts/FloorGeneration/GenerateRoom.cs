@@ -86,12 +86,14 @@ public class GenerateRoom : MonoSingleton<GenerateRoom>
 
         GenerateFloor(floors[level]);
 
-        surface.RemoveData();
-        surface.BuildNavMesh();
-
         EnemySpawner.Current.SetupSpawners(transform.position, width, height, spaceX, spaceZ, spawnerCount);
     }
 
+    public void RefreshMesh()
+    {
+        surface.RemoveData();
+        surface.BuildNavMesh();
+    }
 
     public void GenerateFloor(Floor f)
     {
