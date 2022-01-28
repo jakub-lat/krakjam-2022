@@ -1,5 +1,7 @@
-﻿using Cyberultimate.Unity;
+﻿using System;
+using Cyberultimate.Unity;
 using Scoreboard;
+using UI;
 using UnityEngine;
 
 namespace Player
@@ -7,13 +9,16 @@ namespace Player
     public class PlayerHealth : MonoSingleton<PlayerHealth>
     {
         [SerializeField] private float health;
+        [SerializeField] private float maxHealth;
         public float Health
         {
             get => health;
             set
             {
-                if (value <= 0) Die();
-                else health = value;
+                health = Math.Min(value, maxHealth);
+                PercentageOverlay.Get(OverlayType.Health).UpdateAmount(1 - (health / maxHealth));
+
+                if (health <= 0) Die();
             }
         }
 
