@@ -372,16 +372,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1545557203}
     m_Modifications:
-    - target: {fileID: 728314931, guid: 86b8cdb22faebf6478e55220e296baa1, type: 3}
-      propertyPath: objects.Array.data[0].count
-      value: 15
-      objectReference: {fileID: 0}
-    - target: {fileID: 1475010136245286752, guid: 86b8cdb22faebf6478e55220e296baa1,
-        type: 3}
-      propertyPath: m_NavMeshData
-      value: 
-      objectReference: {fileID: 23800000, guid: 985982f8bca21fd46bc9e28080303896,
-        type: 2}
     - target: {fileID: 5052492125061912269, guid: 86b8cdb22faebf6478e55220e296baa1,
         type: 3}
       propertyPath: m_RootOrder

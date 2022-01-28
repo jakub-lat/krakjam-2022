@@ -80,7 +80,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objects:
   - type: 1
-    count: 8
+    count: 15
     prefab: {fileID: 6090475789755086876, guid: 773440e19a61f7d45a17d9467543ebdf,
       type: 3}
   - type: 0
@@ -102,7 +102,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_AgentTypeID: 0
-  m_CollectObjects: 2
+  m_CollectObjects: 0
   m_Size: {x: 10, y: 10, z: 10}
   m_Center: {x: 0, y: 2, z: 0}
   m_LayerMask:
@@ -117,4 +117,4 @@ MonoBehaviour:
   m_OverrideVoxelSize: 0
   m_VoxelSize: 0.16666667
   m_BuildHeightMesh: 0
-  m_NavMeshData: {fileID: 23800000, guid: b9d8958157ed0bd4ebe67b47b44edc09, type: 2}
+  m_NavMeshData: {fileID: 23800000, guid: 985982f8bca21fd46bc9e28080303896, type: 2}
