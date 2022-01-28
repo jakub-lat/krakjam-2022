@@ -7,6 +7,7 @@ using WorldChange;
 public class PlayerPropertiesData
 {
     public float moveSpeed;
+    public float sprintSpeed;
 }
 
 public class ChangePlayerProperties : WorldChangeLogic
@@ -25,5 +26,6 @@ public class ChangePlayerProperties : WorldChangeLogic
     {
         var properties = data[type];
         fpsc.MoveSpeed = properties.moveSpeed;
+        fpsc.SprintSpeed = properties.sprintSpeed;
     }
 }

@@ -85,7 +85,11 @@ namespace Game
         {
             doorsLeft.DOLocalMove(doorsLeftOpenLocalPos, animDuration)
                 .SetLink(gameObject)
-                .SetEase(Ease.InOutQuint);
+                .SetEase(Ease.InOutQuint).OnComplete(() =>
+                {
+                    exitBlock.SetActive(false);
+                });
+            
             return doorsRight.DOLocalMove(doorsRightOpenLocalPos, animDuration)
                 .SetLink(gameObject)
                 .SetEase(Ease.InOutQuint);
