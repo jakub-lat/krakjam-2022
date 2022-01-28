@@ -65,16 +65,16 @@ namespace Game
             finishElevator.transform.position = newElevatorPos;
 
             var levelDifficulty = difficulty.Evaluate(CurrentLevel);
-
             GenerateRoom.Current.transform.KillAllChildren();
-            GenerateRoom.Current.Generate(CurrentLevel-1);
+            ObjectGeneration.Current.ClearObjects();
+            GenerateRoom.Current.Generate(CurrentLevel - 1);
             GenerateRoom.Current.RefreshMesh();
-
             ObjectGeneration.Current.GenerateObjects();
 
+            
             finishElevator.elevatorRemover.Remove();
             startingElevator.elevatorRemover.Remove();
-            
+
             EnemySpawner.Current.KillAll();
             EnemySpawner.Current.StartSpawning();
 

@@ -33,6 +33,12 @@ public class ObjectGeneration : MonoSingleton<ObjectGeneration>
         dict[ObjectType.Pills] = new List<GameObject>();
     }
 
+    public void ClearObjects()
+    {
+        dict[ObjectType.Ammo] = new List<GameObject>();
+        dict[ObjectType.Pills] = new List<GameObject>();
+    }
+
     public void GenerateObjects()
     {
         foreach (GenObject go in objects) {
