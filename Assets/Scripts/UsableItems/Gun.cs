@@ -122,7 +122,7 @@ namespace UsableItems
                 if (hit.collider.gameObject.CompareTag("Enemy"))
                 {
                     Enemy enemy = hit.collider.GetComponent<Enemy>();
-                    enemy?.GotHit(damage);
+                    enemy.GotHit(damage);
                     HitmarkManager.Current.GetNormalHit();
                     PopupManager.Current.SpawnStandardDamage(enemy, (int)damage);
                     GameObject particle = ObjectPooler.Current.SpawnPool(hitParticlePoolingTag, hit.point,
@@ -130,8 +130,9 @@ namespace UsableItems
                 }
                 else if (hit.collider.gameObject.CompareTag("EnemyHead"))
                 {
-                    print("BOOM! HEADSHOT!");
-                    hit.collider.transform.parent.GetComponent<Enemy>().GotHit(headshotDamage);
+                    Enemy enemy = hit.collider.transform.parent.GetComponent<Enemy>();
+                    enemy.GotHit(headshotDamage);
+                    PopupManager.Current.SpawnHeadshotDamage(enemy, (int)headshotDamage);
                     HitmarkManager.Current.GetHeadshotHit();
                     GameObject particle = ObjectPooler.Current.SpawnPool(hitParticlePoolingTag, hit.point,
                         Quaternion.LookRotation(hit.normal));

@@ -12,8 +12,6 @@ public class Enemy : MonoBehaviour
     public bool gotHit = false;
     [SerializeField] private float hp=100;
     [SerializeField] private GameObject myHead = null;
-    [SerializeField] private Canvas popupCanvas = null;
-    public Canvas PopupCanvas => popupCanvas;
 
     private void Start()
     {
