@@ -1,8 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
+using Newtonsoft.Json;
 
 namespace Scoreboard
 {
+    [Serializable]
+    public class ScoreboardForLevelResponse
+    {
+        public GameRunLevel player;
+        public List<GameRunLevel> others;
+    }
+    
     [Serializable]
     public class Player
     {
@@ -24,12 +32,18 @@ namespace Scoreboard
         public int deaths;
         public int score;
         public List<GameRunLevel> levels;
+        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
+        public Player player;
     }
 
     [Serializable]
     public class GameRunLevel
     {
+        public int position;
         public long id;
+        public long playerID;
+        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
+        public Player player;
         public long gameRunID;
         public long startTime;
         public long endTime;

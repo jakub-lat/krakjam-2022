@@ -1,5 +1,6 @@
 ﻿using System;
 using DG.Tweening;
+using Scoreboard;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -43,6 +44,7 @@ namespace Game
 
             if (openOnStart)
             {
+                GetComponent<ElevatorScoreboard>().Hide();
                 music.Play();
                 Invoke(nameof(Open), startWaitTime);
                 exitBlock.SetActive(false);
@@ -62,7 +64,17 @@ namespace Game
             if (other.gameObject.CompareTag("Player"))
             {
                 Open();
+                if (LevelManager.Current.CurrentLevel > 0)
+                {
+                    RunScoreboardTasks();
+                }
             }
+        }
+
+        private async void RunScoreboardTasks()
+        {
+            await GameScoreboard.Current.PostLevelData();
+            await GetComponent<ElevatorScoreboard>().Show(LevelManager.Current.CurrentLevel);
         }
 
         public void OnTriggerExit(Collider other)

@@ -5,13 +5,14 @@ using System.Text;
 using System.Threading.Tasks;
 using Cyberultimate.Unity;
 using Game;
+using Newtonsoft.Json;
 using UnityEngine;
 
 namespace Scoreboard
 {
     public class GameScoreboard : MonoSingleton<GameScoreboard>
     {
-        private const string BaseUrl = "https://krakjam2022scoreboard.cubepotato.eu";
+        private const string BaseUrl = "https://krakjam2022scoreboard.cubepotato.eu"; // https://krakjam2022scoreboard.cubepotato.eu
 
         [SerializeField] private TextAsset configFile;
         private string Secret => configFile.text.Trim();
@@ -30,17 +31,24 @@ namespace Scoreboard
         {
             public string name;
         }
+
+        protected override void Awake()
+        {
+            base.Awake();
+            Debug.Log($"token: {Token}");
+        }
+
         public async void Register(string name)
         {
             using var client = new HttpClient();
-            
-            var body = JsonUtility.ToJson(new RegisterBody { name = name });
+
+            var body = JsonConvert.SerializeObject(new RegisterBody { name = name });
             var res = await client.PostAsync(BaseUrl + "/register",
                 new StringContent(body, Encoding.UTF8, "application/json"));
-            
+
             res.EnsureSuccessStatusCode();
-            var data = JsonUtility.FromJson<Player>(await res.Content.ReadAsStringAsync());
-            
+            var data = JsonConvert.DeserializeObject<Player>(await res.Content.ReadAsStringAsync());
+
             PlayerPrefs.SetString(TokenKey, data.token);
             Debug.Log("registered, token: " + data.token);
         }
@@ -52,6 +60,7 @@ namespace Scoreboard
                 startTime = DateTimeOffset.UtcNow.ToUnixTimeSeconds(),
             };
             runData = await PostData("/run", runData);
+            // Debug.Log("SCOREBOARD: new run: "+JsonConvert.SerializeObject(runData));
             levelData = new GameRunLevel
             {
                 startTime = DateTimeOffset.UtcNow.ToUnixTimeSeconds(),
@@ -59,11 +68,12 @@ namespace Scoreboard
             };
         }
 
-        public async void PostLevelData()
+        public async Task PostLevelData()
         {
             levelData.endTime = DateTimeOffset.UtcNow.ToUnixTimeSeconds();
             levelData.gameRunID = runData.id;
-            await PostData("/level", levelData);
+            var res = await PostData("/level", levelData);
+            // Debug.Log("SCOREBOARD: new level: "+JsonConvert.SerializeObject(res));
             levelData = new GameRunLevel
             {
                 level = LevelManager.Current.CurrentLevel,
@@ -75,7 +85,15 @@ namespace Scoreboard
         {
             using var client = new HttpClient();
             var res = await client.GetStringAsync(BaseUrl);
-            return JsonUtility.FromJson<List<Player>>(res);
+            return JsonConvert.DeserializeObject<List<Player>>(res);
+        }
+        
+        public async Task<ScoreboardForLevelResponse> GetScoreboardForLevel(int level, int count)
+        {
+            using var client = new HttpClient();
+            client.DefaultRequestHeaders.Add("Authorization", Token);
+            var res = await client.GetStringAsync(BaseUrl + $"/level/{level}?limit={count}");
+            return JsonConvert.DeserializeObject<ScoreboardForLevelResponse>(res);
         }
 
         public async Task<Player> GetCurrentPlayer()
@@ -84,8 +102,8 @@ namespace Scoreboard
 
             using var client = new HttpClient();
             client.DefaultRequestHeaders.Add("Authorization", Token);
-            var res = await client.GetStringAsync(BaseUrl+"/player");
-            return JsonUtility.FromJson<Player>(res);
+            var res = await client.GetStringAsync(BaseUrl + "/player");
+            return JsonConvert.DeserializeObject<Player>(res);
         }
 
         public async Task<T> PostData<T>(string path, T data)
@@ -95,7 +113,7 @@ namespace Scoreboard
             using var client = new HttpClient();
             client.DefaultRequestHeaders.Add("Authorization", Token);
 
-            var body = JsonUtility.ToJson(data);
+            var body = JsonConvert.SerializeObject(data);
 
             client.DefaultRequestHeaders.Add("X-Hash", BCrypt.Net.BCrypt.HashPassword(Secret + body));
 
@@ -105,10 +123,10 @@ namespace Scoreboard
             HandleError(res);
 
             var str = await res.Content.ReadAsStringAsync();
-            return JsonUtility.FromJson<T>(str);
+            return JsonConvert.DeserializeObject<T>(str);
         }
 
-        private void HandleError(HttpResponseMessage res)
+        private async void HandleError(HttpResponseMessage res)
         {
             try
             {
@@ -116,7 +134,7 @@ namespace Scoreboard
             }
             catch
             {
-                Debug.LogError(res.Content.ReadAsStringAsync());
+                Debug.LogError(await res.Content.ReadAsStringAsync());
                 throw;
             }
         }
