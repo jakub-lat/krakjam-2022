@@ -78,6 +78,7 @@ namespace Player
             if (CurrentItem == null)
             {
                 fist.Use();
+                PlayerAnim.Current.Punch();
             }
             else
             {

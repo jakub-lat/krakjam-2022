@@ -1,5 +1,6 @@
 ﻿using Cyberultimate.Unity;
 using System;
+using Player;
 using UnityEngine;
 #if ENABLE_INPUT_SYSTEM && STARTER_ASSETS_PACKAGES_CHECKED
 using UnityEngine.InputSystem;
@@ -125,7 +126,15 @@ namespace StarterAssets
 
         private void Move()
         {
-            if (_input.move == Vector2.zero) targetSpeed = 0.0f;
+            if (_input.move == Vector2.zero)
+            {
+                targetSpeed = 0.0f;
+                PlayerAnim.Current.SetIsWalking(false);
+            }
+            else
+            {
+                PlayerAnim.Current.SetIsWalking(true);
+            }
 
 
             float horizontalVelocity = new Vector3(_controller.velocity.x, 0.0f, _controller.velocity.z).magnitude;
