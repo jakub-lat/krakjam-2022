@@ -2,6 +2,7 @@
 using DG.Tweening;
 using LetterBattle.Utility;
 using Player;
+using StarterAssets;
 using UI;
 using UnityEngine;
 
@@ -148,7 +149,8 @@ namespace UsableItems
             else
             {
                 // todo fix
-                trail.transform.DOMove(Camera.main.transform.forward * 30f, trailDurationMultiplier * 30f).SetLink(gameObject);
+
+                trail.transform.DOMove(Camera.main.transform.forward.normalized * 30f, trailDurationMultiplier * 30f).SetLink(gameObject);
             }
         }
 
