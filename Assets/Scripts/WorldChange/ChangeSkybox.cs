@@ -9,11 +9,6 @@ namespace WorldChange
         [SerializeField] private WorldTypeDict<Material> skyboxes;
         [SerializeField] private float duration;
 
-        private void Start()
-        {
-            // RenderSettings.skybox = skyboxes[WorldTypeController.WorldType.Normal];
-        }
-
         public override void OnWorldTypeChange(WorldTypeController.WorldType type)
         {
             Debug.Log($"world changing to {type}");

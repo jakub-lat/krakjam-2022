@@ -50,7 +50,6 @@ namespace StarterAssets
 		[SerializeField]
 		private float crouchedHeight = 0;
 		private float defaultHeight;
-		private float normalSpeed;
 
 		[SerializeField]
 		private float crouchSpeed;
@@ -77,7 +76,6 @@ namespace StarterAssets
 			this.transform.eulerAngles = new Vector3(0, 90, 0);
 			_controller = GetComponent<CharacterController>();
 			defaultHeight = _controller.height;
-			normalSpeed = MoveSpeed;
 			_input = GetComponent<StarterAssetsInputs>();
 
 			_jumpTimeoutDelta = JumpTimeout;
@@ -132,10 +130,17 @@ namespace StarterAssets
 			_controller.Move((inputDirection.normalized * (_speed * Time.deltaTime) + new Vector3(0.0f, _verticalVelocity, 0.0f) * Time.deltaTime));
 		}
 
+		private Vector3 GetDirection()
+        {
+			return new Vector3(CameraHelper.MainCamera.transform.forward.x *
+			_input.move.y, 0, CameraHelper.MainCamera.transform.forward.z * _input.move.y)
+			+ CameraHelper.MainCamera.transform.right * _input.move.x;
+		}
+
 		private void ShowBarsEffect()
         {
 			// previous num: 9
-			if (_speed > SprintSpeed / 1.1f)
+			if (_speed > SprintSpeed / 1.07f)
             {
 				bars.Play();
             }
@@ -150,19 +155,21 @@ namespace StarterAssets
 		{
 			// To-Do: if you slide and change direction, then stop sliding.
 			// print(CameraHelper.MainCamera.transform.forward);
+			/*
 			if (_input.crouch)
             {
 				if (checkValue == 0)
                 {
-					checkValue = _secondSpeed;
+					checkValue = _speed;
 				}
 
 				// sliding
-				if (checkValue > MoveSpeed / 1.05f)
+				if (checkValue > MoveSpeed / 1.07f)
                 {
-					if (MoveSpeed < crouchSpeed)
+					print("sliding");
+					if (_speed < crouchSpeed)
                     {
-						MoveSpeed *= 1.05f;
+						_speed *= 1.05f; // nie powinienem tego robić, ale chuj.
 					}
 
 					checkValue -= Time.deltaTime * 1.4f;
@@ -170,7 +177,7 @@ namespace StarterAssets
 
 				else
                 {
-					MoveSpeed = normalSpeed / 1.5f;
+					_speed = MoveSpeed / 1.5f;
                 }
 
 				if (_controller.height > crouchedHeight)
@@ -182,13 +189,14 @@ namespace StarterAssets
 			else
             {
 				checkValue = 0;
-				MoveSpeed = normalSpeed;
+				_speed = MoveSpeed;
 				if (_controller.height < defaultHeight)
                 {
 					_controller.height += Time.deltaTime * 6;
 				}
 
 			}
+			*/
 		}
 
 		private void JumpAndGravity()

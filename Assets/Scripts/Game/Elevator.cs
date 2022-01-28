@@ -23,6 +23,9 @@ namespace Game
         
         public bool openOnStart;
         public bool active;
+
+        [SerializeField]
+        private float startWaitTime = 5f;
         
         private void Start()
         {
@@ -39,7 +42,7 @@ namespace Game
             if (openOnStart)
             {
                 music.Play();
-                Invoke(nameof(Open), 5f);
+                Invoke(nameof(Open), startWaitTime);
                 exitBlock.SetActive(false);
             }
         }
