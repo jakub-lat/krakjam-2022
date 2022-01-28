@@ -135,7 +135,7 @@ namespace StarterAssets
 		private void ShowBarsEffect()
         {
 			// previous num: 9
-			if (_speed > SprintSpeed / 1.15f)
+			if (_speed > SprintSpeed / 1.1f)
             {
 				bars.Play();
             }
