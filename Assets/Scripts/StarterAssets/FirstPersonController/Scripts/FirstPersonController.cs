@@ -1,5 +1,5 @@
 ﻿using Cyberultimate.Unity;
-using System.Collections;
+using System;
 using UnityEngine;
 #if ENABLE_INPUT_SYSTEM && STARTER_ASSETS_PACKAGES_CHECKED
 using UnityEngine.InputSystem;
@@ -197,6 +197,7 @@ namespace StarterAssets
                     {
                         targetSpeed = SlideSpeed;
                         print("sliding!");
+                        push.strength *= 5;
 
                         if ((Time.time > cooldownSlideValue))
                         {
@@ -209,6 +210,7 @@ namespace StarterAssets
 
                     else
                     {
+                        push.strength = normalPush;
                         cooldownSlideValue = Time.time + howLongSlide;
                         targetSpeed = crouchSpeed;
                     }
@@ -217,6 +219,7 @@ namespace StarterAssets
 
             else
             {
+                push.strength = normalPush;
                 targetSpeed = MoveSpeed;
 
                 if (_controller.height < defaultHeight)
