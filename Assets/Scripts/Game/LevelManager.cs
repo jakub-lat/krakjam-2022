@@ -57,7 +57,7 @@ namespace Game
             EnemySpawner.Current.transform.KillAllChildren();
             EnemySpawner.Current.StartSpawning(); 
 
-            startingElevator.Open();
+            // startingElevator.Open();
             startingElevator.active = false;
             finishElevator.active = true;
         }

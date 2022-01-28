@@ -95,7 +95,7 @@ public class GenerateRoom : MonoSingleton<GenerateRoom>
         for (float s = 1; s<int.MaxValue; s = Mathf.Pow(2,i) )
         {
             int curr = (int)Mathf.Floor(s);
-            if ((curr & f.rows[0].mtop)>0) //postaw œcianê
+            if ((curr & f.rows[0].mtop)>0) //postaw Å›cianÄ™
             {
                 GameObject toSpawn = boundaryWall;
                 if(windowCounter>=windowSeparation)

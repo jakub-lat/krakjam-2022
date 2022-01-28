@@ -39,8 +39,14 @@ namespace Game
             }
         }
 
+        private void Print(string text)
+        {
+            Debug.Log($"{gameObject.name} (active: {active}): {text}");
+        }
+
         public void OnTriggerEnter(Collider other)
         {
+            Print("trigger enter");
             if (!active) return;
 
             if (other.gameObject.CompareTag("Player"))
@@ -51,6 +57,7 @@ namespace Game
 
         public void OnTriggerExit(Collider other)
         {
+            Print("trigger exit");
             if (!active && other.gameObject.CompareTag("Player"))
             {
                 Invoke(nameof(Close), 0.5f);
@@ -59,7 +66,11 @@ namespace Game
 
         public void Use()
         {
+            Print("use");
             if (!active) return;
+
+            active = false;
+            
             UpdateFloorText();
             exitBlock.SetActive(true);
             Close().OnComplete(() =>
@@ -83,6 +94,7 @@ namespace Game
 
         public Tween Open()
         {
+            Print("open");
             doorsLeft.DOLocalMove(doorsLeftOpenLocalPos, animDuration)
                 .SetLink(gameObject)
                 .SetEase(Ease.InOutQuint).OnComplete(() =>
@@ -97,6 +109,7 @@ namespace Game
 
         public Tween Close()
         {
+            Print("close");
             doorsLeft.DOLocalMove(doorsLeftClosedLocalPos, animDuration)
                 .SetLink(gameObject)
                 .SetEase(Ease.InOutQuint)
