@@ -383,7 +383,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   initialDoseCount: 0
-  drugEffectTime: 30
+  drugEffectTime: 20
   addictionMaxTime: 120
   addictionEffectsStartTime: 100
 --- !u!114 &3847468548162195743
