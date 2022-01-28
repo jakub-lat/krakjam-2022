@@ -74,6 +74,7 @@ public class GenerateRoom : MonoSingleton<GenerateRoom>
         EnemySpawner.Current.SetupSpawners(transform.position, width, height, spaceX, spaceZ, spawnerCount);
     }
 
+
     public void GenerateFloor(Floor f)
     {
         float z = 0;
@@ -176,7 +177,7 @@ public class GenerateRoom : MonoSingleton<GenerateRoom>
                     toSpawn = window;
                     windowCounter = 0;
                 }
-                Instantiate(toSpawn, transform.position + new Vector3(width * spaceX * 4, 0, i * spaceZ*2), Quaternion.Euler(new Vector3(0, 270, 0)), transform);
+                Instantiate(toSpawn, transform.position + new Vector3(width * spaceX * 4 - spaceX, 0, i * spaceZ*2), Quaternion.Euler(new Vector3(0, 90, 0)), transform);
             }
             else if (f.rows[i].squares[width - 1].mright == 2)
             {
@@ -186,7 +187,7 @@ public class GenerateRoom : MonoSingleton<GenerateRoom>
                     toSpawn = window;
                     windowCounter = 0;
                 }
-                Instantiate(toSpawn, transform.position + new Vector3(width * spaceX * 4, 0, i * spaceZ*2+spaceZ), Quaternion.Euler(new Vector3(0, 270, 0)), transform);
+                Instantiate(toSpawn, transform.position + new Vector3(width * spaceX * 4 - spaceX, 0, i * spaceZ*2+spaceZ), Quaternion.Euler(new Vector3(0, 90, 0)), transform);
             }
             else if (f.rows[i].squares[width - 1].mright == 3)
             {
@@ -197,14 +198,14 @@ public class GenerateRoom : MonoSingleton<GenerateRoom>
                     toSpawn = window;
                     windowCounter = 1;
                 }
-                    Instantiate(toSpawn, transform.position + new Vector3(width * spaceX * 4, 0, i * spaceZ * 2), Quaternion.Euler(new Vector3(0, 270, 0)), transform);
+                    Instantiate(toSpawn, transform.position + new Vector3(width * spaceX * 4 - spaceX, 0, i * spaceZ * 2), Quaternion.Euler(new Vector3(0, 90, 0)), transform);
                 toSpawn = boundaryWall;
                 if (windowCounter >= windowSeparation)
                 {
                     toSpawn = window;
                     windowCounter = 0;
                 }
-                    Instantiate(toSpawn, transform.position + new Vector3(width * spaceX * 4, 0, i * spaceZ * 2 + spaceZ), Quaternion.Euler(new Vector3(0, 270, 0)), transform);
+                    Instantiate(toSpawn, transform.position + new Vector3(width * spaceX * 4 - spaceX, 0, i * spaceZ * 2 + spaceZ), Quaternion.Euler(new Vector3(0, 90, 0)), transform);
             }
             windowCounter++;
         }
