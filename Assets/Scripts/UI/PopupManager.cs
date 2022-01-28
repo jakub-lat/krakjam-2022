@@ -13,7 +13,20 @@ public class PopupManager : MonoSingleton<PopupManager>
 
     public void SpawnStandardDamage(Enemy enemy, int dmg)
     {
+        GetFundaments(enemy, dmg);
+    }
+
+    private TextMesh GetFundaments(Enemy enemy, int dmg)
+    {
         GameObject obj = ObjectPooler.Current.SpawnPool(poolTag, enemy.transform.position + new Vector3(0, 1.5f, 0), enemy.transform.rotation);
-        obj.GetComponent<TextMesh>().text = dmg.ToString();
+        TextMesh text = obj.GetComponent<TextMesh>();
+        text.text = dmg.ToString();
+        return text;
+    }
+
+    public void SpawnHeadshotDamage(Enemy enemy, int dmg)
+    {
+        TextMesh text = GetFundaments(enemy, dmg);
+        text.color = Color.yellow;
     }
 }
