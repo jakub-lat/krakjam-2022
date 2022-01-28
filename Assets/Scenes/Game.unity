@@ -1719,6 +1719,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 662663751270693956, guid: e679b0497d814c8429f0945848974d6a,
+        type: 3}
+      propertyPath: m_DefaultControlScheme
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 7648605819787973065, guid: e679b0497d814c8429f0945848974d6a,
         type: 3}
       propertyPath: m_RootOrder
@@ -1779,7 +1784,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: ScreenshotController
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 662663751270693956, guid: e679b0497d814c8429f0945848974d6a, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: e679b0497d814c8429f0945848974d6a, type: 3}
 --- !u!1 &2019534707 stripped
 GameObject:
