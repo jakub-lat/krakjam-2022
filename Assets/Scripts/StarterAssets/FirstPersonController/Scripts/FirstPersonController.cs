@@ -134,7 +134,8 @@ namespace StarterAssets
 
 		private void ShowBarsEffect()
         {
-			if (_speed > 9)
+			// previous num: 9
+			if (_speed > SprintSpeed / 1.15f)
             {
 				bars.Play();
             }
@@ -157,7 +158,7 @@ namespace StarterAssets
 				}
 
 				// sliding
-				if (checkValue > 7.5F)
+				if (checkValue > MoveSpeed / 1.05f)
                 {
 					if (MoveSpeed < crouchSpeed)
                     {

@@ -121,7 +121,7 @@ namespace UsableItems
                     
                 if (hit.collider.gameObject.CompareTag("Enemy"))
                 {
-                    Enemy enemy = hit.collider.GetComponent<Enemy>();
+                    Enemy enemy = hit.collider.transform.parent.GetComponent<Enemy>();
                     enemy.GotHit(damage);
                     HitmarkManager.Current.GetNormalHit();
                     PopupManager.Current.SpawnStandardDamage(enemy, (int)damage);

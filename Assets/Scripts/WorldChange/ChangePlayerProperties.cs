@@ -4,6 +4,7 @@ using Cinemachine;
 using Player;
 using UnityEngine;
 using WorldChange;
+using System.Collections;
 
 [Serializable]
 public class PlayerProperty
@@ -44,8 +45,15 @@ public class ChangePlayerProperties : WorldChangeLogic
     protected override void Start()
     {
         fpsc = GetComponent<FirstPersonController>();
-        noise = CinemachineVCamInstance.Current.Cam.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>();
+
         base.Start();
+        StartCoroutine(WaitTest());
+    }
+
+    private IEnumerator WaitTest()
+    {
+        yield return null;
+        noise = CinemachineVCamInstance.Current.Cam.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>();
     }
 
     public override void OnWorldTypeChange(WorldTypeController.WorldType type)
@@ -54,15 +62,20 @@ public class ChangePlayerProperties : WorldChangeLogic
         
         fpsc.MoveSpeed = currentProps.moveSpeed.value;
         fpsc.SprintSpeed = currentProps.sprintSpeed.value;
-
-        SetNoiseIfNull();
+        if (noise == null)
+        {
+            return;
+        }
         noise.m_AmplitudeGain = currentProps.cameraNoiseAmplitude.value;
         noise.m_FrequencyGain = currentProps.cameraNoiseFrequency.value;
     }
 
     private void Update()
     {
-        SetNoiseIfNull();
+        if (noise == null)
+        {
+            return;
+        }
         
         var props = currentProps;
         
@@ -72,13 +85,5 @@ public class ChangePlayerProperties : WorldChangeLogic
 
         noise.m_AmplitudeGain = props.cameraNoiseAmplitude.ChangeOverTime(noise.m_AmplitudeGain);
         noise.m_FrequencyGain = props.cameraNoiseFrequency.ChangeOverTime(noise.m_FrequencyGain);
-    }
-
-    private void SetNoiseIfNull()
-    {
-        if (noise == null)
-        {
-            noise = CinemachineVCamInstance.Current.Cam.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>();
-        }
     }
 }
