@@ -21,6 +21,9 @@ public abstract class EnemyAI : MonoBehaviour
     public float fleeSpeed = 5f;
     public bool flee = false;
 
+    [HideInInspector]
+    public bool isEnabled = true;
+
     protected bool dead { get { return e.dead; } }
     protected bool attacked;
     private bool fleeing = false;

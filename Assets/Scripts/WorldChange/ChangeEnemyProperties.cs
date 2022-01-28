@@ -103,8 +103,8 @@ public class ChangeEnemyProperties : WorldChangeLogic
         MeleeEnemyProperties md = meleeEnemyData[type];
         foreach (GameObject g in EnemySpawner.Current.meleeEnemies)
         {
-            g.GetComponent<ShootingEnemy>().enabled = md.shooting;
-            g.GetComponent<MeleeEnemy>().enabled = !md.shooting;
+            g.GetComponent<ShootingEnemy>().isEnabled = md.shooting;
+            g.GetComponent<MeleeEnemy>().isEnabled = !md.shooting;
 
             if (md.shooting)
             {

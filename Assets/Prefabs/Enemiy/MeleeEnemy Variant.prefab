@@ -242,7 +242,7 @@ PrefabInstance:
     - target: {fileID: 3469753855458287552, guid: d5589d93f9ef0a9458419984bd0d09f5,
         type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3469753855458287578, guid: d5589d93f9ef0a9458419984bd0d09f5,
         type: 3}
@@ -420,6 +420,7 @@ MonoBehaviour:
   moveSpeed: 3
   fleeSpeed: 5
   flee: 0
+  isEnabled: 1
   attackSpeed: 1.5
   attackDelay: 0.3
   knockback: 1
