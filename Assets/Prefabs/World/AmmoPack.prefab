@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 1639877660984890064}
   - component: {fileID: 1639877660984890079}
   - component: {fileID: 4995562224663505619}
+  - component: {fileID: 165399853870800424}
   m_Layer: 0
   m_Name: AmmoPack
   m_TagString: Interactable
@@ -63,7 +64,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 420f798c616e8ae4ca7d808e52d22e0b, type: 2}
+  - {fileID: 2100000, guid: 2a60fee154b3b2f43a83f296169d9973, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -113,3 +114,18 @@ MonoBehaviour:
   destroyAfterUse: 1
   interactionName: Ammo Pack
   amount: 30
+--- !u!114 &165399853870800424
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1639877660984890077}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb011804779f4b3b9a03b0a9d6cb0933, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  materials:
+    normal: {fileID: 2100000, guid: 2a60fee154b3b2f43a83f296169d9973, type: 2}
+    psycho: {fileID: 2100000, guid: d203e58890db20c478cdc38da0e15018, type: 2}
