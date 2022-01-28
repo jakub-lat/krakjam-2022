@@ -76,15 +76,11 @@ namespace StarterAssets
         private float _verticalVelocity;
         private float _terminalVelocity = 53.0f;
 
-        private float _secondSpeed;
-
         private float _jumpTimeoutDelta;
         private float _fallTimeoutDelta;
 
         private CharacterController _controller;
         private StarterAssetsInputs _input;
-
-        private float checkValue;
 
         private ParticleSystem bars = null;
 
@@ -126,14 +122,14 @@ namespace StarterAssets
             if (_input.move == Vector2.zero) targetSpeed = 0.0f;
 
 
-            _secondSpeed = new Vector3(_controller.velocity.x, 0.0f, _controller.velocity.z).magnitude;
+            float horizontalVelocity = new Vector3(_controller.velocity.x, 0.0f, _controller.velocity.z).magnitude;
 
             float speedOffset = 0.1f;
             float inputMagnitude = _input.analogMovement ? _input.move.magnitude : 1f;
 
-            if (_secondSpeed < targetSpeed - speedOffset || _secondSpeed > targetSpeed + speedOffset)
+            if (horizontalVelocity < targetSpeed - speedOffset || horizontalVelocity > targetSpeed + speedOffset)
             {
-                _speed = Mathf.Lerp(_secondSpeed, targetSpeed * inputMagnitude, Time.deltaTime * SpeedChangeRate);
+                _speed = Mathf.Lerp(horizontalVelocity, targetSpeed * inputMagnitude, Time.deltaTime * SpeedChangeRate);
                 _speed = Mathf.Round(_speed * 1000f) / 1000f;
             }
             else
@@ -224,7 +220,6 @@ namespace StarterAssets
                     _controller.height += Time.deltaTime * speedEndCrouch;
                 }
 
-                // cooldownCrouchValue = Time.time + waitForNextCrouch;
                 cooldownSlideValue = Time.time + howLongSlide;
             }
 
