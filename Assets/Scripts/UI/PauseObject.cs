@@ -20,10 +20,22 @@ public class PauseObject : MonoSingleton<PauseObject>
     [SerializeField]
     private Button scoreboardBtn = null;
 
+    [SerializeField]
+    private GameObject options = null;
+
     private float savedHeight;
     private float savedPositionY;
 
     [SerializeField] private Text statsText;
+
+    [SerializeField]
+    private Button optionsBtn = null;
+    private Text optionsTxt = null;
+
+    protected void Start()
+    {
+        optionsTxt = optionsBtn.transform.GetChild(0).GetComponent<Text>();
+    }
 
     public void OnOpen()
     {
@@ -46,6 +58,22 @@ public class PauseObject : MonoSingleton<PauseObject>
     {
         TimeScaling.Status.Unregister(PauseManager.Current.LastObject);
         SceneManager.LoadScene("Game");
+    }
+
+    public void OnOutOptions()
+    {
+        options.SetActive(false);
+        optionsBtn.onClick.RemoveAllListeners();
+        optionsBtn.onClick.AddListener(OnOptions);
+        optionsTxt.text = "Options";
+    }
+
+    public void OnOptions()
+    {
+        options.SetActive(true);
+        optionsBtn.onClick.RemoveAllListeners();
+        optionsBtn.onClick.AddListener(OnOutOptions);
+        optionsTxt.text = "Back";
     }
 
     public void OpenScoreboard()

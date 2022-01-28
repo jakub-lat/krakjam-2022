@@ -139,7 +139,6 @@ namespace StarterAssets
 
 		private void ShowBarsEffect()
         {
-			// previous num: 9
 			if (_speed > SprintSpeed / 1.07f)
             {
 				bars.Play();
@@ -153,11 +152,14 @@ namespace StarterAssets
 
 		private void Crouch()
 		{
-			// To-Do: if you slide and change direction, then stop sliding.
-			// print(CameraHelper.MainCamera.transform.forward);
-			/*
 			if (_input.crouch)
             {
+				
+            }
+
+			if (_input.crouch)
+            {
+				/*
 				if (checkValue == 0)
                 {
 					checkValue = _speed;
@@ -180,6 +182,7 @@ namespace StarterAssets
 					_speed = MoveSpeed / 1.5f;
                 }
 
+				*/
 				if (_controller.height > crouchedHeight)
                 {
 					_controller.height -= Time.deltaTime * 3.5f;
@@ -188,15 +191,16 @@ namespace StarterAssets
 
 			else
             {
+				/*
 				checkValue = 0;
 				_speed = MoveSpeed;
+				*/
 				if (_controller.height < defaultHeight)
                 {
 					_controller.height += Time.deltaTime * 6;
 				}
 
 			}
-			*/
 		}
 
 		private void JumpAndGravity()
