@@ -5265,7 +5265,7 @@ MonoBehaviour:
   headshotDamage: 50
   layerMask:
     serializedVersion: 2
-    m_Bits: 4617
+    m_Bits: 6921
   fireCooldown: 0.2
   reloadDuration: 1
   maxCurrentAmmo: 20
