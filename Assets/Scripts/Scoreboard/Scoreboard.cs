@@ -21,8 +21,8 @@ namespace Scoreboard
         private bool LoggedIn => !string.IsNullOrEmpty(Token);
 
 
-        public GameRun runData;
-        public GameRunLevel levelData;
+        public GameRun runData = new();
+        public GameRunLevel levelData = new();
 
 
         public async void Register(string name)

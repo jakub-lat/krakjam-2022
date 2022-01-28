@@ -1,12 +1,15 @@
+using System;
 using LetterBattle.Utility;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
+using Cyberultimate.Unity;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using DG.Tweening;
 
-public class PauseObject : MonoBehaviour
+public class PauseObject : MonoSingleton<PauseObject>
 {
     [SerializeField]
     private float openScoreDuration = 2;
@@ -19,6 +22,14 @@ public class PauseObject : MonoBehaviour
 
     private float savedHeight;
     private float savedPositionY;
+
+    [SerializeField] private Text statsText;
+
+    public void OnOpen()
+    {
+        var data = Scoreboard.Scoreboard.Current.levelData;
+        statsText.text = string.Join("\n", new[] { data.level, data.score, data.kills, data.headshots, data.deaths }.Select(x => x.ToString()));
+    }
 
     public void OnResume()
     {

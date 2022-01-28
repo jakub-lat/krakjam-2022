@@ -46,5 +46,7 @@ public class PauseManager : MonoSingleton<PauseManager>
         }
         obj.SetActive(isTrue);
         LastObject = obj;
+        
+        PauseObject.Current.OnOpen();
     }
 }

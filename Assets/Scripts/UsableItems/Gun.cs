@@ -136,6 +136,7 @@ namespace UsableItems
                     HitmarkManager.Current.GetHeadshotHit();
                     GameObject particle = ObjectPooler.Current.SpawnPool(hitParticlePoolingTag, hit.point,
                         Quaternion.LookRotation(hit.normal));
+                    Scoreboard.Scoreboard.Current.levelData.headshots++;
                 }
                 else
                 {
