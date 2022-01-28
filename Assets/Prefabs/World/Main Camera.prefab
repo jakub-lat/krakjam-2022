@@ -10,6 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 5829189830234976351}
   - component: {fileID: 8278083747170035732}
+  - component: {fileID: 5926573320473731973}
+  - component: {fileID: 7573466663402034728}
+  - component: {fileID: 3514335162233912470}
   m_Layer: 7
   m_Name: Hand
   m_TagString: Untagged
@@ -45,12 +48,58 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pickupTransitionDuration: 0.4
-  punchLayerMask:
+  fist: {fileID: 3514335162233912470}
+  attackLayerMask:
     serializedVersion: 2
-    m_Bits: 513
-  punchDistance: 2
-  punchCooldownTime: 0.5
-  punchDamage: 30
+    m_Bits: 5897
+--- !u!65 &5926573320473731973
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3498355934331225609}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!54 &7573466663402034728
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3498355934331225609}
+  serializedVersion: 2
+  m_Mass: 0.0000001
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 126
+  m_CollisionDetection: 0
+--- !u!114 &3514335162233912470
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3498355934331225609}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6544283c15ec4789a6e0b15a7be20561, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  destroyAfterUse: 0
+  interactionName: 
+  rotationOffset: {x: 0, y: 0, z: 0}
+  positionOffset: {x: 0, y: 0, z: 0}
+  damage: 20
+  distance: 4
+  cooldownTime: 0.5
 --- !u!1 &5168676552018519790
 GameObject:
   m_ObjectHideFlags: 0
@@ -236,7 +285,7 @@ MonoBehaviour:
   maxDistance: 5
   layerMask:
     serializedVersion: 2
-    m_Bits: 265
+    m_Bits: 6409
 --- !u!1001 &1676685123329301590
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -584,6 +633,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Jojo
+      objectReference: {fileID: 0}
+    - target: {fileID: 5793938111607194645, guid: 7b3385f143aeb9b45af21723606be603,
+        type: 3}
+      propertyPath: m_TagString
+      value: Jojo
+      objectReference: {fileID: 0}
+    - target: {fileID: 5793938111607194646, guid: 7b3385f143aeb9b45af21723606be603,
+        type: 3}
+      propertyPath: stopAction
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7b3385f143aeb9b45af21723606be603, type: 3}

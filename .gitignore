@@ -14,6 +14,7 @@ Assets/Resources/ScoreboardConfig.txt
 /[Bb]uilds/
 /[Ll]ogs/
 /[Mm]emoryCaptures/
+/Screenshots/
 
 # Asset meta data should only be ignored when the corresponding asset is also ignored
 !/[Aa]ssets/**/*.meta

@@ -114,12 +114,13 @@ namespace UsableItems
             fireParticles.Play();
 
             var trail = Instantiate(trailPrefab, trailSpawnPoint.position, Quaternion.identity);
-            
+
             if (Physics.Raycast(CameraHelper.MainCamera.transform.position, CameraHelper.MainCamera.transform.forward, out var hit) && !hit.collider.isTrigger)
             {
+                // WE NEED END VALUE NOT DIRECTION
                 trail.transform.DOMove(hit.point, trailDurationMultiplier * Vector3.Distance(trail.transform.position, hit.point))
-                    .SetLink(gameObject);
-                    
+                   .SetLink(gameObject);
+
                 if (hit.collider.gameObject.CompareTag("Enemy"))
                 {
                     Enemy enemy = hit.collider.transform.parent.GetComponent<Enemy>();
@@ -146,11 +147,10 @@ namespace UsableItems
                     bulletHole.transform.parent = hit.collider.transform;
                 }
             }
+
             else
             {
-                // todo fix
-
-                trail.transform.DOMove(Camera.main.transform.forward.normalized * 30f, trailDurationMultiplier * 30f).SetLink(gameObject);
+                trail.transform.DOMove(CameraHelper.MainCamera.transform.forward, trailDurationMultiplier * 30).SetLink(this.gameObject);
             }
         }
 

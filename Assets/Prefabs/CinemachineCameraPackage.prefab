@@ -203,7 +203,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.7768924, y: 1}
+    m_SensorSize: {x: 1.7766799, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 1
@@ -279,44 +279,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 493729955257980615}
     m_Modifications:
-    - target: {fileID: 1110843964, guid: 85800d860274b5b4d93bf7a8e01d6a73, type: 3}
-      propertyPath: m_Name
-      value: Jojo
-      objectReference: {fileID: 0}
-    - target: {fileID: 1110843964, guid: 85800d860274b5b4d93bf7a8e01d6a73, type: 3}
-      propertyPath: m_TagString
-      value: Jojo
-      objectReference: {fileID: 0}
-    - target: {fileID: 1110843967, guid: 85800d860274b5b4d93bf7a8e01d6a73, type: 3}
-      propertyPath: stopAction
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 449753422950871024, guid: 85800d860274b5b4d93bf7a8e01d6a73,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4003909957856962553, guid: 85800d860274b5b4d93bf7a8e01d6a73,
-        type: 3}
-      propertyPath: trailSpeed
-      value: 400
-      objectReference: {fileID: 0}
-    - target: {fileID: 4003909957856962553, guid: 85800d860274b5b4d93bf7a8e01d6a73,
-        type: 3}
-      propertyPath: trailPrefab
-      value: 
-      objectReference: {fileID: 6171525930764327526, guid: f077f16e11a894840864064ffc73e9eb,
-        type: 3}
-    - target: {fileID: 4003909957856962553, guid: 85800d860274b5b4d93bf7a8e01d6a73,
-        type: 3}
-      propertyPath: fireParticles
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 4003909957856962553, guid: 85800d860274b5b4d93bf7a8e01d6a73,
-        type: 3}
-      propertyPath: trailSpawnPoint
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 5168676552018519778, guid: 85800d860274b5b4d93bf7a8e01d6a73,
         type: 3}
       propertyPath: m_RootOrder
@@ -372,40 +334,27 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5168676552018519788, guid: 85800d860274b5b4d93bf7a8e01d6a73,
-        type: 3}
-      propertyPath: m_Antialiasing
-      value: 2
-      objectReference: {fileID: 0}
     - target: {fileID: 5168676552018519790, guid: 85800d860274b5b4d93bf7a8e01d6a73,
         type: 3}
       propertyPath: m_Name
       value: Main Camera
       objectReference: {fileID: 0}
-    - target: {fileID: 5168676552018519791, guid: 85800d860274b5b4d93bf7a8e01d6a73,
+    - target: {fileID: 5829189830234976351, guid: 85800d860274b5b4d93bf7a8e01d6a73,
         type: 3}
-      propertyPath: m_FocalLength
-      value: 14.3010435
+      propertyPath: m_LocalScale.x
+      value: 0.3
       objectReference: {fileID: 0}
-    - target: {fileID: 5168676552018519791, guid: 85800d860274b5b4d93bf7a8e01d6a73,
+    - target: {fileID: 5829189830234976351, guid: 85800d860274b5b4d93bf7a8e01d6a73,
         type: 3}
-      propertyPath: near clip plane
-      value: 0.1
+      propertyPath: m_LocalScale.y
+      value: 0.3
       objectReference: {fileID: 0}
-    - target: {fileID: 5168676552018519791, guid: 85800d860274b5b4d93bf7a8e01d6a73,
+    - target: {fileID: 5829189830234976351, guid: 85800d860274b5b4d93bf7a8e01d6a73,
         type: 3}
-      propertyPath: m_CullingMask.m_Bits
-      value: 2147483647
+      propertyPath: m_LocalScale.z
+      value: 0.3
       objectReference: {fileID: 0}
-    - target: {fileID: 5615389469607996163, guid: 85800d860274b5b4d93bf7a8e01d6a73,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 4
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 952467156545997411, guid: 85800d860274b5b4d93bf7a8e01d6a73, type: 3}
-    - {fileID: 8782313764014029076, guid: 85800d860274b5b4d93bf7a8e01d6a73, type: 3}
-    - {fileID: 4003909957856962553, guid: 85800d860274b5b4d93bf7a8e01d6a73, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 85800d860274b5b4d93bf7a8e01d6a73, type: 3}
 --- !u!4 &4493422712432806857 stripped
 Transform:

@@ -130,7 +130,7 @@ namespace StarterAssets
 			_controller.Move((inputDirection.normalized * (_speed * Time.deltaTime) + new Vector3(0.0f, _verticalVelocity, 0.0f) * Time.deltaTime));
 		}
 
-		private Vector3 GetDirection()
+		public Vector3 GetDirection()
         {
 			return new Vector3(CameraHelper.MainCamera.transform.forward.x *
 			_input.move.y, 0, CameraHelper.MainCamera.transform.forward.z * _input.move.y)

@@ -12,21 +12,13 @@ namespace Player
     public class HandController : MonoSingleton<HandController>
     {
         [SerializeField] private float pickupTransitionDuration = 0.4f;
-        [SerializeField] private LayerMask punchLayerMask;
-        [SerializeField] private float punchDistance;
-        [SerializeField] private float punchCooldownTime;
-        [SerializeField] private float punchDamage;
+        [SerializeField] private UsableItem fist;
+        public LayerMask attackLayerMask;
 
-        private Cooldown punchCooldown;
-        
         public UsableItem CurrentItem { get; private set; }
 
-        private void Start()
-        {
-            punchCooldown = new Cooldown(punchCooldownTime);
-            punchCooldown.AutoUpdate(this);
-        }
-
+        private Vector3 originalScale;
+        
         public void PickUpItem(UsableItem item)
         {
             if (item == null) throw new ArgumentException(nameof(item));
@@ -35,14 +27,20 @@ namespace Player
             CurrentItem = item;
             CurrentItem.OnPickup();
 
-
             var rb = CurrentItem.gameObject.GetComponent<Rigidbody>();
             rb.isKinematic = true;
+            
+            foreach (var col in CurrentItem.GetComponents<Collider>())
+            {
+                col.enabled = false;
+            }
+
+            originalScale = CurrentItem.transform.lossyScale;
 
             CurrentItem.transform.SetParent(transform, true);
-            CurrentItem.transform.DOLocalRotate(Vector3.zero, pickupTransitionDuration);
-            CurrentItem.transform.DOLocalMove(Vector3.zero, pickupTransitionDuration).SetEase(Ease.InOutQuint);
-            CurrentItem.transform.DOScale(Vector3.one, pickupTransitionDuration);
+            CurrentItem.transform.DOLocalRotate(CurrentItem.rotationOffset, pickupTransitionDuration);
+            CurrentItem.transform.DOLocalMove(CurrentItem.positionOffset, pickupTransitionDuration).SetEase(Ease.InOutQuint);
+            CurrentItem.transform.DOScale(CurrentItem.transform.localScale * transform.localScale.x, pickupTransitionDuration);
             CurrentItem.tag = "Untagged";
         }
 
@@ -50,11 +48,23 @@ namespace Player
         {
             if (CurrentItem == null) return;
 
+            // var pos = CurrentItem.transform.position;
+            // CurrentItem.transform.SetParent(null, false);
+            // CurrentItem.transform.position = pos;
+            
             CurrentItem.transform.SetParent(null, true);
+            CurrentItem.transform.localScale /= transform.localScale.x;
+
             CurrentItem.OnDrop();
             CurrentItem.tag = "Interactable";
+            // CurrentItem.transform.localScale = originalScale;
             
-            CurrentItem.transform.localScale = Vector3.one;
+            // CurrentItem.transform.localScale = Vector3.one;
+            
+            foreach (var col in CurrentItem.GetComponents<Collider>())
+            {
+                col.enabled = true;
+            }
 
             var rb = CurrentItem.gameObject.GetComponent<Rigidbody>();
             rb.isKinematic = false;
@@ -62,30 +72,12 @@ namespace Player
             CurrentItem = null;
         }
 
-        private void PunchAttack()
-        {
-            if (!punchCooldown.Push()) return;
-            
-            if (Physics.Raycast(CameraHelper.MainCamera.transform.position, CameraHelper.MainCamera.transform.forward,
-                out var hit, punchDistance, punchLayerMask))
-            {
-                if (hit.collider.CompareTag("Enemy"))
-                {
-                    Enemy enemy = hit.collider.transform.parent.GetComponent<Enemy>();
-                    enemy.GotHit(punchDamage);
-                    HitmarkManager.Current.GetNormalHit();
-                    PopupManager.Current.SpawnStandardDamage(enemy, (int)punchDamage);
-                }
-                // todo animation
-                // todo punching with items?
-            }
-        }
 
         public void UseCurrentItem()
         {
             if (CurrentItem == null)
             {
-                PunchAttack();
+                fist.Use();
             }
             else
             {
