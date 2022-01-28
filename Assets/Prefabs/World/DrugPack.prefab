@@ -112,4 +112,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   destroyAfterUse: 1
   interactionName: Drug pack
-  amount: 4
+  amount: 3

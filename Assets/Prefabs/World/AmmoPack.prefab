@@ -112,4 +112,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   destroyAfterUse: 1
   interactionName: Ammo Pack
-  amount: 40
+  amount: 30
