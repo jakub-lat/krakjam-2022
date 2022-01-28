@@ -37,6 +37,7 @@ public class Enemy : MonoBehaviour
             myHead.tag = "Untagged";
 
             anim.Play("Dead");
+            //GetComponent<Collider>().enabled = false;
             return;
         }
         gotHit = true;

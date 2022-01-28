@@ -47,8 +47,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   minRangeFromPlayer: 30
   posY: 2
-  shootingEnemyAmount: 30
-  meleeEnemyAmount: 5
+  shootingEnemyAmount: 5
+  meleeEnemyAmount: 7
   shootingEnemy: {fileID: 3469753855458287578, guid: d5589d93f9ef0a9458419984bd0d09f5,
     type: 3}
   meleeEnemy: {fileID: 5494818868886480629, guid: 54e4e1fb6193b7f4e848e7c158924667,
@@ -98,7 +98,7 @@ MonoBehaviour:
       followRange: 30
       fleeRange: -1
       fleeMultiplier: 2
-      moveSpeed: 3
+      moveSpeed: 4.5
       fleeSpeed: 5
       flee: 0
       damage: 25
@@ -123,7 +123,7 @@ MonoBehaviour:
       followRange: 45
       fleeRange: -1
       fleeMultiplier: 5
-      moveSpeed: 4
+      moveSpeed: 6
       fleeSpeed: 5
       flee: 0
       damage: 55

@@ -43,6 +43,7 @@ public abstract class EnemyAI : MonoBehaviour
         
         Physics.SphereCast(lookPoint.position, 0.1f, lookPoint.transform.forward /100, out hit, attackRange, attackMask);
 
+        agent.speed = moveSpeed;
         if (hit.transform && playerMask == (playerMask | (1 << hit.transform.gameObject.layer)))
         {
             if(flee && dist <= fleeRange && !attacked)
@@ -51,15 +52,13 @@ public abstract class EnemyAI : MonoBehaviour
                 RunFromPlayer();
                 return;
             }
-
-            agent.speed = moveSpeed;
             transform.LookAt(new Vector3(player.transform.position.x, transform.position.y, player.transform.position.z));
             Attack();
         } else if(!attacked)
         {
-
             Chase();
         }
+
     }
 
     protected abstract void Chase();

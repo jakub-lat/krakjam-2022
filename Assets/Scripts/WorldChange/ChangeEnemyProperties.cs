@@ -66,48 +66,48 @@ public class ChangeEnemyProperties : WorldChangeLogic
 
     public void UpdateEnemies(WorldTypeController.WorldType type)
     {
-        ShootingEnemyProperties p = shootingEnemyData[type];
+        ShootingEnemyProperties sd = shootingEnemyData[type];
         foreach (GameObject g in EnemySpawner.Current.shootingEnemies)
         {
             ShootingEnemy se = g.GetComponent<ShootingEnemy>();
-            se.bulletPoolTag = p.bulletPoolTag;
-            se.attackSpeed = p.attackSpeed;
-            se.shootDelay = p.shootDelay;
-            se.bulletSpeed = p.bulletSpeed;
-            se.magazineSize = p.magazineSize;
-            se.reloadSpeed = p.reloadSpeed;
-            se.magazine = p.magazine;
-            se.attackRange = p.attackRange;
-            se.followRange = p.followRange;
-            se.dispersion = p.dispersion;
+            se.bulletPoolTag = sd.bulletPoolTag;
+            se.attackSpeed = sd.attackSpeed;
+            se.shootDelay = sd.shootDelay;
+            se.bulletSpeed = sd.bulletSpeed;
+            se.magazineSize = sd.magazineSize;
+            se.reloadSpeed = sd.reloadSpeed;
+            se.magazine = sd.magazine;
+            se.attackRange = sd.attackRange;
+            se.followRange = sd.followRange;
+            se.dispersion = sd.dispersion;
 
-            se.fleeRange = p.fleeRange;
-            se.fleeMultiplier = p.fleeMultiplier;
+            se.fleeRange = sd.fleeRange;
+            se.fleeMultiplier = sd.fleeMultiplier;
 
-            se.moveSpeed = p.moveSpeed;
-            se.fleeSpeed = p.fleeSpeed;
-            se.flee = p.flee;
+            se.moveSpeed = sd.moveSpeed;
+            se.fleeSpeed = sd.fleeSpeed;
+            se.flee = sd.flee;
 
-            se.bulletDamage = p.damage;
+            se.bulletDamage = sd.damage;
         }
 
-        MeleeEnemyProperties p2 = meleeEnemyData[type];
+        MeleeEnemyProperties md = meleeEnemyData[type];
         foreach (GameObject g in EnemySpawner.Current.meleeEnemies)
         {
             MeleeEnemy se = g.GetComponent<MeleeEnemy>();
-            se.attackSpeed = p2.attackSpeed;
-            se.attackDelay = p2.attackDelay;
-            se.knockback = p2.knockback;
-            se.attackRange = p2.attackRange;
-            se.followRange = p2.followRange;
-            se.fleeRange = p2.fleeRange;
-            se.fleeMultiplier = p2.fleeMultiplier;
+            se.attackSpeed = md.attackSpeed;
+            se.attackDelay = md.attackDelay;
+            se.knockback = md.knockback;
+            se.attackRange = md.attackRange;
+            se.followRange = md.followRange;
+            se.fleeRange = md.fleeRange;
+            se.fleeMultiplier = md.fleeMultiplier;
 
-            se.moveSpeed = p2.moveSpeed;
-            se.fleeSpeed = p2.fleeSpeed;
-            se.flee = p2.flee;
+            se.moveSpeed = md.moveSpeed;
+            se.fleeSpeed = md.fleeSpeed;
+            se.flee = md.flee;
 
-            se.damage = p2.damage;
+            se.damage = md.damage;
         }
     }
 }

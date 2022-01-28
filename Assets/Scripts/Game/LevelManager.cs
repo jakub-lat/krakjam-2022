@@ -32,13 +32,14 @@ namespace Game
             height = GenerateRoom.Current.height;
             spaceX = GenerateRoom.Current.spaceX;
             spaceZ = GenerateRoom.Current.spaceZ;
-
-            NextLevel();
+            
             if (startingPosA != null)
             {
                 player.position = startingPosA.position;
                 cameraHolder.localRotation = startingPosA.localRotation;
             }
+
+            NextLevel();
 
             Scoreboard.Scoreboard.Current.NewRun();
         }

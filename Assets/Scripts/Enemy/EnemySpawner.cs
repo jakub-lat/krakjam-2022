@@ -73,7 +73,7 @@ public class EnemySpawner : MonoSingleton<EnemySpawner>
 
             Vector3 npos = new Vector3(x, pos.y + posY, z);
 
-            while (Vector3.Distance(npos, Game.LevelManager.Current.startingElevator.transform.position) <= minRangeFromPlayer)
+            while (Vector3.Distance(npos, PlayerInstance.Current.transform.position) <= minRangeFromPlayer)
             {
                 x = Random.Range(0, width * 4) * spaceX + pos.x;
                 z = Random.Range(0, height * 2) * spaceZ + pos.z;
