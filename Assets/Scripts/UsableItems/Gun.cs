@@ -114,7 +114,7 @@ namespace UsableItems
 
             var trail = Instantiate(trailPrefab, trailSpawnPoint.position, Quaternion.identity);
             
-            if (Physics.Raycast(CameraHelper.MainCamera.transform.position, transform.forward, out var hit) && !hit.collider.isTrigger)
+            if (Physics.Raycast(CameraHelper.MainCamera.transform.position, CameraHelper.MainCamera.transform.forward, out var hit) && !hit.collider.isTrigger)
             {
                 trail.transform.DOMove(hit.point, trailDurationMultiplier * Vector3.Distance(trail.transform.position, hit.point))
                     .SetLink(gameObject);

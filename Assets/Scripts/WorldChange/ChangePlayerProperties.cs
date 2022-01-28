@@ -56,8 +56,11 @@ public class ChangePlayerProperties : WorldChangeLogic
         fpsc.SprintSpeed = currentProps.sprintSpeed.value;
 
         SetNoiseIfNull();
-        noise.m_AmplitudeGain = currentProps.cameraNoiseAmplitude.value;
-        noise.m_FrequencyGain = currentProps.cameraNoiseFrequency.value;
+        if (noise != null)
+        {
+            noise.m_AmplitudeGain = currentProps.cameraNoiseAmplitude.value;
+            noise.m_FrequencyGain = currentProps.cameraNoiseFrequency.value;
+        }
     }
 
     private void Update()
@@ -70,8 +73,11 @@ public class ChangePlayerProperties : WorldChangeLogic
         fpsc.MoveSpeed = props.moveSpeed.ChangeOverTime(fpsc.MoveSpeed);
         fpsc.SprintSpeed = props.sprintSpeed.ChangeOverTime(fpsc.SprintSpeed);
 
-        noise.m_AmplitudeGain = props.cameraNoiseAmplitude.ChangeOverTime(noise.m_AmplitudeGain);
-        noise.m_FrequencyGain = props.cameraNoiseFrequency.ChangeOverTime(noise.m_FrequencyGain);
+        if (noise != null)
+        {
+            noise.m_AmplitudeGain = props.cameraNoiseAmplitude.ChangeOverTime(noise.m_AmplitudeGain);
+            noise.m_FrequencyGain = props.cameraNoiseFrequency.ChangeOverTime(noise.m_FrequencyGain);
+        }
     }
 
     private void SetNoiseIfNull()

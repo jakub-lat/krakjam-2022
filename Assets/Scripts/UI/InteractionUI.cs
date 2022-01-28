@@ -19,6 +19,7 @@ namespace UI
 
         public void HideObjectInRange()
         {
+            objectNameText.text = "";
             interactionAvailableInfo.SetActive(false);
         }
     }
