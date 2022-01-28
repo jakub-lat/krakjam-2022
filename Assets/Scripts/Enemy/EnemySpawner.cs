@@ -13,6 +13,9 @@ public class EnemySpawner : MonoSingleton<EnemySpawner>
     public int shootingEnemyAmount = 2;
     public int meleeEnemyAmount = 0;
 
+    public float elevatorEnemiesTime = 5f;
+    public GameObject elevatorEnemies;
+
     [Header("Enemy Prefabs")]
     public GameObject shootingEnemy;
     public GameObject meleeEnemy;
@@ -22,6 +25,7 @@ public class EnemySpawner : MonoSingleton<EnemySpawner>
 
     private ChangeEnemyProperties changeProps;
     private List<Vector3> spawnpoints;
+    private float elevatorEnemiesTimer= 10;
 
 
     public void Spawn(Vector3 pos, Quaternion rot, EnemyType et)
@@ -35,6 +39,30 @@ public class EnemySpawner : MonoSingleton<EnemySpawner>
                 meleeEnemies.Add(Instantiate(meleeEnemy, pos, rot, transform));
                 break;
         }
+    }
+
+    bool spawnedElevator = true;
+    private void Update()
+    {
+        if (spawnedElevator) return;
+
+        elevatorEnemiesTimer -= Time.deltaTime;
+        if (elevatorEnemiesTimer <= 0.1f)
+        {
+            Game.LevelManager.Current.startingElevator.Open();
+        }
+        if(elevatorEnemiesTimer<=0)
+        {
+            Instantiate(elevatorEnemies, transform);
+            spawnedElevator = true;
+
+            Invoke(nameof(CloseElevator), 5f);
+        }
+    }
+
+    void CloseElevator()
+    {
+        Game.LevelManager.Current.startingElevator.Close();
     }
 
     public void StartSpawning()
@@ -53,7 +81,8 @@ public class EnemySpawner : MonoSingleton<EnemySpawner>
             Spawn(t, Quaternion.identity, EnemyType.Melee);
         }
 
-        ChangeEnemyProperties.instance.UpdateEnemies(WorldTypeController.WorldType.Normal);
+        spawnedElevator = false;
+        elevatorEnemiesTimer = elevatorEnemiesTime; 
     }
 
     private void Start()
