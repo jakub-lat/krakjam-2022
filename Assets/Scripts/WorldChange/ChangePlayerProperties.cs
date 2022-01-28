@@ -44,7 +44,7 @@ public class ChangePlayerProperties : WorldChangeLogic
 
     protected override void Start()
     {
-        fpsc = GetComponent<FirstPersonController>();
+
 
         base.Start();
         StartCoroutine(WaitTest());
@@ -53,6 +53,7 @@ public class ChangePlayerProperties : WorldChangeLogic
     private IEnumerator WaitTest()
     {
         yield return null;
+        fpsc = GetComponent<FirstPersonController>();
         noise = CinemachineVCamInstance.Current.Cam.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>();
     }
 
@@ -60,6 +61,11 @@ public class ChangePlayerProperties : WorldChangeLogic
     {
         currentProps = data[type];
         
+        // build error fix
+        if (fpsc == null)
+        {
+            return;
+        }
         fpsc.MoveSpeed = currentProps.moveSpeed.value;
         fpsc.SprintSpeed = currentProps.sprintSpeed.value;
         if (noise == null)
