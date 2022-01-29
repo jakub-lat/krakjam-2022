@@ -5,8 +5,6 @@ using UnityEngine.AI;
 
 public class ShootingEnemy : EnemyAI
 {
-    public float moveBackRange = 5f;
-
     [Header("Shooting")]
     public string bulletPoolTag;
 

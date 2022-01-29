@@ -16,6 +16,16 @@ namespace Game
         Hard
     }
 
+    [Serializable]
+    public class EnemyDifficultyMultiplier
+    {
+        public float healthM = 0.1f;
+        public float damageM = 0.2f;
+        public float speedM = 0.2f;
+        public float attackRangeM = 0.4f;
+        public float attackSpeedM = 0.5f;
+    }
+
     public class LevelManager : MonoSingleton<LevelManager>
     {
         public GameMode GameMode => (GameMode)PlayerPrefs.GetInt("GameMode");
@@ -33,14 +43,23 @@ namespace Game
         [Header("Game balance")] 
         [SerializeField] private int levelCount;
         [SerializeField] private AnimationCurve difficulty;
-        [SerializeField] private int baseMeleeEnemyCount;
-        [SerializeField] private int baseShootingEnemyCount;
-        [SerializeField] private int baseElevatorEnemyCount;
-        [SerializeField] private int baseEnemyDamage;
+        [SerializeField] private int baseMeleeEnemyCount = 4;
+        [SerializeField] private float meleeEnemyCountM = 0.3f;
+        [SerializeField] private int baseShootingEnemyCount = 4;
+        [SerializeField] private float shootingEnemyCountM = 0.3f;
+
+        [SerializeField] private int baseElevatorMeleeEnemyCount = 1;
+        [SerializeField] private float elevatorMeleeEnemyCountM = 0.2f;
+        [SerializeField] private int baseElevatorShootingEnemyCount = 1;
+        [SerializeField] private float elevatorShootingEnemyCountM = 0.6f;
+        public EnemyDifficultyMultiplier shootingEnemy;
+        public EnemyDifficultyMultiplier meleeEnemy;
 
         [Header("Score counting")] 
         public int killScore;
         public int headshotScore;
+
+        public float GetDifficulty { get { return difficulty.Evaluate(CurrentLevel / levelCount); } }
 
         private int score;
         public int Score
@@ -127,7 +146,7 @@ namespace Game
             finishElevator.SetDoorNavSurface(false); //enemies cant walk through door
             startingElevator.SetDoorNavSurface(true);
 
-            var levelDifficulty = difficulty.Evaluate(CurrentLevel / levelCount);
+            var levelDifficulty = GetDifficulty;
 
             GenerateRoom.Current.transform.KillAllChildren();
             ObjectGeneration.Current.ClearObjects();
@@ -141,10 +160,9 @@ namespace Game
 
             EnemySpawner.Current.KillAll();
 
-            EnemySpawner.Current.meleeEnemyAmount = (int)(baseMeleeEnemyCount * levelDifficulty);
-            EnemySpawner.Current.shootingEnemyAmount = (int)(baseShootingEnemyCount * levelDifficulty);
+            EnemySpawner.Current.meleeEnemyAmount = (int)(baseMeleeEnemyCount + (baseMeleeEnemyCount * levelDifficulty * meleeEnemyCountM));
+            EnemySpawner.Current.shootingEnemyAmount = (int)(baseShootingEnemyCount + (baseShootingEnemyCount * levelDifficulty * shootingEnemyCountM));
             // EnemySpawner.Current.elevatorEnemyCount = (int)(baseShootingEnemyCount * levelDifficulty); // todo @hyopplo
-            // EnemySpawner.Current.enemyDamage = (int)(baseEnemyDamage * levelDifficulty); // todo @hyopplo
 
             EnemySpawner.Current.StartSpawning();
 

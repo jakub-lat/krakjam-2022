@@ -12,6 +12,8 @@ public class EnemySpawner : MonoSingleton<EnemySpawner>
     public float posY = 2;
     public int shootingEnemyAmount = 2;
     public int meleeEnemyAmount = 0;
+    public int elevatorShootingEnemyAmount = 2;
+    public int elevatorMeleeEnemyAmount = 1;
 
     public float elevatorEnemiesTime = 5f;
     public GameObject elevatorEnemies;
@@ -67,6 +69,7 @@ public class EnemySpawner : MonoSingleton<EnemySpawner>
 
     public void StartSpawning()
     {
+
         spawnedElevator = false;
         elevatorEnemiesTimer = elevatorEnemiesTime;
 

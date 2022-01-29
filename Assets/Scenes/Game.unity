@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.11426178, g: 0.15169969, b: 0.16290113, a: 1}
+  m_IndirectSpecularColor: {r: 0.11426129, g: 0.15169938, b: 0.16290072, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -991,7 +991,7 @@ PrefabInstance:
     - target: {fileID: 5052492125061912269, guid: 86b8cdb22faebf6478e55220e296baa1,
         type: 3}
       propertyPath: m_RootOrder
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5052492125061912269, guid: 86b8cdb22faebf6478e55220e296baa1,
         type: 3}
@@ -2691,7 +2691,7 @@ PrefabInstance:
     - target: {fileID: 6966197676403806439, guid: e1dc9e6cc4bef8a48b429d6c237dfbe3,
         type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6966197676403806439, guid: e1dc9e6cc4bef8a48b429d6c237dfbe3,
         type: 3}
@@ -2793,10 +2793,10 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 2667818113425586615}
   - {fileID: 728314929}
   - {fileID: 1417088689}
   - {fileID: 6697026741388987717}
-  - {fileID: 2667818113425586615}
   - {fileID: 2629645138511139041}
   - {fileID: 1630821620}
   - {fileID: 5159287604021917821}
@@ -4128,16 +4128,6 @@ PrefabInstance:
       objectReference: {fileID: 1173150357}
     - target: {fileID: 2667818113581105014, guid: 1c8b4abb690b867418682e71ee9c44a1,
         type: 3}
-      propertyPath: killScore
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 2667818113581105014, guid: 1c8b4abb690b867418682e71ee9c44a1,
-        type: 3}
-      propertyPath: levelCount
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 2667818113581105014, guid: 1c8b4abb690b867418682e71ee9c44a1,
-        type: 3}
       propertyPath: cameraHolder
       value: 
       objectReference: {fileID: 1867232967}
@@ -4153,11 +4143,6 @@ PrefabInstance:
       objectReference: {fileID: 2000954056}
     - target: {fileID: 2667818113581105014, guid: 1c8b4abb690b867418682e71ee9c44a1,
         type: 3}
-      propertyPath: headshotScore
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 2667818113581105014, guid: 1c8b4abb690b867418682e71ee9c44a1,
-        type: 3}
       propertyPath: finishElevator
       value: 
       objectReference: {fileID: 2000954055}
@@ -4171,60 +4156,10 @@ PrefabInstance:
       propertyPath: bossRoomSpawnPoint
       value: 
       objectReference: {fileID: 837006209}
-    - target: {fileID: 2667818113581105014, guid: 1c8b4abb690b867418682e71ee9c44a1,
-        type: 3}
-      propertyPath: baseMeleeEnemyCount
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 2667818113581105014, guid: 1c8b4abb690b867418682e71ee9c44a1,
-        type: 3}
-      propertyPath: baseShootingEnemyCount
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 2667818113581105014, guid: 1c8b4abb690b867418682e71ee9c44a1,
-        type: 3}
-      propertyPath: difficulty.m_Curve.Array.data[1].time
-      value: 0.09991455
-      objectReference: {fileID: 0}
-    - target: {fileID: 2667818113581105014, guid: 1c8b4abb690b867418682e71ee9c44a1,
-        type: 3}
-      propertyPath: difficulty.m_Curve.Array.data[1].value
-      value: 1.9830856
-      objectReference: {fileID: 0}
-    - target: {fileID: 2667818113581105014, guid: 1c8b4abb690b867418682e71ee9c44a1,
-        type: 3}
-      propertyPath: difficulty.m_Curve.Array.data[0].inSlope
-      value: 9.839264
-      objectReference: {fileID: 0}
-    - target: {fileID: 2667818113581105014, guid: 1c8b4abb690b867418682e71ee9c44a1,
-        type: 3}
-      propertyPath: difficulty.m_Curve.Array.data[1].inSlope
-      value: 9.839264
-      objectReference: {fileID: 0}
-    - target: {fileID: 2667818113581105014, guid: 1c8b4abb690b867418682e71ee9c44a1,
-        type: 3}
-      propertyPath: difficulty.m_Curve.Array.data[0].outSlope
-      value: 9.839264
-      objectReference: {fileID: 0}
-    - target: {fileID: 2667818113581105014, guid: 1c8b4abb690b867418682e71ee9c44a1,
-        type: 3}
-      propertyPath: difficulty.m_Curve.Array.data[1].inWeight
-      value: 0.33333334
-      objectReference: {fileID: 0}
-    - target: {fileID: 2667818113581105014, guid: 1c8b4abb690b867418682e71ee9c44a1,
-        type: 3}
-      propertyPath: difficulty.m_Curve.Array.data[1].outSlope
-      value: 9.839264
-      objectReference: {fileID: 0}
-    - target: {fileID: 2667818113581105014, guid: 1c8b4abb690b867418682e71ee9c44a1,
-        type: 3}
-      propertyPath: difficulty.m_Curve.Array.data[0].outWeight
-      value: 0.33333334
-      objectReference: {fileID: 0}
     - target: {fileID: 2667818113581105015, guid: 1c8b4abb690b867418682e71ee9c44a1,
         type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2667818113581105015, guid: 1c8b4abb690b867418682e71ee9c44a1,
         type: 3}
@@ -4907,7 +4842,7 @@ PrefabInstance:
     - target: {fileID: 6697026741054866069, guid: 03277ffb5d6562c48a9c464e5036c071,
         type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6697026741054866069, guid: 03277ffb5d6562c48a9c464e5036c071,
         type: 3}

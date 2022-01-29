@@ -44,31 +44,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 95db9e20491f45ff88268ac3e7b5b42d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelCount: 3
-  difficulty:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 34
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    - serializedVersion: 3
-      time: 1
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 34
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
   startingPosA: {fileID: 0}
   startingPosB: {fileID: 0}
   startingElevator: {fileID: 0}
@@ -76,3 +51,50 @@ MonoBehaviour:
   player: {fileID: 0}
   cameraHolder: {fileID: 0}
   bossRoomSpawnPoint: {fileID: 0}
+  levelCount: 2
+  difficulty:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 9.839264
+      outSlope: 9.839264
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.09991455
+      value: 1.9830856
+      inSlope: 9.839264
+      outSlope: 9.839264
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  baseMeleeEnemyCount: 5
+  meleeEnemyCountM: 0.1
+  baseShootingEnemyCount: 6
+  shootingEnemyCountM: 0.1
+  baseElevatorMeleeEnemyCount: 0
+  elevatorMeleeEnemyCountM: 0
+  baseElevatorShootingEnemyCount: 1
+  elevatorShootingEnemyCountM: 0.3
+  shootingEnemy:
+    healthM: 0.1
+    damageM: 0.2
+    speedM: 0.2
+    attackRangeM: 0.4
+    attackSpeedM: 0.5
+  meleeEnemy:
+    healthM: 0.1
+    damageM: 0.2
+    speedM: 0.2
+    attackRangeM: 0.4
+    attackSpeedM: 0.5
+  killScore: 10
+  headshotScore: 20
