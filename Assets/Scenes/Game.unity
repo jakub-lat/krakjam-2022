@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.11426129, g: 0.15169938, b: 0.16290072, a: 1}
+  m_IndirectSpecularColor: {r: 0.11426178, g: 0.15169969, b: 0.16290113, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -145,6 +145,10 @@ MonoBehaviour:
     normal: {fileID: 8964088591131456171, guid: 2762e40260cb0144bb82abc9d04c363f,
       type: 3}
     psycho: {fileID: 2100000, guid: 10beb902f9784694ca8d23d37eecae27, type: 2}
+  multipleMaterials:
+    normal: []
+    psycho: []
+  meshRenderer: {fileID: 0}
 --- !u!1 &96312604 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2550463727306718371, guid: 2762e40260cb0144bb82abc9d04c363f,
@@ -179,6 +183,10 @@ MonoBehaviour:
   materials:
     normal: {fileID: 2100000, guid: b8e6426e8f0b7e84f82b4c666acda281, type: 2}
     psycho: {fileID: 2100000, guid: d13b3137ae6001149992f087973b969b, type: 2}
+  multipleMaterials:
+    normal: []
+    psycho: []
+  meshRenderer: {fileID: 0}
 --- !u!64 &100433543
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -1615,6 +1623,10 @@ MonoBehaviour:
   materials:
     normal: {fileID: 2100000, guid: c78f6a2a7ed52374490da1f70b0d3aeb, type: 2}
     psycho: {fileID: 2100000, guid: 110e9f4bd42442642b79d4c2c5eb7239, type: 2}
+  multipleMaterials:
+    normal: []
+    psycho: []
+  meshRenderer: {fileID: 0}
 --- !u!114 &746804324
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1630,6 +1642,10 @@ MonoBehaviour:
   materials:
     normal: {fileID: 2100000, guid: b8e6426e8f0b7e84f82b4c666acda281, type: 2}
     psycho: {fileID: 2100000, guid: 016941fcb9f097d47a38887bd19fa363, type: 2}
+  multipleMaterials:
+    normal: []
+    psycho: []
+  meshRenderer: {fileID: 0}
 --- !u!1001 &782312770
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2497,6 +2513,10 @@ MonoBehaviour:
     normal: {fileID: -6478536213147159724, guid: 2762e40260cb0144bb82abc9d04c363f,
       type: 3}
     psycho: {fileID: 2100000, guid: 70c6ec75e05a3ec46869fd411725ee94, type: 2}
+  multipleMaterials:
+    normal: []
+    psycho: []
+  meshRenderer: {fileID: 0}
 --- !u!114 &1126091231
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2513,6 +2533,10 @@ MonoBehaviour:
     normal: {fileID: -6922793697723135513, guid: 2762e40260cb0144bb82abc9d04c363f,
       type: 3}
     psycho: {fileID: 2100000, guid: f6ab6992039257b4db248a01bc35a1f1, type: 2}
+  multipleMaterials:
+    normal: []
+    psycho: []
+  meshRenderer: {fileID: 0}
 --- !u!4 &1130116065 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6300579467305679271, guid: 73ffd1c52bbf8d1439ebd3fb86861838,
@@ -2553,6 +2577,10 @@ MonoBehaviour:
     normal: {fileID: -6922793697723135513, guid: 2762e40260cb0144bb82abc9d04c363f,
       type: 3}
     psycho: {fileID: 2100000, guid: f6ab6992039257b4db248a01bc35a1f1, type: 2}
+  multipleMaterials:
+    normal: []
+    psycho: []
+  meshRenderer: {fileID: 0}
 --- !u!64 &1186049553
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -2666,6 +2694,10 @@ MonoBehaviour:
     normal: {fileID: -6922793697723135513, guid: 2762e40260cb0144bb82abc9d04c363f,
       type: 3}
     psycho: {fileID: 2100000, guid: f6ab6992039257b4db248a01bc35a1f1, type: 2}
+  multipleMaterials:
+    normal: []
+    psycho: []
+  meshRenderer: {fileID: 0}
 --- !u!1 &1351058874 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4694403432790717876, guid: 2762e40260cb0144bb82abc9d04c363f,
@@ -2700,6 +2732,10 @@ MonoBehaviour:
     normal: {fileID: 9101280890363022628, guid: 2762e40260cb0144bb82abc9d04c363f,
       type: 3}
     psycho: {fileID: 2100000, guid: 209d2e9c93ef12a41986296d22cf5595, type: 2}
+  multipleMaterials:
+    normal: []
+    psycho: []
+  meshRenderer: {fileID: 0}
 --- !u!114 &1351058878
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2716,6 +2752,10 @@ MonoBehaviour:
     normal: {fileID: 9101280890363022628, guid: 2762e40260cb0144bb82abc9d04c363f,
       type: 3}
     psycho: {fileID: 2100000, guid: 209d2e9c93ef12a41986296d22cf5595, type: 2}
+  multipleMaterials:
+    normal: []
+    psycho: []
+  meshRenderer: {fileID: 0}
 --- !u!114 &1351058879
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2732,6 +2772,10 @@ MonoBehaviour:
     normal: {fileID: 9101280890363022628, guid: 2762e40260cb0144bb82abc9d04c363f,
       type: 3}
     psycho: {fileID: 2100000, guid: 209d2e9c93ef12a41986296d22cf5595, type: 2}
+  multipleMaterials:
+    normal: []
+    psycho: []
+  meshRenderer: {fileID: 0}
 --- !u!4 &1371519602 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2213132636363535603, guid: 028ea228844221a4c85fc1483e8c2db6,
@@ -3723,6 +3767,10 @@ MonoBehaviour:
     normal: {fileID: -6922793697723135513, guid: 2762e40260cb0144bb82abc9d04c363f,
       type: 3}
     psycho: {fileID: 2100000, guid: f6ab6992039257b4db248a01bc35a1f1, type: 2}
+  multipleMaterials:
+    normal: []
+    psycho: []
+  meshRenderer: {fileID: 0}
 --- !u!114 &1755940697
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3739,6 +3787,10 @@ MonoBehaviour:
     normal: {fileID: -6922793697723135513, guid: 2762e40260cb0144bb82abc9d04c363f,
       type: 3}
     psycho: {fileID: 2100000, guid: f6ab6992039257b4db248a01bc35a1f1, type: 2}
+  multipleMaterials:
+    normal: []
+    psycho: []
+  meshRenderer: {fileID: 0}
 --- !u!114 &1755940698
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3755,6 +3807,10 @@ MonoBehaviour:
     normal: {fileID: -6922793697723135513, guid: 2762e40260cb0144bb82abc9d04c363f,
       type: 3}
     psycho: {fileID: 2100000, guid: f6ab6992039257b4db248a01bc35a1f1, type: 2}
+  multipleMaterials:
+    normal: []
+    psycho: []
+  meshRenderer: {fileID: 0}
 --- !u!114 &1755940699
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3771,6 +3827,10 @@ MonoBehaviour:
     normal: {fileID: -6922793697723135513, guid: 2762e40260cb0144bb82abc9d04c363f,
       type: 3}
     psycho: {fileID: 2100000, guid: f6ab6992039257b4db248a01bc35a1f1, type: 2}
+  multipleMaterials:
+    normal: []
+    psycho: []
+  meshRenderer: {fileID: 0}
 --- !u!114 &1755940700
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3787,6 +3847,10 @@ MonoBehaviour:
     normal: {fileID: -6922793697723135513, guid: 2762e40260cb0144bb82abc9d04c363f,
       type: 3}
     psycho: {fileID: 2100000, guid: f6ab6992039257b4db248a01bc35a1f1, type: 2}
+  multipleMaterials:
+    normal: []
+    psycho: []
+  meshRenderer: {fileID: 0}
 --- !u!1 &1772909560 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 308100620389133962, guid: 2762e40260cb0144bb82abc9d04c363f,
@@ -4056,6 +4120,10 @@ MonoBehaviour:
     normal: {fileID: -6922793697723135513, guid: 2762e40260cb0144bb82abc9d04c363f,
       type: 3}
     psycho: {fileID: 2100000, guid: f6ab6992039257b4db248a01bc35a1f1, type: 2}
+  multipleMaterials:
+    normal: []
+    psycho: []
+  meshRenderer: {fileID: 0}
 --- !u!1001 &1828722094
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4174,6 +4242,10 @@ MonoBehaviour:
     normal: {fileID: -6922793697723135513, guid: 2762e40260cb0144bb82abc9d04c363f,
       type: 3}
     psycho: {fileID: 2100000, guid: f6ab6992039257b4db248a01bc35a1f1, type: 2}
+  multipleMaterials:
+    normal: []
+    psycho: []
+  meshRenderer: {fileID: 0}
 --- !u!4 &1867232967 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 493729955257980615, guid: a045af21090212449b51769c1140a2b4,
@@ -4764,6 +4836,10 @@ MonoBehaviour:
     normal: {fileID: -6922793697723135513, guid: 2762e40260cb0144bb82abc9d04c363f,
       type: 3}
     psycho: {fileID: 2100000, guid: f6ab6992039257b4db248a01bc35a1f1, type: 2}
+  multipleMaterials:
+    normal: []
+    psycho: []
+  meshRenderer: {fileID: 0}
 --- !u!1001 &471410004280118583
 PrefabInstance:
   m_ObjectHideFlags: 0
