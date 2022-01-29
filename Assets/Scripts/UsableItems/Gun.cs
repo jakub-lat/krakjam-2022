@@ -45,6 +45,8 @@ namespace UsableItems
 
         [SerializeField]
         private AudioSource gunSource = null;
+
+        private float gunSourceOriginalVolume;
             
         private float trailDurationMultiplier => 10 / trailSpeed;
 
@@ -64,6 +66,8 @@ namespace UsableItems
         {
             currentAmmo = maxCurrentAmmo;
             totalAmmo = maxCurrentAmmo * 10;
+            
+            gunSourceOriginalVolume = gunSource.volume;
         }
 
         private void Update()
@@ -113,7 +117,7 @@ namespace UsableItems
         {
             if (currentAmmo < maxCurrentAmmo && !isReloading)
             {
-                gunSource.volume = 1;
+                gunSource.volume = gunSourceOriginalVolume;
                 gunSource.pitch = 1;
                 gunSource.PlayOneShot(reload);
                 isReloading = true;
@@ -131,7 +135,7 @@ namespace UsableItems
 
             fireParticles.Play();
             gunSource.pitch = Random.Range(0.95F, 1.05F);
-            gunSource.volume = Random.Range(0.6f, 1f);
+            gunSource.volume = Random.Range(0.3f, gunSourceOriginalVolume);
             gunSource.PlayOneShot(shoot);
  
 

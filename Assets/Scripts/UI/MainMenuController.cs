@@ -29,13 +29,28 @@ public class MainMenuController : MonoBehaviour
     [SerializeField]
     private GameObject buttonsAndStuff = null;
 
+    [SerializeField] private GameObject gameModePopup;
+    [SerializeField] private RectTransform gameModePanel;
+    [SerializeField] private Image gameModeOverlay;
+    
     protected void Awake()
     {
         basePositionLogo = logo.position.y;
+        gameModePanel.localScale = Vector3.zero;
+        gameModeOverlay.DOFade(0, 0);
+        gameModePopup.SetActive(false);
     }
 
     public void OnPlay()
     {
+        gameModePopup.SetActive(true);
+        gameModeOverlay.DOFade(1, 0.5f);
+        gameModePanel.DOScale(Vector3.one, 0.5f).SetEase(Ease.InOutQuint);
+    }
+
+    public void SelectGameMode(int gameMode)
+    {
+        PlayerPrefs.SetInt("GameMode", gameMode);
         SceneManager.LoadScene("Game");
     }
 
@@ -44,12 +59,10 @@ public class MainMenuController : MonoBehaviour
         Application.Quit(0);
     }
 
-    // logo: 637 -> 0, szybki wœlizg
-    // pulse left i pulse right na œrodku, odsuniêcie po lewej i prawej
+    // logo: 637 -> 0, szybki wÅ›lizg
+    // pulse left i pulse right na Å›rodku, odsuniÄ™cie po lewej i prawej
     public void OnPressedAny()
     {
-
-
         logo.position = new Vector2(logo.position.x, 637);
         pulseLeft.position = new Vector2(0, 0);
         pulseRight.position = new Vector2(0, 0);
