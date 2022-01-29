@@ -19,13 +19,11 @@ public class OptionsMenu : MonoSingleton<OptionsMenu>
     [SerializeField]
     private Slider sensitivitySlider = null;
 
-    public static float SensitivityMouse { get; set; } = 0.3f;
+    public static float SensitivityMouse { get; set; } = 0.2f;
     public static event Action<float> OnChangedSensitivity = delegate { };
 
     protected void Start()
     {
-        PlayerPrefs.DeleteKey(MouseSensitivityKey);
-        
         SensitivityMouse = PlayerPrefs.HasKey(MouseSensitivityKey) ? PlayerPrefs.GetFloat(MouseSensitivityKey) : SensitivityMouse;
         
         qualityDropdown.SetValueWithoutNotify(QualitySettings.GetQualityLevel());
