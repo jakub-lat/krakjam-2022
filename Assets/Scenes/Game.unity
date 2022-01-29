@@ -1290,6 +1290,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: BossRoom_1
       objectReference: {fileID: 0}
+    - target: {fileID: 2550463727306718371, guid: 2762e40260cb0144bb82abc9d04c363f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3594243245622329198, guid: 2762e40260cb0144bb82abc9d04c363f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 3594243245622329198, guid: 2762e40260cb0144bb82abc9d04c363f,
         type: 3}
       propertyPath: m_StaticEditorFlags
@@ -2555,7 +2565,7 @@ MeshCollider:
   m_GameObject: {fileID: 1120047377}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
   m_Convex: 0
   m_CookingOptions: 30
@@ -2569,7 +2579,7 @@ MeshCollider:
   m_GameObject: {fileID: 1120047378}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
   m_Convex: 0
   m_CookingOptions: 30
@@ -3575,6 +3585,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 782312770}
   m_PrefabAsset: {fileID: 0}
+--- !u!143 &1969151326 stripped
+CharacterController:
+  m_CorrespondingSourceObject: {fileID: 4071760806831231210, guid: 06fe48d98e089564482bb60f44ad7b58,
+    type: 3}
+  m_PrefabInstance: {fileID: 966449309}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1975147840
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4227,6 +4243,11 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 1173150357}
+    - target: {fileID: 2667818113581105014, guid: 1c8b4abb690b867418682e71ee9c44a1,
+        type: 3}
+      propertyPath: levelCount
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2667818113581105014, guid: 1c8b4abb690b867418682e71ee9c44a1,
         type: 3}
       propertyPath: cameraHolder
@@ -4951,6 +4972,11 @@ PrefabInstance:
       propertyPath: healthBar
       value: 
       objectReference: {fileID: 1228253230}
+    - target: {fileID: 1832353734658663969, guid: 7a0cb4b65e7ce80458456fa063c9507e,
+        type: 3}
+      propertyPath: playerCharacter
+      value: 
+      objectReference: {fileID: 1969151326}
     - target: {fileID: 6929658065974969852, guid: 7a0cb4b65e7ce80458456fa063c9507e,
         type: 3}
       propertyPath: m_Name
