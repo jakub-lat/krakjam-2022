@@ -68,7 +68,7 @@ namespace UsableItems
                         Debug.LogError("Enemy doesnt have a enemy or boss component");
                     }
 
-                    HitmarkManager.Current.GetNormalHit();
+                    HitmarkManager.Current.GetHeadshotHit();
                     PopupManager.Current.SpawnHeadshotDamage(hit.transform.parent, (int)(damage * critMultiplier));
                 }
 
