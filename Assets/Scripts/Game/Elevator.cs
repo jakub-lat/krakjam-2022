@@ -1,6 +1,7 @@
 ﻿using System;
 using DG.Tweening;
 using Scoreboard;
+using StarterAssets;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -33,6 +34,8 @@ namespace Game
 
         [SerializeField]
         private float startWaitTime = 5f;
+
+        [SerializeField] private float musicTransition;
 
         public ElevatorRemover elevatorRemover;
         
@@ -102,7 +105,11 @@ namespace Game
             active = false;
 
             music.Play();
-            music.DOFade(1, closeDelay);
+            music.DOFade(1, musicTransition);
+            GameMusic.Current.audioSource.DOFade(0, musicTransition).OnComplete(() =>
+            {
+                GameMusic.Current.audioSource.Stop();
+            });
 
             UpdateFloorText();
             exitBlock.SetActive(true);
@@ -131,7 +138,9 @@ namespace Game
         {
             // Print("open");
             
-            music.DOFade(0, closeDelay).OnComplete(() => music.Stop());
+            music.DOFade(0, musicTransition).OnComplete(() => music.Stop());
+            GameMusic.Current.audioSource.Play();
+            GameMusic.Current.audioSource.DOFade(1, musicTransition);
             
             doorsLeft.DOLocalMove(doorsLeftOpenLocalPos, animDuration)
                 .SetLink(gameObject)

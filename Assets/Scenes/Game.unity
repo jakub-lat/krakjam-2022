@@ -901,6 +901,26 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2907974917934307772, guid: 525ff3a0e5253b648a142741089a8c0d,
+        type: 3}
+      propertyPath: m_Range
+      value: 11.94
+      objectReference: {fileID: 0}
+    - target: {fileID: 2907974917934307772, guid: 525ff3a0e5253b648a142741089a8c0d,
+        type: 3}
+      propertyPath: m_Intensity
+      value: 1.29
+      objectReference: {fileID: 0}
+    - target: {fileID: 3494025131866584593, guid: 525ff3a0e5253b648a142741089a8c0d,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1.91
+      objectReference: {fileID: 0}
+    - target: {fileID: 3494025131866584593, guid: 525ff3a0e5253b648a142741089a8c0d,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.26
+      objectReference: {fileID: 0}
     - target: {fileID: 4245201102271935381, guid: 525ff3a0e5253b648a142741089a8c0d,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -994,7 +1014,12 @@ PrefabInstance:
     - target: {fileID: 9074998911403675264, guid: 525ff3a0e5253b648a142741089a8c0d,
         type: 3}
       propertyPath: startWaitTime
-      value: 0
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 9074998911403675264, guid: 525ff3a0e5253b648a142741089a8c0d,
+        type: 3}
+      propertyPath: musicTransition
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 9074998911403675267, guid: 525ff3a0e5253b648a142741089a8c0d,
         type: 3}
@@ -1270,11 +1295,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 5307687593080143241, guid: 06fe48d98e089564482bb60f44ad7b58,
-        type: 3}
-      propertyPath: m_Volume
-      value: 0.353
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 06fe48d98e089564482bb60f44ad7b58, type: 3}
