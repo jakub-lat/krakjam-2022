@@ -2064,10 +2064,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 9074998911403675264, guid: 525ff3a0e5253b648a142741089a8c0d,
+    - target: {fileID: 5309513162942900663, guid: 525ff3a0e5253b648a142741089a8c0d,
         type: 3}
-      propertyPath: startMovingDelay
-      value: 5
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9074998911403675267, guid: 525ff3a0e5253b648a142741089a8c0d,
         type: 3}
