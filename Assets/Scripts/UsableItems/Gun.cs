@@ -11,7 +11,6 @@ namespace UsableItems
 {
     public class Gun : UsableItem
     {
-        // todo lepsze nazwy zmiennych
         [SerializeField] private float damage = 25;
         [SerializeField] private float headshotDamage = 50;
         [SerializeField] private float damageRandomness = 3f;

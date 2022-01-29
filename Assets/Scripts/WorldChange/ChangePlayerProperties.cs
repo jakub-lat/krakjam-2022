@@ -84,7 +84,6 @@ public class ChangePlayerProperties : WorldChangeLogic
 
         push.strength = props.strengthPush.ChangeOverTime(push.strength);
 
-        // todo move speed changing doesn't work
         fpsc.MoveSpeed = props.moveSpeed.ChangeOverTime(fpsc.MoveSpeed);
         fpsc.SprintSpeed = props.sprintSpeed.ChangeOverTime(fpsc.SprintSpeed);
         fpsc.SlideSpeed = props.slideSpeed.ChangeOverTime(fpsc.SlideSpeed);

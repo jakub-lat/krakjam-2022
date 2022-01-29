@@ -13,6 +13,7 @@ namespace KrakJam2022.Player
         [SerializeField] private float drugEffectTime;
         [SerializeField] private float addictionMaxTime;
         [SerializeField] private float addictionEffectsStartTime;
+        [SerializeField] private float drugHealthBoost;
 
         private bool IsOnDrugs => WorldTypeController.Current.CurrentWorldType == WorldTypeController.WorldType.Psycho;
         
@@ -40,16 +41,16 @@ namespace KrakJam2022.Player
             if (IsOnDrugs || currentDoses <= 0) return;
 
 
+            PlayerHealth.Current.Health += drugHealthBoost;
+            
             soundSource.PlayOneShot(takeDrug);
             currentDoses--;
             timer = 0;
-            // todo animation?
             WorldTypeController.Current.SetWorldType(WorldTypeController.WorldType.Psycho);
         }
 
         public void End()
         {
-            // todo animation
             timer = 0;
             WorldTypeController.Current.SetWorldType(WorldTypeController.WorldType.Normal);
         }
