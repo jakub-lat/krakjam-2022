@@ -92,7 +92,7 @@ public class Boss : MonoSingleton<Boss>
         }
 
         var look = playerCharacter.transform.position;
-        gunRotate.transform.LookAt(look);
+        if(gunRotate) gunRotate.transform.LookAt(look);
         look.y = transform.position.y;
         transform.LookAt(look);
 

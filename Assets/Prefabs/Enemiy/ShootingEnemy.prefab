@@ -7317,6 +7317,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: EnemyGuardModel
       objectReference: {fileID: 0}
+    - target: {fileID: 2973538661760612401, guid: 284e3295f2cc3274191e4d10bdf9858c,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 2973538661760612401, guid: 284e3295f2cc3274191e4d10bdf9858c,
+        type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
     - target: {fileID: 7310004815631966648, guid: 284e3295f2cc3274191e4d10bdf9858c,
         type: 3}
       propertyPath: m_Layer
