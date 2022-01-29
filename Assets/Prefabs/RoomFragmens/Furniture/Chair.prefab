@@ -161,10 +161,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   destroyAfterUse: 0
   interactionName: chair
+  interactionSound: {fileID: 0}
+  source: {fileID: 0}
   rotationOffset: {x: -112.62, y: 43.9, z: -407.07}
   positionOffset: {x: 0.217, y: -0.7, z: 0.32}
-  damage: 100
-  distance: 3
+  damage: 80
+  distance: 4
   cooldownTime: 2
 --- !u!114 &4487137688776293597
 MonoBehaviour:
