@@ -18,7 +18,7 @@ public class Boss : MonoSingleton<Boss>
     public Transform gunPoint;
     public CharacterController playerCharacter;
 
-    private Animator anim;
+    public Animator anim;
     private Transform player;
 
     [Header("Pipes")]
@@ -68,7 +68,6 @@ public class Boss : MonoSingleton<Boss>
     {
         BossUI.enabled = false;
         player = PlayerInstance.Current.transform;
-        anim = GetComponentInChildren<Animator>();
         attack.damage = punchDamage;
         attack.knockback = punchKnock;
         attack.myPos = transform;
@@ -109,10 +108,10 @@ public class Boss : MonoSingleton<Boss>
             }
         } else
         {
-            anim.SetBool("isShooting", true);
             shootingTimer -= Time.deltaTime;
             if (shootingTimer <= 0)
             {
+                anim.SetBool("isShooting", true);
                 shootingTimer = burstFireRate;
                 currBurst--;
                 Shoot();
@@ -131,6 +130,8 @@ public class Boss : MonoSingleton<Boss>
             dead = true;
             health = 0;
             healthBar.fillAmount = health / startingHealth;
+
+            anim.SetTrigger("Die");
             return;
         }
 
@@ -144,9 +145,8 @@ public class Boss : MonoSingleton<Boss>
 
     public void PipeHit()
     {
-        Debug.Log("Pipee");
         pipeAnim = true;
-        anim.Play("PipeBroken");
+        anim.SetTrigger("Electro");
     }
 
     public void EndPipe()

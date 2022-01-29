@@ -12,7 +12,8 @@ GameObject:
   - component: {fileID: 4995562224663505619}
   - component: {fileID: 165399853870800424}
   - component: {fileID: 3619155514031246530}
-  m_Layer: 0
+  - component: {fileID: 1542521966}
+  m_Layer: 12
   m_Name: AmmoPack
   m_TagString: Interactable
   m_Icon: {fileID: 0}
@@ -67,6 +68,10 @@ MonoBehaviour:
   materials:
     normal: {fileID: 2100000, guid: 2a60fee154b3b2f43a83f296169d9973, type: 2}
     psycho: {fileID: 2100000, guid: d203e58890db20c478cdc38da0e15018, type: 2}
+  multipleMaterials:
+    normal: []
+    psycho: []
+  meshRenderer: {fileID: 658579653042567819}
 --- !u!65 &3619155514031246530
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -80,6 +85,22 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 3, y: 2, z: 2}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!54 &1542521966
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1639877660984890077}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1001 &2225388536432190991
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -162,8 +183,19 @@ PrefabInstance:
       propertyPath: m_Name
       value: ammo_pack
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: d143ca2b9369a0c439252a68eaf85682,
+        type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d143ca2b9369a0c439252a68eaf85682, type: 3}
+--- !u!23 &658579653042567819 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: -7511558181221131132, guid: d143ca2b9369a0c439252a68eaf85682,
+    type: 3}
+  m_PrefabInstance: {fileID: 2225388536432190991}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1306961729490082654 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: d143ca2b9369a0c439252a68eaf85682,
