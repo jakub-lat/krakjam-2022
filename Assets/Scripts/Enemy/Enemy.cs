@@ -41,7 +41,7 @@ public class Enemy : MonoBehaviour
         if (hp <= 0)
         {
             Scoreboard.GameScoreboard.Current.levelData.kills++;
-            LevelManager.Current.IncreaseScore(LevelManager.Current.killScore);
+            LevelManager.Current.Score += LevelManager.Current.killScore;
             
             hp = 0;
             dead = true;

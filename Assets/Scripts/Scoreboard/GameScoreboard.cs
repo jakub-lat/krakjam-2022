@@ -95,6 +95,7 @@ namespace Scoreboard
             {
                 level = LevelManager.Current.CurrentLevel,
                 startTime = DateTimeOffset.UtcNow.ToUnixTimeSeconds(),
+                score = 0,
             };
         }
 

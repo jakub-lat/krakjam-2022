@@ -59,17 +59,18 @@ namespace Game
         public int killScore;
         public int headshotScore;
 
-        public float GetDifficulty { get { return difficulty.Evaluate(CurrentLevel / levelCount); } }
-
-        public int Score { get; private set; }
-
-        public void IncreaseScore(int value)
+        private int score;
+        public int Score
         {
-            Score += value;
-            GameScoreboard.Current.levelData.score = Score;
-            ScoreUI.Current.SetScore(Score);
+            get => score;
+            set
+            {
+                score = value;
+                GameScoreboard.Current.levelData.score = Score;
+                ScoreUI.Current.SetScore(Score);
+            }
         }
-
+        
         private int width, height;
         private float spaceX, spaceZ;
 
@@ -96,11 +97,15 @@ namespace Game
 
         public void NextLevel()
         {
+            Score = 0;
+            GameScoreboard.Current.ResetLevelData();
+
             if (CurrentLevel == levelCount)
             {
                 BossLevel();
                 return;
             }
+
 
             CurrentLevel++;
 

@@ -1,10 +1,13 @@
+using System;
 using Player;
 using System.Collections;
 using System.Collections.Generic;
+using Cyberultimate.Unity;
+using DG.Tweening;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class DamageSpriteChanger : MonoBehaviour
+public class DamageSpriteChanger : MonoSingleton<DamageSpriteChanger>
 {
     [SerializeField]
     private Sprite[] dmgSprites = null;
@@ -12,33 +15,18 @@ public class DamageSpriteChanger : MonoBehaviour
     [SerializeField]
     private Image portraitImg = null;
 
-    private float[] GetNumbers()
-    {
+    [SerializeField] private Image backgroundImg;
 
-        // 0 -> healed
-        return new float[]
-        {
-            0.2f,
-            0.4f,
-            0.6f,
-            0.8f
-        };
+    [SerializeField] private Gradient bgGradient;
+
+    private int GetIndex(float hpPercent, int count)
+    {
+        return (int)Math.Round(hpPercent * (count - 1));
     }
-
-    protected void Update()
+    
+    public void SetHpPercent(float hpPercent)
     {
-        float[] numbersMasonWhatDoTheyMean = GetNumbers();
-        for (int i = 0; i < numbersMasonWhatDoTheyMean.Length; i++)
-        {
-            if (numbersMasonWhatDoTheyMean[i] >= PlayerHealth.Current.Health / PlayerHealth.Current.MaxHealth)
-            {
-                portraitImg.sprite = dmgSprites[i];
-                return;
-            }
-        }
-
-        portraitImg.sprite = dmgSprites[dmgSprites.Length - 1];
-
-
+        portraitImg.sprite = dmgSprites[GetIndex(hpPercent, dmgSprites.Length)];
+        backgroundImg.DOColor(bgGradient.Evaluate(hpPercent), 0.5f).SetEase(Ease.OutQuint);
     }
 }

@@ -124,7 +124,6 @@ namespace Game
             {
                 Print("closed");
                 LevelManager.Current.NextLevel();
-                GameScoreboard.Current.ResetLevelData();
                 floorText.rectTransform.DOAnchorPos(floorTextEndPos, animDuration)
                     .SetEase(Ease.OutCirc)
                     .SetDelay(startMovingDelay)

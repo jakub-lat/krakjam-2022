@@ -178,7 +178,7 @@ namespace UsableItems
                 {
                     var dmg = headshotDamage + damageRandom;
                     
-                    LevelManager.Current.IncreaseScore(LevelManager.Current.headshotScore);
+                    LevelManager.Current.Score += LevelManager.Current.headshotScore;
                     
                     if (hit.transform.GetComponentInParent<Enemy>()) //its a normal enemy
                     {
