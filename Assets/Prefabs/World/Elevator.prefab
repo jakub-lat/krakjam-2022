@@ -2229,6 +2229,7 @@ MonoBehaviour:
   floorText: {fileID: 6774589801164764141}
   floorTextEndPos: {x: 0, y: -25}
   startMovingDelay: 1
+  music: {fileID: 1646166045336885277}
   doorOpen: {fileID: 5180015164000089551}
   doorOpenClip: {fileID: 8300000, guid: 528a4fa769886f04ba8b163a91268e6d, type: 3}
   openOnStart: 1

@@ -27,6 +27,7 @@ namespace Game
 
         private Vector3 doorsLeftClosedLocalPos, doorsRightClosedLocalPos;
 
+        [SerializeField]
         private AudioSource music;
 
         [SerializeField]

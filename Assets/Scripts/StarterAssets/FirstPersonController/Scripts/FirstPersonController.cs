@@ -43,6 +43,7 @@ namespace StarterAssets
         private bool Grounded = true;
         [Tooltip("Useful for rough ground")]
         public float GroundedOffset = -0.14f;
+        
         [Tooltip("The radius of the grounded check. Should match the radius of the CharacterController")]
         public float GroundedRadius = 0.5f;
         [Tooltip("What layers the character uses as ground")]
@@ -243,6 +244,10 @@ namespace StarterAssets
                 if (Controller.height < defaultHeight)
                 {
                     Controller.height += Time.deltaTime * speedEndCrouch;
+                }
+                else
+                {
+                    Controller.height = defaultHeight;
                 }
 
                 cooldownSlideValue = Time.time + howLongSlide;
