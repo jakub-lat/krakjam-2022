@@ -9,11 +9,11 @@ public class Enemy : MonoBehaviour
     [HideInInspector] public Animator anim;
     private EnemyAI ai;
 
-    public bool dead=false;
+    public bool dead = false;
     public bool gotHit = false;
 
     public float startingHealth = 100f;
-    private float hp=100;
+    private float hp = 100;
     [SerializeField] private GameObject myHead = null;
     [SerializeField] private GameObject myBody = null;
 
@@ -25,6 +25,10 @@ public class Enemy : MonoBehaviour
     }
 
     bool firstHpChange = true;
+    
+    private static readonly int Die = Animator.StringToHash("Die");
+    private static readonly int Damage = Animator.StringToHash("Damage");
+
     public void HPrefresh()
     {
         if (!firstHpChange) return;
@@ -42,24 +46,25 @@ public class Enemy : MonoBehaviour
         {
             Scoreboard.GameScoreboard.Current.levelData.kills++;
             LevelManager.Current.Score += LevelManager.Current.killScore;
-            
+
             hp = 0;
             dead = true;
             myHead.tag = "Untagged";
             myBody.tag = "Untagged";
 
-            anim.Play("Dead");
+            anim.SetTrigger(Die);
 
             myBody.GetComponent<Collider>().isTrigger = true;
-            foreach(Collider c in GetComponentsInChildren<Collider>())
+            foreach (Collider c in GetComponentsInChildren<Collider>())
             {
                 c.enabled = false;
             }
 
             return;
         }
+
         gotHit = true;
-        anim.Play("Hit");
+        anim.SetTrigger(Damage);
     }
 
     public void HitEnd()
