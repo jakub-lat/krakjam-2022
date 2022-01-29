@@ -15,8 +15,8 @@ public class MeleeAttack : MonoBehaviour
         if (col.transform.tag == "Player" && attacking) //player
         {
             attacking = false;
-            col.gameObject.GetComponent<CharacterController>()
-                .Move((col.transform.position - transform.position).normalized * knockback);
+            col.gameObject.GetComponent<Rigidbody>()
+                .AddForce(transform.forward * knockback);
             PlayerHealth.Current.Health -= damage;
         }
     }
