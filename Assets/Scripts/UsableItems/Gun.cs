@@ -116,7 +116,7 @@ namespace UsableItems
 
         public void Reload()
         {
-            if (currentAmmo < maxCurrentAmmo && !isReloading)
+            if (currentAmmo < maxCurrentAmmo && totalAmmo > 0 && !isReloading)
             {
                 gunSource.volume = gunSourceOriginalVolume;
                 gunSource.pitch = 1;
