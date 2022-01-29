@@ -15,6 +15,15 @@ namespace UsableItems
         
         private Cooldown cooldown;
 
+        [SerializeField]
+        private AudioSource closeFightSource;
+
+        [SerializeField]
+        private AudioClip fistPunch;
+
+        [SerializeField]
+        private AudioClip itemPunch;
+
         private void Awake()
         {
             cooldown = new Cooldown(cooldownTime);
@@ -69,6 +78,7 @@ namespace UsableItems
                     }
 
                     HitmarkManager.Current.GetHeadshotHit();
+                    closeFightSource.PlayOneShot(fistPunch);
                     PopupManager.Current.SpawnHeadshotDamage(hit.transform.parent, (int)(damage * critMultiplier));
                 }
 

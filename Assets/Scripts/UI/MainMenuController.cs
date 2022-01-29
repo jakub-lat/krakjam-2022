@@ -18,20 +18,20 @@ public class MainMenuController : MonoBehaviour
     private float basePositionLogo;
 
     [SerializeField]
-    private Transform pulseLeft;
-
-    [SerializeField]
-    private Transform pulseRight;
-
-    [SerializeField]
     private Image background;
 
     [SerializeField]
-    private GameObject buttonsAndStuff = null;
+    private CanvasGroup buttonsAndStuff = null;
 
     [SerializeField] private GameObject gameModePopup;
     [SerializeField] private RectTransform gameModePanel;
     [SerializeField] private Image gameModeOverlay;
+
+    [SerializeField]
+    private AudioClip rip = null;
+
+    [SerializeField]
+    private AudioSource ripSource;
     
     protected void Awake()
     {
@@ -59,31 +59,26 @@ public class MainMenuController : MonoBehaviour
         Application.Quit(0);
     }
 
-    // logo: 637 -> 0, szybki wślizg
-    // pulse left i pulse right na środku, odsunięcie po lewej i prawej
     public void OnPressedAny()
     {
-        logo.position = new Vector2(logo.position.x, 637);
-        pulseLeft.position = new Vector2(0, 0);
-        pulseRight.position = new Vector2(0, 0);
+        
+        logo.position = new Vector2(logo.position.x, 1200);
         background.color = new Color(background.color.r, background.color.g, background.color.b, 0);
 
         logo.gameObject.SetActive(true);
-        pulseLeft.gameObject.SetActive(true);
-        pulseRight.gameObject.SetActive(true);
         background.gameObject.SetActive(true);
-        buttonsAndStuff.gameObject.SetActive(true);
         pressKey.gameObject.SetActive(false);
 
         Sequence seq = DOTween.Sequence();
 
 
-        seq.Insert(0, pulseLeft.DOMoveX(-700, 1)).SetEase(Ease.OutElastic);
-        seq.Insert(1, pulseRight.DOMoveX(737, 1)).SetEase(Ease.OutElastic);
-        seq.Insert(2, background.DOFade(1, 3)).SetEase(Ease.OutElastic);
-        seq.Insert(2, logo.DOMoveY(basePositionLogo, 2)).SetEase(Ease.OutExpo);
+        seq.Insert(2, background.DOFade(1, 5)).SetEase(Ease.OutElastic);
+        seq.Insert(2, logo.DOMoveY(basePositionLogo, 6)).SetEase(Ease.OutExpo);
+        seq.Insert(3, buttonsAndStuff.DOFade(1, 8)).SetEase(Ease.OutExpo);
 
-
+        ripSource.clip = (rip);
+        ripSource.loop = false;
+        ripSource.Play();
         seq.SetLink(this.gameObject);
 
     }
