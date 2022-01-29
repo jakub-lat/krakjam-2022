@@ -147,9 +147,10 @@ namespace Game
             Close().OnComplete(() =>
             {
                 Print("closed");
-                LevelManager.Current.NextLevel();
 
                 MovingUpIllusion(startMovingDelay);
+                
+                Invoke(nameof(NextLevel), startMovingDelay / 2);
                 
                 floorText.rectTransform.DOAnchorPos(floorTextEndPos, animDuration)
                     .SetEase(Ease.OutCirc)
@@ -162,6 +163,11 @@ namespace Game
             }).SetLink(this.gameObject);
         }
 
+        private void NextLevel()
+        {
+            LevelManager.Current.NextLevel();
+        }
+        
         private void UpdateFloorText()
         {
             var lvl = LevelManager.Current.CurrentLevel;
