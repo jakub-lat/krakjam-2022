@@ -1,5 +1,6 @@
 ﻿using System;
 using DG.Tweening;
+using Game;
 using LetterBattle.Utility;
 using Player;
 using StarterAssets;
@@ -176,8 +177,9 @@ namespace UsableItems
                 else if (hit.collider.gameObject.CompareTag("EnemyHead"))
                 {
                     var dmg = headshotDamage + damageRandom;
-
-
+                    
+                    LevelManager.Current.IncreaseScore(LevelManager.Current.headshotScore);
+                    
                     if (hit.transform.GetComponentInParent<Enemy>()) //its a normal enemy
                     {
                         Enemy enemy = hit.transform.GetComponentInParent<Enemy>();

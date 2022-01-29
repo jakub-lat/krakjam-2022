@@ -4,6 +4,7 @@ using System.Linq;
 using Cyberultimate.Unity;
 using Player;
 using Scoreboard;
+using UI;
 using UnityEngine;
 
 namespace Game
@@ -37,6 +38,18 @@ namespace Game
         [SerializeField] private int baseElevatorEnemyCount;
         [SerializeField] private int baseEnemyDamage;
 
+        [Header("Score counting")] 
+        public int killScore;
+        public int headshotScore;
+
+        public int Score { get; private set; }
+
+        public void IncreaseScore(int value)
+        {
+            Score += value;
+            GameScoreboard.Current.levelData.score = Score;
+            ScoreUI.Current.SetScore(Score);
+        }
 
         private int width, height;
         private float spaceX, spaceZ;

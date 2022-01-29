@@ -18,7 +18,7 @@ namespace Scoreboard
         [SerializeField] private Text idCol;
         [SerializeField] private Text nameCol;
         [SerializeField] private Text scoreCol;
-        [SerializeField] private Text killsCol;
+        [SerializeField] private Text timeCol;
         // [SerializeField] private Text headshotsCol;
         [SerializeField] private Text deathsCol;
 
@@ -71,7 +71,7 @@ namespace Scoreboard
             idCol.text += "\n" + Colorize(x.position.ToString(), isCurrent);
             nameCol.text += "\n" + Colorize(Truncate(x.player.name.ToUpper(), 15), isCurrent);
             scoreCol.text += "\n" + Colorize(x.score.ToString(), isCurrent);
-            killsCol.text += "\n" + Colorize(x.kills.ToString(), isCurrent);
+            timeCol.text += "\n" + Colorize(TimeSpan.FromSeconds(x.endTime - x.startTime).ToString(@"mm\:ss"), isCurrent);
             // headshotsCol.text += "\n" + Colorize(x.headshots.ToString(), isCurrent);
             deathsCol.text += "\n" + Colorize(x.deaths.ToString(), isCurrent);
         }
@@ -81,7 +81,7 @@ namespace Scoreboard
             idCol.text = GetTitleText("-");
             nameCol.text = GetTitleText("NAME");
             scoreCol.text = GetTitleText("SCORE");
-            killsCol.text = GetTitleText("KILLS");
+            timeCol.text = GetTitleText("TIME");
             // headshotsCol.text = GetTitleText("HEADSHOTS");
             deathsCol.text = GetTitleText("DEATHS");
 
