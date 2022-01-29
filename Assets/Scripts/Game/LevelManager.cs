@@ -79,6 +79,9 @@ namespace Game
             Vector3 newElevatorPos = new Vector3(finishElevator.transform.position.x, finishElevator.transform.position.y, UnityEngine.Random.Range(0, height * 2) * spaceZ);
             finishElevator.transform.position = newElevatorPos;
 
+            finishElevator.SetDoorNavSurface(false); //enemies cant walk through door
+            startingElevator.SetDoorNavSurface(true);
+
             var levelDifficulty = difficulty.Evaluate(CurrentLevel);
             GenerateRoom.Current.transform.KillAllChildren();
             ObjectGeneration.Current.ClearObjects();

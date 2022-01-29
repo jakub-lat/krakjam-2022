@@ -4,12 +4,14 @@ using Scoreboard;
 using StarterAssets;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.AI;
 
 namespace Game
 {
     public class Elevator : MonoBehaviour
     {
         [SerializeField] private GameObject exitBlock;
+        [SerializeField] private NavMeshObstacle leftDoor, rightDoor;
         [SerializeField] private Transform doorsLeft, doorsRight;
         [SerializeField] private Vector3 doorsLeftOpenLocalPos, doorsRightOpenLocalPos;
         [SerializeField] private float animDuration, closeDelay;
@@ -78,6 +80,11 @@ namespace Game
                     RunScoreboardTasks();
                 }
             }
+        }
+        public void SetDoorNavSurface(bool walkable)
+        {
+            leftDoor.enabled = !walkable;
+            rightDoor.enabled = !walkable;
         }
 
         private async void RunScoreboardTasks()
