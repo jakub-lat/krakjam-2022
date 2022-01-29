@@ -159,8 +159,8 @@ namespace Game
         public Tween Open()
         {
             // Print("open");
-            
-            music.DOFade(0, musicTransition).OnComplete(() => music.Stop());
+
+            music.DOFade(0, musicTransition);
             GameMusic.Current.audioSource.Play();
             GameMusic.Current.audioSource.DOFade(1, musicTransition);
             
