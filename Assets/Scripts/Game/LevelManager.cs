@@ -42,7 +42,9 @@ namespace Game
 
         [Header("Game balance")] 
         [SerializeField] private int levelCount;
-        [SerializeField] private AnimationCurve difficulty;
+        [SerializeField] private AnimationCurve difficultyCurveEasy;
+        [SerializeField] private AnimationCurve difficultyCurveNormal;
+        [SerializeField] private AnimationCurve difficultyCurveHard;
         [SerializeField] private int baseMeleeEnemyCount = 4;
         [SerializeField] private float meleeEnemyCountM = 0.3f;
         [SerializeField] private int baseShootingEnemyCount = 4;
@@ -59,7 +61,9 @@ namespace Game
         public int killScore;
         public int headshotScore;
 
-        public float GetDifficulty { get { return difficulty.Evaluate(CurrentLevel / levelCount); } }
+        public AnimationCurve DifficultyCurve => GameMode == GameMode.Easy ? difficultyCurveEasy :
+            GameMode == GameMode.Normal ? difficultyCurveNormal : difficultyCurveHard;
+        public float Difficulty { get { return DifficultyCurve.Evaluate(CurrentLevel / levelCount); } }
 
         private int score;
         public int Score
@@ -151,7 +155,7 @@ namespace Game
             finishElevator.SetDoorNavSurface(false); //enemies cant walk through door
             startingElevator.SetDoorNavSurface(true);
 
-            var levelDifficulty = GetDifficulty;
+            var levelDifficulty = Difficulty;
 
             GenerateRoom.Current.transform.KillAllChildren();
             ObjectGeneration.Current.ClearObjects();
