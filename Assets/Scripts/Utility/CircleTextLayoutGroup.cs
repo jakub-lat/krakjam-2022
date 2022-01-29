@@ -34,7 +34,7 @@ namespace LetterBattle.Utility
 			for (int i = 0; i < childArray.Length; i++)
 			{
 				float len = childArray.Length - 1;
-				var (pos, angle) = CircleSettingHelper.GetPosAndAngle(new CircleSettingHelper.SettingData(sides, radius), i / len, startPoint);
+				var (pos, angle) = CircleSettingHelper.GetPosAndAngle(new CircleSettingHelper.SettingData(sides, radius), len == 0 ? 0 : i / len, startPoint);
 				angle += baseRotation;
 				childArray[i].localPosition = pos;
 				if (!dontRotate)
