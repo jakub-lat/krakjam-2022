@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class ElevatorEnemies : MonoBehaviour
 {
-    public int shootingEnemies = 5;
-    public int meleeEnemies = 0;
+    private int shootingEnemies = 5;
+    private int meleeEnemies = 0;
 
     public float diffX = 2f;
     public float diffZ = 2f;
@@ -13,6 +13,9 @@ public class ElevatorEnemies : MonoBehaviour
     private void Start()
     {
         transform.position = Game.LevelManager.Current.startingPosA.position;
+        shootingEnemies = EnemySpawner.Current.shootingEnemyAmount;
+        meleeEnemies = EnemySpawner.Current.meleeEnemyAmount;
+
         Spawn();
         
     }

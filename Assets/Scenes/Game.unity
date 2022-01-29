@@ -991,7 +991,7 @@ PrefabInstance:
     - target: {fileID: 5052492125061912269, guid: 86b8cdb22faebf6478e55220e296baa1,
         type: 3}
       propertyPath: m_RootOrder
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5052492125061912269, guid: 86b8cdb22faebf6478e55220e296baa1,
         type: 3}
@@ -2691,7 +2691,7 @@ PrefabInstance:
     - target: {fileID: 6966197676403806439, guid: e1dc9e6cc4bef8a48b429d6c237dfbe3,
         type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6966197676403806439, guid: e1dc9e6cc4bef8a48b429d6c237dfbe3,
         type: 3}
@@ -2793,10 +2793,10 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 2667818113425586615}
   - {fileID: 728314929}
   - {fileID: 1417088689}
   - {fileID: 6697026741388987717}
-  - {fileID: 2667818113425586615}
   - {fileID: 2629645138511139041}
   - {fileID: 1630821620}
   - {fileID: 5159287604021917821}
@@ -4163,6 +4163,11 @@ PrefabInstance:
       objectReference: {fileID: 2000954055}
     - target: {fileID: 2667818113581105014, guid: 1c8b4abb690b867418682e71ee9c44a1,
         type: 3}
+      propertyPath: meleeEnemyCountM
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2667818113581105014, guid: 1c8b4abb690b867418682e71ee9c44a1,
+        type: 3}
       propertyPath: startingElevator
       value: 
       objectReference: {fileID: 2099600917}
@@ -4174,17 +4179,47 @@ PrefabInstance:
     - target: {fileID: 2667818113581105014, guid: 1c8b4abb690b867418682e71ee9c44a1,
         type: 3}
       propertyPath: baseMeleeEnemyCount
-      value: 7
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2667818113581105014, guid: 1c8b4abb690b867418682e71ee9c44a1,
+        type: 3}
+      propertyPath: shootingEnemyCountM
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 2667818113581105014, guid: 1c8b4abb690b867418682e71ee9c44a1,
         type: 3}
       propertyPath: baseShootingEnemyCount
-      value: 5
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 2667818113581105014, guid: 1c8b4abb690b867418682e71ee9c44a1,
+        type: 3}
+      propertyPath: elevatorMeleeEnemyCountM
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2667818113581105014, guid: 1c8b4abb690b867418682e71ee9c44a1,
+        type: 3}
+      propertyPath: baseElevatorMeleeEnemyCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2667818113581105014, guid: 1c8b4abb690b867418682e71ee9c44a1,
+        type: 3}
+      propertyPath: elevatorShootingEnemyCountM
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2667818113581105014, guid: 1c8b4abb690b867418682e71ee9c44a1,
+        type: 3}
+      propertyPath: difficulty.m_Curve.Array.data[0].time
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2667818113581105014, guid: 1c8b4abb690b867418682e71ee9c44a1,
         type: 3}
       propertyPath: difficulty.m_Curve.Array.data[1].time
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2667818113581105014, guid: 1c8b4abb690b867418682e71ee9c44a1,
+        type: 3}
+      propertyPath: difficulty.m_Curve.Array.data[0].value
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2667818113581105014, guid: 1c8b4abb690b867418682e71ee9c44a1,
         type: 3}
@@ -4194,17 +4229,17 @@ PrefabInstance:
     - target: {fileID: 2667818113581105014, guid: 1c8b4abb690b867418682e71ee9c44a1,
         type: 3}
       propertyPath: difficulty.m_Curve.Array.data[0].inSlope
-      value: 0.50020623
+      value: 1.5002062
       objectReference: {fileID: 0}
     - target: {fileID: 2667818113581105014, guid: 1c8b4abb690b867418682e71ee9c44a1,
         type: 3}
       propertyPath: difficulty.m_Curve.Array.data[1].inSlope
-      value: 0.50020623
+      value: 1.5002062
       objectReference: {fileID: 0}
     - target: {fileID: 2667818113581105014, guid: 1c8b4abb690b867418682e71ee9c44a1,
         type: 3}
       propertyPath: difficulty.m_Curve.Array.data[0].outSlope
-      value: 0.50020623
+      value: 1.5002062
       objectReference: {fileID: 0}
     - target: {fileID: 2667818113581105014, guid: 1c8b4abb690b867418682e71ee9c44a1,
         type: 3}
@@ -4214,7 +4249,7 @@ PrefabInstance:
     - target: {fileID: 2667818113581105014, guid: 1c8b4abb690b867418682e71ee9c44a1,
         type: 3}
       propertyPath: difficulty.m_Curve.Array.data[1].outSlope
-      value: 0.50020623
+      value: 1.5002062
       objectReference: {fileID: 0}
     - target: {fileID: 2667818113581105014, guid: 1c8b4abb690b867418682e71ee9c44a1,
         type: 3}
@@ -4224,7 +4259,7 @@ PrefabInstance:
     - target: {fileID: 2667818113581105015, guid: 1c8b4abb690b867418682e71ee9c44a1,
         type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2667818113581105015, guid: 1c8b4abb690b867418682e71ee9c44a1,
         type: 3}
@@ -4843,7 +4878,7 @@ PrefabInstance:
     - target: {fileID: 6697026741054866069, guid: 03277ffb5d6562c48a9c464e5036c071,
         type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6697026741054866069, guid: 03277ffb5d6562c48a9c464e5036c071,
         type: 3}

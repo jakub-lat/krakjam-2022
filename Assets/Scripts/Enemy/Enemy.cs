@@ -11,7 +11,9 @@ public class Enemy : MonoBehaviour
 
     public bool dead=false;
     public bool gotHit = false;
-    [SerializeField] private float hp=100;
+
+    public float startingHealth = 100f;
+    private float hp=100;
     [SerializeField] private GameObject myHead = null;
     [SerializeField] private GameObject myBody = null;
 
@@ -19,6 +21,15 @@ public class Enemy : MonoBehaviour
     {
         anim = GetComponent<Animator>();
         ai = GetComponent<EnemyAI>();
+        hp = startingHealth;
+    }
+
+    bool firstHpChange = true;
+    public void HPrefresh()
+    {
+        if (!firstHpChange) return;
+        firstHpChange = true;
+        hp = startingHealth;
     }
 
     public void GotHit(float amount)
