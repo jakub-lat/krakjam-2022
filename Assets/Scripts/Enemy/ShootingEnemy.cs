@@ -64,6 +64,7 @@ public class ShootingEnemy : EnemyAI
     protected override void Chase()
     {
         if (reloading || dead) return;
+        base.Chase();
         agent.SetDestination(player.position);
     }
 

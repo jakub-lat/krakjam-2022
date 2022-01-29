@@ -67,8 +67,14 @@ public abstract class EnemyAI : MonoBehaviour
 
     }
 
-    protected abstract void Chase();
-    protected abstract void Attack();
+    protected virtual void Chase()
+    {
+    }
+
+    protected virtual void Attack()
+    {
+        
+    }
 
     public void RunFromPlayer()
     {

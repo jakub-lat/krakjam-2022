@@ -30,6 +30,7 @@ public class MeleeEnemy : EnemyAI
 
     protected override void Chase()
     {
+        base.Chase();
         //if (Vector3.Distance(transform.position, player.transform.position) < attackRange) return;
 
         agent.SetDestination(player.position + (transform.position-player.position).normalized*attackRange);
