@@ -40,7 +40,7 @@ namespace UI
 
         public void UpdateAmount(float newAmount)
         {
-            Debug.Log("overlay " + newAmount);
+            // Debug.Log("overlay " + newAmount);
             amount = newAmount;
 
             image.DOFade(amount, transitionDuration);
