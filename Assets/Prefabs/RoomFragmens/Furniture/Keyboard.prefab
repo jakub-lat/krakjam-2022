@@ -162,10 +162,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   destroyAfterUse: 0
   interactionName: Keyboard
+  interactionSound: {fileID: 0}
+  source: {fileID: 0}
   rotationOffset: {x: 32.18, y: 221.23, z: 77.3}
   positionOffset: {x: -0.1173, y: -0.08, z: -0.175}
-  damage: 50
-  distance: 4
+  damage: 30
+  distance: 3
   cooldownTime: 1
 --- !u!114 &5482504043265140913
 MonoBehaviour:
