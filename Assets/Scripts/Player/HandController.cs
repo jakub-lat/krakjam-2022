@@ -18,6 +18,7 @@ namespace Player
         public UsableItem CurrentItem { get; private set; }
 
         private Vector3 originalScale;
+        private int originalLayer;
         
         public void PickUpItem(UsableItem item)
         {
@@ -36,7 +37,9 @@ namespace Player
             }
 
             originalScale = CurrentItem.transform.lossyScale;
+            originalLayer = CurrentItem.gameObject.layer;
 
+            SetLayerRecursively(CurrentItem.gameObject, gameObject.layer);
             CurrentItem.transform.SetParent(transform, true);
             CurrentItem.transform.DOLocalRotate(CurrentItem.rotationOffset, pickupTransitionDuration);
             CurrentItem.transform.DOLocalMove(CurrentItem.positionOffset, pickupTransitionDuration).SetEase(Ease.InOutQuint);
@@ -51,7 +54,8 @@ namespace Player
             // var pos = CurrentItem.transform.position;
             // CurrentItem.transform.SetParent(null, false);
             // CurrentItem.transform.position = pos;
-            
+
+            SetLayerRecursively(CurrentItem.gameObject, originalLayer);
             CurrentItem.transform.SetParent(null, true);
             CurrentItem.transform.localScale /= transform.localScale.x;
 
@@ -83,6 +87,25 @@ namespace Player
             else
             {
                 CurrentItem.Use();
+            }
+        }
+        
+        void SetLayerRecursively(GameObject obj, int newLayer)
+        {
+            if (null == obj)
+            {
+                return;
+            }
+       
+            obj.layer = newLayer;
+       
+            foreach (Transform child in obj.transform)
+            {
+                if (null == child)
+                {
+                    continue;
+                }
+                SetLayerRecursively(child.gameObject, newLayer);
             }
         }
     }
