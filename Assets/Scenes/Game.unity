@@ -1306,6 +1306,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 5307687593080143241, guid: 06fe48d98e089564482bb60f44ad7b58,
+        type: 3}
+      propertyPath: m_Volume
+      value: 0.176
+      objectReference: {fileID: 0}
+    - target: {fileID: 6592591626598757040, guid: 06fe48d98e089564482bb60f44ad7b58,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 06fe48d98e089564482bb60f44ad7b58, type: 3}
 --- !u!4 &966449310 stripped
@@ -2554,6 +2564,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7318423599987917556, guid: 554aaef13d9bc494cb4c7d59a19e22af,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 3.1499023
       objectReference: {fileID: 0}
     - target: {fileID: 8187781343552978611, guid: 554aaef13d9bc494cb4c7d59a19e22af,
         type: 3}

@@ -141,7 +141,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 907d361478a31a146a2fa2a92791378c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  footsteps: []
+  footsteps:
+  - {fileID: 8300000, guid: 4823b8826915c654f843f299c7bc36b9, type: 3}
+  - {fileID: 8300000, guid: 2eae51e024f099045abb3c29557aac47, type: 3}
+  - {fileID: 8300000, guid: 52f5f020b071f8949bd0540376e76c06, type: 3}
+  - {fileID: 8300000, guid: e1ec35d122fd7f748bb673463978decb, type: 3}
+  - {fileID: 8300000, guid: 20dc1be00fe0e644e988cf1a5ea39eac, type: 3}
+  - {fileID: 8300000, guid: e55b3a99a137d8649af403e6991a9a8b, type: 3}
+  - {fileID: 8300000, guid: 9bb78a1b3f522c642b0d2abfe6666976, type: 3}
+  - {fileID: 8300000, guid: 1688d18fb0627884394709be6a1be3ad, type: 3}
+  - {fileID: 8300000, guid: f21777a35dc42ca4c9c678b89c27b6f9, type: 3}
+  - {fileID: 8300000, guid: 42931f2c674cbc148a144e6f822bc2b4, type: 3}
 --- !u!1 &4071760804872941609
 GameObject:
   m_ObjectHideFlags: 0
@@ -379,6 +389,7 @@ MonoBehaviour:
   slideForce: 0
   waitForNextCrouch: 1
   push: {fileID: 4071760806831231208}
+  soundController: {fileID: 207403017}
 --- !u!114 &4071760806831231208
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -618,8 +629,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3adaa031bea436e8702e051b7ef920f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 300
-  maxHealth: 300
+  health: 1000
+  maxHealth: 1000
 --- !u!1 &6592591626598757040
 GameObject:
   m_ObjectHideFlags: 0
@@ -665,7 +676,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 48a93d3c9072b514bb20cc26c6c92262, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.353
+  m_Volume: 0.176
   m_Pitch: 1
   Loop: 1
   Mute: 0

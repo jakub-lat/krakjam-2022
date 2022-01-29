@@ -2,6 +2,7 @@
 using System;
 using Player;
 using UnityEngine;
+using System.Collections;
 #if ENABLE_INPUT_SYSTEM && STARTER_ASSETS_PACKAGES_CHECKED
 using UnityEngine.InputSystem;
 #endif
@@ -82,7 +83,7 @@ namespace StarterAssets
         private float _jumpTimeoutDelta;
         private float _fallTimeoutDelta;
 
-        private CharacterController _controller;
+        public CharacterController Controller { get; private set; }
         private StarterAssetsInputs _input;
 
         private ParticleSystem bars = null;
@@ -93,14 +94,17 @@ namespace StarterAssets
         private BasicRigidBodyPush push;
         private float normalPush;
 
+        [SerializeField]
+        private FootstepSoundController soundController;
+
         private void Start()
         {
             normalPush = push.strength;
             cooldownSlideValue = Time.time + howLongSlide;
             cooldownCrouchValue = Time.time + waitForNextCrouch;
             this.transform.eulerAngles = new Vector3(0, 90, 0);
-            _controller = GetComponent<CharacterController>();
-            defaultHeight = _controller.height;
+            Controller = GetComponent<CharacterController>();
+            defaultHeight = Controller.height;
             _input = GetComponent<StarterAssetsInputs>();
 
             _jumpTimeoutDelta = JumpTimeout;
@@ -113,9 +117,10 @@ namespace StarterAssets
             JumpAndGravity();
             GroundedCheck();
             Move();
-            Run();
+
             Crouch();
             ShowBarsEffect();
+            Run();
         }
 
         private void GroundedCheck()
@@ -137,7 +142,7 @@ namespace StarterAssets
             }
 
 
-            float horizontalVelocity = new Vector3(_controller.velocity.x, 0.0f, _controller.velocity.z).magnitude;
+            float horizontalVelocity = new Vector3(Controller.velocity.x, 0.0f, Controller.velocity.z).magnitude;
 
             float speedOffset = 0.1f;
             float inputMagnitude = _input.analogMovement ? _input.move.magnitude : 1f;
@@ -160,7 +165,8 @@ namespace StarterAssets
                      + CameraHelper.MainCamera.transform.right * _input.move.x;
             }
 
-            _controller.Move((inputDirection.normalized * (_speed * Time.deltaTime) + new Vector3(0.0f, _verticalVelocity, 0.0f) * Time.deltaTime));
+            Controller.Move((inputDirection.normalized * (_speed * Time.deltaTime) + new Vector3(0.0f, _verticalVelocity, 0.0f) * Time.deltaTime));
+
         }
 
         public Vector3 GetDirection()
@@ -185,6 +191,7 @@ namespace StarterAssets
 
         private void Run()
         {
+            print(_input.sprint);
             if (_input.sprint && !_input.crouch)
             {
                 targetSpeed = SprintSpeed;
@@ -196,9 +203,9 @@ namespace StarterAssets
         {
             if (_input.crouch)
             {
-                if (_controller.height > crouchedHeight)
+                if (Controller.height > crouchedHeight)
                 {
-                    _controller.height -= Time.deltaTime * speedStartCrouch;
+                    Controller.height -= Time.deltaTime * speedStartCrouch;
                 }
 
                 // cooldown is over
@@ -233,9 +240,9 @@ namespace StarterAssets
                 push.strength = normalPush;
                 targetSpeed = MoveSpeed;
 
-                if (_controller.height < defaultHeight)
+                if (Controller.height < defaultHeight)
                 {
-                    _controller.height += Time.deltaTime * speedEndCrouch;
+                    Controller.height += Time.deltaTime * speedEndCrouch;
                 }
 
                 cooldownSlideValue = Time.time + howLongSlide;
