@@ -5206,9 +5206,24 @@ PrefabInstance:
       objectReference: {fileID: 557038670}
     - target: {fileID: 1832353734658663969, guid: 7a0cb4b65e7ce80458456fa063c9507e,
         type: 3}
+      propertyPath: damage
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1832353734658663969, guid: 7a0cb4b65e7ce80458456fa063c9507e,
+        type: 3}
       propertyPath: healthBar
       value: 
       objectReference: {fileID: 1228253230}
+    - target: {fileID: 1832353734658663969, guid: 7a0cb4b65e7ce80458456fa063c9507e,
+        type: 3}
+      propertyPath: burstSizeMin
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 1832353734658663969, guid: 7a0cb4b65e7ce80458456fa063c9507e,
+        type: 3}
+      propertyPath: burstFireRate
+      value: 0.05
+      objectReference: {fileID: 0}
     - target: {fileID: 1832353734658663969, guid: 7a0cb4b65e7ce80458456fa063c9507e,
         type: 3}
       propertyPath: playerCharacter
