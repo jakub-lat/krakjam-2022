@@ -16,6 +16,10 @@ namespace Game
         [SerializeField] private Vector3 doorsLeftOpenLocalPos, doorsRightOpenLocalPos;
         [SerializeField] private float animDuration, closeDelay;
 
+        [SerializeField] private MeshRenderer statusLight;
+        [SerializeField] private Material statusLightGreenMaterial;
+        [SerializeField] private Material statusLightRedMaterial;
+
         [SerializeField] private Text floorText;
         [SerializeField] private Vector2 floorTextEndPos;
         [SerializeField] private float startMovingDelay;
@@ -32,7 +36,17 @@ namespace Game
         private AudioClip doorOpenClip;
         
         public bool openOnStart;
-        public bool active;
+
+        private bool active;
+        public bool Active
+        {
+            get => active;
+            set
+            {
+                active = value;
+                statusLight.material = active ? statusLightGreenMaterial : statusLightRedMaterial;
+            }
+        }
 
         [SerializeField]
         private float startWaitTime = 5f;
@@ -70,7 +84,7 @@ namespace Game
         public void OnTriggerEnter(Collider other)
         {
             Print("trigger enter");
-            if (!active) return;
+            if (!Active) return;
 
             if (other.gameObject.CompareTag("Player"))
             {
@@ -97,7 +111,7 @@ namespace Game
         public void OnTriggerExit(Collider other)
         {
             Print("trigger exit");
-            if (!active && other.gameObject.CompareTag("Player"))
+            if (!Active && other.gameObject.CompareTag("Player"))
             {
                 Invoke(nameof(Close), 0.5f);
             }
@@ -105,11 +119,11 @@ namespace Game
 
         public void Use()
         {
-            if (!active) return;
+            if (!Active) return;
             
             Print("use");
 
-            active = false;
+            Active = false;
 
             music.Play();
             music.DOFade(1, musicTransition);
