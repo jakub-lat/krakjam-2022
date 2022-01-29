@@ -4291,6 +4291,70 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 351627716}
     m_Modifications:
+    - target: {fileID: 458180171, guid: 554aaef13d9bc494cb4c7d59a19e22af, type: 3}
+      propertyPath: bgGradient.ctime1
+      value: 33346
+      objectReference: {fileID: 0}
+    - target: {fileID: 458180171, guid: 554aaef13d9bc494cb4c7d59a19e22af, type: 3}
+      propertyPath: bgGradient.ctime2
+      value: 65535
+      objectReference: {fileID: 0}
+    - target: {fileID: 458180171, guid: 554aaef13d9bc494cb4c7d59a19e22af, type: 3}
+      propertyPath: bgGradient.ctime3
+      value: 65535
+      objectReference: {fileID: 0}
+    - target: {fileID: 458180171, guid: 554aaef13d9bc494cb4c7d59a19e22af, type: 3}
+      propertyPath: bgGradient.key0.b
+      value: 0.022179836
+      objectReference: {fileID: 0}
+    - target: {fileID: 458180171, guid: 554aaef13d9bc494cb4c7d59a19e22af, type: 3}
+      propertyPath: bgGradient.key0.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 458180171, guid: 554aaef13d9bc494cb4c7d59a19e22af, type: 3}
+      propertyPath: bgGradient.key0.r
+      value: 0.122641504
+      objectReference: {fileID: 0}
+    - target: {fileID: 458180171, guid: 554aaef13d9bc494cb4c7d59a19e22af, type: 3}
+      propertyPath: bgGradient.key1.b
+      value: 0.16079608
+      objectReference: {fileID: 0}
+    - target: {fileID: 458180171, guid: 554aaef13d9bc494cb4c7d59a19e22af, type: 3}
+      propertyPath: bgGradient.key1.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 458180171, guid: 554aaef13d9bc494cb4c7d59a19e22af, type: 3}
+      propertyPath: bgGradient.key1.r
+      value: 0.6981132
+      objectReference: {fileID: 0}
+    - target: {fileID: 458180171, guid: 554aaef13d9bc494cb4c7d59a19e22af, type: 3}
+      propertyPath: bgGradient.key2.b
+      value: 0.31724146
+      objectReference: {fileID: 0}
+    - target: {fileID: 458180171, guid: 554aaef13d9bc494cb4c7d59a19e22af, type: 3}
+      propertyPath: bgGradient.key2.g
+      value: 0.23985407
+      objectReference: {fileID: 0}
+    - target: {fileID: 458180171, guid: 554aaef13d9bc494cb4c7d59a19e22af, type: 3}
+      propertyPath: bgGradient.key2.r
+      value: 0.9245283
+      objectReference: {fileID: 0}
+    - target: {fileID: 458180171, guid: 554aaef13d9bc494cb4c7d59a19e22af, type: 3}
+      propertyPath: bgGradient.key3.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 458180171, guid: 554aaef13d9bc494cb4c7d59a19e22af, type: 3}
+      propertyPath: bgGradient.key3.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 458180171, guid: 554aaef13d9bc494cb4c7d59a19e22af, type: 3}
+      propertyPath: bgGradient.key3.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 458180171, guid: 554aaef13d9bc494cb4c7d59a19e22af, type: 3}
+      propertyPath: bgGradient.m_NumColorKeys
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 2832854156849449379, guid: 554aaef13d9bc494cb4c7d59a19e22af,
         type: 3}
       propertyPath: m_Pivot.x
