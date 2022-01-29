@@ -419,7 +419,7 @@ MonoBehaviour:
         changeOverTime: -0.4
         edgeValue: 3
       sprintSpeed:
-        value: 9
+        value: 10
         changeOverTime: -0.15
         edgeValue: 5
       slideSpeed:
