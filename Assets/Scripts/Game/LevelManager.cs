@@ -8,10 +8,17 @@ using UnityEngine;
 
 namespace Game
 {
+    public enum GameMode
+    {
+        Easy, Normal, Hard
+    }
+    
     public class LevelManager : MonoSingleton<LevelManager>
     {
         [SerializeField] private int levelCount;
         [SerializeField] private AnimationCurve difficulty;
+
+        public GameMode GameMode => (GameMode)PlayerPrefs.GetInt("GameMode");
 
         public int CurrentLevel { get; private set; }
 

@@ -150,6 +150,8 @@ namespace Game
             GameMusic.Current.audioSource.Play();
             GameMusic.Current.audioSource.DOFade(1, musicTransition);
             
+            // Debug.Log("MUSIC IS PLAYING " + GameMusic.Current.audioSource.isPlaying);
+            
             doorsLeft.DOLocalMove(doorsLeftOpenLocalPos, animDuration)
                 .SetLink(gameObject)
                 .SetEase(Ease.InOutQuint).OnComplete(() =>
