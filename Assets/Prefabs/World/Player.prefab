@@ -575,12 +575,12 @@ MonoBehaviour:
   data:
     normal:
       moveSpeed:
-        value: 6.5
+        value: 4
         changeOverTime: -0.4
         edgeValue: 3
       sprintSpeed:
-        value: 10
-        changeOverTime: -0.15
+        value: 6
+        changeOverTime: -0.2
         edgeValue: 5
       slideSpeed:
         value: 9.25
@@ -600,11 +600,11 @@ MonoBehaviour:
         edgeValue: 2
     psycho:
       moveSpeed:
-        value: 8
+        value: 7
         changeOverTime: 0
         edgeValue: 0
       sprintSpeed:
-        value: 10.5
+        value: 9
         changeOverTime: 0
         edgeValue: 0
       slideSpeed:

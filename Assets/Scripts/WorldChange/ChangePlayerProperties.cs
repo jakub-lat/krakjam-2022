@@ -27,6 +27,7 @@ public class PlayerPropertiesData
 {
     public PlayerProperty moveSpeed;
     public PlayerProperty sprintSpeed;
+    public PlayerProperty jumpHeight;
     public PlayerProperty slideSpeed;
     public PlayerProperty strengthPush;
     public PlayerProperty cameraNoiseAmplitude;
@@ -66,6 +67,7 @@ public class ChangePlayerProperties : WorldChangeLogic
             fpsc.MoveSpeed = currentProps.moveSpeed.value;
             fpsc.SprintSpeed = currentProps.sprintSpeed.value;
             fpsc.SlideSpeed = currentProps.slideSpeed.value;
+            fpsc.JumpHeight = currentProps.jumpHeight.value;
         }
 
         SetNoiseIfNull();
@@ -87,6 +89,7 @@ public class ChangePlayerProperties : WorldChangeLogic
         fpsc.MoveSpeed = props.moveSpeed.ChangeOverTime(fpsc.MoveSpeed);
         fpsc.SprintSpeed = props.sprintSpeed.ChangeOverTime(fpsc.SprintSpeed);
         fpsc.SlideSpeed = props.slideSpeed.ChangeOverTime(fpsc.SlideSpeed);
+        fpsc.JumpHeight = props.jumpHeight.ChangeOverTime(fpsc.JumpHeight);
 
 
         if (noise != null)
