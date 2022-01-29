@@ -1769,6 +1769,26 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: 8782313763911536404, guid: a045af21090212449b51769c1140a2b4,
+        type: 3}
+      propertyPath: ShapeModule.radius.value
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 8782313763911536404, guid: a045af21090212449b51769c1140a2b4,
+        type: 3}
+      propertyPath: InitialModule.startSpeed.scalar
+      value: 1.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 8782313763911536404, guid: a045af21090212449b51769c1140a2b4,
+        type: 3}
+      propertyPath: EmissionModule.rateOverTime.scalar
+      value: 85
+      objectReference: {fileID: 0}
+    - target: {fileID: 8782313763911536405, guid: a045af21090212449b51769c1140a2b4,
+        type: 3}
+      propertyPath: m_LengthScale
+      value: 9.1
+      objectReference: {fileID: 0}
     - target: {fileID: 8905552784872945530, guid: a045af21090212449b51769c1140a2b4,
         type: 3}
       propertyPath: m_Layer
@@ -1835,7 +1855,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: -18.99997}
+  m_AnchoredPosition: {x: 0, y: -19}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &817025657
