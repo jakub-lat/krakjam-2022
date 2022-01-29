@@ -59,6 +59,8 @@ namespace Game
         public int killScore;
         public int headshotScore;
 
+        public float GetDifficulty { get { return difficulty.Evaluate(CurrentLevel / levelCount); } }
+
         private int score;
         public int Score
         {
