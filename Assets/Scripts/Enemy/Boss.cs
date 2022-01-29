@@ -68,6 +68,8 @@ public class Boss : MonoSingleton<Boss>
         attack.knockback = punchKnock;
         attack.myPos = transform;
         healthToNextPipe = startingHealth - (startingHealth / (pipeOverHealth + 1));
+
+        StartBattle(); // TO DELETE!!1!!1
     }
 
     private int currBurst = 0;
@@ -138,18 +140,23 @@ public class Boss : MonoSingleton<Boss>
 
     public void PipeHit()
     {
+        Debug.Log("Pipee");
         pipeAnim = true;
-        GotHit(pipeDmg);
+        anim.Play("PipeBroken");
     }
 
     public void EndPipe()
     {
+        GotHit(pipeDmg);
         pipeAnim = false;
     }
 
     void Punch()
     {
-        Debug.Log("BOSS PUNCH");
+        var look = playerCharacter.transform.position;
+        look.y = transform.position.y;
+        transform.LookAt(look);
+
         burstTimer = fireRate;
         shootingTimer = burstFireRate;
         currBurst = Random.Range(burstSizeMin, burstSizeMax); ;
@@ -165,7 +172,6 @@ public class Boss : MonoSingleton<Boss>
 
     void Shoot()
     {
-        Debug.Log("BOSS SHOOT");
         GameObject obj = ObjectPooler.Current.SpawnPool(bulletPoolTag, gunPoint.position, Quaternion.identity);
 
         var vel = playerCharacter.velocity;

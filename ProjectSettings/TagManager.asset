@@ -9,6 +9,7 @@ TagManager:
   - Interactable
   - EnemyHead
   - Jojo
+  - Pipe
   layers:
   - Default
   - TransparentFX

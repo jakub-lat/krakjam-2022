@@ -165,7 +165,8 @@ namespace UsableItems
                     {
                         Boss boss = hit.transform.GetComponentInParent<Boss>();
                         boss.GotHit(dmg);
-                    } else
+                    }
+                    else
                     {
                         Debug.LogError("Enemy doesnt have a enemy or boss component");
                     }
@@ -201,6 +202,16 @@ namespace UsableItems
                     GameObject particle = ObjectPooler.Current.SpawnPool(hitParticlePoolingTag, hit.point,
                         Quaternion.LookRotation(hit.normal));
                     Scoreboard.GameScoreboard.Current.levelData.headshots++;
+                } else if (hit.collider.gameObject.CompareTag("Pipe"))
+                {
+                    if (hit.transform.GetComponent<Pipe>().Hit())
+                    {
+
+                        HitmarkManager.Current.GetNormalHit();
+                        GameObject bulletHole = ObjectPooler.Current.SpawnPool(bulletholePoolingTag, hit.point,
+                            Quaternion.LookRotation(hit.normal));
+                        bulletHole.transform.parent = hit.collider.transform;
+                    }
                 }
                 else
                 {

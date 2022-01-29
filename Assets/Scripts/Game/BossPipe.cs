@@ -40,20 +40,24 @@ public class BossPipe : MonoSingleton<BossPipe>
     {
         if (pLeft <= 0) return;
 
+        Debug.Log("nn");
+
         pLeft--;
         int i = Random.Range(0, pipeToHit.Count);
         while(pipeToHit[i]) { i = Random.Range(0, pipeToHit.Count); }
 
         pipeToHit[i] = true;
-        PipeData p = pipes[i];
-        p.dropParticles.Play();
-        var main = p.dropParticles.emission;
+        Debug.Log(i);
+
+        pipes[i].anim.Play("Pumping");
+        pipes[i].dropParticles.Play();
+        var main = pipes[i].dropParticles.emission;
         main.rateOverTime = emissionStart;
     }
 
-    public void PipeHit(int i)
+    public bool PipeHit(int i)
     {
-        if (pipeHits[i] <= 0) return;
+        if (pipeHits[i] <= 0 || !pipeToHit[i]) return false;
 
         pipeHits[i]--;
         if (pipeHits[i] <= 0)
@@ -62,13 +66,16 @@ public class BossPipe : MonoSingleton<BossPipe>
             var emmision = pipes[i].dropParticles.emission;
             emmision.rateOverTime = 0;
 
+            pipes[i].anim.Play("Broken");
+
             //damage boss
             Boss.Current.PipeHit();
 
-            return;
+            return true;
         }
 
         var main = pipes[i].dropParticles.emission;
         main.rateOverTime = emissionStart+(hitsToDestroy- pipeHits[i])*emissionStep;
+        return true;
     }
 }
