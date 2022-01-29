@@ -23,6 +23,7 @@ namespace Player
             {
                 if (value < health)
                 {
+                    
                     soundSource.PlayOneShot(soundController.GetRandomSoundFromRange());
                 }
 
