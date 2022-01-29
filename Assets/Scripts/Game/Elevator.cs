@@ -105,6 +105,7 @@ namespace Game
         private async void RunScoreboardTasks()
         {
             Debug.Log("posting level data... " + LevelManager.Current.CurrentLevel);
+            GameScoreboard.Current.levelData.level = LevelManager.Current.CurrentLevel;
             await GameScoreboard.Current.PostLevelData();
             await GetComponent<ElevatorScoreboard>().Show(LevelManager.Current.CurrentLevel);
         }
