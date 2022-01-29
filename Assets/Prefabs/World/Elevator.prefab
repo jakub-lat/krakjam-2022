@@ -464,7 +464,7 @@ GameObject:
   - component: {fileID: 3447123152262604215}
   - component: {fileID: 6081884349552694267}
   m_Layer: 8
-  m_Name: Kills
+  m_Name: Time
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -531,7 +531,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1.5
-  m_Text: '<size=5><color=#df1640>KILLS</color></size>
+  m_Text: '<size=5><color=#df1640>TIME</color></size>
 
     500
 
@@ -1299,7 +1299,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &7625090010801423054
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2378,7 +2378,7 @@ MonoBehaviour:
   idCol: {fileID: 1690211221713323789}
   nameCol: {fileID: 8242814613402835192}
   scoreCol: {fileID: 4750125604902131535}
-  killsCol: {fileID: 6081884349552694267}
+  timeCol: {fileID: 6081884349552694267}
   deathsCol: {fileID: 1850799667593380856}
 --- !u!1 &9074998911426339188
 GameObject:

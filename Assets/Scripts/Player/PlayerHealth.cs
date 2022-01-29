@@ -47,7 +47,5 @@ namespace Player
 
             PauseManager.Current.SwitchDeath();
         }
-
-        // todo - cool UI
     }
 }

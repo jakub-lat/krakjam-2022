@@ -64,7 +64,7 @@ namespace Game
 
         private void Print(string text)
         {
-            Debug.Log($"{gameObject.name} (active: {active}): {text}");
+            // Debug.Log($"{gameObject.name} (active: {active}): {text}");
         }
 
         public void OnTriggerEnter(Collider other)
@@ -115,7 +115,7 @@ namespace Game
             music.DOFade(1, musicTransition);
             GameMusic.Current.audioSource.DOFade(0, musicTransition).OnComplete(() =>
             {
-                GameMusic.Current.audioSource.Stop();
+                GameMusic.Current.audioSource.Pause();
             });
 
             UpdateFloorText();

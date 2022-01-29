@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Game;
 using UnityEngine;
 
 [RequireComponent(typeof(Animator))]
@@ -29,6 +30,7 @@ public class Enemy : MonoBehaviour
         if (hp <= 0)
         {
             Scoreboard.GameScoreboard.Current.levelData.kills++;
+            LevelManager.Current.IncreaseScore(LevelManager.Current.killScore);
             
             hp = 0;
             dead = true;

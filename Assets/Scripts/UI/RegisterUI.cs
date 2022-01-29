@@ -30,6 +30,8 @@ public class RegisterUI : MonoBehaviour
 
     protected void Start()
     {
+        // PlayerPrefs.DeleteKey(GameScoreboard.TokenKey);
+        
         window.localScale = new Vector3(0, 0, 0);
         loadingText.enabled = false;
         errorText.enabled = false;

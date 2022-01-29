@@ -1,8 +1,10 @@
+using System;
 using StarterAssets;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class FootstepSoundController : MonoBehaviour
 {
@@ -14,8 +16,15 @@ public class FootstepSoundController : MonoBehaviour
     [SerializeField]
     private AudioSource source;
 
+    private float audioOriginalVolume;
+
     [SerializeField]
     private bool enableUpdate = false;
+
+    private void Awake()
+    {
+        audioOriginalVolume = source.volume;
+    }
 
     protected void Update()
     {
@@ -24,7 +33,7 @@ public class FootstepSoundController : MonoBehaviour
             if (FirstPersonController.Current.Controller.velocity.magnitude > 2f && !source.isPlaying && FirstPersonController.Current.Controller.isGrounded)
             {
                 source.pitch = Random.Range(0.9f, 1.1f);
-                source.volume = Random.Range(0.5f, 0.9f);
+                source.volume = Random.Range(0.3f, audioOriginalVolume);
                 source.PlayOneShot(GetRandomSoundFromRange());
             }
         }
