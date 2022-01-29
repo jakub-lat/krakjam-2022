@@ -196,7 +196,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: d49c890db4772274795a8e2b8a1e0451, type: 3}
-    m_FontSize: 12
+    m_FontSize: 14
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 1
@@ -236,7 +236,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4817611201024564781}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -0.009}
+  m_LocalPosition: {x: 0, y: 0, z: -0.239}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -247,7 +247,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0.348, y: 0.06}
+  m_AnchoredPosition: {x: 0.297, y: 0.262}
   m_SizeDelta: {x: 1, y: 1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &4817611201024564785
@@ -5275,6 +5275,7 @@ MonoBehaviour:
   fireCooldown: 0.2
   reloadDuration: 1
   maxCurrentAmmo: 20
+  startingAmmo: 40
   bulletholePoolingTag: BulletHole
   hitParticlePoolingTag: HitParticle
   fireParticles: {fileID: 4817611201125324049}
@@ -5436,8 +5437,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -40.155}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.229, y: -0.372}
-  m_SizeDelta: {x: 0.02, y: 0.5}
+  m_AnchoredPosition: {x: -0.258, y: -0.334}
+  m_SizeDelta: {x: 0.02, y: 0.35}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7888323153353549888
 CanvasRenderer:
