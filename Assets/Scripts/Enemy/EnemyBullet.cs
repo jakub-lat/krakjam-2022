@@ -31,16 +31,20 @@ public class EnemyBullet : MonoBehaviour
             }
 
             Enqueue();
+            stilEnqueue = false;
         }
     }
 
+    bool stilEnqueue = false;
     private void OnEnable()
     {
+        stilEnqueue = true;
         Invoke(nameof(Enqueue), 20f);
     }
 
     private void Enqueue()
     {
+        if (!stilEnqueue) return;
         if (GetComponent<PoolObj>()) GetComponent<PoolObj>().Enqueue();
         else Destroy(gameObject);
     }

@@ -17,6 +17,7 @@ public class MeleeEnemy : EnemyAI
         base.Start();
         meleeEnemyScript.knockback = knockback;
         meleeEnemyScript.damage = damage;
+        meleeEnemyScript.myPos = transform;
     }
 
     private new void Update()

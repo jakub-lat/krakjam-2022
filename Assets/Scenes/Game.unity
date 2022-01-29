@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.11426178, g: 0.15169969, b: 0.16290113, a: 1}
+  m_IndirectSpecularColor: {r: 0.11426129, g: 0.15169938, b: 0.16290072, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1721,9 +1721,9 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: -69}
+  m_AnchoredPosition: {x: 0, y: -18.99997}
   m_SizeDelta: {x: 100, y: 100}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &817025657
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2365,7 +2365,7 @@ MonoBehaviour:
     type: 3}
   m_PrefabInstance: {fileID: 966449309}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1969151317}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e087ecce43ebbff45a1b360637807d93, type: 3}
@@ -3312,34 +3312,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 782312770}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1969151317 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4071760806831231215, guid: 06fe48d98e089564482bb60f44ad7b58,
-    type: 3}
-  m_PrefabInstance: {fileID: 966449309}
-  m_PrefabAsset: {fileID: 0}
 --- !u!143 &1969151326 stripped
 CharacterController:
   m_CorrespondingSourceObject: {fileID: 4071760806831231210, guid: 06fe48d98e089564482bb60f44ad7b58,
     type: 3}
   m_PrefabInstance: {fileID: 966449309}
   m_PrefabAsset: {fileID: 0}
---- !u!54 &1969151327
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1969151317}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 0
-  m_IsKinematic: 1
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!1001 &1975147840
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4001,7 +3979,7 @@ PrefabInstance:
     - target: {fileID: 2667818113581105014, guid: 1c8b4abb690b867418682e71ee9c44a1,
         type: 3}
       propertyPath: levelCount
-      value: 4
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2667818113581105014, guid: 1c8b4abb690b867418682e71ee9c44a1,
         type: 3}
@@ -4722,6 +4700,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1081859225}
     m_Modifications:
+    - target: {fileID: 22039026, guid: 7a0cb4b65e7ce80458456fa063c9507e, type: 3}
+      propertyPath: myPos
+      value: 
+      objectReference: {fileID: 802068547}
     - target: {fileID: 1832353734658663969, guid: 7a0cb4b65e7ce80458456fa063c9507e,
         type: 3}
       propertyPath: BossUI
@@ -4732,6 +4714,21 @@ PrefabInstance:
       propertyPath: healthBar
       value: 
       objectReference: {fileID: 1228253230}
+    - target: {fileID: 1832353734658663969, guid: 7a0cb4b65e7ce80458456fa063c9507e,
+        type: 3}
+      propertyPath: punchKnock
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 1832353734658663969, guid: 7a0cb4b65e7ce80458456fa063c9507e,
+        type: 3}
+      propertyPath: punchDamage
+      value: 35
+      objectReference: {fileID: 0}
+    - target: {fileID: 1832353734658663969, guid: 7a0cb4b65e7ce80458456fa063c9507e,
+        type: 3}
+      propertyPath: rangeToPunch
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 1832353734658663969, guid: 7a0cb4b65e7ce80458456fa063c9507e,
         type: 3}
       propertyPath: playerCharacter

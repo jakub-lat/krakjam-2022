@@ -51,8 +51,7 @@ namespace Game
                 Scoreboard.GameScoreboard.Current.NewRun();
             }
 
-            player.position = startingPosA.position;
-            cameraHolder.localRotation = startingPosA.localRotation;
+           
         }
 
         public void NextLevel()
@@ -69,7 +68,9 @@ namespace Game
             (startingPosA, startingPosB) = (startingPosB, startingPosA);
 
             GenerateLevel();
-            
+            player.position = startingPosA.position;
+            cameraHolder.localRotation = startingPosA.localRotation;
+
             // startingElevator.Open();
             startingElevator.active = false;
             finishElevator.active = true;
