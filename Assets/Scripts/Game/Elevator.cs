@@ -105,6 +105,7 @@ namespace Game
         private async void RunScoreboardTasks()
         {
             Debug.Log("posting level data... " + LevelManager.Current.CurrentLevel);
+            GameScoreboard.Current.levelData.level = LevelManager.Current.CurrentLevel;
             await GameScoreboard.Current.PostLevelData();
             await GetComponent<ElevatorScoreboard>().Show(LevelManager.Current.CurrentLevel);
         }
@@ -159,8 +160,8 @@ namespace Game
         public Tween Open()
         {
             // Print("open");
-            
-            music.DOFade(0, musicTransition).OnComplete(() => music.Stop());
+
+            music.DOFade(0, musicTransition);
             GameMusic.Current.audioSource.Play();
             GameMusic.Current.audioSource.DOFade(1, musicTransition);
             

@@ -19,6 +19,7 @@ namespace UsableItems
         [SerializeField] private float fireCooldown;
         [SerializeField] private float reloadDuration;
         [SerializeField] private int maxCurrentAmmo;
+        [SerializeField] private int startingAmmo;
 
 
         [SerializeField] private string bulletholePoolingTag;
@@ -65,7 +66,7 @@ namespace UsableItems
         private void Awake()
         {
             currentAmmo = maxCurrentAmmo;
-            totalAmmo = maxCurrentAmmo * 10;
+            totalAmmo = startingAmmo - maxCurrentAmmo;
             
             gunSourceOriginalVolume = gunSource.volume;
         }

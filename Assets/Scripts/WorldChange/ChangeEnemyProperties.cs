@@ -74,27 +74,27 @@ public class ChangeEnemyProperties : WorldChangeLogic
     {
         ShootingEnemy se = g.GetComponent<ShootingEnemy>();
         se.bulletPoolTag = sd.bulletPoolTag;
-        se.attackSpeed = sd.attackSpeed + (sd.attackSpeed * Game.LevelManager.Current.GetDifficulty * Game.LevelManager.Current.shootingEnemy.attackSpeedM);
+        se.attackSpeed = sd.attackSpeed + (sd.attackSpeed * Game.LevelManager.Current.Difficulty * Game.LevelManager.Current.shootingEnemy.attackSpeedM);
         se.shootDelay = sd.shootDelay;
         se.bulletSpeed = sd.bulletSpeed;
         se.magazineSize = sd.magazineSize;
         se.reloadSpeed = sd.reloadSpeed;
         se.magazine = sd.magazine;
-        se.attackRange = sd.attackRange + (sd.attackRange * Game.LevelManager.Current.GetDifficulty * Game.LevelManager.Current.shootingEnemy.attackRangeM);
+        se.attackRange = sd.attackRange + (sd.attackRange * Game.LevelManager.Current.Difficulty * Game.LevelManager.Current.shootingEnemy.attackRangeM);
         se.followRange = sd.followRange;
         se.dispersion = sd.dispersion;
 
         se.fleeRange = sd.fleeRange;
         se.fleeMultiplier = sd.fleeMultiplier;
 
-        se.moveSpeed = sd.moveSpeed + (sd.moveSpeed * Game.LevelManager.Current.GetDifficulty * Game.LevelManager.Current.shootingEnemy.speedM);
-        se.fleeSpeed = sd.fleeSpeed + (sd.moveSpeed * Game.LevelManager.Current.GetDifficulty * Game.LevelManager.Current.shootingEnemy.speedM);
+        se.moveSpeed = sd.moveSpeed + (sd.moveSpeed * Game.LevelManager.Current.Difficulty * Game.LevelManager.Current.shootingEnemy.speedM);
+        se.fleeSpeed = sd.fleeSpeed + (sd.moveSpeed * Game.LevelManager.Current.Difficulty * Game.LevelManager.Current.shootingEnemy.speedM);
         se.flee = sd.flee;
 
-        se.bulletDamage = sd.damage + (sd.damage * Game.LevelManager.Current.GetDifficulty * Game.LevelManager.Current.shootingEnemy.damageM);
+        se.bulletDamage = sd.damage + (sd.damage * Game.LevelManager.Current.Difficulty * Game.LevelManager.Current.shootingEnemy.damageM);
 
         var e = g.GetComponent<Enemy>();
-        e.startingHealth = sd.health + (sd.health * Game.LevelManager.Current.GetDifficulty * Game.LevelManager.Current.shootingEnemy.healthM); ;
+        e.startingHealth = sd.health + (sd.health * Game.LevelManager.Current.Difficulty * Game.LevelManager.Current.shootingEnemy.healthM); ;
         e.HPrefresh();
     }
 
@@ -122,7 +122,7 @@ public class ChangeEnemyProperties : WorldChangeLogic
             } else
             {
                 MeleeEnemy se = g.GetComponent<MeleeEnemy>();
-                se.attackSpeed = md.attackSpeed + (md.attackSpeed * Game.LevelManager.Current.GetDifficulty * Game.LevelManager.Current.shootingEnemy.attackSpeedM);
+                se.attackSpeed = md.attackSpeed + (md.attackSpeed * Game.LevelManager.Current.Difficulty * Game.LevelManager.Current.shootingEnemy.attackSpeedM);
                 se.attackDelay = md.attackDelay;
                 se.knockback = md.knockback;
                 se.attackRange = md.attackRange;
@@ -130,13 +130,13 @@ public class ChangeEnemyProperties : WorldChangeLogic
                 se.fleeRange = md.fleeRange;
                 se.fleeMultiplier = md.fleeMultiplier;
 
-                se.moveSpeed = md.moveSpeed + (md.moveSpeed * Game.LevelManager.Current.GetDifficulty * Game.LevelManager.Current.shootingEnemy.speedM);
-                se.fleeSpeed = md.fleeSpeed + (md.moveSpeed * Game.LevelManager.Current.GetDifficulty * Game.LevelManager.Current.shootingEnemy.speedM); 
+                se.moveSpeed = md.moveSpeed + (md.moveSpeed * Game.LevelManager.Current.Difficulty * Game.LevelManager.Current.shootingEnemy.speedM);
+                se.fleeSpeed = md.fleeSpeed + (md.moveSpeed * Game.LevelManager.Current.Difficulty * Game.LevelManager.Current.shootingEnemy.speedM); 
                 se.flee = md.flee;
 
-                se.damage = md.damage + (md.damage * Game.LevelManager.Current.GetDifficulty * Game.LevelManager.Current.shootingEnemy.damageM);
+                se.damage = md.damage + (md.damage * Game.LevelManager.Current.Difficulty * Game.LevelManager.Current.shootingEnemy.damageM);
                 var e = g.GetComponent<Enemy>();
-                e.startingHealth = md.health + (md.health * Game.LevelManager.Current.GetDifficulty * Game.LevelManager.Current.shootingEnemy.healthM); ;
+                e.startingHealth = md.health + (md.health * Game.LevelManager.Current.Difficulty * Game.LevelManager.Current.shootingEnemy.healthM); ;
                 e.HPrefresh();
             }
         }
