@@ -464,8 +464,8 @@ MonoBehaviour:
   pipeDmg: 150
   bulletPoolTag: EnemyBullet
   burstSizeMin: 30
-  burstSizeMax: 50
-  damage: 10
+  burstSizeMax: 40
+  damage: 8
   burstFireRate: 0.04
   fireRate: 3
   dispersion: 70

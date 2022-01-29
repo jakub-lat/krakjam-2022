@@ -93,6 +93,8 @@ namespace Game
             GenerateRoom.Current.PreRenderFloors(levelCount);
 
             NextLevel();
+            player.position = startingPosA.position;
+            cameraHolder.localRotation = startingPosA.localRotation;
             if (!Scoreboard.GameScoreboard.Current.runDataSet)
             {
                 Scoreboard.GameScoreboard.Current.NewRun();
@@ -109,7 +111,7 @@ namespace Game
         public void NextLevel()
         {
             Score = 0;
-            GameScoreboard.Current.ResetLevelData();
+            GameScoreboard.Current.ResetLevelData();  
 
             if (CurrentLevel == levelCount)
             {
@@ -117,15 +119,12 @@ namespace Game
                 return;
             }
 
-
             CurrentLevel++;
 
             (startingElevator, finishElevator) = (finishElevator, startingElevator);
             (startingPosA, startingPosB) = (startingPosB, startingPosA);
 
             GenerateLevel();
-            player.position = startingPosA.position;
-            cameraHolder.localRotation = startingPosA.localRotation;
 
             // startingElevator.Open();
             startingElevator.Active = false;
@@ -143,6 +142,7 @@ namespace Game
         {
             Debug.Log("bosz");
             player.transform.position = bossRoomSpawnPoint.position;
+            cameraHolder.localRotation = bossRoomSpawnPoint.localRotation;
             Boss.Current.StartBattle();
         }
 
@@ -169,10 +169,10 @@ namespace Game
 
             EnemySpawner.Current.KillAll();
 
-            EnemySpawner.Current.meleeEnemyAmount = (int)(baseMeleeEnemyCount + (baseMeleeEnemyCount * levelDifficulty * meleeEnemyCountM));
-            EnemySpawner.Current.shootingEnemyAmount = (int)(baseShootingEnemyCount + (baseShootingEnemyCount * levelDifficulty * shootingEnemyCountM));
-            EnemySpawner.Current.elevatorMeleeEnemyAmount = (int)(baseElevatorMeleeEnemyCount + (baseElevatorMeleeEnemyCount * levelDifficulty * elevatorMeleeEnemyCountM));
-            EnemySpawner.Current.elevatorShootingEnemyAmount = (int)(baseElevatorShootingEnemyCount + (baseElevatorShootingEnemyCount * levelDifficulty * elevatorShootingEnemyCountM));
+            EnemySpawner.Current.meleeEnemyAmount = (baseMeleeEnemyCount + (int)(baseMeleeEnemyCount * levelDifficulty * meleeEnemyCountM));
+            EnemySpawner.Current.shootingEnemyAmount = (baseShootingEnemyCount + (int)(baseShootingEnemyCount * levelDifficulty * shootingEnemyCountM));
+            EnemySpawner.Current.elevatorMeleeEnemyAmount = (baseElevatorMeleeEnemyCount + (int)(baseElevatorMeleeEnemyCount * levelDifficulty * elevatorMeleeEnemyCountM));
+            EnemySpawner.Current.elevatorShootingEnemyAmount = (baseElevatorShootingEnemyCount + (int)(baseElevatorShootingEnemyCount * levelDifficulty * elevatorShootingEnemyCountM));
 
             EnemySpawner.Current.StartSpawning();
 
