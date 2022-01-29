@@ -102,15 +102,12 @@ public class Boss : MonoSingleton<Boss>
         GameObject obj = ObjectPooler.Current.SpawnPool(bulletPoolTag, gunPoint.position, Quaternion.identity);
 
         var vel = playerCharacter.velocity;
-        Debug.Log(vel);
         Vector3 inFront = player.position + vel * inFrontMultiplier;
-        Debug.Log("p: " + inFront);
 
         
         Vector3 dir = ((shootInFront ? inFront : player.position) - gunPoint.position).normalized * bulletSpeed;
         Vector3 dispDir = new Vector3(Random.Range(-dispersion, dispersion), Random.Range(-dispersion, dispersion), Random.Range(-dispersion, dispersion));
 
-        Debug.Log("dir: " + dir);
 
         obj.transform.forward = dir+dispDir;
         obj.GetComponent<Rigidbody>().AddForce(dir+dispDir);
