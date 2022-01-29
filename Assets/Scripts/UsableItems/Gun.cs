@@ -5,6 +5,7 @@ using Player;
 using StarterAssets;
 using UI;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 namespace UsableItems
 {
@@ -13,6 +14,7 @@ namespace UsableItems
         // todo lepsze nazwy zmiennych
         [SerializeField] private float damage = 25;
         [SerializeField] private float headshotDamage = 50;
+        [SerializeField] private float damageRandomness = 3f;
         [SerializeField] private LayerMask layerMask;
         [SerializeField] private float fireCooldown;
         [SerializeField] private float reloadDuration;
@@ -124,20 +126,26 @@ namespace UsableItems
                         trailDurationMultiplier * Vector3.Distance(trail.transform.position, hit.point))
                     .SetLink(gameObject);
 
+                var damageRandom = Random.Range(-damageRandomness, damageRandomness);
+
                 if (hit.collider.gameObject.CompareTag("Enemy"))
                 {
+                    var dmg = damage + damageRandom;
+                    
                     Enemy enemy = hit.collider.transform.GetComponentInParent<Enemy>();
-                    enemy.GotHit(damage);
+                    enemy.GotHit(dmg);
                     HitmarkManager.Current.GetNormalHit();
-                    PopupManager.Current.SpawnStandardDamage(enemy, (int)damage);
+                    PopupManager.Current.SpawnStandardDamage(enemy, (int)dmg);
                     GameObject particle = ObjectPooler.Current.SpawnPool(hitParticlePoolingTag, hit.point,
                         Quaternion.LookRotation(hit.normal));
                 }
                 else if (hit.collider.gameObject.CompareTag("EnemyHead"))
                 {
+                    var dmg = headshotDamage + damageRandom;
+
                     Enemy enemy = hit.collider.transform.GetComponentInParent<Enemy>();
-                    enemy.GotHit(headshotDamage);
-                    PopupManager.Current.SpawnHeadshotDamage(enemy, (int)headshotDamage);
+                    enemy.GotHit(dmg);
+                    PopupManager.Current.SpawnHeadshotDamage(enemy, (int)dmg);
                     HitmarkManager.Current.GetHeadshotHit();
                     GameObject particle = ObjectPooler.Current.SpawnPool(hitParticlePoolingTag, hit.point,
                         Quaternion.LookRotation(hit.normal));
