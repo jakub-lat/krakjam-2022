@@ -1,7 +1,9 @@
+using System;
 using Cyberultimate.Unity;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 [System.Serializable]
 public struct GenObject
@@ -16,7 +18,8 @@ public class ObjectGeneration : MonoSingleton<ObjectGeneration>
     public enum ObjectType
     {
         Ammo,
-        Pills
+        Pills,
+        Gun
     }
 
     [HideInInspector] public Dictionary<ObjectType, List<GameObject>> dict;
@@ -29,14 +32,16 @@ public class ObjectGeneration : MonoSingleton<ObjectGeneration>
     {
         base.Awake();
         dict = new Dictionary<ObjectType, List<GameObject>>();
-        dict[ObjectType.Ammo] = new List<GameObject>();
-        dict[ObjectType.Pills] = new List<GameObject>();
+
+        ClearObjects();
     }
 
     public void ClearObjects()
     {
-        dict[ObjectType.Ammo] = new List<GameObject>();
-        dict[ObjectType.Pills] = new List<GameObject>();
+        foreach (ObjectType type in Enum.GetValues(typeof(ObjectType)))
+        {
+            dict[type] = new List<GameObject>();
+        }    
     }
 
     public void GenerateObjects()
@@ -54,7 +59,13 @@ public class ObjectGeneration : MonoSingleton<ObjectGeneration>
                 Transform t = dict[go.type][index].transform;
                 dict[go.type].RemoveAt(index);
 
-                Instantiate(go.prefab, t.position, t.rotation, t);
+                var spawned = Instantiate(go.prefab, t.position, t.rotation, t);
+                var tr = spawned.transform;
+                if (go.type == ObjectType.Gun)
+                {
+                    var newscale = Vector3.one;
+                    tr.localScale = new Vector3 (newscale.x/tr.lossyScale.x, newscale.y/tr.lossyScale.y, newscale.z/tr.lossyScale.z);
+                }
             }
         }
     }

@@ -187,7 +187,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.078431375, g: 0.078431375, b: 0.08627451, a: 1}
+  m_Color: {r: 1, g: 1, b: 0, a: 1}
   m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -5275,7 +5275,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 6921
   fireCooldown: 0.2
-  reloadDuration: 1
+  reloadDuration: 3.2
   maxCurrentAmmo: 20
   startingAmmo: 40
   bulletholePoolingTag: BulletHole
@@ -5292,6 +5292,7 @@ MonoBehaviour:
   reload: {fileID: 8300000, guid: c4ef1600eaa5d924bac90329e078fd8e, type: 3}
   pickup: {fileID: 8300000, guid: 5bd289bc6ce93af4eb068d0b35e07d85, type: 3}
   headshot: {fileID: 8300000, guid: 4b8880bd0fbfa784494359f453dfb32f, type: 3}
+  noAmmo: {fileID: 8300000, guid: 1e907634a38584042bddea91ff2f042d, type: 3}
   gunSource: {fileID: 1941083714989583875}
   enemySoundController: {fileID: 6133451462017305272}
   bossSoundController: {fileID: 4996229322161013497}
@@ -5323,7 +5324,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 0.43
+  m_Volume: 0.447
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -5500,7 +5501,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_Color: {r: 1, g: 1, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -5594,10 +5595,50 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -6065266437511206616, guid: 278fccf9a4fd214489d80fc48aa7676e,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -6065266437511206616, guid: 278fccf9a4fd214489d80fc48aa7676e,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -6065266437511206616, guid: 278fccf9a4fd214489d80fc48aa7676e,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 278fccf9a4fd214489d80fc48aa7676e,
         type: 3}
       propertyPath: m_Name
       value: BLcolt
+      objectReference: {fileID: 0}
+    - target: {fileID: 1094432864984042272, guid: 278fccf9a4fd214489d80fc48aa7676e,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: f20fd90101c5b47418dd9530edec5e13, type: 2}
+    - target: {fileID: 4814118680195232660, guid: 278fccf9a4fd214489d80fc48aa7676e,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: f20fd90101c5b47418dd9530edec5e13, type: 2}
+    - target: {fileID: 5685743324210239135, guid: 278fccf9a4fd214489d80fc48aa7676e,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.066
+      objectReference: {fileID: 0}
+    - target: {fileID: 5685743324210239135, guid: 278fccf9a4fd214489d80fc48aa7676e,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.102
+      objectReference: {fileID: 0}
+    - target: {fileID: 5685743324210239135, guid: 278fccf9a4fd214489d80fc48aa7676e,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 278fccf9a4fd214489d80fc48aa7676e, type: 3}
@@ -5607,20 +5648,21 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 4805024206350595130}
   m_PrefabAsset: {fileID: 0}
---- !u!64 &2883473353980972911
-MeshCollider:
+--- !u!114 &1182055462
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3050138245147699730}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 844079033629636539, guid: 278fccf9a4fd214489d80fc48aa7676e, type: 3}
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb011804779f4b3b9a03b0a9d6cb0933, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  materials:
+    normal: {fileID: 2100000, guid: f20fd90101c5b47418dd9530edec5e13, type: 2}
+    psycho: {fileID: 2100000, guid: e7e86e9d28fa1df449cdf6b0330ad783, type: 2}
 --- !u!4 &4982205441490768849 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 278fccf9a4fd214489d80fc48aa7676e,
@@ -5646,3 +5688,24 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.6, y: 0.3, z: 0.2}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &6702979069803379050 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -6941414828910310064, guid: 278fccf9a4fd214489d80fc48aa7676e,
+    type: 3}
+  m_PrefabInstance: {fileID: 4805024206350595130}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2019534711
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6702979069803379050}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb011804779f4b3b9a03b0a9d6cb0933, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  materials:
+    normal: {fileID: 2100000, guid: f20fd90101c5b47418dd9530edec5e13, type: 2}
+    psycho: {fileID: 2100000, guid: e7e86e9d28fa1df449cdf6b0330ad783, type: 2}
