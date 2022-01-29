@@ -45,7 +45,19 @@ namespace UsableItems
         private AudioClip pickup;
 
         [SerializeField]
+        private AudioClip headshot = null;
+
+        [SerializeField]
+        private AudioClip noAmmo = null;
+
+        [SerializeField]
         private AudioSource gunSource = null;
+
+        [SerializeField]
+        private FootstepSoundController enemySoundController = null;
+
+        [SerializeField]
+        private FootstepSoundController bossSoundController = null;
 
         private float gunSourceOriginalVolume;
             
@@ -128,7 +140,16 @@ namespace UsableItems
 
         public void Shoot()
         {
-            if (isCooldown || currentAmmo <= 0 || isReloading) return;
+            if (currentAmmo <= 0)
+            {
+                gunSource.PlayOneShot(noAmmo);
+                return;
+            }
+
+            if (isCooldown || isReloading)
+            {
+                return;
+            }
 
             isCooldown = true;
             cooldownTimer = fireCooldown;
@@ -161,10 +182,12 @@ namespace UsableItems
                     {
                         Enemy enemy = hit.transform.GetComponentInParent<Enemy>();
                         enemy.GotHit(dmg);
+                        enemy.EnemySource.PlayOneShot(enemySoundController.GetRandomSoundFromRange());
                     } else if (hit.transform.GetComponentInParent<Boss>()) //its a boss
                     {
                         Boss boss = hit.transform.GetComponentInParent<Boss>();
                         boss.GotHit(dmg);
+                        boss.BossSource.PlayOneShot(bossSoundController.GetRandomSoundFromRange());
                     }
                     else
                     {
@@ -179,18 +202,19 @@ namespace UsableItems
                 else if (hit.collider.gameObject.CompareTag("EnemyHead"))
                 {
                     var dmg = headshotDamage + damageRandom;
-                    
                     LevelManager.Current.Score += LevelManager.Current.headshotScore;
                     
                     if (hit.transform.GetComponentInParent<Enemy>()) //its a normal enemy
                     {
                         Enemy enemy = hit.transform.GetComponentInParent<Enemy>();
                         enemy.GotHit(dmg);
+                        enemy.EnemySource.PlayOneShot(headshot);
                     }
                     else if (hit.transform.GetComponentInParent<Boss>()) //its a boss
                     {
                         Boss boss = hit.transform.GetComponentInParent<Boss>();
                         boss.GotHit(dmg);
+                        boss.BossSource.PlayOneShot(headshot);
                     }
                     else
                     {
@@ -213,6 +237,9 @@ namespace UsableItems
                         bulletHole.transform.parent = hit.collider.transform;
                     }
                 }
+
+                
+
                 else
                 {
                     GameObject bulletHole = ObjectPooler.Current.SpawnPool(bulletholePoolingTag, hit.point,

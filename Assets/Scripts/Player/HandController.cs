@@ -19,6 +19,15 @@ namespace Player
 
         private Vector3 originalScale;
         private int originalLayer;
+
+        [SerializeField]
+        private AudioSource closeFightSource;
+
+        [SerializeField]
+        private AudioClip fistPunch;
+
+        [SerializeField]
+        private AudioClip itemPunch;
         
         public void PickUpItem(UsableItem item)
         {
@@ -81,11 +90,13 @@ namespace Player
         {
             if (CurrentItem == null)
             {
+                closeFightSource.PlayOneShot(fistPunch);
                 fist.Use();
                 PlayerAnim.Current.Punch();
             }
             else
             {
+                closeFightSource.PlayOneShot(itemPunch);
                 CurrentItem.Use();
             }
         }

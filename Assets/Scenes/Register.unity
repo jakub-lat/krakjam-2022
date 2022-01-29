@@ -240,6 +240,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: RegisterUI
       objectReference: {fileID: 0}
+    - target: {fileID: 8252227557238484443, guid: bebc43c52cbe7144480d94386dccac3f,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bebc43c52cbe7144480d94386dccac3f, type: 3}
 --- !u!1 &855525765

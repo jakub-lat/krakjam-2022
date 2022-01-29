@@ -294,6 +294,7 @@ GameObject:
   - component: {fileID: 41444966}
   - component: {fileID: 41444968}
   - component: {fileID: 41444967}
+  - component: {fileID: 41444969}
   m_Layer: 5
   m_Name: Text (Legacy)
   m_TagString: Untagged
@@ -342,7 +343,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: 3c708e88f099e3c4ab551bcba601475e, type: 3}
+    m_Font: {fileID: 12800000, guid: f94e9b035b12f954ea3beede600968a4, type: 3}
     m_FontSize: 50
     m_FontStyle: 0
     m_BestFit: 0
@@ -354,7 +355,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: EHCA CORP
+  m_Text: THE CORPORATION
 --- !u!222 &41444968
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -363,6 +364,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 41444965}
   m_CullTransparentMesh: 1
+--- !u!114 &41444969
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 41444965}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cfabb0440166ab443bba8876756fdfa9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 0, g: 0, b: 0, a: 0.5}
+  m_EffectDistance: {x: 1, y: -1}
+  m_UseGraphicAlpha: 1
 --- !u!1001 &92027674
 PrefabInstance:
   m_ObjectHideFlags: 0
