@@ -67,6 +67,5 @@ UserSettings/Layouts/default-2021.dwlt
 *.dwlt
 Assets/Resources/ScoreboardConfig.txt.meta
 Assets/Scenes/Game/NavMesh.asset
-Assets/Prefabs/Scoreboard.prefab
 
 Assets/Scripts/Scoreboard/ScoreboardConfig.cs
