@@ -28,6 +28,8 @@ public abstract class EnemyAI : MonoBehaviour
     protected bool attacked;
 
     protected Enemy e;
+    private static readonly int IsWalking = Animator.StringToHash("IsWalking");
+    private static readonly int IsRunning = Animator.StringToHash("IsRunning");
 
     protected void Start()
     {
@@ -69,20 +71,20 @@ public abstract class EnemyAI : MonoBehaviour
 
     protected virtual void Chase()
     {
-        e.anim.SetBool("isWalking", true);
-        e.anim.SetBool("isRunning", false);
+        e.anim.SetBool(IsWalking, true);
+        e.anim.SetBool(IsRunning, false);
     }
 
     protected virtual void Attack()
     {
-        e.anim.SetBool("isWalking", false);
-        e.anim.SetBool("isRunning", false);
+        e.anim.SetBool(IsWalking, false);
+        e.anim.SetBool(IsRunning, false);
     }
 
     public void RunFromPlayer()
     {
-        e.anim.SetBool("isWalking", false);
-        e.anim.SetBool("isRunning", true);
+        e.anim.SetBool(IsWalking, false);
+        e.anim.SetBool(IsRunning, true);
 
         agent.speed = fleeSpeed;
         Vector3 runTo = transform.position + (transform.position - player.position).normalized * fleeMultiplier;
