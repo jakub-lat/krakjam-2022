@@ -40,12 +40,6 @@ namespace Game
             height = GenerateRoom.Current.height;
             spaceX = GenerateRoom.Current.spaceX;
             spaceZ = GenerateRoom.Current.spaceZ;
-            
-            if (startingPosA != null)
-            {
-                player.position = startingPosA.position;
-                cameraHolder.localRotation = startingPosA.localRotation;
-            }
 
             (startingPosA, startingPosB) = (startingPosB, startingPosA);
 
@@ -56,6 +50,9 @@ namespace Game
             {
                 Scoreboard.GameScoreboard.Current.NewRun();
             }
+
+            player.position = startingPosA.position;
+            cameraHolder.localRotation = startingPosA.localRotation;
         }
 
         public void NextLevel()
@@ -76,6 +73,13 @@ namespace Game
             // startingElevator.Open();
             startingElevator.active = false;
             finishElevator.active = true;
+
+           /* if (CurrentLevel == 1)
+            {
+                player.position = startingPosA.position;
+                cameraHolder.localRotation = startingPosA.localRotation;
+                Debug.Log("setpos");
+            }*/
         }
         public void BossLevel()
         {
