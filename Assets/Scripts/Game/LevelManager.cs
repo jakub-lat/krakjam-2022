@@ -21,6 +21,7 @@ namespace Game
         public Elevator finishElevator;
         public Transform player;
         public Transform cameraHolder;
+        public Transform bossRoomSpawnPoint;
 
         private int width, height;
         private float spaceX, spaceZ;
@@ -39,6 +40,8 @@ namespace Game
                 cameraHolder.localRotation = startingPosA.localRotation;
             }
 
+            GenerateRoom.Current.PreRenderFloors(levelCount);
+
             NextLevel();
             if (!Scoreboard.GameScoreboard.Current.runDataSet)
             {
@@ -48,6 +51,12 @@ namespace Game
 
         public void NextLevel()
         {
+            if (CurrentLevel == levelCount)
+            {
+                BossLevel();
+                return;
+            }
+
             CurrentLevel++;
 
             (startingElevator, finishElevator) = (finishElevator, startingElevator);
@@ -57,6 +66,12 @@ namespace Game
             // startingElevator.Open();
             startingElevator.active = false;
             finishElevator.active = true;
+        }
+        public void BossLevel()
+        {
+            Debug.Log("bosz");
+            player.transform.position = bossRoomSpawnPoint.position;
+            Boss.Current.StartBattle();
         }
 
         private void GenerateLevel()

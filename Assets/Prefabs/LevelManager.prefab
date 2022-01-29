@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 95db9e20491f45ff88268ac3e7b5b42d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelCount: 1
+  levelCount: 3
   difficulty:
     serializedVersion: 2
     m_Curve:
@@ -69,8 +69,10 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  startingPos: {fileID: 0}
+  startingPosA: {fileID: 0}
+  startingPosB: {fileID: 0}
   startingElevator: {fileID: 0}
   finishElevator: {fileID: 0}
   player: {fileID: 0}
   cameraHolder: {fileID: 0}
+  bossRoomSpawnPoint: {fileID: 0}

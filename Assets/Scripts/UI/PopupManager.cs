@@ -24,7 +24,7 @@ public class PopupManager : MonoSingleton<PopupManager>
     [SerializeField]
     private Vector2 minMaxPosition;
 
-    public void SpawnStandardDamage(Enemy enemy, int dmg)
+    public void SpawnStandardDamage(Transform enemy, int dmg)
     {
         float scale = Random.Range(minMaxScale.x, minMaxScale.y);
         float positionX = Random.Range(minMaxPosition.x, minMaxPosition.y);
@@ -32,9 +32,10 @@ public class PopupManager : MonoSingleton<PopupManager>
         GetFundaments(enemy, dmg, new Vector3(scale, scale, scale), positionX);
     }
 
-    private TextMesh GetFundaments(Enemy enemy, int dmg, Vector3 maxScale, float positionX)
+    private TextMesh GetFundaments(Transform enemy, int dmg, Vector3 maxScale, float positionX)
     {
-        GameObject obj = ObjectPooler.Current.SpawnPool(poolTag, enemy.transform.position + new Vector3(positionX, 0, 0), enemy.transform.rotation);
+        GameObject obj = ObjectPooler.Current.SpawnPool(poolTag, enemy.position + new Vector3(positionX, 0, 0), enemy.rotation);
+        obj.transform.localEulerAngles = new Vector3(obj.transform.localEulerAngles.x,obj.transform.localEulerAngles.y+180,obj.transform.localEulerAngles.z);
         
         TextMesh text = obj.GetComponent<TextMesh>();
         text.transform.localScale = new Vector3(0, 0, 0);
@@ -46,7 +47,7 @@ public class PopupManager : MonoSingleton<PopupManager>
         return text;
     }
 
-    public void SpawnHeadshotDamage(Enemy enemy, int dmg)
+    public void SpawnHeadshotDamage(Transform enemy, int dmg)
     {
         float scale = Random.Range(minMaxScale.x, minMaxScale.y);
         float positionX = Random.Range(minMaxPosition.x, minMaxPosition.y);

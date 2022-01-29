@@ -151,11 +151,22 @@ namespace UsableItems
                 if (hit.collider.gameObject.CompareTag("Enemy"))
                 {
                     var dmg = damage + damageRandom;
+
+                    if(hit.transform.GetComponentInParent<Enemy>()) //its a normal enemy
+                    {
+                        Enemy enemy = hit.transform.GetComponentInParent<Enemy>();
+                        enemy.GotHit(dmg);
+                    } else if (hit.transform.GetComponentInParent<Boss>()) //its a boss
+                    {
+                        Boss boss = hit.transform.GetComponentInParent<Boss>();
+                        boss.GotHit(dmg);
+                    } else
+                    {
+                        Debug.LogError("Enemy doesnt have a enemy or boss component");
+                    }
                     
-                    Enemy enemy = hit.collider.transform.GetComponentInParent<Enemy>();
-                    enemy.GotHit(dmg);
                     HitmarkManager.Current.GetNormalHit();
-                    PopupManager.Current.SpawnStandardDamage(enemy, (int)dmg);
+                    PopupManager.Current.SpawnStandardDamage(hit.transform, (int)dmg);
                     GameObject particle = ObjectPooler.Current.SpawnPool(hitParticlePoolingTag, hit.point,
                         Quaternion.LookRotation(hit.normal));
                 }
@@ -163,9 +174,23 @@ namespace UsableItems
                 {
                     var dmg = headshotDamage + damageRandom;
 
-                    Enemy enemy = hit.collider.transform.GetComponentInParent<Enemy>();
-                    enemy.GotHit(dmg);
-                    PopupManager.Current.SpawnHeadshotDamage(enemy, (int)dmg);
+
+                    if (hit.transform.GetComponentInParent<Enemy>()) //its a normal enemy
+                    {
+                        Enemy enemy = hit.transform.GetComponentInParent<Enemy>();
+                        enemy.GotHit(dmg);
+                    }
+                    else if (hit.transform.GetComponentInParent<Boss>()) //its a boss
+                    {
+                        Boss boss = hit.transform.GetComponentInParent<Boss>();
+                        boss.GotHit(dmg);
+                    }
+                    else
+                    {
+                        Debug.LogError("Enemy doesnt have a enemy or boss component");
+                    }
+
+                    PopupManager.Current.SpawnHeadshotDamage(hit.transform, (int)dmg);
                     HitmarkManager.Current.GetHeadshotHit();
                     GameObject particle = ObjectPooler.Current.SpawnPool(hitParticlePoolingTag, hit.point,
                         Quaternion.LookRotation(hit.normal));

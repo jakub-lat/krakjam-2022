@@ -1,9 +1,10 @@
+using Cyberultimate.Unity;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Boss : MonoBehaviour
+public class Boss : MonoSingleton<Boss>
 {
     private bool battle = false;
     private bool dead = false;
@@ -19,6 +20,7 @@ public class Boss : MonoBehaviour
         dead = false;
         BossUI.enabled = true;
         healthBar.fillAmount = startingHealth / health;
+        EnemySpawner.Current.KillAll();
 
         battle = true;
     }
@@ -44,6 +46,6 @@ public class Boss : MonoBehaviour
             health = 0;
         }
 
-        healthBar.fillAmount = startingHealth / health;
+        healthBar.fillAmount = health/ startingHealth;
     }
 }

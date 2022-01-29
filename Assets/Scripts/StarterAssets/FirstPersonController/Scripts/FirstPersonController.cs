@@ -191,7 +191,7 @@ namespace StarterAssets
 
         private void Run()
         {
-            print(_input.sprint);
+            //print(_input.sprint);
             if (_input.sprint && !_input.crouch)
             {
                 targetSpeed = SprintSpeed;
