@@ -39,7 +39,19 @@ public class EnemyBullet : MonoBehaviour
     private void OnEnable()
     {
         stilEnqueue = true;
-        Invoke(nameof(Enqueue), 20f);
+        enqueueTimer = 20;
+    }
+
+    float enqueueTimer;
+    private void Update()
+    {
+        if (!stilEnqueue) return;
+
+        enqueueTimer -= Time.deltaTime;
+        if (enqueueTimer <= 0)
+        {
+            Enqueue();
+        }
     }
 
     private void Enqueue()

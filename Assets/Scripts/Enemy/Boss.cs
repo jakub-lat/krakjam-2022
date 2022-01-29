@@ -24,7 +24,8 @@ public class Boss : MonoSingleton<Boss>
 
     [Header("Shooting")]
     public string bulletPoolTag = "EnemyBullet";
-    public int burstSize = 15;
+    public int burstSizeMin = 30;
+    public int burstSizeMax = 45;
     public float damage = 10f;
     public float burstFireRate = 0.05f;
     public float fireRate = 2f;
@@ -33,7 +34,8 @@ public class Boss : MonoSingleton<Boss>
     public float bulletSpeed = 300f;
 
     public bool shootInFront = true;
-    public float inFrontMultiplier = 1f;
+    public float inFrontMultiplierMin = 0.7f;
+    public float inFrontMultiplierMax = 1.3f;
 
     [Header("Punch")]
     public float punchDamage=20;
@@ -90,7 +92,7 @@ public class Boss : MonoSingleton<Boss>
             if (burstTimer <= 0)
             {
                 burstTimer = fireRate;
-                currBurst = burstSize;
+                currBurst = Random.Range(burstSizeMin,burstSizeMax);
                 shootingTimer = fireRate;
             }
         } else
@@ -125,7 +127,7 @@ public class Boss : MonoSingleton<Boss>
         Debug.Log("BOSS PUNCH");
         burstTimer = fireRate;
         shootingTimer = burstFireRate;
-        currBurst = burstSize;
+        currBurst = Random.Range(burstSizeMin, burstSizeMax); ;
         anim.Play("Punch");
         attack.attacking = true;
     }
@@ -142,7 +144,7 @@ public class Boss : MonoSingleton<Boss>
         GameObject obj = ObjectPooler.Current.SpawnPool(bulletPoolTag, gunPoint.position, Quaternion.identity);
 
         var vel = playerCharacter.velocity;
-        Vector3 inFront = player.position + vel * inFrontMultiplier * Vector3.Distance(transform.position,player.position)/20;
+        Vector3 inFront = player.position + vel * Random.Range(inFrontMultiplierMin,inFrontMultiplierMax) * Vector3.Distance(transform.position,player.position)/20;
 
         
         Vector3 dir = ((shootInFront ? inFront : player.position) - gunPoint.position).normalized * bulletSpeed;

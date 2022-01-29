@@ -461,15 +461,17 @@ MonoBehaviour:
   gunPoint: {fileID: 724512953916953177}
   playerCharacter: {fileID: 0}
   bulletPoolTag: EnemyBullet
-  burstSize: 40
+  burstSizeMin: 30
+  burstSizeMax: 50
   damage: 10
-  burstFireRate: 0.05
+  burstFireRate: 0.04
   fireRate: 3
   dispersion: 70
   disperionY: 20
   bulletSpeed: 800
   shootInFront: 1
-  inFrontMultiplier: 1
+  inFrontMultiplierMin: 0.3
+  inFrontMultiplierMax: 1.2
   punchDamage: 35
   punchKnock: 100
   rangeToPunch: 6
