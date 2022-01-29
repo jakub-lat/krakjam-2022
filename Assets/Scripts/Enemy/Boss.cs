@@ -68,7 +68,7 @@ public class Boss : MonoSingleton<Boss>
     {
         BossUI.enabled = false;
         player = PlayerInstance.Current.transform;
-        anim = GetComponent<Animator>();
+        anim = GetComponentInChildren<Animator>();
         attack.damage = punchDamage;
         attack.knockback = punchKnock;
         attack.myPos = transform;
@@ -86,6 +86,7 @@ public class Boss : MonoSingleton<Boss>
         var dist = Vector3.Distance(transform.position, player.position);
         if (dist <= rangeToPunch)
         {
+            anim.SetBool("isShooting", false);
             punching = true;
             Punch();
             return;
@@ -98,7 +99,7 @@ public class Boss : MonoSingleton<Boss>
 
         if (currBurst <= 0)
         {
-            anim.SetBool("Shooting", false);
+            anim.SetBool("isShooting", false);
             burstTimer -= Time.deltaTime;
             if (burstTimer <= 0)
             {
@@ -108,7 +109,7 @@ public class Boss : MonoSingleton<Boss>
             }
         } else
         {
-            anim.SetBool("Shooting", true);
+            anim.SetBool("isShooting", true);
             shootingTimer -= Time.deltaTime;
             if (shootingTimer <= 0)
             {
@@ -163,7 +164,7 @@ public class Boss : MonoSingleton<Boss>
         burstTimer = fireRate;
         shootingTimer = burstFireRate;
         currBurst = Random.Range(burstSizeMin, burstSizeMax); ;
-        anim.Play("Punch");
+        anim.SetTrigger("Punch");
         attack.attacking = true;
     }
 

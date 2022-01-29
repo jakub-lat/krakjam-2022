@@ -51,7 +51,9 @@ public class FootstepSoundController : MonoBehaviour
             notUsedClips = new List<AudioClip>(footsteps);
         }
 
-        AudioClip footstepSound = notUsedClips[Random.Range(0, notUsedClips.Count)];
+        if (notUsedClips.Count <= 0) return null;
+
+            AudioClip footstepSound = notUsedClips[Random.Range(0, notUsedClips.Count)];
         notUsedClips.Remove(footstepSound);
         return footstepSound;
     }
