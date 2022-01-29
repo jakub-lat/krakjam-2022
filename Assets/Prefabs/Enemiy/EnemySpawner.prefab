@@ -49,6 +49,8 @@ MonoBehaviour:
   posY: 2
   shootingEnemyAmount: 5
   meleeEnemyAmount: 7
+  elevatorShootingEnemyAmount: 2
+  elevatorMeleeEnemyAmount: 1
   elevatorEnemiesTime: 20
   elevatorEnemies: {fileID: 4224456082400782636, guid: 66618cc24177e9045a3972843a05ca79,
     type: 3}
@@ -78,7 +80,7 @@ MonoBehaviour:
       bulletSpeed: 1000
       magazineSize: 6
       reloadSpeed: 3
-      magazine: 1
+      magazine: 0
       dispersion: 40
       attackRange: 30
       followRange: 30
@@ -88,6 +90,7 @@ MonoBehaviour:
       fleeSpeed: 8
       flee: 1
       damage: 20
+      health: 100
     psycho:
       bulletPoolTag: EnemyBullet
       attackSpeed: 0.5
@@ -95,7 +98,7 @@ MonoBehaviour:
       bulletSpeed: 700
       magazineSize: 6
       reloadSpeed: 4
-      magazine: 1
+      magazine: 0
       dispersion: 100
       attackRange: 30
       followRange: 30
@@ -105,6 +108,7 @@ MonoBehaviour:
       fleeSpeed: 5
       flee: 0
       damage: 25
+      health: 100
   meleeEnemyData:
     normal:
       attackSpeed: 0.5
@@ -119,19 +123,21 @@ MonoBehaviour:
       flee: 0
       damage: 50
       shooting: 1
+      health: 100
     psycho:
       attackSpeed: 0.5
-      attackDelay: 0.1
+      attackDelay: 0
       knockback: 1
-      attackRange: 1
+      attackRange: 1.5
       followRange: 25
       fleeRange: -1
       fleeMultiplier: 5
       moveSpeed: 6
       fleeSpeed: 5
       flee: 0
-      damage: 55
+      damage: 15
       shooting: 0
+      health: 100
   meleeShootingModeData:
     bulletPoolTag: WorkerBullet
     attackSpeed: 2
@@ -149,3 +155,4 @@ MonoBehaviour:
     fleeSpeed: 8
     flee: 1
     damage: 15
+    health: 100

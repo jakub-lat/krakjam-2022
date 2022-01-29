@@ -2838,6 +2838,10 @@ PrefabInstance:
       propertyPath: meleeEnemyData.psycho.damage
       value: 15
       objectReference: {fileID: 0}
+    - target: {fileID: 98985245, guid: e1dc9e6cc4bef8a48b429d6c237dfbe3, type: 3}
+      propertyPath: meleeEnemyData.psycho.damage
+      value: 15
+      objectReference: {fileID: 0}
     - target: {fileID: 6966197676403806432, guid: e1dc9e6cc4bef8a48b429d6c237dfbe3,
         type: 3}
       propertyPath: meleeEnemy
