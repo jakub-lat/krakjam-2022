@@ -4,6 +4,7 @@
 #
 
 Assets/Resources/ScoreboardConfig.txt
+Assets/Scripts/Scoreboard/ScoreboardConfig.cs
 
 
 

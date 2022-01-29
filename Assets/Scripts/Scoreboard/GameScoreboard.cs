@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Net.Http;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using Cyberultimate.Unity;
@@ -15,8 +17,8 @@ namespace Scoreboard
         private const string
             BaseUrl = "https://krakjam2022scoreboard.cubepotato.eu"; // https://krakjam2022scoreboard.cubepotato.eu
 
-        [SerializeField] private TextAsset configFile;
-        private string Secret => configFile.text.Trim();
+        // [SerializeField] private TextAsset configFile;
+        private string Secret;
 
         public const string TokenKey = "SCOREBOARD_TOKEN";
         private string Token => PlayerPrefs.GetString(TokenKey);
@@ -41,6 +43,15 @@ namespace Scoreboard
             Debug.Log($"token: {Token}");
 
             DontDestroyOnLoad(gameObject);
+
+            var t = this.GetType().Assembly.GetType("Scoreboard.ScoreboardConfig");
+            if (t != null)
+            {
+                var f = t.GetFields(
+                    BindingFlags.Public | BindingFlags.Static |
+                    BindingFlags.FlattenHierarchy).FirstOrDefault(x => x.Name == "Secret");
+                Secret = (string)f?.GetRawConstantValue();
+            }
         }
 
 
