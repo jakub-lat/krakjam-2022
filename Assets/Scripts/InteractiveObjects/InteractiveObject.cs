@@ -17,7 +17,7 @@ namespace InteractiveObjects
         public void Interact()
         {
             var res = OnInteract();
-            source?.PlayOneShot(interactionSound);
+            if(interactionSound) source?.PlayOneShot(interactionSound);
             if (res && destroyAfterUse)
             {
                 Destroy(gameObject);

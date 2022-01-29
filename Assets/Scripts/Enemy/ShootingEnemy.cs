@@ -20,6 +20,8 @@ public class ShootingEnemy : EnemyAI
     private int currMagazine;
     private float reloadTimer;
 
+    public bool throwing = false;
+
     private new void Start()
     {
         base.Start();
@@ -75,6 +77,8 @@ public class ShootingEnemy : EnemyAI
 
         if (!attacked)
         {
+            e.anim.SetTrigger(throwing ? "Throw" : "Shoot");
+
             attacked = true;
 
             Invoke(nameof(Shoot), shootDelay);
