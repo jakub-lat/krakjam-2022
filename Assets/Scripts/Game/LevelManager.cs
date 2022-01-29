@@ -47,6 +47,8 @@ namespace Game
                 cameraHolder.localRotation = startingPosA.localRotation;
             }
 
+            (startingPosA, startingPosB) = (startingPosB, startingPosA);
+
             GenerateRoom.Current.PreRenderFloors(levelCount);
 
             NextLevel();
@@ -67,7 +69,8 @@ namespace Game
             CurrentLevel++;
 
             (startingElevator, finishElevator) = (finishElevator, startingElevator);
-            
+            (startingPosA, startingPosB) = (startingPosB, startingPosA);
+
             GenerateLevel();
             
             // startingElevator.Open();
