@@ -115,7 +115,7 @@ namespace Game
             music.DOFade(1, musicTransition);
             GameMusic.Current.audioSource.DOFade(0, musicTransition).OnComplete(() =>
             {
-                GameMusic.Current.audioSource.Stop();
+                GameMusic.Current.audioSource.Pause();
             });
 
             UpdateFloorText();
