@@ -48,7 +48,7 @@ namespace Game
             get => score;
             set
             {
-                Score = value;
+                score = value;
                 GameScoreboard.Current.levelData.score = Score;
                 ScoreUI.Current.SetScore(Score);
             }
