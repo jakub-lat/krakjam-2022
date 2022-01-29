@@ -16,6 +16,7 @@ public class ShootingEnemy : EnemyAI
     public float reloadSpeed = 3f;
     public float dispersion = 10f;
     public bool magazine=true;
+    public bool throwing=false;
 
     private int currMagazine;
     private float reloadTimer;
@@ -70,12 +71,16 @@ public class ShootingEnemy : EnemyAI
 
     protected override void Attack()
     {
+        base.Attack();
+
         if (reloading || dead) return;
         agent.SetDestination(transform.position);
 
         if (!attacked)
         {
             attacked = true;
+
+            e.anim.SetTrigger((throwing) ? Throw : Shot);
 
             Invoke(nameof(Shoot), shootDelay);
 
@@ -87,8 +92,12 @@ public class ShootingEnemy : EnemyAI
     {
         attacked = false;
     }
+
+    private static readonly int Throw = Animator.StringToHash("Throw");
+    private static readonly int Shot = Animator.StringToHash("Shoot");
     private void Shoot()
     {
+
         GameObject obj = ObjectPooler.Current.SpawnPool(bulletPoolTag, lookPoint.position, Quaternion.identity);
 
         Vector3 dir = (player.position - lookPoint.position).normalized * bulletSpeed;

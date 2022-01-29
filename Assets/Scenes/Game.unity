@@ -2834,6 +2834,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1545557203}
     m_Modifications:
+    - target: {fileID: 98985245, guid: e1dc9e6cc4bef8a48b429d6c237dfbe3, type: 3}
+      propertyPath: meleeEnemyData.psycho.damage
+      value: 15
+      objectReference: {fileID: 0}
     - target: {fileID: 6966197676403806433, guid: e1dc9e6cc4bef8a48b429d6c237dfbe3,
         type: 3}
       propertyPath: m_Name
@@ -4536,76 +4540,6 @@ PrefabInstance:
       propertyPath: bossRoomSpawnPoint
       value: 
       objectReference: {fileID: 837006209}
-    - target: {fileID: 2667818113581105014, guid: 1c8b4abb690b867418682e71ee9c44a1,
-        type: 3}
-      propertyPath: meleeEnemy.healthM
-      value: 0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 2667818113581105014, guid: 1c8b4abb690b867418682e71ee9c44a1,
-        type: 3}
-      propertyPath: shootingEnemy.speedM
-      value: 0.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2667818113581105014, guid: 1c8b4abb690b867418682e71ee9c44a1,
-        type: 3}
-      propertyPath: difficultyCurveEasy.m_Curve.Array.data[0].time
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2667818113581105014, guid: 1c8b4abb690b867418682e71ee9c44a1,
-        type: 3}
-      propertyPath: difficultyCurveEasy.m_Curve.Array.data[1].time
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2667818113581105014, guid: 1c8b4abb690b867418682e71ee9c44a1,
-        type: 3}
-      propertyPath: difficultyCurveHard.m_Curve.Array.data[0].time
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2667818113581105014, guid: 1c8b4abb690b867418682e71ee9c44a1,
-        type: 3}
-      propertyPath: difficultyCurveHard.m_Curve.Array.data[1].time
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2667818113581105014, guid: 1c8b4abb690b867418682e71ee9c44a1,
-        type: 3}
-      propertyPath: difficultyCurveEasy.m_Curve.Array.data[0].value
-      value: 0.015033007
-      objectReference: {fileID: 0}
-    - target: {fileID: 2667818113581105014, guid: 1c8b4abb690b867418682e71ee9c44a1,
-        type: 3}
-      propertyPath: difficultyCurveEasy.m_Curve.Array.data[1].value
-      value: 1.015033
-      objectReference: {fileID: 0}
-    - target: {fileID: 2667818113581105014, guid: 1c8b4abb690b867418682e71ee9c44a1,
-        type: 3}
-      propertyPath: difficultyCurveHard.m_Curve.Array.data[0].value
-      value: 2.0318575
-      objectReference: {fileID: 0}
-    - target: {fileID: 2667818113581105014, guid: 1c8b4abb690b867418682e71ee9c44a1,
-        type: 3}
-      propertyPath: difficultyCurveHard.m_Curve.Array.data[1].value
-      value: 5.0318575
-      objectReference: {fileID: 0}
-    - target: {fileID: 2667818113581105014, guid: 1c8b4abb690b867418682e71ee9c44a1,
-        type: 3}
-      propertyPath: difficultyCurveNormal.m_Curve.Array.data[0].time
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2667818113581105014, guid: 1c8b4abb690b867418682e71ee9c44a1,
-        type: 3}
-      propertyPath: difficultyCurveNormal.m_Curve.Array.data[1].time
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2667818113581105014, guid: 1c8b4abb690b867418682e71ee9c44a1,
-        type: 3}
-      propertyPath: difficultyCurveNormal.m_Curve.Array.data[0].value
-      value: 1.0136907
-      objectReference: {fileID: 0}
-    - target: {fileID: 2667818113581105014, guid: 1c8b4abb690b867418682e71ee9c44a1,
-        type: 3}
-      propertyPath: difficultyCurveNormal.m_Curve.Array.data[1].value
-      value: 2.5136907
-      objectReference: {fileID: 0}
     - target: {fileID: 2667818113581105015, guid: 1c8b4abb690b867418682e71ee9c44a1,
         type: 3}
       propertyPath: m_RootOrder

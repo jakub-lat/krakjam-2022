@@ -51,7 +51,7 @@ MonoBehaviour:
   player: {fileID: 0}
   cameraHolder: {fileID: 0}
   bossRoomSpawnPoint: {fileID: 0}
-  levelCount: 1
+  levelCount: 5
   difficultyCurveEasy:
     serializedVersion: 2
     m_Curve:
@@ -126,8 +126,8 @@ MonoBehaviour:
     m_RotationOrder: 4
   baseMeleeEnemyCount: 8
   meleeEnemyCountM: 0.2
-  baseShootingEnemyCount: 7
-  shootingEnemyCountM: 0.2
+  baseShootingEnemyCount: 5
+  shootingEnemyCountM: 0.3
   baseElevatorMeleeEnemyCount: 0
   elevatorMeleeEnemyCountM: 0
   baseElevatorShootingEnemyCount: 3
