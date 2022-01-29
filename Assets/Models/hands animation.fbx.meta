@@ -9,6 +9,9 @@ ModelImporter:
   - first:
       74: -6819847216560740898
     second: rig|punch
+  - first:
+      74: -9077878008237418243
+    second: rig|shoot
   externalObjects: {}
   materials:
     materialImportMode: 2
