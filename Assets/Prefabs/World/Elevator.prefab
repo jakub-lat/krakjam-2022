@@ -1685,7 +1685,7 @@ GameObject:
   - component: {fileID: 5904835304555503284}
   - component: {fileID: 5166207278064021656}
   - component: {fileID: 989111886104704504}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Cube_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2554,7 +2554,7 @@ MonoBehaviour:
     type: 2}
   floorText: {fileID: 6774589801164764141}
   floorTextEndPos: {x: 0, y: -25}
-  startMovingDelay: 1
+  startMovingDelay: 5
   illusionObj: {fileID: 4343803482338580180}
   illusionStartY: 7.66
   illusionEndY: -6.24
@@ -3107,8 +3107,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_AgentTypeID: 0
-  m_StartPoint: {x: -2, y: -2.19, z: 0}
-  m_EndPoint: {x: 2, y: -2.25, z: 0}
+  m_StartPoint: {x: -2, y: -1.86, z: 0}
+  m_EndPoint: {x: 2, y: -1.86, z: 0}
   m_Width: 1.26
   m_CostModifier: -1
   m_Bidirectional: 1
@@ -3354,8 +3354,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_AgentTypeID: 0
-  m_StartPoint: {x: -2, y: -2.19, z: 0}
-  m_EndPoint: {x: 2, y: -2.25, z: 0}
+  m_StartPoint: {x: -2, y: -1.86, z: 0}
+  m_EndPoint: {x: 2, y: -1.86, z: 0}
   m_Width: 1.26
   m_CostModifier: -1
   m_Bidirectional: 1
