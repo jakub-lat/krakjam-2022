@@ -42,7 +42,6 @@ public class MeleeEnemy : EnemyAI
 
         if (!attacked)
         {
-            e.anim.SetTrigger("Throw");
             attacked = true;
 
             Invoke(nameof(Hit), attackDelay);
@@ -58,6 +57,7 @@ public class MeleeEnemy : EnemyAI
     private void Hit()
     {
         // play attack animation
+        e.anim.Play("Attack");
         meleeEnemyScript.attacking = true;
     }
 

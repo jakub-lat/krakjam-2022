@@ -12,19 +12,7 @@ public class MeleeAttack : MonoBehaviour
     public float knockUp = 5f;
     public Transform myPos;
 
-    MeshRenderer mesh;
-    private void Start()
-    {
-        mesh = GetComponent<MeshRenderer>();
-    }
-
-    private void Update()
-    {
-        if (!mesh) return;
-        mesh.enabled = attacking;
-    }
-
-    private void OnTriggerStay(Collider col)
+    private void OnTriggerEnter(Collider col)
     {
         if (col.transform.tag == "Player" && attacking) //player
         {

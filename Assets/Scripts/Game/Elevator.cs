@@ -23,6 +23,11 @@ namespace Game
         [SerializeField] private Text floorText;
         [SerializeField] private Vector2 floorTextEndPos;
         [SerializeField] private float startMovingDelay;
+
+        [SerializeField] private Transform illusionObj;
+        [SerializeField] private float illusionStartY;
+        [SerializeField] private float illusionEndY;
+        
         private Vector2 floorTextStartPos;
 
         private Vector3 doorsLeftClosedLocalPos, doorsRightClosedLocalPos;
@@ -68,11 +73,14 @@ namespace Game
 
             floorTextStartPos = floorText.rectTransform.anchoredPosition;
 
+            illusionObj.gameObject.SetActive(false);
+            
             if (openOnStart)
             {
                 GetComponent<ElevatorScoreboard>().Hide();
                 music.Play();
                 Invoke(nameof(Open), startWaitTime);
+                MovingUpIllusion(startWaitTime);
                 exitBlock.SetActive(false);
             }
         }
@@ -139,7 +147,11 @@ namespace Game
             Close().OnComplete(() =>
             {
                 Print("closed");
-                LevelManager.Current.NextLevel();
+
+                MovingUpIllusion(startMovingDelay);
+                
+                Invoke(nameof(NextLevel), startMovingDelay / 2);
+                
                 floorText.rectTransform.DOAnchorPos(floorTextEndPos, animDuration)
                     .SetEase(Ease.OutCirc)
                     .SetDelay(startMovingDelay)
@@ -151,6 +163,11 @@ namespace Game
             }).SetLink(this.gameObject);
         }
 
+        private void NextLevel()
+        {
+            LevelManager.Current.NextLevel();
+        }
+        
         private void UpdateFloorText()
         {
             var lvl = LevelManager.Current.CurrentLevel;
@@ -193,6 +210,18 @@ namespace Game
                 .SetLink(gameObject)
                 .SetEase(Ease.InOutQuint)
                 .SetDelay(closeDelay);
+        }
+        
+        public void MovingUpIllusion(float duration) {
+            illusionObj.gameObject.SetActive(true);
+            illusionObj.DOLocalMoveY(illusionStartY, 0);
+            
+            Debug.Log("duration: "+ duration);
+
+            illusionObj.DOLocalMoveY(illusionEndY, duration).SetEase(Ease.InOutCubic).OnComplete(() =>
+            {
+                illusionObj.gameObject.SetActive(false);
+            });
         }
     }
 }
