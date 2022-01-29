@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 493729954576241549}
   - component: {fileID: 527449482}
   - component: {fileID: 2038212368}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: cm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -151,7 +151,7 @@ GameObject:
   - component: {fileID: 493729954975292880}
   - component: {fileID: 493729954975292882}
   - component: {fileID: 6881953791391086599}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: CM vcam1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -165,7 +165,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 493729954975292881}
-  m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
+  m_LocalRotation: {x: -0.47412112, y: 0.47819597, z: 0.356012, w: 0.6479145}
   m_LocalPosition: {x: -3.37, y: 2.552, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -203,7 +203,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.7786117, y: 1}
+    m_SensorSize: {x: 1.7777778, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 1
@@ -248,7 +248,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 493729955257980615}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: CinemachineCameraPackage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -279,6 +279,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 493729955257980615}
     m_Modifications:
+    - target: {fileID: 1110843966, guid: 85800d860274b5b4d93bf7a8e01d6a73, type: 3}
+      propertyPath: m_LengthScale
+      value: 9.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1110843967, guid: 85800d860274b5b4d93bf7a8e01d6a73, type: 3}
+      propertyPath: ShapeModule.radius.value
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 1110843967, guid: 85800d860274b5b4d93bf7a8e01d6a73, type: 3}
+      propertyPath: InitialModule.startSpeed.scalar
+      value: 1.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 1110843967, guid: 85800d860274b5b4d93bf7a8e01d6a73, type: 3}
+      propertyPath: EmissionModule.rateOverTime.scalar
+      value: 85
+      objectReference: {fileID: 0}
     - target: {fileID: 357256850242745189, guid: 85800d860274b5b4d93bf7a8e01d6a73,
         type: 3}
       propertyPath: m_Layer
@@ -594,6 +610,11 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 13
       objectReference: {fileID: 0}
+    - target: {fileID: 8788733137394937989, guid: 85800d860274b5b4d93bf7a8e01d6a73,
+        type: 3}
+      propertyPath: other
+      value: 
+      objectReference: {fileID: 611000306231459574}
     - target: {fileID: 8801900639470972212, guid: 85800d860274b5b4d93bf7a8e01d6a73,
         type: 3}
       propertyPath: m_Layer
@@ -616,6 +637,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 85800d860274b5b4d93bf7a8e01d6a73, type: 3}
+--- !u!4 &611000306231459574 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8186346053165519837, guid: 85800d860274b5b4d93bf7a8e01d6a73,
+    type: 3}
+  m_PrefabInstance: {fileID: 8782313762801495339}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &4493422712432806857 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5168676552018519778, guid: 85800d860274b5b4d93bf7a8e01d6a73,

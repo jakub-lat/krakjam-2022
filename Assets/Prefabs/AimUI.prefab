@@ -510,6 +510,7 @@ GameObject:
   - component: {fileID: 4700238401548715209}
   - component: {fileID: 4700238401548715210}
   - component: {fileID: 4700238401531114358}
+  - component: {fileID: 4700238401531114361}
   m_Layer: 5
   m_Name: AimUI
   m_TagString: Untagged
@@ -614,3 +615,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   reloadCircle: {fileID: 846644469}
+--- !u!225 &4700238401531114361
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4700238401548715211}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0

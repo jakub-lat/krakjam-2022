@@ -72,8 +72,15 @@ namespace Player
 
             var rb = CurrentItem.gameObject.GetComponent<Rigidbody>();
             rb.isKinematic = false;
+            // StartCoroutine(PushAfterTime());
 
             CurrentItem = null;
+        }
+
+        IEnumerator PushAfterTime(float time, Rigidbody rb, float force)
+        {
+            yield return new WaitForSeconds(time);
+            rb.AddForce(transform.forward * force, ForceMode.Impulse);
         }
 
 
