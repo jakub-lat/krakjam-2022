@@ -40,7 +40,7 @@ public class EKGTweenEffect : MonoBehaviour
             float y = curve.Evaluate(progress + Time.timeSinceLevelLoad / delay);
             if (dead)
             {
-                y = Mathf.Lerp(y, 1, (((progress) + (Time.timeSinceLevelLoad * (900 / delay))) * 6) / 6500);
+                y = Mathf.Lerp(y, 1, (((progress) + (Time.timeSinceLevelLoad * (900 / delay))) * 20) / 6500);
             }
             lineRenderer.SetPosition(i, new Vector3(progress * xMultiply, y * yMultiply, 0));
         }
