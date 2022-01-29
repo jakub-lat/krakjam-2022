@@ -635,8 +635,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3adaa031bea436e8702e051b7ef920f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 1000
-  maxHealth: 1000
+  health: 500
+  maxHealth: 500
   soundSource: {fileID: 207403016}
   soundController: {fileID: 1173150366}
 --- !u!114 &1173150366
@@ -702,7 +702,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 48a93d3c9072b514bb20cc26c6c92262, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.665
+  m_Volume: 0.861
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -811,7 +811,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: d7bfa3bf65289a04ebbb8d50dd6772bd, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.082
+  m_Volume: 0.341
   m_Pitch: 1
   Loop: 1
   Mute: 0
