@@ -4184,27 +4184,27 @@ PrefabInstance:
     - target: {fileID: 2667818113581105014, guid: 1c8b4abb690b867418682e71ee9c44a1,
         type: 3}
       propertyPath: difficulty.m_Curve.Array.data[1].time
-      value: 0.101745605
+      value: 0.09991455
       objectReference: {fileID: 0}
     - target: {fileID: 2667818113581105014, guid: 1c8b4abb690b867418682e71ee9c44a1,
         type: 3}
       propertyPath: difficulty.m_Curve.Array.data[1].value
-      value: 4.174431
+      value: 1.9830856
       objectReference: {fileID: 0}
     - target: {fileID: 2667818113581105014, guid: 1c8b4abb690b867418682e71ee9c44a1,
         type: 3}
       propertyPath: difficulty.m_Curve.Array.data[0].inSlope
-      value: 31.199684
+      value: 9.839264
       objectReference: {fileID: 0}
     - target: {fileID: 2667818113581105014, guid: 1c8b4abb690b867418682e71ee9c44a1,
         type: 3}
       propertyPath: difficulty.m_Curve.Array.data[1].inSlope
-      value: 31.199684
+      value: 9.839264
       objectReference: {fileID: 0}
     - target: {fileID: 2667818113581105014, guid: 1c8b4abb690b867418682e71ee9c44a1,
         type: 3}
       propertyPath: difficulty.m_Curve.Array.data[0].outSlope
-      value: 31.199684
+      value: 9.839264
       objectReference: {fileID: 0}
     - target: {fileID: 2667818113581105014, guid: 1c8b4abb690b867418682e71ee9c44a1,
         type: 3}
@@ -4214,7 +4214,7 @@ PrefabInstance:
     - target: {fileID: 2667818113581105014, guid: 1c8b4abb690b867418682e71ee9c44a1,
         type: 3}
       propertyPath: difficulty.m_Curve.Array.data[1].outSlope
-      value: 31.199684
+      value: 9.839264
       objectReference: {fileID: 0}
     - target: {fileID: 2667818113581105014, guid: 1c8b4abb690b867418682e71ee9c44a1,
         type: 3}
