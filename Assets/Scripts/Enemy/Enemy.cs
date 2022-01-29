@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using Game;
 using UnityEngine;
 
-[RequireComponent(typeof(Animator))]
 public class Enemy : MonoBehaviour
 {
     [HideInInspector] public Animator anim;
@@ -19,7 +18,7 @@ public class Enemy : MonoBehaviour
 
     private void Start()
     {
-        anim = GetComponent<Animator>();
+        anim = GetComponentInChildren<Animator>();
         ai = GetComponent<EnemyAI>();
         hp = startingHealth;
     }

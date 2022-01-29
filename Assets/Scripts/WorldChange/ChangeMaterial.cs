@@ -14,10 +14,12 @@ namespace WorldChange
 
         [SerializeField] private WorldTypeDict<Material> materials;
         private MeshRenderer meshRenderer;
+        private SkinnedMeshRenderer meshRenderer2;
 
         private void Awake()
         {
             meshRenderer = GetComponent<MeshRenderer>();
+            meshRenderer2 = GetComponent<SkinnedMeshRenderer>();
             DOTween.SetTweensCapacity(6250, 100);
         }
         
@@ -28,12 +30,24 @@ namespace WorldChange
             var to = materials[type];
 
             var temp = new Material(from);
-            meshRenderer.material = temp;
-            
-            DOTween.To(() => 0f, (v) => meshRenderer.material.Lerp(from, to, v), 1, duration)
-                .SetEase(Ease.InOutQuint)
-                .OnComplete(
-                    () => { meshRenderer.material = to; }).SetLink(this.gameObject);
+            if (meshRenderer)
+            {
+                meshRenderer.material = temp;
+                DOTween.To(() => 0f, (v) => meshRenderer.material.Lerp(from, to, v), 1, duration)
+               .SetEase(Ease.InOutQuint)
+               .OnComplete(
+                   () => { meshRenderer.material = to; }).SetLink(this.gameObject);
+            }
+            if (meshRenderer2)
+            {
+                meshRenderer2.material = temp;
+                DOTween.To(() => 0f, (v) => meshRenderer2.material.Lerp(from, to, v), 1, duration)
+               .SetEase(Ease.InOutQuint)
+               .OnComplete(
+                   () => { meshRenderer2.material = to; }).SetLink(this.gameObject);
+            }
+
+           
 
             // StartCoroutine(MaterialAfterDelay(to));
         }
