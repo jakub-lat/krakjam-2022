@@ -161,6 +161,9 @@ MonoBehaviour:
   attackLayerMask:
     serializedVersion: 2
     m_Bits: 5897
+  closeFightSource: {fileID: 0}
+  fistPunch: {fileID: 0}
+  itemPunch: {fileID: 0}
 --- !u!65 &5926573320473731973
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -866,6 +869,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Jojo
+      objectReference: {fileID: 0}
+    - target: {fileID: 5793938111607194645, guid: 7b3385f143aeb9b45af21723606be603,
+        type: 3}
+      propertyPath: m_Layer
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 5793938111607194645, guid: 7b3385f143aeb9b45af21723606be603,
         type: 3}
