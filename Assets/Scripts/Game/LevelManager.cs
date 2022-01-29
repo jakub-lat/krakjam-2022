@@ -10,14 +10,13 @@ namespace Game
 {
     public enum GameMode
     {
-        Easy, Normal, Hard
+        Easy,
+        Normal,
+        Hard
     }
-    
+
     public class LevelManager : MonoSingleton<LevelManager>
     {
-        [SerializeField] private int levelCount;
-        [SerializeField] private AnimationCurve difficulty;
-
         public GameMode GameMode => (GameMode)PlayerPrefs.GetInt("GameMode");
 
         public int CurrentLevel { get; private set; }
@@ -29,6 +28,15 @@ namespace Game
         public Transform player;
         public Transform cameraHolder;
         public Transform bossRoomSpawnPoint;
+
+        [Header("Game balance")] 
+        [SerializeField] private int levelCount;
+        [SerializeField] private AnimationCurve difficulty;
+        [SerializeField] private int baseMeleeEnemyCount;
+        [SerializeField] private int baseShootingEnemyCount;
+        [SerializeField] private int baseElevatorEnemyCount;
+        [SerializeField] private int baseEnemyDamage;
+
 
         private int width, height;
         private float spaceX, spaceZ;
@@ -69,18 +77,19 @@ namespace Game
             (startingPosA, startingPosB) = (startingPosB, startingPosA);
 
             GenerateLevel();
-            
+
             // startingElevator.Open();
             startingElevator.active = false;
             finishElevator.active = true;
 
-           /* if (CurrentLevel == 1)
-            {
-                player.position = startingPosA.position;
-                cameraHolder.localRotation = startingPosA.localRotation;
-                Debug.Log("setpos");
-            }*/
+            /* if (CurrentLevel == 1)
+             {
+                 player.position = startingPosA.position;
+                 cameraHolder.localRotation = startingPosA.localRotation;
+                 Debug.Log("setpos");
+             }*/
         }
+
         public void BossLevel()
         {
             Debug.Log("bosz");
@@ -90,24 +99,32 @@ namespace Game
 
         private void GenerateLevel()
         {
-            Vector3 newElevatorPos = new Vector3(finishElevator.transform.position.x, finishElevator.transform.position.y, UnityEngine.Random.Range(0, height * 2) * spaceZ);
+            Vector3 newElevatorPos = new Vector3(finishElevator.transform.position.x,
+                finishElevator.transform.position.y, UnityEngine.Random.Range(0, height * 2) * spaceZ);
             finishElevator.transform.position = newElevatorPos;
 
             finishElevator.SetDoorNavSurface(false); //enemies cant walk through door
             startingElevator.SetDoorNavSurface(true);
 
             var levelDifficulty = difficulty.Evaluate(CurrentLevel);
+
             GenerateRoom.Current.transform.KillAllChildren();
             ObjectGeneration.Current.ClearObjects();
             GenerateRoom.Current.Generate(CurrentLevel - 1);
             GenerateRoom.Current.RefreshMesh();
             ObjectGeneration.Current.GenerateObjects();
 
-            
+
             finishElevator.elevatorRemover.Remove();
             startingElevator.elevatorRemover.Remove();
 
             EnemySpawner.Current.KillAll();
+
+            EnemySpawner.Current.meleeEnemyAmount = (int)(baseMeleeEnemyCount * levelDifficulty);
+            EnemySpawner.Current.shootingEnemyAmount = (int)(baseShootingEnemyCount * levelDifficulty);
+            // EnemySpawner.Current.elevatorEnemyCount = (int)(baseShootingEnemyCount * levelDifficulty); // todo @hyopplo
+            // EnemySpawner.Current.enemyDamage = (int)(baseEnemyDamage * levelDifficulty); // todo @hyopplo
+
             EnemySpawner.Current.StartSpawning();
 
             GenerateRoom.Current.RefreshMesh();
