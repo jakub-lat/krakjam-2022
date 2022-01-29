@@ -94,7 +94,12 @@ namespace Game
                 Scoreboard.GameScoreboard.Current.NewRun();
             }
 
-           
+            Invoke(nameof(DisplayObjective), 2f);
+        }
+
+        void DisplayObjective()
+        {
+            ObjectivesUI.Current.SetObjective("MISSION: KILL THE BOSS", "FIND THE NEXT ELEVATOR AND HEAD TO THE TOP FLOOR");
         }
 
         public void NextLevel()
