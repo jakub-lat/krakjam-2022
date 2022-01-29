@@ -68,8 +68,6 @@ public class Boss : MonoSingleton<Boss>
         attack.knockback = punchKnock;
         attack.myPos = transform;
         healthToNextPipe = startingHealth - (startingHealth / (pipeOverHealth + 1));
-
-        StartBattle(); // TO DELETE!!1!!1
     }
 
     private int currBurst = 0;
