@@ -105,7 +105,7 @@ namespace Game
 
         void DisplayObjective()
         {
-            ObjectivesUI.Current.SetObjective("MISSION: KILL THE BOSS", "FIND THE NEXT ELEVATOR AND HEAD TO THE TOP FLOOR");
+            ObjectivesUI.Current.SetObjective("MISSION: VISIT THE BOSS", "FIND THE NEXT ELEVATOR AND HEAD TO THE TOP FLOOR");
         }
 
         public void NextLevel()
@@ -141,6 +141,7 @@ namespace Game
         public void BossLevel()
         {
             Debug.Log("bosz");
+            ObjectivesUI.Current.SetObjective("MISSION: KILL THE BOSS", "SHOW YOUR TRUE RAGE");
             player.transform.position = bossRoomSpawnPoint.position;
             cameraHolder.localRotation = bossRoomSpawnPoint.localRotation;
             Boss.Current.StartBattle();
