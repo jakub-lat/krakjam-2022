@@ -133,11 +133,8 @@ public class ChangeEnemyProperties : WorldChangeLogic
                 se.moveSpeed = md.moveSpeed + (md.moveSpeed * Game.LevelManager.Current.Difficulty * Game.LevelManager.Current.shootingEnemy.speedM);
                 se.fleeSpeed = md.fleeSpeed + (md.moveSpeed * Game.LevelManager.Current.Difficulty * Game.LevelManager.Current.shootingEnemy.speedM); 
                 se.flee = md.flee;
-                
 
                 se.damage = md.damage + (md.damage * Game.LevelManager.Current.Difficulty * Game.LevelManager.Current.shootingEnemy.damageM);
-                se.meleeEnemyScript.damage = se.damage;
-                se.meleeEnemyScript.knockback = se.knockback;
                 var e = g.GetComponent<Enemy>();
                 e.startingHealth = md.health + (md.health * Game.LevelManager.Current.Difficulty * Game.LevelManager.Current.shootingEnemy.healthM); ;
                 e.HPrefresh();

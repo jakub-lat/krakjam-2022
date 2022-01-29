@@ -45,8 +45,7 @@ public abstract class EnemyAI : MonoBehaviour
         Physics.Raycast(transform.position, player.transform.position, out hit2, default, attackMask);
         if ((!hit2.transform || playerMask != (playerMask | (1 << hit2.transform.gameObject.layer))) && dist > followRange) return;
 
-
-        lookPoint.LookAt(player.transform.position);
+        
         Physics.SphereCast(lookPoint.position, 0.1f, lookPoint.transform.forward /100, out hit, attackRange, attackMask);
 
         if (flee && dist<=fleeRange)
@@ -70,14 +69,11 @@ public abstract class EnemyAI : MonoBehaviour
 
     protected virtual void Chase()
     {
-        e.anim.SetBool("isWalking", true);
-        e.anim.SetBool("isRunning", false);
     }
 
     protected virtual void Attack()
     {
-        e.anim.SetBool("isWalking", false);
-        e.anim.SetBool("isRunning", false);
+        
     }
 
     public void RunFromPlayer()
@@ -90,7 +86,5 @@ public abstract class EnemyAI : MonoBehaviour
         NavMesh.SamplePosition(runTo, out hit, 5, 1 << NavMesh.GetAreaFromName("Walkable"));
 
         agent.SetDestination(hit.position);
-        e.anim.SetBool("isRunning", true);
-        e.anim.SetBool("isWalking", false);
     }
 }

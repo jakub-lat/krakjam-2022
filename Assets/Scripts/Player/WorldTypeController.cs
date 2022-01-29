@@ -25,8 +25,6 @@ public class WorldTypeController : MonoSingleton<WorldTypeController>
         {
             x.OnWorldTypeChange(type);
         }
-        
-        
     }
 
     public void OnWorldChange()
