@@ -13,8 +13,8 @@ public class ElevatorEnemies : MonoBehaviour
     private void Start()
     {
         transform.position = Game.LevelManager.Current.startingPosA.position;
-        shootingEnemies = EnemySpawner.Current.shootingEnemyAmount;
-        meleeEnemies = EnemySpawner.Current.meleeEnemyAmount;
+        shootingEnemies = EnemySpawner.Current.elevatorShootingEnemyAmount;
+        meleeEnemies = EnemySpawner.Current.elevatorMeleeEnemyAmount;
 
         Spawn();
         
