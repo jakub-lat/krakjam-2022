@@ -306,7 +306,7 @@ PrefabInstance:
         type: 3}
       propertyPath: anim
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 8444273930840346766}
     - target: {fileID: 7780171448473485712, guid: d5589d93f9ef0a9458419984bd0d09f5,
         type: 3}
       propertyPath: anim
@@ -350,6 +350,7 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 0}
     - {fileID: 0}
+    - {fileID: 2456783150339610441, guid: d5589d93f9ef0a9458419984bd0d09f5, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: d5589d93f9ef0a9458419984bd0d09f5, type: 3}
 --- !u!4 &5230259339887970547 stripped
 Transform:
@@ -408,6 +409,12 @@ MonoBehaviour:
 --- !u!4 &5791398697818668372 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3186754644396311675, guid: d5589d93f9ef0a9458419984bd0d09f5,
+    type: 3}
+  m_PrefabInstance: {fileID: 8964008348461938991}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &8444273930840346766 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 672892869800962465, guid: d5589d93f9ef0a9458419984bd0d09f5,
     type: 3}
   m_PrefabInstance: {fileID: 8964008348461938991}
   m_PrefabAsset: {fileID: 0}
