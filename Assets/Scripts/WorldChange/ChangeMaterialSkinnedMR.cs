@@ -9,25 +9,26 @@ using UnityEngine;
 
 namespace WorldChange
 {
-    public class ChangeMaterial : WorldChangeLogic
+    public class ChangeMaterialSkinnedMR : WorldChangeLogic
     {
         private readonly float duration = 0.5f;
 
         [SerializeField] private WorldTypeDict<Material> materials;
-        
+
         [SerializeField] private WorldTypeDict<Material[]> multipleMaterials;
 
-        public MeshRenderer meshRenderer;
+        public SkinnedMeshRenderer meshRenderer;
 
         private void Awake()
         {
             if (meshRenderer == null)
             {
-                meshRenderer = GetComponent<MeshRenderer>();
+                meshRenderer = GetComponent<SkinnedMeshRenderer>();
             }
 
             if (multipleMaterials.psycho is { Length: > 1 })
             {
+                Debug.Log(gameObject.name + " WOOOW COUNT>1, COUNT=" + meshRenderer.materials.Length);
                 multipleMaterials.normal = meshRenderer.materials;
             }
 

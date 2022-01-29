@@ -1,4 +1,5 @@
-﻿using Cyberultimate.Unity;
+﻿using System;
+using Cyberultimate.Unity;
 using UnityEngine;
 
 public class WorldTypeController : MonoSingleton<WorldTypeController>
@@ -23,7 +24,14 @@ public class WorldTypeController : MonoSingleton<WorldTypeController>
         var objs = GameObject.FindObjectsOfType<WorldChangeLogic>();
         foreach (var x in objs)
         {
-            x.OnWorldTypeChange(type);
+            try
+            {
+                x.OnWorldTypeChange(type);
+            }
+            catch (Exception e)
+            {
+                Debug.LogError(x.gameObject.name + " " + e);
+            }
         }
     }
 

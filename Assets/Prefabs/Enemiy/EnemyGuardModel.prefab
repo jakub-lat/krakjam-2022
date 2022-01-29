@@ -1825,7 +1825,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 1179a354c7425734f9f5723583dc1d5a,
         type: 3}
       propertyPath: m_Name
-      value: BLAnimEnemy01,29animRunGunFat
+      value: EnemyGuardModel
       objectReference: {fileID: 0}
     - target: {fileID: 935721462103984548, guid: 1179a354c7425734f9f5723583dc1d5a,
         type: 3}
