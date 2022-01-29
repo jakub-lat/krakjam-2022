@@ -46,7 +46,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f074e5c6d8f3ab419966ce333901fbc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  floorCount: 5
   puzzleObj:
   - {fileID: 8115858108183884790, guid: cc471b3e725a3b04191c24a954abbba6, type: 3}
   - {fileID: 5318008780922169044, guid: a8e913ae055a6214fabbc26b309e91de, type: 3}
@@ -62,7 +61,7 @@ MonoBehaviour:
   spaceX: 5
   spaceZ: 5
   spaceY: 5
-  spawnerCount: 20
+  spawnerCount: 30
   boundaryWall: {fileID: 5107830021413910054, guid: 594e0d80c1465f143a6c28d4675dfea5,
     type: 3}
   window: {fileID: 446096981085295640, guid: 3ef474dac4c250249a8953c53aa56915, type: 3}

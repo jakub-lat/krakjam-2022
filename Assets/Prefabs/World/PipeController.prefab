@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 216437643}
   - component: {fileID: 216437642}
   m_Layer: 0
-  m_Name: WaterParticles_2
+  m_Name: 'WaterParticles '
   m_TagString: Pipe
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -33,7 +33,7 @@ Transform:
   - {fileID: 1280430886}
   - {fileID: 1925048574}
   m_Father: {fileID: 3941760957658526718}
-  m_RootOrder: 2
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &216437643
 BoxCollider:
@@ -4903,7 +4903,7 @@ GameObject:
   - component: {fileID: 1221435334}
   - component: {fileID: 1221435333}
   m_Layer: 0
-  m_Name: WaterParticles_1
+  m_Name: WaterParticles 2
   m_TagString: Pipe
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4924,7 +4924,7 @@ Transform:
   - {fileID: 718960704}
   - {fileID: 1756645771}
   m_Father: {fileID: 3941760957658526718}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &1221435334
 BoxCollider:
@@ -19454,7 +19454,7 @@ GameObject:
   - component: {fileID: 564108604}
   - component: {fileID: 564108605}
   m_Layer: 0
-  m_Name: WaterParticles
+  m_Name: WaterParticles 1
   m_TagString: Pipe
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -19475,7 +19475,7 @@ Transform:
   - {fileID: 3941760958025069561}
   - {fileID: 3941760957898736544}
   m_Father: {fileID: 3941760957658526718}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &564108604
 BoxCollider:
@@ -19532,9 +19532,9 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 216437641}
   - {fileID: 3941760957116956428}
   - {fileID: 1221435332}
-  - {fileID: 216437641}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -19552,11 +19552,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pipes:
   - anim: {fileID: 0}
-    dropParticles: {fileID: 3941760958025069543}
-    brokenParticles: {fileID: 3941760957898736558}
-  - anim: {fileID: 0}
     dropParticles: {fileID: 1280430888}
     brokenParticles: {fileID: 1925048576}
+  - anim: {fileID: 0}
+    dropParticles: {fileID: 3941760958025069543}
+    brokenParticles: {fileID: 3941760957898736558}
   - anim: {fileID: 0}
     dropParticles: {fileID: 718960706}
     brokenParticles: {fileID: 1756645773}

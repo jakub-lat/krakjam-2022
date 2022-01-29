@@ -51,38 +51,86 @@ MonoBehaviour:
   player: {fileID: 0}
   cameraHolder: {fileID: 0}
   bossRoomSpawnPoint: {fileID: 0}
-  levelCount: 2
-  difficulty:
+  levelCount: 1
+  difficultyCurveEasy:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
-      inSlope: 9.839264
-      outSlope: 9.839264
-      tangentMode: 34
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 0.09991455
-      value: 1.9830856
-      inSlope: 9.839264
-      outSlope: 9.839264
-      tangentMode: 34
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 136
       weightedMode: 0
       inWeight: 0.33333334
-      outWeight: 0
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 2
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 136
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  baseMeleeEnemyCount: 5
-  meleeEnemyCountM: 0.1
-  baseShootingEnemyCount: 6
-  shootingEnemyCountM: 0.1
+  difficultyCurveNormal:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 136
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 2.5
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 136
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  difficultyCurveHard:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 136
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 4
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 136
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  baseMeleeEnemyCount: 8
+  meleeEnemyCountM: 0.2
+  baseShootingEnemyCount: 7
+  shootingEnemyCountM: 0.2
   baseElevatorMeleeEnemyCount: 0
   elevatorMeleeEnemyCountM: 0
-  baseElevatorShootingEnemyCount: 1
+  baseElevatorShootingEnemyCount: 3
   elevatorShootingEnemyCountM: 0.3
   shootingEnemy:
     healthM: 0.1
