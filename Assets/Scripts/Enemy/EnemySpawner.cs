@@ -67,6 +67,9 @@ public class EnemySpawner : MonoSingleton<EnemySpawner>
 
     public void StartSpawning()
     {
+        spawnedElevator = false;
+        elevatorEnemiesTimer = elevatorEnemiesTime;
+
         if (spawnpoints.Count <= 0) { Debug.LogError("No enemy spawnpoints set!"); return; }
 
         for(int i = 0; i < shootingEnemyAmount; i++)
@@ -80,9 +83,6 @@ public class EnemySpawner : MonoSingleton<EnemySpawner>
             Vector3 t = spawnpoints[Random.Range(0, spawnpoints.Count)];
             Spawn(t, Quaternion.identity, EnemyType.Melee);
         }
-
-        spawnedElevator = false;
-        elevatorEnemiesTimer = elevatorEnemiesTime; 
     }
 
     private void Start()

@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 799221833}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -1.442, z: 0}
+  m_LocalPosition: {x: -1.377, y: -1.442, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2682,8 +2682,8 @@ GameObject:
   m_Name: DoorsR
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 1
-  m_StaticEditorFlags: 8
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &9074998912223125581
 Transform:
@@ -2778,22 +2778,26 @@ MonoBehaviour:
   materials:
     normal: {fileID: 2100000, guid: c8b132226823fea44bcd94c102b27e7c, type: 2}
     psycho: {fileID: 2100000, guid: 114d7171ad47e5045967edc6de5efd26, type: 2}
---- !u!208 &1759283283
-NavMeshObstacle:
+--- !u!114 &1759283283
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9074998912223125580}
-  m_Enabled: 0
-  serializedVersion: 3
-  m_Shape: 1
-  m_Extents: {x: 0.5, y: 0.5, z: 0.5}
-  m_MoveThreshold: 0.1
-  m_Carve: 0
-  m_CarveOnlyStationary: 1
-  m_Center: {x: 0, y: 0, z: 0}
-  m_TimeToStationary: 0.5
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6eeb5dc026fdf4b488bc7ae0138ab719, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_AgentTypeID: 0
+  m_StartPoint: {x: -2, y: -2.19, z: 0}
+  m_EndPoint: {x: 2, y: -2.25, z: 0}
+  m_Width: 1.26
+  m_CostModifier: -1
+  m_Bidirectional: 1
+  m_AutoUpdatePosition: 0
+  m_Area: 0
 --- !u!1 &9074998912338707455
 GameObject:
   m_ObjectHideFlags: 0
@@ -2925,8 +2929,8 @@ GameObject:
   m_Name: DoorsL
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 1
-  m_StaticEditorFlags: 8
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &9074998912543461630
 Transform:
@@ -3021,19 +3025,23 @@ MonoBehaviour:
   materials:
     normal: {fileID: 2100000, guid: c8b132226823fea44bcd94c102b27e7c, type: 2}
     psycho: {fileID: 2100000, guid: 114d7171ad47e5045967edc6de5efd26, type: 2}
---- !u!208 &982835863
-NavMeshObstacle:
+--- !u!114 &982835863
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9074998912543461625}
-  m_Enabled: 0
-  serializedVersion: 3
-  m_Shape: 1
-  m_Extents: {x: 0.5, y: 0.5, z: 0.5}
-  m_MoveThreshold: 0.1
-  m_Carve: 0
-  m_CarveOnlyStationary: 1
-  m_Center: {x: 0, y: 0, z: 0}
-  m_TimeToStationary: 0.5
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6eeb5dc026fdf4b488bc7ae0138ab719, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_AgentTypeID: 0
+  m_StartPoint: {x: -2, y: -2.19, z: 0}
+  m_EndPoint: {x: 2, y: -2.25, z: 0}
+  m_Width: 1.26
+  m_CostModifier: -1
+  m_Bidirectional: 1
+  m_AutoUpdatePosition: 0
+  m_Area: 0
