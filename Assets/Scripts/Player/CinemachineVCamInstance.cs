@@ -28,7 +28,5 @@ namespace Player
             pov.m_VerticalAxis.m_MaxSpeed = OptionsMenu.SensitivityMouse;
             pov.m_HorizontalAxis.m_MaxSpeed = OptionsMenu.SensitivityMouse;
         }
-
-
     }
 }

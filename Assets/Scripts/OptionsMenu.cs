@@ -8,6 +8,8 @@ using Cyberultimate.Unity;
 
 public class OptionsMenu : MonoSingleton<OptionsMenu>
 {
+    private const string MouseSensitivityKey = "MouseSensitivity";
+    
     [SerializeField]
     private Dropdown qualityDropdown = null;
 
@@ -17,11 +19,15 @@ public class OptionsMenu : MonoSingleton<OptionsMenu>
     [SerializeField]
     private Slider sensitivitySlider = null;
 
-    public static float SensitivityMouse { get; set; } = 0.5f;
+    public static float SensitivityMouse { get; set; } = 0.3f;
     public static event Action<float> OnChangedSensitivity = delegate { };
 
     protected void Start()
     {
+        PlayerPrefs.DeleteKey(MouseSensitivityKey);
+        
+        SensitivityMouse = PlayerPrefs.HasKey(MouseSensitivityKey) ? PlayerPrefs.GetFloat(MouseSensitivityKey) : SensitivityMouse;
+        
         qualityDropdown.SetValueWithoutNotify(QualitySettings.GetQualityLevel());
         sensitivitySlider.value = SensitivityMouse;
     }
@@ -33,7 +39,8 @@ public class OptionsMenu : MonoSingleton<OptionsMenu>
 
     public void SetSensitivity(float newSans) // Undertale reference
     {
-        sensitivityText.text = newSans.ToString();
+        sensitivityText.text = newSans.ToString("0.00");
         SensitivityMouse = newSans;
+        PlayerPrefs.SetFloat(MouseSensitivityKey, SensitivityMouse);
     }
 }
