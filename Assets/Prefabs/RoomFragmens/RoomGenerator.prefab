@@ -94,6 +94,10 @@ MonoBehaviour:
     count: 8
     prefab: {fileID: 1639877660984890077, guid: bc83b8dcc9c375c45b8dcded754e0434,
       type: 3}
+  - type: 2
+    count: 10
+    prefab: {fileID: 7650849642322683238, guid: 13603da02f8531f4dafd8cebff06a6bc,
+      type: 3}
   minRangeFromPlayer: 20
   minFurnitureRangeFromPlayer: 5
 --- !u!114 &1475010136245286752
