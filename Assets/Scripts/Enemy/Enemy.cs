@@ -16,6 +16,10 @@ public class Enemy : MonoBehaviour
     [SerializeField] private GameObject myHead = null;
     [SerializeField] private GameObject myBody = null;
 
+    [SerializeField]
+    private AudioSource enemySource = null;
+    public AudioSource EnemySource => enemySource;
+
     private void Start()
     {
         anim = GetComponentInChildren<Animator>();

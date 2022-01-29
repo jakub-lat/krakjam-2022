@@ -5208,6 +5208,8 @@ GameObject:
   - component: {fileID: 739774585}
   - component: {fileID: 8510893395727593490}
   - component: {fileID: 1941083714989583875}
+  - component: {fileID: 6133451462017305272}
+  - component: {fileID: 4996229322161013497}
   m_Layer: 0
   m_Name: Gun
   m_TagString: Interactable
@@ -5289,7 +5291,10 @@ MonoBehaviour:
   shoot: {fileID: 8300000, guid: 71419ed6f13910948bfc4ebf647e6794, type: 3}
   reload: {fileID: 8300000, guid: c4ef1600eaa5d924bac90329e078fd8e, type: 3}
   pickup: {fileID: 8300000, guid: 5bd289bc6ce93af4eb068d0b35e07d85, type: 3}
+  headshot: {fileID: 8300000, guid: 4b8880bd0fbfa784494359f453dfb32f, type: 3}
   gunSource: {fileID: 1941083714989583875}
+  enemySoundController: {fileID: 6133451462017305272}
+  bossSoundController: {fileID: 4996229322161013497}
 --- !u!54 &8510893395727593490
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -5402,6 +5407,40 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &6133451462017305272
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5903540461458353516}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 907d361478a31a146a2fa2a92791378c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  footsteps:
+  - {fileID: 8300000, guid: 632705f62f5336943b53a53fee7f9c19, type: 3}
+  - {fileID: 8300000, guid: cd8b5dec61e2f904eb56a7b9d77ea6dd, type: 3}
+  - {fileID: 8300000, guid: be33e8cdffeee634a9821ebe2668f750, type: 3}
+  - {fileID: 8300000, guid: 57971c92bcbf2ce459010c12bac228b8, type: 3}
+  source: {fileID: 0}
+  enableUpdate: 0
+--- !u!114 &4996229322161013497
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5903540461458353516}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 907d361478a31a146a2fa2a92791378c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  footsteps: []
+  source: {fileID: 0}
+  enableUpdate: 0
 --- !u!1 &8040185499850754339
 GameObject:
   m_ObjectHideFlags: 0

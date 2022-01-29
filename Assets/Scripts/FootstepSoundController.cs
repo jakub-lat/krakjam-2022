@@ -23,7 +23,12 @@ public class FootstepSoundController : MonoBehaviour
 
     private void Awake()
     {
-        audioOriginalVolume = source.volume;
+        if (enableUpdate)
+        {
+            audioOriginalVolume = source.volume;
+
+        }
+
     }
 
     protected void Update()
