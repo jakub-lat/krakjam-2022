@@ -15,12 +15,12 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: ae96f381a3285b04a9b40333f6f2c474,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 18
+      value: 33.16775
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: ae96f381a3285b04a9b40333f6f2c474,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 18
+      value: 30.02908
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: ae96f381a3285b04a9b40333f6f2c474,
         type: 3}
@@ -77,6 +77,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 48.023
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: ae96f381a3285b04a9b40333f6f2c474,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 3ede4016c5ebd5d499d2d5c19df8e648, type: 2}
     - target: {fileID: 919132149155446097, guid: ae96f381a3285b04a9b40333f6f2c474,
         type: 3}
       propertyPath: m_Name
@@ -138,7 +143,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7191824333556155157}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 0.01, y: 0.005, z: 0.005}
@@ -156,7 +161,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   materials:
-    normal: {fileID: 2100000, guid: 68d6b0a721d286c47b42118c3d2e4a16, type: 2}
+    normal: {fileID: 2100000, guid: 3ede4016c5ebd5d499d2d5c19df8e648, type: 2}
     psycho: {fileID: 2100000, guid: f6ab6992039257b4db248a01bc35a1f1, type: 2}
 --- !u!114 &4129233832303014852
 MonoBehaviour:
@@ -186,8 +191,8 @@ MonoBehaviour:
   interactionName: Scissors
   interactionSound: {fileID: 0}
   source: {fileID: 0}
-  rotationOffset: {x: 32.18, y: 221.23, z: 77.3}
-  positionOffset: {x: -0.1173, y: -0.08, z: -0.175}
+  rotationOffset: {x: 55.545, y: -81.096, z: 74.8}
+  positionOffset: {x: 0.091, y: -0.213, z: -0.208}
   damage: 45
   distance: 3
   cooldownTime: 0.1
