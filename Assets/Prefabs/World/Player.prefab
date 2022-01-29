@@ -152,6 +152,8 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 1688d18fb0627884394709be6a1be3ad, type: 3}
   - {fileID: 8300000, guid: f21777a35dc42ca4c9c678b89c27b6f9, type: 3}
   - {fileID: 8300000, guid: 42931f2c674cbc148a144e6f822bc2b4, type: 3}
+  source: {fileID: 207403016}
+  enableUpdate: 1
 --- !u!1 &4071760804872941609
 GameObject:
   m_ObjectHideFlags: 0
@@ -312,6 +314,7 @@ GameObject:
   - component: {fileID: 3847468548162195743}
   - component: {fileID: 7633560830439424285}
   - component: {fileID: 2580507051579308642}
+  - component: {fileID: 1173150366}
   m_Layer: 7
   m_Name: Player
   m_TagString: Player
@@ -542,6 +545,8 @@ MonoBehaviour:
   drugEffectTime: 30
   addictionMaxTime: 120
   addictionEffectsStartTime: 100
+  soundSource: {fileID: 207403016}
+  takeDrug: {fileID: 8300000, guid: 5825c3037a16bf548880a81d4b199bd8, type: 3}
 --- !u!114 &3847468548162195743
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -631,6 +636,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 1000
   maxHealth: 1000
+  soundSource: {fileID: 207403016}
+  soundController: {fileID: 1173150366}
+--- !u!114 &1173150366
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4071760806831231215}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 907d361478a31a146a2fa2a92791378c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  footsteps:
+  - {fileID: 8300000, guid: 3bff56e2b61b05c4e864ee813871ce2e, type: 3}
+  - {fileID: 8300000, guid: 52c31b2cb73f305479555faa1dbb4b5c, type: 3}
+  source: {fileID: 207403016}
+  enableUpdate: 0
 --- !u!1 &6592591626598757040
 GameObject:
   m_ObjectHideFlags: 0

@@ -11,21 +11,22 @@ public class FootstepSoundController : MonoBehaviour
 
     private List<AudioClip> notUsedClips = new List<AudioClip>();
 
+    [SerializeField]
     private AudioSource source;
 
-    protected void Awake()
-    {
-        source = GetComponent<AudioSource>();
-    }
+    [SerializeField]
+    private bool enableUpdate = false;
 
     protected void Update()
     {
-        if (FirstPersonController.Current.Controller.velocity.magnitude > 2f && !source.isPlaying && FirstPersonController.Current.Controller.isGrounded)
+        if (enableUpdate)
         {
-            source.pitch = Random.Range(0.9f, 1.1f);
-            source.volume = Random.Range(0.5f, 0.9f);
-            source.PlayOneShot(GetRandomSoundFromRange());
-
+            if (FirstPersonController.Current.Controller.velocity.magnitude > 2f && !source.isPlaying && FirstPersonController.Current.Controller.isGrounded)
+            {
+                source.pitch = Random.Range(0.9f, 1.1f);
+                source.volume = Random.Range(0.5f, 0.9f);
+                source.PlayOneShot(GetRandomSoundFromRange());
+            }
         }
     }
 

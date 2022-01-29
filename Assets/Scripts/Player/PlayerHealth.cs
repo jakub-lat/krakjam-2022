@@ -10,16 +10,28 @@ namespace Player
     {
         [SerializeField] private float health;
         [SerializeField] private float maxHealth;
+        [SerializeField]
+        private AudioSource soundSource;
+
+        [SerializeField]
+        private FootstepSoundController soundController;
         public float MaxHealth => maxHealth;
         public float Health
         {
             get => health;
             set
             {
+                if (value < health)
+                {
+                    soundSource.PlayOneShot(soundController.GetRandomSoundFromRange());
+                }
+
                 health = Math.Min(value, maxHealth);
                 PercentageOverlay.Get(OverlayType.Health).UpdateAmount(1 - (health / maxHealth));
 
                 if (health <= 0) Die();
+
+
             }
         }
 

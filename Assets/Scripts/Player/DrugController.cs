@@ -19,6 +19,12 @@ namespace KrakJam2022.Player
         private int currentDoses = 0;
         private float timer = 0;
 
+        [SerializeField]
+        private AudioSource soundSource;
+
+        [SerializeField]
+        private AudioClip takeDrug;
+
         private void Start()
         {
             currentDoses = initialDoseCount;
@@ -32,7 +38,9 @@ namespace KrakJam2022.Player
         public void Use()
         {
             if (IsOnDrugs || currentDoses <= 0) return;
-            
+
+
+            soundSource.PlayOneShot(takeDrug);
             currentDoses--;
             timer = 0;
             // todo animation?
