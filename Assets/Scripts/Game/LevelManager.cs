@@ -119,8 +119,8 @@ namespace Game
             cameraHolder.localRotation = startingPosA.localRotation;
 
             // startingElevator.Open();
-            startingElevator.active = false;
-            finishElevator.active = true;
+            startingElevator.Active = false;
+            finishElevator.Active = true;
 
             /* if (CurrentLevel == 1)
              {
