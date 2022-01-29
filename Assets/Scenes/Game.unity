@@ -2846,13 +2846,13 @@ PrefabInstance:
         type: 3}
       propertyPath: meleeEnemy
       value: 
-      objectReference: {fileID: 4067070661737989703, guid: 54e4e1fb6193b7f4e848e7c158924667,
+      objectReference: {fileID: 5494818868886480629, guid: 54e4e1fb6193b7f4e848e7c158924667,
         type: 3}
     - target: {fileID: 6966197676403806432, guid: e1dc9e6cc4bef8a48b429d6c237dfbe3,
         type: 3}
       propertyPath: shootingEnemy
       value: 
-      objectReference: {fileID: 4906580734421761896, guid: d5589d93f9ef0a9458419984bd0d09f5,
+      objectReference: {fileID: 3469753855458287578, guid: d5589d93f9ef0a9458419984bd0d09f5,
         type: 3}
     - target: {fileID: 6966197676403806433, guid: e1dc9e6cc4bef8a48b429d6c237dfbe3,
         type: 3}
