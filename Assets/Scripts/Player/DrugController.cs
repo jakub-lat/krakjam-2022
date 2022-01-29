@@ -26,6 +26,9 @@ namespace KrakJam2022.Player
         [SerializeField]
         private AudioClip takeDrug;
 
+        [SerializeField]
+        private AudioClip sensation;
+
         private void Start()
         {
             currentDoses = initialDoseCount;
@@ -36,6 +39,11 @@ namespace KrakJam2022.Player
             currentDoses += amount;
         }
 
+        private void PlaySensation()
+        {
+            soundSource.PlayOneShot(sensation);
+        }
+
         public void Use()
         {
             if (IsOnDrugs || currentDoses <= 0) return;
@@ -44,6 +52,7 @@ namespace KrakJam2022.Player
             PlayerHealth.Current.Health += drugHealthBoost;
             
             soundSource.PlayOneShot(takeDrug);
+            Invoke(nameof(PlaySensation), 1.5f);
             currentDoses--;
             timer = 0;
             WorldTypeController.Current.SetWorldType(WorldTypeController.WorldType.Psycho);

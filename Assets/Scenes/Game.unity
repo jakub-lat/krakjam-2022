@@ -1499,6 +1499,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 792812313417581887, guid: a045af21090212449b51769c1140a2b4,
+        type: 3}
+      propertyPath: fistPunch
+      value: 
+      objectReference: {fileID: 8300000, guid: babae63ead4b91448a2570f8080de1f1, type: 3}
+    - target: {fileID: 792812313417581887, guid: a045af21090212449b51769c1140a2b4,
+        type: 3}
+      propertyPath: itemPunch
+      value: 
+      objectReference: {fileID: 8300000, guid: b2dd8c2a90d9dfb47992a0166a7ac12a, type: 3}
+    - target: {fileID: 792812313417581887, guid: a045af21090212449b51769c1140a2b4,
+        type: 3}
+      propertyPath: closeFightSource
+      value: 
+      objectReference: {fileID: 966449311}
     - target: {fileID: 1021809468812935867, guid: a045af21090212449b51769c1140a2b4,
         type: 3}
       propertyPath: m_Layer
@@ -2130,6 +2145,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 1603097901}
     m_Modifications:
     - target: {fileID: 739774585, guid: 3d41f6f167988c0469d268b31b82c8d6, type: 3}
+      propertyPath: noAmmo
+      value: 
+      objectReference: {fileID: 8300000, guid: 1e907634a38584042bddea91ff2f042d, type: 3}
+    - target: {fileID: 739774585, guid: 3d41f6f167988c0469d268b31b82c8d6, type: 3}
       propertyPath: reloadDuration
       value: 3.2
       objectReference: {fileID: 0}
@@ -2462,61 +2481,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 7633560830439424285, guid: 06fe48d98e089564482bb60f44ad7b58,
-        type: 3}
-      propertyPath: data.normal.moveSpeed.value
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 7633560830439424285, guid: 06fe48d98e089564482bb60f44ad7b58,
-        type: 3}
-      propertyPath: data.psycho.moveSpeed.value
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 7633560830439424285, guid: 06fe48d98e089564482bb60f44ad7b58,
-        type: 3}
-      propertyPath: data.normal.jumpHeight.value
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7633560830439424285, guid: 06fe48d98e089564482bb60f44ad7b58,
-        type: 3}
-      propertyPath: data.psycho.jumpHeight.value
-      value: 1.6
-      objectReference: {fileID: 0}
-    - target: {fileID: 7633560830439424285, guid: 06fe48d98e089564482bb60f44ad7b58,
-        type: 3}
-      propertyPath: data.normal.sprintSpeed.value
-      value: 5.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 7633560830439424285, guid: 06fe48d98e089564482bb60f44ad7b58,
-        type: 3}
-      propertyPath: data.psycho.sprintSpeed.value
-      value: 7.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 7633560830439424285, guid: 06fe48d98e089564482bb60f44ad7b58,
-        type: 3}
-      propertyPath: data.normal.moveSpeed.edgeValue
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7633560830439424285, guid: 06fe48d98e089564482bb60f44ad7b58,
-        type: 3}
-      propertyPath: data.normal.jumpHeight.edgeValue
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 7633560830439424285, guid: 06fe48d98e089564482bb60f44ad7b58,
-        type: 3}
-      propertyPath: data.normal.sprintSpeed.edgeValue
-      value: 3.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 7633560830439424285, guid: 06fe48d98e089564482bb60f44ad7b58,
-        type: 3}
-      propertyPath: data.normal.jumpHeight.changeOverTime
-      value: -0.1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 06fe48d98e089564482bb60f44ad7b58, type: 3}
 --- !u!4 &966449310 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4071760806639490272, guid: 06fe48d98e089564482bb60f44ad7b58,
+    type: 3}
+  m_PrefabInstance: {fileID: 966449309}
+  m_PrefabAsset: {fileID: 0}
+--- !u!82 &966449311 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 207403016, guid: 06fe48d98e089564482bb60f44ad7b58,
     type: 3}
   m_PrefabInstance: {fileID: 966449309}
   m_PrefabAsset: {fileID: 0}
@@ -2859,6 +2834,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1545557203}
     m_Modifications:
+    - target: {fileID: 98985245, guid: e1dc9e6cc4bef8a48b429d6c237dfbe3, type: 3}
+      propertyPath: meleeEnemyData.psycho.damage
+      value: 15
+      objectReference: {fileID: 0}
     - target: {fileID: 6966197676403806433, guid: e1dc9e6cc4bef8a48b429d6c237dfbe3,
         type: 3}
       propertyPath: m_Name
@@ -4561,76 +4540,6 @@ PrefabInstance:
       propertyPath: bossRoomSpawnPoint
       value: 
       objectReference: {fileID: 837006209}
-    - target: {fileID: 2667818113581105014, guid: 1c8b4abb690b867418682e71ee9c44a1,
-        type: 3}
-      propertyPath: meleeEnemy.healthM
-      value: 0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 2667818113581105014, guid: 1c8b4abb690b867418682e71ee9c44a1,
-        type: 3}
-      propertyPath: shootingEnemy.speedM
-      value: 0.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2667818113581105014, guid: 1c8b4abb690b867418682e71ee9c44a1,
-        type: 3}
-      propertyPath: difficultyCurveEasy.m_Curve.Array.data[0].time
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2667818113581105014, guid: 1c8b4abb690b867418682e71ee9c44a1,
-        type: 3}
-      propertyPath: difficultyCurveEasy.m_Curve.Array.data[1].time
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2667818113581105014, guid: 1c8b4abb690b867418682e71ee9c44a1,
-        type: 3}
-      propertyPath: difficultyCurveHard.m_Curve.Array.data[0].time
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2667818113581105014, guid: 1c8b4abb690b867418682e71ee9c44a1,
-        type: 3}
-      propertyPath: difficultyCurveHard.m_Curve.Array.data[1].time
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2667818113581105014, guid: 1c8b4abb690b867418682e71ee9c44a1,
-        type: 3}
-      propertyPath: difficultyCurveEasy.m_Curve.Array.data[0].value
-      value: 0.015033007
-      objectReference: {fileID: 0}
-    - target: {fileID: 2667818113581105014, guid: 1c8b4abb690b867418682e71ee9c44a1,
-        type: 3}
-      propertyPath: difficultyCurveEasy.m_Curve.Array.data[1].value
-      value: 1.015033
-      objectReference: {fileID: 0}
-    - target: {fileID: 2667818113581105014, guid: 1c8b4abb690b867418682e71ee9c44a1,
-        type: 3}
-      propertyPath: difficultyCurveHard.m_Curve.Array.data[0].value
-      value: 2.0318575
-      objectReference: {fileID: 0}
-    - target: {fileID: 2667818113581105014, guid: 1c8b4abb690b867418682e71ee9c44a1,
-        type: 3}
-      propertyPath: difficultyCurveHard.m_Curve.Array.data[1].value
-      value: 5.0318575
-      objectReference: {fileID: 0}
-    - target: {fileID: 2667818113581105014, guid: 1c8b4abb690b867418682e71ee9c44a1,
-        type: 3}
-      propertyPath: difficultyCurveNormal.m_Curve.Array.data[0].time
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2667818113581105014, guid: 1c8b4abb690b867418682e71ee9c44a1,
-        type: 3}
-      propertyPath: difficultyCurveNormal.m_Curve.Array.data[1].time
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2667818113581105014, guid: 1c8b4abb690b867418682e71ee9c44a1,
-        type: 3}
-      propertyPath: difficultyCurveNormal.m_Curve.Array.data[0].value
-      value: 1.0136907
-      objectReference: {fileID: 0}
-    - target: {fileID: 2667818113581105014, guid: 1c8b4abb690b867418682e71ee9c44a1,
-        type: 3}
-      propertyPath: difficultyCurveNormal.m_Curve.Array.data[1].value
-      value: 2.5136907
-      objectReference: {fileID: 0}
     - target: {fileID: 2667818113581105015, guid: 1c8b4abb690b867418682e71ee9c44a1,
         type: 3}
       propertyPath: m_RootOrder

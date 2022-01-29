@@ -548,6 +548,7 @@ MonoBehaviour:
   drugHealthBoost: 100
   soundSource: {fileID: 207403016}
   takeDrug: {fileID: 8300000, guid: 5825c3037a16bf548880a81d4b199bd8, type: 3}
+  sensation: {fileID: 8300000, guid: 0778ea6b7e4cf894283aed73917cebd4, type: 3}
 --- !u!114 &3847468548162195743
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -577,11 +578,15 @@ MonoBehaviour:
       moveSpeed:
         value: 4
         changeOverTime: -0.4
-        edgeValue: 3
+        edgeValue: 1
       sprintSpeed:
-        value: 6
+        value: 5.5
         changeOverTime: -0.2
-        edgeValue: 5
+        edgeValue: 3.5
+      jumpHeight:
+        value: 1
+        changeOverTime: -0.1
+        edgeValue: 0.5
       slideSpeed:
         value: 9.25
         changeOverTime: -0.15
@@ -600,11 +605,15 @@ MonoBehaviour:
         edgeValue: 2
     psycho:
       moveSpeed:
-        value: 7
+        value: 6
         changeOverTime: 0
         edgeValue: 0
       sprintSpeed:
-        value: 9
+        value: 7.5
+        changeOverTime: 0
+        edgeValue: 0
+      jumpHeight:
+        value: 1.6
         changeOverTime: 0
         edgeValue: 0
       slideSpeed:

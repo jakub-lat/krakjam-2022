@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using Game;
 using UnityEngine;
 
-[RequireComponent(typeof(Animator))]
 public class Enemy : MonoBehaviour
 {
     [HideInInspector] public Animator anim;
@@ -17,9 +16,13 @@ public class Enemy : MonoBehaviour
     [SerializeField] private GameObject myHead = null;
     [SerializeField] private GameObject myBody = null;
 
+    [SerializeField]
+    private AudioSource enemySource = null;
+    public AudioSource EnemySource => enemySource;
+
     private void Start()
     {
-        anim = GetComponent<Animator>();
+        anim = GetComponentInChildren<Animator>();
         ai = GetComponent<EnemyAI>();
         hp = startingHealth;
     }

@@ -47,6 +47,11 @@ public class Boss : MonoSingleton<Boss>
     public float rangeToPunch=5;
     public MeleeAttack attack;
 
+    [SerializeField]
+    private AudioSource bossSource;
+
+    public AudioSource BossSource => bossSource;
+
 
     public void StartBattle()
     {
