@@ -130,6 +130,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1633197106, guid: c47788870a3e8a64f87adac4de23b9e5, type: 3}
+      propertyPath: m_Name
+      value: PressKey
+      objectReference: {fileID: 0}
+    - target: {fileID: 1633197106, guid: c47788870a3e8a64f87adac4de23b9e5, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6522448451044699808, guid: c47788870a3e8a64f87adac4de23b9e5,
         type: 3}
       propertyPath: m_Pivot.x
@@ -244,6 +252,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: MainMenuUI
+      objectReference: {fileID: 0}
+    - target: {fileID: 6522448451656077343, guid: c47788870a3e8a64f87adac4de23b9e5,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6522448451909988011, guid: c47788870a3e8a64f87adac4de23b9e5,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c47788870a3e8a64f87adac4de23b9e5, type: 3}
