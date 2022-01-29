@@ -68,8 +68,8 @@ namespace Game
             set
             {
                 score = value;
-                GameScoreboard.Current.levelData.score = Score;
-                ScoreUI.Current.SetScore(Score);
+                GameScoreboard.Current.levelData.score = score;
+                ScoreUI.Current.SetScore(score);
             }
         }
         

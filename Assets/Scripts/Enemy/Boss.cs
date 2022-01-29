@@ -21,6 +21,10 @@ public class Boss : MonoSingleton<Boss>
     private Animator anim;
     private Transform player;
 
+    [Header("Pipes")]
+    public int pipeOverHealth = 3;
+    public float pipeDmg = 150;
+
 
     [Header("Shooting")]
     public string bulletPoolTag = "EnemyBullet";
@@ -63,14 +67,16 @@ public class Boss : MonoSingleton<Boss>
         attack.damage = punchDamage;
         attack.knockback = punchKnock;
         attack.myPos = transform;
+        healthToNextPipe = startingHealth - (startingHealth / (pipeOverHealth + 1));
     }
 
     private int currBurst = 0;
     private float burstTimer = 0;
     private float shootingTimer = 0;
+    private bool pipeAnim = false;
     private void Update()
     {
-        if (dead || !battle || punching) return;
+        if (dead || !battle || punching || pipeAnim) return;
 
         var dist = Vector3.Distance(transform.position, player.position);
         if (dist <= rangeToPunch)
@@ -108,6 +114,7 @@ public class Boss : MonoSingleton<Boss>
         }
     }
 
+    float healthToNextPipe;
     public void GotHit(float amount)
     {
         if (dead || !battle) return;
@@ -117,9 +124,27 @@ public class Boss : MonoSingleton<Boss>
         {
             dead = true;
             health = 0;
+            healthBar.fillAmount = health / startingHealth;
+            return;
         }
 
+        while (health < healthToNextPipe)
+        {
+            healthToNextPipe -= startingHealth / (pipeOverHealth + 1);
+            BossPipe.Current.NextPipe();
+        }
         healthBar.fillAmount = health/ startingHealth;
+    }
+
+    public void PipeHit()
+    {
+        pipeAnim = true;
+        GotHit(pipeDmg);
+    }
+
+    public void EndPipe()
+    {
+        pipeAnim = false;
     }
 
     void Punch()
