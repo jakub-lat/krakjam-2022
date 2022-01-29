@@ -29,10 +29,9 @@ namespace Player
 
                 health = Math.Min(value, maxHealth);
                 PercentageOverlay.Get(OverlayType.Health).UpdateAmount(1 - (health / maxHealth));
+                DamageSpriteChanger.Current?.SetHpPercent(health / maxHealth);
 
                 if (health <= 0) Die();
-
-
             }
         }
 
