@@ -35,13 +35,26 @@ public class MainMenuController : MonoBehaviour
 
     [SerializeField]
     private AudioSource musicSource;
-    
+
+    [SerializeField]
+    private GameObject options = null;
+
+    [SerializeField]
+    private Button optionsBtn = null;
+    private Text optionsTxt = null;
+
+
     protected void Awake()
     {
         basePositionLogo = logo.position.y;
         gameModePanel.localScale = Vector3.zero;
         gameModeOverlay.DOFade(0, 0);
         gameModePopup.SetActive(false);
+    }
+
+    protected void Start()
+    {
+        optionsTxt = optionsBtn.transform.GetChild(0).GetComponent<Text>();
     }
 
     public void OnPlay()
@@ -60,6 +73,22 @@ public class MainMenuController : MonoBehaviour
     public void OnQuit()
     {
         Application.Quit(0);
+    }
+
+    public void OnOutOptions()
+    {
+        options.SetActive(false);
+        optionsBtn.onClick.RemoveAllListeners();
+        optionsBtn.onClick.AddListener(OnOptions);
+        optionsTxt.text = "Options";
+    }
+
+    public void OnOptions()
+    {
+        options.SetActive(true);
+        optionsBtn.onClick.RemoveAllListeners();
+        optionsBtn.onClick.AddListener(OnOutOptions);
+        optionsTxt.text = "Back";
     }
 
     public void OnPressedAny()

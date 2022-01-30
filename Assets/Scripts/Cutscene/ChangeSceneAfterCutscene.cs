@@ -12,6 +12,16 @@ public class ChangeSceneAfterCutscene : MonoBehaviour
     [SerializeField]
     private PlayableDirector director;
 
+    public void OnPause()
+    {
+        director.Stop();
+    }
+
+    public void OnInteract()
+    {
+        director.Stop();
+    }
+
     protected void Awake()
     {
         director.stopped += Director_stopped;
