@@ -62,6 +62,8 @@ public class Boss : MonoSingleton<Boss>
 
     public void StartBattle()
     {
+        UI.ObjectivesUI.Current.SetObjective("MISSION: KILL THE BOSS", "SHOW YOUR TRUE RAGE");
+
         health = startingHealth;
         dead = false;
         BossUI.enabled = true;
