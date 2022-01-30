@@ -11,6 +11,8 @@ namespace Game
         public WorldTypeDict<AudioClip> bossMusic;
         private AudioSource CurrentSource => musicSources[WorldTypeController.Current.CurrentWorldType];
 
+        private float savedCurrentVolume;
+
         public float fadeDuration = 0.5f;
         
         public static GameMusic Current;
@@ -18,6 +20,7 @@ namespace Game
         private void Awake()
         {
             Current = this;
+            savedCurrentVolume = CurrentSource.volume;
         }
 
 
@@ -25,7 +28,7 @@ namespace Game
         {
             musicSources[WorldTypeController.WorldType.Normal].Play();
             musicSources[WorldTypeController.WorldType.Psycho].Play();
-            CurrentSource.DOFade(1, dur);
+            CurrentSource.DOFade(savedCurrentVolume, dur);
         }
 
         public void FadeOut(float dur = 1f)
@@ -50,7 +53,7 @@ namespace Game
             var to = musicSources[type];
 
             from.DOFade(0, fadeDuration);
-            to.DOFade(1, fadeDuration);
+            to.DOFade(savedCurrentVolume, fadeDuration);
         }
     }
 }
