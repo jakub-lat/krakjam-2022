@@ -3586,6 +3586,11 @@ PrefabInstance:
       propertyPath: data.normal.moveSpeed.edgeValue
       value: 2.5
       objectReference: {fileID: 0}
+    - target: {fileID: 9212036348525647019, guid: 06fe48d98e089564482bb60f44ad7b58,
+        type: 3}
+      propertyPath: initialDoseCount
+      value: 5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 06fe48d98e089564482bb60f44ad7b58, type: 3}
 --- !u!4 &966449310 stripped
