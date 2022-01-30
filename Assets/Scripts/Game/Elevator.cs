@@ -173,17 +173,21 @@ namespace Game
         {
             Debug.Log("BOSSSSS");
             
-            playerTransform.parent = transform;
+            // playerTransform.parent = transform;
 
-            transform.position = bossElevator.position;
+            transform.DOMove(bossElevator.position, 0f);
+            var cc = playerTransform.GetComponent<CharacterController>();
+            cc.enabled = false;
+            playerTransform.position = bossElevator.position;
+            cc.enabled = true;
+
+            Open();
+            
             var diff = bossElevator.localEulerAngles - transform.localEulerAngles;
             transform.localEulerAngles += diff;
 
             playerTransform.parent = transform.parent.parent;
             cameraHolder.localEulerAngles += diff;
-
-            transform.DOMove(bossElevator.position, 2f);
-
         }
         
         private void NextLevel()
