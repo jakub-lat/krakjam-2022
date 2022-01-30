@@ -35,6 +35,11 @@ namespace UsableItems
 
         public override void Use()
         {
+            if (PauseManager.Current.IsPaused)
+            {
+                return;
+            }
+
             if (!cooldown.Push()) return;
             
             if (Physics.Raycast(CameraHelper.MainCamera.transform.position, CameraHelper.MainCamera.transform.forward,

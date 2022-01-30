@@ -32,6 +32,9 @@ public class MainMenuController : MonoBehaviour
 
     [SerializeField]
     private AudioSource ripSource;
+
+    [SerializeField]
+    private AudioSource musicSource;
     
     protected void Awake()
     {
@@ -72,13 +75,16 @@ public class MainMenuController : MonoBehaviour
         Sequence seq = DOTween.Sequence();
 
 
-        seq.Insert(2, background.DOFade(1, 5)).SetEase(Ease.OutElastic);
-        seq.Insert(2, logo.DOMoveY(basePositionLogo, 6)).SetEase(Ease.OutExpo);
-        seq.Insert(3, buttonsAndStuff.DOFade(1, 8)).SetEase(Ease.OutExpo);
+        seq.Insert(5.5f, background.DOFade(1, 5)).SetEase(Ease.OutElastic);
+        seq.Insert(5.5f, logo.DOMoveY(basePositionLogo, 6)).SetEase(Ease.OutExpo);
+        seq.Insert(6.5f, buttonsAndStuff.DOFade(1, 8)).SetEase(Ease.OutExpo);
 
         ripSource.clip = (rip);
         ripSource.loop = false;
         ripSource.Play();
+
+        seq.Insert(5.5f, musicSource.DOFade(0.2f, 7).SetEase(Ease.OutElastic));
+
         seq.SetLink(this.gameObject);
 
     }
