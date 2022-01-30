@@ -51,7 +51,7 @@ MonoBehaviour:
   player: {fileID: 0}
   cameraHolder: {fileID: 0}
   bossRoomSpawnPoint: {fileID: 0}
-  levelCount: 1
+  levelCount: 5
   difficultyCurveEasy:
     serializedVersion: 2
     m_Curve:
