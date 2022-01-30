@@ -3864,6 +3864,18 @@ CapsuleCollider:
   m_Height: 3.34
   m_Direction: 1
   m_Center: {x: 0, y: -0.47, z: 0}
+--- !u!114 &7831797103168916773
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 794492717064227509}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 10aa228b673f98349860229a02fd0fc8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &8904571173266380371
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3886,24 +3898,43 @@ MonoBehaviour:
     - {fileID: 2100000, guid: 69b5c5430ae6bac40966a72a9230c29a, type: 2}
     - {fileID: 2100000, guid: cd4bd55c66a4986439998d1449e39c0d, type: 2}
   meshRenderer: {fileID: 2881144681016490401}
---- !u!114 &7831797103168916773
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 794492717064227509}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 10aa228b673f98349860229a02fd0fc8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!95 &1804288172718403997 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 1724143461549985052, guid: f2b13ff11c9987549973a13b2d9d19bb,
     type: 3}
   m_PrefabInstance: {fileID: 1073965434764426369}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &5129848346742969148 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5320893262432776125, guid: f2b13ff11c9987549973a13b2d9d19bb,
+    type: 3}
+  m_PrefabInstance: {fileID: 1073965434764426369}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &3985013169645716965
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5129848346742969148}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a4fae2fc498347febcd3ce20bf081ee0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  materials:
+    normal: {fileID: 0}
+    psycho: {fileID: 0}
+  multipleMaterials:
+    normal:
+    - {fileID: -6478536213147159724, guid: 28e46d2d434d6b6429a2b6ccc436eb9a, type: 3}
+    - {fileID: -3846018093981099296, guid: 28e46d2d434d6b6429a2b6ccc436eb9a, type: 3}
+    - {fileID: -876546973899608171, guid: 28e46d2d434d6b6429a2b6ccc436eb9a, type: 3}
+    psycho:
+    - {fileID: 2100000, guid: 110e9f4bd42442642b79d4c2c5eb7239, type: 2}
+    - {fileID: 2100000, guid: cd4bd55c66a4986439998d1449e39c0d, type: 2}
+    - {fileID: 2100000, guid: a54952f4a1ece95429fbf92d02fa870f, type: 2}
+  meshRenderer: {fileID: 0}
 --- !u!4 &8943029706471937000 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8285352269091237737, guid: f2b13ff11c9987549973a13b2d9d19bb,
@@ -3991,6 +4022,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.z
       value: 0.561
+      objectReference: {fileID: 0}
+    - target: {fileID: 3469753855458287552, guid: d5589d93f9ef0a9458419984bd0d09f5,
+        type: 3}
+      propertyPath: magazine
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3469753855458287552, guid: d5589d93f9ef0a9458419984bd0d09f5,
+        type: 3}
+      propertyPath: throwing
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3469753855458287552, guid: d5589d93f9ef0a9458419984bd0d09f5,
         type: 3}

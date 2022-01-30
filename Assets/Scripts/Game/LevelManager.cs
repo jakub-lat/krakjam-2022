@@ -143,8 +143,8 @@ namespace Game
         {
             Debug.Log("bosz");
             ObjectivesUI.Current.SetObjective("MISSION: KILL THE BOSS", "SHOW YOUR TRUE RAGE");
-            player.transform.position = bossRoomSpawnPoint.position;
-            cameraHolder.localRotation = bossRoomSpawnPoint.localRotation;
+            //player.transform.position = bossRoomSpawnPoint.position;
+            //cameraHolder.localRotation = bossRoomSpawnPoint.localRotation;
             Boss.Current.StartBattle();
         }
 
