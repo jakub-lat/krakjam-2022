@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Threading.Tasks;
 using Game;
+using Newtonsoft.Json;
 using Scoreboard;
-using Unity.Plastic.Newtonsoft.Json;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
