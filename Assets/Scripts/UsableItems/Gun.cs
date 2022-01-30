@@ -35,6 +35,8 @@ namespace UsableItems
         [SerializeField] private Color dangerColorAmmo = Color.red;
         [SerializeField] private Collider gunCollider;
 
+        [SerializeField] private GunUI ui;
+
         [SerializeField]
         private AudioClip shoot;
 
@@ -90,7 +92,7 @@ namespace UsableItems
             if (isReloading)
             {
                 ReloadTimer();
-                if (GunUI.Current) GunUI.Current.SetInfo($"?? / {totalAmmo}");
+                ui?.SetInfo($"?? / {totalAmmo}");
                 return;
             }
 
@@ -105,7 +107,8 @@ namespace UsableItems
             {
                 first = $"<color={ColorHelper.GetColorHex(warningColorAmmo, true)}>{currentAmmo}</color>";
             }
-            if (GunUI.Current) GunUI.Current.SetInfo($"{first} / {totalAmmo}");
+
+            ui?.SetInfo($"{first} / {totalAmmo}");
         }
         
         public override void Use()

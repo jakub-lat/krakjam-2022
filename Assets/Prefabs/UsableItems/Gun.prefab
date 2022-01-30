@@ -5288,6 +5288,7 @@ MonoBehaviour:
   warningColorAmmo: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
   dangerColorAmmo: {r: 1, g: 0, b: 0, a: 1}
   gunCollider: {fileID: 3095813447917306237}
+  ui: {fileID: 4817611201024564786}
   shoot: {fileID: 8300000, guid: 71419ed6f13910948bfc4ebf647e6794, type: 3}
   reload: {fileID: 8300000, guid: c4ef1600eaa5d924bac90329e078fd8e, type: 3}
   pickup: {fileID: 8300000, guid: 5bd289bc6ce93af4eb068d0b35e07d85, type: 3}
@@ -5663,6 +5664,10 @@ MonoBehaviour:
   materials:
     normal: {fileID: 2100000, guid: f20fd90101c5b47418dd9530edec5e13, type: 2}
     psycho: {fileID: 2100000, guid: e7e86e9d28fa1df449cdf6b0330ad783, type: 2}
+  multipleMaterials:
+    normal: []
+    psycho: []
+  meshRenderer: {fileID: 0}
 --- !u!4 &4982205441490768849 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 278fccf9a4fd214489d80fc48aa7676e,
@@ -5709,3 +5714,7 @@ MonoBehaviour:
   materials:
     normal: {fileID: 2100000, guid: f20fd90101c5b47418dd9530edec5e13, type: 2}
     psycho: {fileID: 2100000, guid: e7e86e9d28fa1df449cdf6b0330ad783, type: 2}
+  multipleMaterials:
+    normal: []
+    psycho: []
+  meshRenderer: {fileID: 0}
