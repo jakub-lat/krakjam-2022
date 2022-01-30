@@ -3,6 +3,7 @@ using System.Threading.Tasks;
 using Game;
 using Scoreboard;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 namespace UI
@@ -42,6 +43,11 @@ namespace UI
                 loadingText.enabled = false;
                 errorText.enabled = true;
             }
+        }
+
+        public void MainMenu()
+        {
+            SceneManager.LoadScene("MainMenu");
         }
 
         private string GetTitleText(string str)
