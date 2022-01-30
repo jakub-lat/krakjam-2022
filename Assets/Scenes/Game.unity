@@ -5414,11 +5414,6 @@ PrefabInstance:
       objectReference: {fileID: 1173150357}
     - target: {fileID: 2667818113581105014, guid: 1c8b4abb690b867418682e71ee9c44a1,
         type: 3}
-      propertyPath: levelCount
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2667818113581105014, guid: 1c8b4abb690b867418682e71ee9c44a1,
-        type: 3}
       propertyPath: cameraHolder
       value: 
       objectReference: {fileID: 1867232967}

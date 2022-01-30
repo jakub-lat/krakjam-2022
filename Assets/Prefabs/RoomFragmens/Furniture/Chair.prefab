@@ -165,9 +165,13 @@ MonoBehaviour:
   source: {fileID: 0}
   rotationOffset: {x: -112.62, y: 43.9, z: -407.07}
   positionOffset: {x: 0.217, y: -0.7, z: 0.32}
-  damage: 80
+  damage: 140
   distance: 4
   cooldownTime: 2
+  critMultiplier: 1.7
+  closeFightSource: {fileID: 0}
+  fistPunch: {fileID: 0}
+  itemPunch: {fileID: 0}
 --- !u!114 &4487137688776293597
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -183,3 +187,7 @@ MonoBehaviour:
   materials:
     normal: {fileID: 2100000, guid: 113d6a8edac5f2549bb9293986df7ffe, type: 2}
     psycho: {fileID: 2100000, guid: f6ab6992039257b4db248a01bc35a1f1, type: 2}
+  multipleMaterials:
+    normal: []
+    psycho: []
+  meshRenderer: {fileID: 0}
