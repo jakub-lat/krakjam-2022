@@ -90,7 +90,7 @@ MonoBehaviour:
       fleeSpeed: 8
       flee: 1
       damage: 20
-      health: 100
+      health: 90
     psycho:
       bulletPoolTag: EnemyBullet
       attackSpeed: 0.5
@@ -108,7 +108,7 @@ MonoBehaviour:
       fleeSpeed: 5
       flee: 0
       damage: 25
-      health: 100
+      health: 90
   meleeEnemyData:
     normal:
       attackSpeed: 0.5

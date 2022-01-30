@@ -4261,6 +4261,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1545557203}
     m_Modifications:
+    - target: {fileID: 98985245, guid: e1dc9e6cc4bef8a48b429d6c237dfbe3, type: 3}
+      propertyPath: shootingEnemyData.normal.health
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 98985245, guid: e1dc9e6cc4bef8a48b429d6c237dfbe3, type: 3}
+      propertyPath: shootingEnemyData.psycho.health
+      value: 90
+      objectReference: {fileID: 0}
     - target: {fileID: 6966197676403806433, guid: e1dc9e6cc4bef8a48b429d6c237dfbe3,
         type: 3}
       propertyPath: m_Name
@@ -7785,11 +7793,6 @@ PrefabInstance:
       objectReference: {fileID: 1173150357}
     - target: {fileID: 2667818113581105014, guid: 1c8b4abb690b867418682e71ee9c44a1,
         type: 3}
-      propertyPath: levelCount
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 2667818113581105014, guid: 1c8b4abb690b867418682e71ee9c44a1,
-        type: 3}
       propertyPath: cameraHolder
       value: 
       objectReference: {fileID: 1867232967}
@@ -7818,31 +7821,6 @@ PrefabInstance:
       propertyPath: bossRoomSpawnPoint
       value: 
       objectReference: {fileID: 837006209}
-    - target: {fileID: 2667818113581105014, guid: 1c8b4abb690b867418682e71ee9c44a1,
-        type: 3}
-      propertyPath: baseMeleeEnemyCount
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 2667818113581105014, guid: 1c8b4abb690b867418682e71ee9c44a1,
-        type: 3}
-      propertyPath: baseShootingEnemyCount
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 2667818113581105014, guid: 1c8b4abb690b867418682e71ee9c44a1,
-        type: 3}
-      propertyPath: baseElevatorShootingEnemyCount
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 2667818113581105014, guid: 1c8b4abb690b867418682e71ee9c44a1,
-        type: 3}
-      propertyPath: difficultyCurveHard.m_Curve.Array.data[1].value
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 2667818113581105014, guid: 1c8b4abb690b867418682e71ee9c44a1,
-        type: 3}
-      propertyPath: difficultyCurveNormal.m_Curve.Array.data[1].value
-      value: 2.5
-      objectReference: {fileID: 0}
     - target: {fileID: 2667818113581105015, guid: 1c8b4abb690b867418682e71ee9c44a1,
         type: 3}
       propertyPath: m_RootOrder
