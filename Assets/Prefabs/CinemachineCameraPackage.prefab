@@ -203,7 +203,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.7779887, y: 1}
+    m_SensorSize: {x: 1.7784431, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 1
@@ -414,6 +414,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Layer
       value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 4457207316131876633, guid: 85800d860274b5b4d93bf7a8e01d6a73,
+        type: 3}
+      propertyPath: m_Volume
+      value: 0.687
       objectReference: {fileID: 0}
     - target: {fileID: 4475243058499480233, guid: 85800d860274b5b4d93bf7a8e01d6a73,
         type: 3}
@@ -650,12 +655,6 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 13
       objectReference: {fileID: 0}
-    - target: {fileID: 8278083747170035732, guid: 85800d860274b5b4d93bf7a8e01d6a73,
-        type: 3}
-      propertyPath: startingItem
-      value: 
-      objectReference: {fileID: 739774585, guid: 3d41f6f167988c0469d268b31b82c8d6,
-        type: 3}
     - target: {fileID: 8524277728438150787, guid: 85800d860274b5b4d93bf7a8e01d6a73,
         type: 3}
       propertyPath: m_Layer
@@ -666,11 +665,6 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 13
       objectReference: {fileID: 0}
-    - target: {fileID: 8788733137394937989, guid: 85800d860274b5b4d93bf7a8e01d6a73,
-        type: 3}
-      propertyPath: other
-      value: 
-      objectReference: {fileID: 6194012121746161472}
     - target: {fileID: 8801900639470972212, guid: 85800d860274b5b4d93bf7a8e01d6a73,
         type: 3}
       propertyPath: m_Layer
@@ -696,12 +690,6 @@ PrefabInstance:
 --- !u!4 &4493422712432806857 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5168676552018519778, guid: 85800d860274b5b4d93bf7a8e01d6a73,
-    type: 3}
-  m_PrefabInstance: {fileID: 8782313762801495339}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &6194012121746161472 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 3176311947572941419, guid: 85800d860274b5b4d93bf7a8e01d6a73,
     type: 3}
   m_PrefabInstance: {fileID: 8782313762801495339}
   m_PrefabAsset: {fileID: 0}

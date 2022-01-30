@@ -8,6 +8,7 @@ namespace Game
     public class GameMusic : WorldChangeLogic
     {
         public WorldTypeDict<AudioSource> musicSources;
+        public WorldTypeDict<AudioClip> bossMusic;
         private AudioSource CurrentSource => musicSources[WorldTypeController.Current.CurrentWorldType];
 
         public float fadeDuration = 0.5f;
@@ -34,6 +35,12 @@ namespace Game
                 musicSources[WorldTypeController.WorldType.Normal].Pause();
                 musicSources[WorldTypeController.WorldType.Psycho].Pause();
             });
+        }
+
+        public void BossMusic()
+        {
+            musicSources[WorldTypeController.WorldType.Normal].clip = bossMusic.normal;
+            musicSources[WorldTypeController.WorldType.Psycho].clip = bossMusic.psycho;
         }
         
         public override void OnWorldTypeChange(WorldTypeController.WorldType type)

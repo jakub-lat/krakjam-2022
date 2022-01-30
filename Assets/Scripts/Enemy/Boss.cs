@@ -1,6 +1,7 @@
 using Cyberultimate.Unity;
 using System.Collections;
 using System.Collections.Generic;
+using Game;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -68,7 +69,7 @@ public class Boss : MonoSingleton<Boss>
         bossFighting.SetActive(true);
         battle = true;
 
-        //ADD BOSSS MUSIC
+        GameMusic.Current.BossMusic();
     }
 
     private void Start()

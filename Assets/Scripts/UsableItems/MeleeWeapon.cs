@@ -14,16 +14,12 @@ namespace UsableItems
         public float critMultiplier = 1.7f;
         
         private Cooldown cooldown;
-
-        [SerializeField]
-        private AudioSource closeFightSource;
-
-        [SerializeField]
-        private AudioClip fistPunch;
-
-        [SerializeField]
-        private AudioClip itemPunch;
-
+        
+        [HideInInspector]
+        public AudioSource closeFightSource;
+        [HideInInspector]
+        public AudioClip hitSound;
+        
         private void Awake()
         {
             cooldown = new Cooldown(cooldownTime);
@@ -61,6 +57,8 @@ namespace UsableItems
                     {
                         Debug.LogError("Enemy doesnt have a enemy or boss component");
                     }
+                    
+                    closeFightSource.PlayOneShot(hitSound);
 
                     HitmarkManager.Current.GetNormalHit();
                     PopupManager.Current.SpawnStandardDamage(hit.transform.parent, damage);
@@ -83,7 +81,7 @@ namespace UsableItems
                     }
 
                     HitmarkManager.Current.GetHeadshotHit();
-                    closeFightSource.PlayOneShot(fistPunch);
+                    closeFightSource.PlayOneShot(hitSound);
                     PopupManager.Current.SpawnHeadshotDamage(hit.transform.parent, (int)(damage * critMultiplier));
                 }
 
