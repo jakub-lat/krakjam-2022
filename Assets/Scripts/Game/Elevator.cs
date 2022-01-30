@@ -88,7 +88,7 @@ namespace Game
                 exitBlock.SetActive(false);
             }
 
-            if (LevelManager.Current.CurrentLevel == LevelManager.Current.levelCount)
+            if (LevelManager.Current.levelCount is 0 or 1)
             {
                 GoToBoss();
             }

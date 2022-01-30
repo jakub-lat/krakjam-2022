@@ -8,30 +8,30 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using DG.Tweening;
+using Scoreboard;
+using UnityEngine.Serialization;
 
 public class PauseObject : MonoSingleton<PauseObject>
 {
-    [SerializeField]
-    private float openScoreDuration = 2;
+    [SerializeField] private float openScoreDuration = 2;
 
-    [SerializeField]
-    private Ease openScoreEase = Ease.OutElastic;
+    [SerializeField] private Ease openScoreEase = Ease.OutElastic;
 
-    [SerializeField]
-    private Button scoreboardBtn = null;
+    [SerializeField] private Button scoreboardBtn = null;
 
-    [SerializeField]
-    private GameObject options = null;
+    [SerializeField] private GameObject options = null;
 
     private float savedHeight;
     private float savedPositionY;
 
-    [SerializeField] private Text statsText;
+    [FormerlySerializedAs("statsText")] [SerializeField]
+    private Text pauseStatsText;
 
-    [SerializeField]
-    private Button optionsBtn = null;
+    [SerializeField] private Text gameOverScoreText;
+    [SerializeField] private Text gameOverStatsText;
+
+    [SerializeField] private Button optionsBtn = null;
     private Text optionsTxt = null;
-
 
 
     protected void Start()
@@ -42,7 +42,21 @@ public class PauseObject : MonoSingleton<PauseObject>
     public void OnOpen()
     {
         var data = Scoreboard.GameScoreboard.Current.levelData;
-        statsText.text = string.Join("\n", new[] { data.level, data.score, data.kills, data.headshots, data.deaths }.Select(x => x.ToString()));
+        pauseStatsText.text = string.Join("\n",
+            new[] { data.level, data.score, data.kills, data.headshots, data.deaths }.Select(x => x.ToString()));
+    }
+
+    public void OnGameOver()
+    {
+        var run = GameScoreboard.Current.GetCalculatedRunData();
+        gameOverScoreText.text = run.score.ToString();
+        gameOverStatsText.text = string.Join("\n",
+            new object[]
+            {
+                run.kills, run.headshots, run.deaths,
+                TimeSpan.FromSeconds(run.endTime - run.startTime).ToString(@"mm\:ss")
+            }.Select(x => x.ToString())
+        );
     }
 
     public void OnResume()
@@ -99,6 +113,7 @@ public class PauseObject : MonoSingleton<PauseObject>
         seq.Insert(0, scoreboardBtn.targetGraphic.rectTransform.DOSizeDelta(
             new Vector2(scoreboardBtn.targetGraphic.rectTransform.sizeDelta.x, savedHeight), openScoreDuration));
 
-        seq.SetLink(this.gameObject).SetUpdate(true).SetEase(openScoreEase).OnComplete(() => scoreboardBtn.onClick.AddListener(() => OpenScoreboard()));
+        seq.SetLink(this.gameObject).SetUpdate(true).SetEase(openScoreEase)
+            .OnComplete(() => scoreboardBtn.onClick.AddListener(() => OpenScoreboard()));
     }
 }
