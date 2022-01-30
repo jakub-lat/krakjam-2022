@@ -3565,6 +3565,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 7633560830439424285, guid: 06fe48d98e089564482bb60f44ad7b58,
+        type: 3}
+      propertyPath: data.normal.sprintSpeed.value
+      value: 5.7
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 06fe48d98e089564482bb60f44ad7b58, type: 3}
 --- !u!4 &966449310 stripped
@@ -4261,14 +4266,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1545557203}
     m_Modifications:
-    - target: {fileID: 98985245, guid: e1dc9e6cc4bef8a48b429d6c237dfbe3, type: 3}
-      propertyPath: shootingEnemyData.normal.health
-      value: 90
-      objectReference: {fileID: 0}
-    - target: {fileID: 98985245, guid: e1dc9e6cc4bef8a48b429d6c237dfbe3, type: 3}
-      propertyPath: shootingEnemyData.psycho.health
-      value: 90
-      objectReference: {fileID: 0}
     - target: {fileID: 6966197676403806433, guid: e1dc9e6cc4bef8a48b429d6c237dfbe3,
         type: 3}
       propertyPath: m_Name
