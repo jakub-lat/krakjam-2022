@@ -17,6 +17,9 @@ namespace UI
 
         private CanvasGroup creditsCG;
 
+        [SerializeField]
+        private GameObject skipIndicator = null; 
+
         private void Start()
         {
             creditsCG = creditsText.GetComponent<CanvasGroup>();
@@ -27,6 +30,21 @@ namespace UI
             // endGameText.rectTransform.DOScale(new Vector3(0f, 0f, 0f), 0f);
 
             StartCoroutine(EndGameText());
+        }
+
+        public void OnAny()
+        {
+            skipIndicator.SetActive(true);
+        }
+
+        public void OnInteract()
+        {
+            SceneManager.LoadScene("MainMenu");
+        }
+
+        public void OnPause()
+        {
+            SceneManager.LoadScene("MainMenu");
         }
 
         private IEnumerator EndGameText()
