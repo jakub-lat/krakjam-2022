@@ -4,7 +4,7 @@ using UnityEngine.UI;
 
 namespace UI
 {
-    public class GunUI : MonoSingleton<GunUI>
+    public class GunUI : MonoBehaviour
     {
         [SerializeField] private Text infoText;
 

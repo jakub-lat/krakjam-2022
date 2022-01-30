@@ -50,7 +50,7 @@ namespace KrakJam2022.Player
 
 
             PlayerHealth.Current.Health += drugHealthBoost;
-            
+
             soundSource.PlayOneShot(takeDrug);
             Invoke(nameof(PlaySensation), 1.5f);
             currentDoses--;

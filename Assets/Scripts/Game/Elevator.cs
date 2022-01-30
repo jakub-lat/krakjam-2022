@@ -10,6 +10,10 @@ namespace Game
 {
     public class Elevator : MonoBehaviour
     {
+        [SerializeField] private Transform bossElevator;
+        [SerializeField] private Transform playerSpawn;
+        [SerializeField] private Transform playerTransform;
+        [SerializeField] private Transform cameraHolder;
         [SerializeField] private GameObject exitBlock;
         [SerializeField] private NavMeshLink leftDoor, rightDoor;
         [SerializeField] private Transform doorsLeft, doorsRight;
@@ -137,10 +141,7 @@ namespace Game
 
             music.Play();
             music.DOFade(1, musicTransition);
-            GameMusic.Current.audioSource.DOFade(0, musicTransition).OnComplete(() =>
-            {
-                GameMusic.Current.audioSource.Pause();
-            });
+            GameMusic.Current.FadeOut(musicTransition);
 
             UpdateFloorText();
             exitBlock.SetActive(true);
@@ -151,7 +152,18 @@ namespace Game
                 MovingUpIllusion(startMovingDelay);
                 
                 Invoke(nameof(NextLevel), startMovingDelay / 2);
-                
+
+                if (LevelManager.Current.CurrentLevel >= LevelManager.Current.levelCount) //last lvl
+                {
+                    playerTransform.parent = transform;
+
+                    transform.position = bossElevator.position;
+                    transform.localEulerAngles = bossElevator.localEulerAngles;
+
+
+                    playerTransform.parent = transform.parent.parent;
+                }
+
                 floorText.rectTransform.DOAnchorPos(floorTextEndPos, animDuration)
                     .SetEase(Ease.OutCirc)
                     .SetDelay(startMovingDelay)
@@ -179,9 +191,7 @@ namespace Game
             // Print("open");
 
             music.DOFade(0, musicTransition);
-            GameMusic.Current.audioSource.Play();
-            GameMusic.Current.audioSource.DOFade(1, musicTransition);
-            
+            GameMusic.Current.FadeIn(musicTransition);
             // Debug.Log("MUSIC IS PLAYING " + GameMusic.Current.audioSource.isPlaying);
             
             doorsLeft.DOLocalMove(doorsLeftOpenLocalPos, animDuration)

@@ -842,6 +842,10 @@ MonoBehaviour:
   materials:
     normal: {fileID: 2100000, guid: c8b132226823fea44bcd94c102b27e7c, type: 2}
     psycho: {fileID: 2100000, guid: 114d7171ad47e5045967edc6de5efd26, type: 2}
+  multipleMaterials:
+    normal: []
+    psycho: []
+  meshRenderer: {fileID: 0}
 --- !u!1 &2173622567761178347
 GameObject:
   m_ObjectHideFlags: 0
@@ -2370,6 +2374,10 @@ MonoBehaviour:
   materials:
     normal: {fileID: 2100000, guid: c8b132226823fea44bcd94c102b27e7c, type: 2}
     psycho: {fileID: 2100000, guid: 114d7171ad47e5045967edc6de5efd26, type: 2}
+  multipleMaterials:
+    normal: []
+    psycho: []
+  meshRenderer: {fileID: 0}
 --- !u!1 &9074998911005416877
 GameObject:
   m_ObjectHideFlags: 0
@@ -2483,6 +2491,10 @@ MonoBehaviour:
   materials:
     normal: {fileID: 2100000, guid: c8b132226823fea44bcd94c102b27e7c, type: 2}
     psycho: {fileID: 2100000, guid: 114d7171ad47e5045967edc6de5efd26, type: 2}
+  multipleMaterials:
+    normal: []
+    psycho: []
+  meshRenderer: {fileID: 0}
 --- !u!1 &9074998911403675279
 GameObject:
   m_ObjectHideFlags: 0
@@ -2538,6 +2550,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94647c3288674d318839f8fb783a57d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bossElevator: {fileID: 0}
+  playerSpawn: {fileID: 799221834}
   exitBlock: {fileID: 2173622567761178347}
   leftDoor: {fileID: 982835863}
   rightDoor: {fileID: 1759283283}
@@ -2809,6 +2823,10 @@ MonoBehaviour:
   materials:
     normal: {fileID: 2100000, guid: c8b132226823fea44bcd94c102b27e7c, type: 2}
     psycho: {fileID: 2100000, guid: 114d7171ad47e5045967edc6de5efd26, type: 2}
+  multipleMaterials:
+    normal: []
+    psycho: []
+  meshRenderer: {fileID: 0}
 --- !u!1 &9074998911488061760
 GameObject:
   m_ObjectHideFlags: 0
@@ -2922,6 +2940,10 @@ MonoBehaviour:
   materials:
     normal: {fileID: 2100000, guid: c8b132226823fea44bcd94c102b27e7c, type: 2}
     psycho: {fileID: 2100000, guid: 114d7171ad47e5045967edc6de5efd26, type: 2}
+  multipleMaterials:
+    normal: []
+    psycho: []
+  meshRenderer: {fileID: 0}
 --- !u!1 &9074998911844418270
 GameObject:
   m_ObjectHideFlags: 0
@@ -3094,6 +3116,10 @@ MonoBehaviour:
   materials:
     normal: {fileID: 2100000, guid: c8b132226823fea44bcd94c102b27e7c, type: 2}
     psycho: {fileID: 2100000, guid: 114d7171ad47e5045967edc6de5efd26, type: 2}
+  multipleMaterials:
+    normal: []
+    psycho: []
+  meshRenderer: {fileID: 0}
 --- !u!114 &1759283283
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3227,6 +3253,10 @@ MonoBehaviour:
   materials:
     normal: {fileID: 2100000, guid: c8b132226823fea44bcd94c102b27e7c, type: 2}
     psycho: {fileID: 2100000, guid: 114d7171ad47e5045967edc6de5efd26, type: 2}
+  multipleMaterials:
+    normal: []
+    psycho: []
+  meshRenderer: {fileID: 0}
 --- !u!1 &9074998912543461625
 GameObject:
   m_ObjectHideFlags: 0
@@ -3341,6 +3371,10 @@ MonoBehaviour:
   materials:
     normal: {fileID: 2100000, guid: c8b132226823fea44bcd94c102b27e7c, type: 2}
     psycho: {fileID: 2100000, guid: 114d7171ad47e5045967edc6de5efd26, type: 2}
+  multipleMaterials:
+    normal: []
+    psycho: []
+  meshRenderer: {fileID: 0}
 --- !u!114 &982835863
 MonoBehaviour:
   m_ObjectHideFlags: 0

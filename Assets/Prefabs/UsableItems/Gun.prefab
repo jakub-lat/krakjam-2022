@@ -5225,8 +5225,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5903540461458353516}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -16.602282, y: -1.277, z: -0.65401185}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4817611200220401623}
@@ -5246,7 +5246,7 @@ BoxCollider:
   m_GameObject: {fileID: 5903540461458353516}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
@@ -5269,7 +5269,7 @@ MonoBehaviour:
   rotationOffset: {x: 0, y: 0, z: 0}
   positionOffset: {x: 0, y: 0, z: 0}
   damage: 50
-  headshotDamage: 50
+  headshotDamage: 70
   damageRandomness: 3
   layerMask:
     serializedVersion: 2
@@ -5288,6 +5288,7 @@ MonoBehaviour:
   warningColorAmmo: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
   dangerColorAmmo: {r: 1, g: 0, b: 0, a: 1}
   gunCollider: {fileID: 3095813447917306237}
+  ui: {fileID: 4817611201024564786}
   shoot: {fileID: 8300000, guid: 71419ed6f13910948bfc4ebf647e6794, type: 3}
   reload: {fileID: 8300000, guid: c4ef1600eaa5d924bac90329e078fd8e, type: 3}
   pickup: {fileID: 8300000, guid: 5bd289bc6ce93af4eb068d0b35e07d85, type: 3}
@@ -5308,7 +5309,7 @@ Rigidbody:
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 1
-  m_IsKinematic: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
@@ -5595,6 +5596,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -6941414828910310064, guid: 278fccf9a4fd214489d80fc48aa7676e,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: -6065266437511206616, guid: 278fccf9a4fd214489d80fc48aa7676e,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -5610,10 +5616,20 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -1658832521108742616, guid: 278fccf9a4fd214489d80fc48aa7676e,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 278fccf9a4fd214489d80fc48aa7676e,
         type: 3}
       propertyPath: m_Name
       value: BLcolt
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 278fccf9a4fd214489d80fc48aa7676e,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1094432864984042272, guid: 278fccf9a4fd214489d80fc48aa7676e,
         type: 3}
@@ -5663,6 +5679,10 @@ MonoBehaviour:
   materials:
     normal: {fileID: 2100000, guid: f20fd90101c5b47418dd9530edec5e13, type: 2}
     psycho: {fileID: 2100000, guid: e7e86e9d28fa1df449cdf6b0330ad783, type: 2}
+  multipleMaterials:
+    normal: []
+    psycho: []
+  meshRenderer: {fileID: 0}
 --- !u!4 &4982205441490768849 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 278fccf9a4fd214489d80fc48aa7676e,
@@ -5683,7 +5703,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5651887649731053931}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 0.6, y: 0.3, z: 0.2}
@@ -5709,3 +5729,7 @@ MonoBehaviour:
   materials:
     normal: {fileID: 2100000, guid: f20fd90101c5b47418dd9530edec5e13, type: 2}
     psycho: {fileID: 2100000, guid: e7e86e9d28fa1df449cdf6b0330ad783, type: 2}
+  multipleMaterials:
+    normal: []
+    psycho: []
+  meshRenderer: {fileID: 0}

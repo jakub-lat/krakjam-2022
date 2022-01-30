@@ -41,7 +41,7 @@ namespace Game
         public Transform bossRoomSpawnPoint;
 
         [Header("Game balance")] 
-        [SerializeField] private int levelCount;
+        public int levelCount;
         [SerializeField] private AnimationCurve difficultyCurveEasy;
         [SerializeField] private AnimationCurve difficultyCurveNormal;
         [SerializeField] private AnimationCurve difficultyCurveHard;
@@ -143,8 +143,8 @@ namespace Game
         {
             Debug.Log("bosz");
             ObjectivesUI.Current.SetObjective("MISSION: KILL THE BOSS", "SHOW YOUR TRUE RAGE");
-            player.transform.position = bossRoomSpawnPoint.position;
-            cameraHolder.localRotation = bossRoomSpawnPoint.localRotation;
+            //player.transform.position = bossRoomSpawnPoint.position;
+            //cameraHolder.localRotation = bossRoomSpawnPoint.localRotation;
             Boss.Current.StartBattle();
         }
 
