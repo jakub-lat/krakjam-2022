@@ -164,11 +164,15 @@ MonoBehaviour:
   interactionName: Keyboard
   interactionSound: {fileID: 0}
   source: {fileID: 0}
-  rotationOffset: {x: 32.18, y: 221.23, z: 77.3}
-  positionOffset: {x: -0.1173, y: -0.08, z: -0.175}
+  rotationOffset: {x: 6.065, y: -142.27, z: 70}
+  positionOffset: {x: -0.113, y: 0.04, z: -0.175}
   damage: 30
   distance: 3
   cooldownTime: 1
+  critMultiplier: 1.7
+  closeFightSource: {fileID: 0}
+  fistPunch: {fileID: 0}
+  itemPunch: {fileID: 0}
 --- !u!114 &5482504043265140913
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -196,3 +200,7 @@ MonoBehaviour:
   materials:
     normal: {fileID: 2100000, guid: 0a7a0ee17ddcb9042a335bd19fad48da, type: 2}
     psycho: {fileID: 2100000, guid: f6ab6992039257b4db248a01bc35a1f1, type: 2}
+  multipleMaterials:
+    normal: []
+    psycho: []
+  meshRenderer: {fileID: 0}

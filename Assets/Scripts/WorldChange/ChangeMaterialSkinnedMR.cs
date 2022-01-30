@@ -28,7 +28,7 @@ namespace WorldChange
 
             if (multipleMaterials.psycho is { Length: > 1 })
             {
-                Debug.Log(gameObject.name + " WOOOW COUNT>1, COUNT=" + meshRenderer.materials.Length);
+                // Debug.Log(gameObject.name + " WOOOW COUNT>1, COUNT=" + meshRenderer.materials.Length);
                 multipleMaterials.normal = meshRenderer.materials;
             }
 
