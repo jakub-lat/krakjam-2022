@@ -25,6 +25,8 @@ namespace Game
         protected override void Start()
         {
             savedCurrentVolume = CurrentSource.volume;
+            musicSources[WorldTypeController.WorldType.Normal].volume = savedCurrentVolume;
+            musicSources[WorldTypeController.WorldType.Psycho].volume = savedCurrentVolume;
         }
 
 
