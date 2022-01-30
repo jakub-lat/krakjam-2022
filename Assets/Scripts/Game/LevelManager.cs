@@ -88,7 +88,7 @@ namespace Game
             height = GenerateRoom.Current.height;
             spaceX = GenerateRoom.Current.spaceX;
             spaceZ = GenerateRoom.Current.spaceZ;
-
+            
             (startingPosA, startingPosB) = (startingPosB, startingPosA);
 
             GenerateRoom.Current.PreRenderFloors(levelCount);
@@ -112,15 +112,16 @@ namespace Game
         public void NextLevel()
         {
             Score = 0;
+            CurrentLevel++;
+            
             GameScoreboard.Current.ResetLevelData();  
 
-            if (CurrentLevel == levelCount)
+            if (CurrentLevel-1 >= levelCount)
             {
                 BossLevel();
                 return;
             }
 
-            CurrentLevel++;
 
             (startingElevator, finishElevator) = (finishElevator, startingElevator);
             (startingPosA, startingPosB) = (startingPosB, startingPosA);

@@ -88,7 +88,7 @@ namespace Game
                 exitBlock.SetActive(false);
             }
 
-            if (LevelManager.Current.levelCount is 0 or 1)
+            if (LevelManager.Current.levelCount is 0)
             {
                 GoToBoss();
             }
@@ -157,12 +157,7 @@ namespace Game
                 MovingUpIllusion(startMovingDelay);
                 
                 Invoke(nameof(NextLevel), startMovingDelay / 2);
-
-                if (LevelManager.Current.CurrentLevel >= LevelManager.Current.levelCount) //last lvl
-                {
-                    GoToBoss();
-                }
-
+                
                 floorText.rectTransform.DOAnchorPos(floorTextEndPos, animDuration)
                     .SetEase(Ease.OutCirc)
                     .SetDelay(startMovingDelay)
@@ -176,6 +171,8 @@ namespace Game
 
         private void GoToBoss()
         {
+            Debug.Log("BOSSSSS");
+            
             playerTransform.parent = transform;
 
             transform.position = bossElevator.position;
@@ -192,6 +189,13 @@ namespace Game
         private void NextLevel()
         {
             LevelManager.Current.NextLevel();
+            
+            Debug.Log($"current level: {LevelManager.Current.CurrentLevel}, count: {LevelManager.Current.levelCount}");
+
+            if (LevelManager.Current.CurrentLevel-1 >= LevelManager.Current.levelCount) //last lvl
+            {
+                GoToBoss();
+            }
         }
         
         private void UpdateFloorText()

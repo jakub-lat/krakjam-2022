@@ -10,6 +10,13 @@ namespace Scoreboard
         public GameRunLevel player;
         public List<GameRunLevel> others;
     }
+
+    [Serializable]
+    public class ScoreboardResponse
+    {
+        public GameRun player;
+        public List<GameRun> others;
+    }
     
     [Serializable]
     public class Player
@@ -24,6 +31,8 @@ namespace Scoreboard
     public class GameRun
     {
         public long id;
+        public int position;
+        public int mode;
         public long playerID;
         public long startTime;
         public long endTime;

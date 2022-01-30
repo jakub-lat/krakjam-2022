@@ -1,5 +1,6 @@
 ﻿using System;
 using Cyberultimate.Unity;
+using Game;
 using Scoreboard;
 using UI;
 using UnityEngine;
@@ -37,6 +38,12 @@ namespace Player
 
                 if (health <= 0) Die();
             }
+        }
+
+        private void Start()
+        {
+            maxHealth = MaxHealth - (5 * (int)LevelManager.Current.GameMode);
+            health = maxHealth;
         }
 
         private void Die()
