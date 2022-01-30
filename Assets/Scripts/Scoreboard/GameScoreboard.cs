@@ -15,7 +15,7 @@ namespace Scoreboard
     public class GameScoreboard : MonoSingleton<GameScoreboard>
     {
         private const string
-            BaseUrl = "http://localhost:3000"; // https://krakjam2022scoreboard.cubepotato.eu
+            BaseUrl = "https://krakjam2022scoreboard.cubepotato.eu"; // https://krakjam2022scoreboard.cubepotato.eu
 
         // [SerializeField] private TextAsset configFile;
         private string Secret;

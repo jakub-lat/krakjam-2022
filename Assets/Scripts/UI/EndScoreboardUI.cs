@@ -2,6 +2,7 @@
 using System.Threading.Tasks;
 using Game;
 using Scoreboard;
+using Unity.Plastic.Newtonsoft.Json;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -33,6 +34,7 @@ namespace UI
             try
             {
                 var data = await GameScoreboard.Current.GetScoreboard(15);
+                Debug.Log(JsonConvert.SerializeObject(data));
                 table.SetActive(true);
                 loadingText.enabled = false;
                 RenderData(data);
@@ -89,7 +91,7 @@ namespace UI
             var wasCurrent = false;
             foreach (var x in data.others.GetRange(0, Math.Min(15, data.others.Count)))
             {
-                var isCurrent = x.playerID == GameScoreboard.Current.runData.playerID;
+                var isCurrent = x.playerID == data.player.playerID;
                 wasCurrent = isCurrent;
                 RenderRow(x, isCurrent);
             }
