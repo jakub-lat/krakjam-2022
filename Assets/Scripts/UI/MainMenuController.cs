@@ -112,7 +112,7 @@ public class MainMenuController : MonoBehaviour
         ripSource.loop = false;
         ripSource.Play();
 
-        seq.Insert(5.5f, musicSource.DOFade(0.2f, 7).SetEase(Ease.OutElastic));
+        seq.Insert(5.5f, musicSource.DOFade(0.1f, 7).SetEase(Ease.OutElastic));
 
         seq.SetLink(this.gameObject);
 
