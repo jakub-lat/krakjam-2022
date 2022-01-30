@@ -2,6 +2,7 @@ using Cyberultimate.Unity;
 using System.Collections;
 using System.Collections.Generic;
 using Game;
+using Scoreboard;
 using UI;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -146,6 +147,15 @@ public class Boss : MonoSingleton<Boss>
             healthBar.fillAmount = health / startingHealth;
 
             anim.SetTrigger("Die");
+
+            try
+            {
+                _ = GameScoreboard.Current.PostLevelData();
+            }
+            catch
+            {
+                // ignore
+            }
             
             // todo end cutscene
             
