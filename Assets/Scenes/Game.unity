@@ -3639,6 +3639,12 @@ Transform:
   m_Father: {fileID: 1081859225}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1030583931 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4071760806831231215, guid: 06fe48d98e089564482bb60f44ad7b58,
+    type: 3}
+  m_PrefabInstance: {fileID: 966449309}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1081859224
 GameObject:
   m_ObjectHideFlags: 0
@@ -3818,7 +3824,7 @@ MonoBehaviour:
     type: 3}
   m_PrefabInstance: {fileID: 966449309}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1030583931}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e087ecce43ebbff45a1b360637807d93, type: 3}
@@ -3946,6 +3952,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: CinematicCamera
+      objectReference: {fileID: 0}
+    - target: {fileID: 943534404018619331, guid: 5f5642117a8f36c419b81635fffc4235,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 943534404018619343, guid: 5f5642117a8f36c419b81635fffc4235,
         type: 3}
@@ -8668,6 +8679,22 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3752443038508202818, guid: 6ffd02b3077cac84c9b2440ebca6921f,
         type: 3}
+      propertyPath: m_InitialState
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3752443038508202818, guid: 6ffd02b3077cac84c9b2440ebca6921f,
+        type: 3}
+      propertyPath: m_SceneBindings.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 3752443038508202818, guid: 6ffd02b3077cac84c9b2440ebca6921f,
+        type: 3}
+      propertyPath: m_SceneBindings.Array.data[5].key
+      value: 
+      objectReference: {fileID: -3938417347158949949, guid: 2001853bd4c613749a47054378374586,
+        type: 2}
+    - target: {fileID: 3752443038508202818, guid: 6ffd02b3077cac84c9b2440ebca6921f,
+        type: 3}
       propertyPath: m_SceneBindings.Array.data[0].value
       value: 
       objectReference: {fileID: 1213889622}
@@ -8686,6 +8713,11 @@ PrefabInstance:
       propertyPath: m_SceneBindings.Array.data[4].value
       value: 
       objectReference: {fileID: 237162851}
+    - target: {fileID: 3752443038508202818, guid: 6ffd02b3077cac84c9b2440ebca6921f,
+        type: 3}
+      propertyPath: m_SceneBindings.Array.data[5].value
+      value: 
+      objectReference: {fileID: 1030583931}
     - target: {fileID: 3752443038508202819, guid: 6ffd02b3077cac84c9b2440ebca6921f,
         type: 3}
       propertyPath: m_Name
