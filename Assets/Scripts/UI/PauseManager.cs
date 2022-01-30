@@ -44,7 +44,7 @@ public class PauseManager : MonoSingleton<PauseManager>
         {
             GameMusic.Current.FadeOut(0.5f);
             source.PlayOneShot(gameOver);
-
+            PauseObject.Current.OnGameOver();
         }
         IsPaused = true;
         Pause(gameOverObject, IsDead);

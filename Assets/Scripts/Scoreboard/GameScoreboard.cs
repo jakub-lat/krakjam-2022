@@ -86,7 +86,38 @@ namespace Scoreboard
         {
             levelData.endTime = DateTimeOffset.UtcNow.ToUnixTimeSeconds();
             levelData.gameRunID = runData.id;
+
+            runData.deaths += levelData.deaths;
+            runData.kills += levelData.kills;
+            runData.headshots += levelData.headshots;
+            runData.score += levelData.score;
+            runData.endTime = levelData.endTime;
+
+            runData.levels ??= new List<GameRunLevel>();
+            
+            runData.levels.Add(levelData);
+            
             var res = await PostData("/level", levelData);
+        }
+
+        public GameRun GetCalculatedRunData()
+        {
+            runData.deaths = levelData.deaths;
+            runData.kills = levelData.kills;
+            runData.headshots = levelData.headshots;
+            runData.score = levelData.score;
+            runData.endTime = DateTimeOffset.UtcNow.ToUnixTimeSeconds();
+
+            foreach (var lvl in runData.levels ?? new List<GameRunLevel>())
+            {
+                runData.deaths += lvl.deaths;
+                runData.kills += lvl.kills;
+                runData.headshots += lvl.headshots;
+                runData.score += lvl.score;
+                runData.endTime = lvl.endTime;
+            }
+
+            return runData;
         }
 
         public void ResetLevelData()
@@ -112,6 +143,14 @@ namespace Scoreboard
             client.DefaultRequestHeaders.Add("Authorization", Token);
             var res = await client.GetStringAsync(BaseUrl + $"/level/{level}?limit={count}");
             return JsonConvert.DeserializeObject<ScoreboardForLevelResponse>(res);
+        }
+
+        public async Task<GameRun> GetRun(int id)
+        {
+            using var client = new HttpClient();
+            client.DefaultRequestHeaders.Add("Authorization", Token);
+            var res = await client.GetStringAsync(BaseUrl + $"/run/{id}");
+            return JsonConvert.DeserializeObject<GameRun>(res);
         }
 
         public async Task<Player> GetCurrentPlayer()
