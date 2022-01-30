@@ -675,7 +675,8 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'BOSS: Ha ha ha... you''re going to kill me now, right?'
+  m_Text: 'BOSS: You can''t stop it, you just can''t stop The Corporation, you are
+    so pathetic.'
 --- !u!222 &371353739
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -887,9 +888,11 @@ PlayableDirector:
   - key: {fileID: 1693672585345374976, guid: 9b84a323484fa4940b4f43536d491b25, type: 2}
     value: {fileID: 2920775748096945529}
   - key: {fileID: -4444212393966137874, guid: 9b84a323484fa4940b4f43536d491b25, type: 2}
-    value: {fileID: 844028842}
+    value: {fileID: 672871097}
   - key: {fileID: 4004031863926704923, guid: 9b84a323484fa4940b4f43536d491b25, type: 2}
     value: {fileID: 844028842}
+  - key: {fileID: 702751045036267864, guid: 9b84a323484fa4940b4f43536d491b25, type: 2}
+    value: {fileID: 672871097}
   m_ExposedReferences:
     m_References:
     - 578666fdcd7eca744ac1b3cc2146dec3: {fileID: 0}
@@ -9463,37 +9466,37 @@ PrefabInstance:
     - target: {fileID: 943534404018619343, guid: 5f5642117a8f36c419b81635fffc4235,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.1598291
+      value: -1.1498289
       objectReference: {fileID: 0}
     - target: {fileID: 943534404018619343, guid: 5f5642117a8f36c419b81635fffc4235,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 4.7091002
+      value: 7.5791
       objectReference: {fileID: 0}
     - target: {fileID: 943534404018619343, guid: 5f5642117a8f36c419b81635fffc4235,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.8624582
+      value: -3.6824582
       objectReference: {fileID: 0}
     - target: {fileID: 943534404018619343, guid: 5f5642117a8f36c419b81635fffc4235,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.00021586909
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 943534404018619343, guid: 5f5642117a8f36c419b81635fffc4235,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.00047698678
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 943534404018619343, guid: 5f5642117a8f36c419b81635fffc4235,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.9110437
+      value: 0.73236465
       objectReference: {fileID: 0}
     - target: {fileID: 943534404018619343, guid: 5f5642117a8f36c419b81635fffc4235,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.4123095
+      value: -0.6809126
       objectReference: {fileID: 0}
     - target: {fileID: 943534404018619343, guid: 5f5642117a8f36c419b81635fffc4235,
         type: 3}
