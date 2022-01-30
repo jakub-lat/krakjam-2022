@@ -139,10 +139,7 @@ namespace Game
 
             music.Play();
             music.DOFade(1, musicTransition);
-            GameMusic.Current.audioSource.DOFade(0, musicTransition).OnComplete(() =>
-            {
-                GameMusic.Current.audioSource.Pause();
-            });
+            GameMusic.Current.FadeOut(musicTransition);
 
             UpdateFloorText();
             exitBlock.SetActive(true);
@@ -189,9 +186,7 @@ namespace Game
             // Print("open");
 
             music.DOFade(0, musicTransition);
-            GameMusic.Current.audioSource.Play();
-            GameMusic.Current.audioSource.DOFade(1, musicTransition);
-            
+            GameMusic.Current.FadeIn(musicTransition);
             // Debug.Log("MUSIC IS PLAYING " + GameMusic.Current.audioSource.isPlaying);
             
             doorsLeft.DOLocalMove(doorsLeftOpenLocalPos, animDuration)
