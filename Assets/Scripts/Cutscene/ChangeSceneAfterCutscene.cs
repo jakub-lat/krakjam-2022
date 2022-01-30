@@ -12,6 +12,9 @@ public class ChangeSceneAfterCutscene : MonoBehaviour
     [SerializeField]
     private PlayableDirector director;
 
+    [SerializeField]
+    private GameObject skipIndictator;
+
     public void OnPause()
     {
         director.Stop();
@@ -20,6 +23,11 @@ public class ChangeSceneAfterCutscene : MonoBehaviour
     public void OnInteract()
     {
         director.Stop();
+    }
+
+    public void OnAny()
+    {
+        skipIndictator.SetActive(true);
     }
 
     protected void Awake()
