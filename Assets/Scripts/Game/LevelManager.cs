@@ -120,7 +120,7 @@ namespace Game
                 return;
             }
 
-            CurrentLevel++;
+            CurrentLevel++; // dac wyzej
 
             (startingElevator, finishElevator) = (finishElevator, startingElevator);
             (startingPosA, startingPosB) = (startingPosB, startingPosA);

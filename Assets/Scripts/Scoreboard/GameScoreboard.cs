@@ -15,7 +15,7 @@ namespace Scoreboard
     public class GameScoreboard : MonoSingleton<GameScoreboard>
     {
         private const string
-            BaseUrl = "https://krakjam2022scoreboard.cubepotato.eu"; // https://krakjam2022scoreboard.cubepotato.eu
+            BaseUrl = "http://localhost:3000"; // https://krakjam2022scoreboard.cubepotato.eu
 
         // [SerializeField] private TextAsset configFile;
         private string Secret;
@@ -75,6 +75,7 @@ namespace Scoreboard
             runData = new GameRun
             {
                 startTime = DateTimeOffset.UtcNow.ToUnixTimeSeconds(),
+                mode = (int)LevelManager.Current.GameMode,
             };
             runDataSet = true;
             runData = await PostData("/run", runData);
@@ -94,9 +95,9 @@ namespace Scoreboard
             runData.endTime = levelData.endTime;
 
             runData.levels ??= new List<GameRunLevel>();
-            
+
             runData.levels.Add(levelData);
-            
+
             var res = await PostData("/level", levelData);
         }
 
@@ -130,18 +131,19 @@ namespace Scoreboard
             };
         }
 
-        public async Task<List<Player>> GetScoreboard()
-        {
-            using var client = new HttpClient();
-            var res = await client.GetStringAsync(BaseUrl);
-            return JsonConvert.DeserializeObject<List<Player>>(res);
-        }
-
-        public async Task<ScoreboardForLevelResponse> GetScoreboardForLevel(int level, int count)
+        public async Task<ScoreboardResponse> GetScoreboard(int limit)
         {
             using var client = new HttpClient();
             client.DefaultRequestHeaders.Add("Authorization", Token);
-            var res = await client.GetStringAsync(BaseUrl + $"/level/{level}?limit={count}");
+            var res = await client.GetStringAsync(BaseUrl + $"/top?limit={limit}");
+            return JsonConvert.DeserializeObject<ScoreboardResponse>(res);
+        }
+
+        public async Task<ScoreboardForLevelResponse> GetScoreboardForLevel(int level, int limit)
+        {
+            using var client = new HttpClient();
+            client.DefaultRequestHeaders.Add("Authorization", Token);
+            var res = await client.GetStringAsync(BaseUrl + $"/level/{level}?limit={limit}");
             return JsonConvert.DeserializeObject<ScoreboardForLevelResponse>(res);
         }
 

@@ -2388,7 +2388,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 728314931, guid: 86b8cdb22faebf6478e55220e296baa1, type: 3}
       propertyPath: objects.Array.data[0].count
-      value: 10
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 728314931, guid: 86b8cdb22faebf6478e55220e296baa1, type: 3}
       propertyPath: objects.Array.data[1].count
@@ -3543,6 +3543,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 7633560830439424285, guid: 06fe48d98e089564482bb60f44ad7b58,
+        type: 3}
+      propertyPath: data.normal.moveSpeed.edgeValue
+      value: 2.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 06fe48d98e089564482bb60f44ad7b58, type: 3}
@@ -7641,7 +7646,7 @@ PrefabInstance:
     - target: {fileID: 2667818113581105014, guid: 1c8b4abb690b867418682e71ee9c44a1,
         type: 3}
       propertyPath: levelCount
-      value: 5
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2667818113581105014, guid: 1c8b4abb690b867418682e71ee9c44a1,
         type: 3}
@@ -7681,7 +7686,7 @@ PrefabInstance:
     - target: {fileID: 2667818113581105014, guid: 1c8b4abb690b867418682e71ee9c44a1,
         type: 3}
       propertyPath: difficultyCurveNormal.m_Curve.Array.data[1].value
-      value: 3
+      value: 2.5
       objectReference: {fileID: 0}
     - target: {fileID: 2667818113581105015, guid: 1c8b4abb690b867418682e71ee9c44a1,
         type: 3}
