@@ -143,6 +143,11 @@ namespace UsableItems
 
         public void Shoot()
         {
+            if (PauseManager.Current.IsPaused)
+            {
+                return;
+            }
+
             if (currentAmmo <= 0)
             {
                 gunSource.PlayOneShot(noAmmo);
