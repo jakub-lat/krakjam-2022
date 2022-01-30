@@ -8,22 +8,11 @@ public class BossTrigger : MonoBehaviour
 {
     public void TriggerBattle()
     {
-        dir.Play();
-        
-    }
-
-    private void Start()
-    {
-        dir.stopped += Director_stopped;
+        Boss.Current.StartBattle();
+        UI.ObjectivesUI.Current.SetObjective("MISSION: KILL THE BOSS", "SHOW YOUR TRUE RAGE");
     }
 
     bool did = false;
-    public PlayableDirector dir;
-    private void Director_stopped(PlayableDirector dir) 
-    {
-        Boss.Current.StartBattle();
-    }
-
     private void OnTriggerEnter(Collider other)
     {
         if (!did && other.CompareTag("Player"))
