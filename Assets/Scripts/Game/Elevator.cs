@@ -10,6 +10,8 @@ namespace Game
 {
     public class Elevator : MonoBehaviour
     {
+        [SerializeField] private Transform bossElevator;
+        [SerializeField] private Transform playerSpawn;
         [SerializeField] private GameObject exitBlock;
         [SerializeField] private NavMeshLink leftDoor, rightDoor;
         [SerializeField] private Transform doorsLeft, doorsRight;
@@ -157,6 +159,14 @@ namespace Game
                     .SetDelay(startMovingDelay)
                     .OnComplete(() =>
                     {
+                        if(LevelManager.Current.CurrentLevel>=LevelManager.Current.levelCount) //last lvl
+                        {
+                            transform.position = bossElevator.position;
+                            transform.rotation = bossElevator.rotation;
+
+                           //PlayerInstance.Current.transform.parent.position=
+                        }
+
                         Print("floor text completed - opening");
                         Open();
                     }).SetLink(this.gameObject);

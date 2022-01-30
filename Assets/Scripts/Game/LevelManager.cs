@@ -41,7 +41,7 @@ namespace Game
         public Transform bossRoomSpawnPoint;
 
         [Header("Game balance")] 
-        [SerializeField] private int levelCount;
+        public int levelCount;
         [SerializeField] private AnimationCurve difficultyCurveEasy;
         [SerializeField] private AnimationCurve difficultyCurveNormal;
         [SerializeField] private AnimationCurve difficultyCurveHard;
