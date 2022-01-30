@@ -160,6 +160,7 @@ public class Boss : MonoSingleton<Boss>
 
     public void EndPipe()
     {
+        Debug.Log("Pipe broken - boss damaged " + pipeDmg);
         GotHit(pipeDmg);
         pipeAnim = false;
     }

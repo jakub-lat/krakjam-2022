@@ -186,7 +186,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0544f9249592634797d1a80f892ee3b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startingHealth: 10000
+  startingHealth: 11000
   healthBar: {fileID: 0}
   BossUI: {fileID: 0}
   gunRotate: {fileID: 0}
@@ -196,11 +196,11 @@ MonoBehaviour:
   bossFighting: {fileID: 960260370207578132}
   anim: {fileID: 70868674215079934}
   pipeOverHealth: 3
-  pipeDmg: 150
+  pipeDmg: 300
   bulletPoolTag: EnemyBullet
   burstSizeMin: 20
-  burstSizeMax: 30
-  damage: 6
+  burstSizeMax: 40
+  damage: 7.2
   burstFireRate: 0.04
   fireRate: 3
   dispersion: 70
@@ -208,7 +208,7 @@ MonoBehaviour:
   bulletSpeed: 800
   shootInFront: 1
   inFrontMultiplierMin: 0.3
-  inFrontMultiplierMax: 1.4
+  inFrontMultiplierMax: 1.2
   punchDamage: 45
   punchKnock: 100
   rangeToPunch: 6
@@ -3681,6 +3681,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: bossanimation2
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 738286355feb50d41b6d185b5a2d16bb,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 738286355feb50d41b6d185b5a2d16bb,
         type: 3}
