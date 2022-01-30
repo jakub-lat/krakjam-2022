@@ -577,11 +577,11 @@ MonoBehaviour:
   data:
     normal:
       moveSpeed:
-        value: 4
+        value: 4.5
         changeOverTime: -0.4
         edgeValue: 2.5
       sprintSpeed:
-        value: 5.5
+        value: 5.7
         changeOverTime: -0.2
         edgeValue: 3.5
       jumpHeight:
