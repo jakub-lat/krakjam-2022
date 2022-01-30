@@ -20,6 +20,10 @@ namespace Game
         private void Awake()
         {
             Current = this;
+        }
+
+        protected override void Start()
+        {
             savedCurrentVolume = CurrentSource.volume;
         }
 

@@ -28,6 +28,8 @@ public class Boss : MonoSingleton<Boss>
     public Animator anim;
     private Transform player;
 
+    public string endCutsceneName = "Ending";
+
     [Header("Pipes")]
     public int pipeOverHealth = 3;
     public float pipeDmg = 150;
@@ -62,7 +64,6 @@ public class Boss : MonoSingleton<Boss>
 
     public void StartBattle()
     {
-        UI.ObjectivesUI.Current.SetObjective("MISSION: KILL THE BOSS", "SHOW YOUR TRUE RAGE");
 
         health = startingHealth;
         dead = false;
@@ -156,11 +157,12 @@ public class Boss : MonoSingleton<Boss>
             {
                 // ignore
             }
-            
+
             // todo end cutscene
-            
-            ObjectivesUI.Current.SetObjective("THE BOSS HAS BEEN DESTROYED", "UGH... NO! THAT'S IMPOSSIBLE.");
-            Invoke(nameof(LoadCredits), 3f);
+
+            //ObjectivesUI.Current.SetObjective("THE BOSS HAS BEEN DESTROYED", "UGH... NO! THAT'S IMPOSSIBLE.");
+            //Invoke(nameof(LoadCredits), 3f);
+            Invoke(nameof(LoadCutscene),0.5f);
             
             return;
         }
@@ -173,9 +175,9 @@ public class Boss : MonoSingleton<Boss>
         healthBar.fillAmount = health/ startingHealth;
     }
 
-    private void LoadCredits()
+    private void LoadCutscene()
     {
-        SceneManager.LoadScene("EndCredits");
+        SceneManager.LoadScene(endCutsceneName);
     }
     
     public void PipeHit()

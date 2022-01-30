@@ -130,6 +130,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 263352763, guid: bebc43c52cbe7144480d94386dccac3f, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 725360987, guid: bebc43c52cbe7144480d94386dccac3f, type: 3}
       propertyPath: m_FontData.m_Font
       value: 
@@ -269,7 +273,7 @@ PrefabInstance:
     - target: {fileID: 8252227557238484443, guid: bebc43c52cbe7144480d94386dccac3f,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8252227558276074249, guid: bebc43c52cbe7144480d94386dccac3f,
         type: 3}
