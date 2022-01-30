@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.11426129, g: 0.15169938, b: 0.16290072, a: 1}
+  m_IndirectSpecularColor: {r: 0.11426178, g: 0.15169969, b: 0.16290113, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1571,12 +1571,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 028ea228844221a4c85fc1483e8c2db6, type: 3}
---- !u!320 &491642547 stripped
-PlayableDirector:
-  m_CorrespondingSourceObject: {fileID: 3752443038508202818, guid: 6ffd02b3077cac84c9b2440ebca6921f,
-    type: 3}
-  m_PrefabInstance: {fileID: 3752443038595999217}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &496595115
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3514,12 +3508,12 @@ PrefabInstance:
     - target: {fileID: 2580507051579308642, guid: 06fe48d98e089564482bb60f44ad7b58,
         type: 3}
       propertyPath: health
-      value: 1000
+      value: 600
       objectReference: {fileID: 0}
     - target: {fileID: 2580507051579308642, guid: 06fe48d98e089564482bb60f44ad7b58,
         type: 3}
       propertyPath: maxHealth
-      value: 1000
+      value: 600
       objectReference: {fileID: 0}
     - target: {fileID: 4071760806831231205, guid: 06fe48d98e089564482bb60f44ad7b58,
         type: 3}
@@ -3589,7 +3583,7 @@ PrefabInstance:
     - target: {fileID: 9212036348525647019, guid: 06fe48d98e089564482bb60f44ad7b58,
         type: 3}
       propertyPath: initialDoseCount
-      value: 5
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 06fe48d98e089564482bb60f44ad7b58, type: 3}
@@ -4428,7 +4422,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 132942087b3626a459d4136e030b5ca5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dir: {fileID: 491642547}
 --- !u!64 &1479825994
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -11021,7 +11014,7 @@ PrefabInstance:
     - target: {fileID: 1832353734658663969, guid: 7a0cb4b65e7ce80458456fa063c9507e,
         type: 3}
       propertyPath: startingHealth
-      value: 10
+      value: 11000
       objectReference: {fileID: 0}
     - target: {fileID: 1832353734658663969, guid: 7a0cb4b65e7ce80458456fa063c9507e,
         type: 3}
