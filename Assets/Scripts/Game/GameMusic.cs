@@ -41,6 +41,7 @@ namespace Game
         {
             musicSources[WorldTypeController.WorldType.Normal].clip = bossMusic.normal;
             musicSources[WorldTypeController.WorldType.Psycho].clip = bossMusic.psycho;
+            FadeIn(0.5f);
         }
         
         public override void OnWorldTypeChange(WorldTypeController.WorldType type)

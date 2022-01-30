@@ -8,14 +8,15 @@ namespace UI
 {
     public enum OverlayType
     {
-        Health
+        Health,
+        Corpo
     }
 
     public class PercentageOverlay : MonoBehaviour
     {
         public OverlayType overlayType;
 
-        [SerializeField] private float transitionDuration;
+        [SerializeField] private float transitionDuration = 0.5f;
 
         private float amount;
 

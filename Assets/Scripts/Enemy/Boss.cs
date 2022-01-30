@@ -2,7 +2,9 @@ using Cyberultimate.Unity;
 using System.Collections;
 using System.Collections.Generic;
 using Game;
+using UI;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class Boss : MonoSingleton<Boss>
@@ -142,6 +144,12 @@ public class Boss : MonoSingleton<Boss>
             healthBar.fillAmount = health / startingHealth;
 
             anim.SetTrigger("Die");
+            
+            // todo end cutscene
+            
+            ObjectivesUI.Current.SetObjective("THE BOSS HAS BEEN DESTROYED", "UGH... NO! THAT'S IMPOSSIBLE.");
+            Invoke(nameof(LoadCredits), 3f);
+            
             return;
         }
 
@@ -153,6 +161,11 @@ public class Boss : MonoSingleton<Boss>
         healthBar.fillAmount = health/ startingHealth;
     }
 
+    private void LoadCredits()
+    {
+        SceneManager.LoadScene("EndCredits");
+    }
+    
     public void PipeHit()
     {
         pipeAnim = true;
