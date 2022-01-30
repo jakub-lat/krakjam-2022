@@ -32,6 +32,8 @@ public class PauseObject : MonoSingleton<PauseObject>
     private Button optionsBtn = null;
     private Text optionsTxt = null;
 
+
+
     protected void Start()
     {
         optionsTxt = optionsBtn.transform.GetChild(0).GetComponent<Text>();

@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using LetterBattle.Utility;
 using UnityEngine;
+using Game;
 
 public class PauseManager : MonoSingleton<PauseManager>
 {
@@ -19,8 +20,19 @@ public class PauseManager : MonoSingleton<PauseManager>
 
     public GameObject LastObject { get; private set; } = null;
 
+    [SerializeField]
+    private AudioSource source = null;
+
+    [SerializeField]
+    private AudioClip gameOver;
+
     public void SwitchPause()
     {
+        if (IsDead)
+        {
+            return;
+        }
+
         IsPaused = !IsPaused;
         Pause(pauseObject, IsPaused);
     }
@@ -28,6 +40,12 @@ public class PauseManager : MonoSingleton<PauseManager>
     public void SwitchDeath()
     {
         IsDead = !IsDead;
+        if (IsDead)
+        {
+            GameMusic.Current.FadeOut(0.5f);
+            source.PlayOneShot(gameOver);
+
+        }
         IsPaused = true;
         Pause(gameOverObject, IsDead);
     }
