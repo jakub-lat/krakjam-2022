@@ -2,6 +2,7 @@
 using System;
 using Cinemachine;
 using Player;
+using UI;
 using UnityEngine;
 using WorldChange;
 
@@ -78,6 +79,7 @@ public class ChangePlayerProperties : WorldChangeLogic
         }
     }
 
+    private bool corpoObjSet = false;
     private void Update()
     {
         SetNoiseIfNull();
@@ -91,6 +93,20 @@ public class ChangePlayerProperties : WorldChangeLogic
         fpsc.SlideSpeed = props.slideSpeed.ChangeOverTime(fpsc.SlideSpeed);
         fpsc.JumpHeight = props.jumpHeight.ChangeOverTime(fpsc.JumpHeight);
 
+        var prc = 1 - Math.Abs(fpsc.MoveSpeed - props.moveSpeed.edgeValue) /
+            Math.Abs(props.moveSpeed.value - props.moveSpeed.edgeValue);
+        
+        PercentageOverlay.Get(OverlayType.Corpo).UpdateAmount(prc);
+
+        if (Math.Abs(prc - 1) < 0.01 && !corpoObjSet)
+        {
+            ObjectivesUI.Current.SetObjective("CORPO POISON IS TAKING OVER", "FIND SOME PILLS TO BEHAVE NORMALLY");
+            corpoObjSet = true;
+        }
+        else if(!corpoObjSet)
+        {
+            corpoObjSet = false;
+        }
 
         if (noise != null)
         {
