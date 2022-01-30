@@ -645,8 +645,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3adaa031bea436e8702e051b7ef920f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 500
-  maxHealth: 500
+  health: 600
+  maxHealth: 600
   soundSource: {fileID: 207403016}
   soundController: {fileID: 1173150366}
 --- !u!114 &1173150366

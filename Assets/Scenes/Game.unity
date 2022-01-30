@@ -7680,6 +7680,16 @@ PrefabInstance:
       objectReference: {fileID: 837006209}
     - target: {fileID: 2667818113581105014, guid: 1c8b4abb690b867418682e71ee9c44a1,
         type: 3}
+      propertyPath: baseShootingEnemyCount
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2667818113581105014, guid: 1c8b4abb690b867418682e71ee9c44a1,
+        type: 3}
+      propertyPath: baseElevatorShootingEnemyCount
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2667818113581105014, guid: 1c8b4abb690b867418682e71ee9c44a1,
+        type: 3}
       propertyPath: difficultyCurveHard.m_Curve.Array.data[1].value
       value: 6
       objectReference: {fileID: 0}

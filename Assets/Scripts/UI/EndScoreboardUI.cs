@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Threading.Tasks;
+using Game;
 using Scoreboard;
 using UnityEngine;
 using UnityEngine.UI;
@@ -64,8 +65,9 @@ namespace UI
             nameCol.text += "\n" + Colorize(Truncate(x.player.name.ToUpper(), 15), isCurrent);
             scoreCol.text += "\n" + Colorize(x.score.ToString(), isCurrent);
             timeCol.text += "\n" + Colorize(TimeSpan.FromSeconds(x.endTime - x.startTime).ToString(@"mm\:ss"), isCurrent);
-            // headshotsCol.text += "\n" + Colorize(x.headshots.ToString(), isCurrent);
+            headshotsCol.text += "\n" + Colorize(x.headshots.ToString(), isCurrent);
             deathsCol.text += "\n" + Colorize(x.deaths.ToString(), isCurrent);
+            modeCol.text += "\n" + Colorize(((GameMode)x.mode).ToString(), isCurrent);
         }
         
         private void RenderData(ScoreboardResponse data)

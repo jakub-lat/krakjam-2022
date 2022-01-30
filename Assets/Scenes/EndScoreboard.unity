@@ -1008,7 +1008,7 @@ MonoBehaviour:
   timeCol: {fileID: 1614194969}
   headshotsCol: {fileID: 98317526}
   deathsCol: {fileID: 969314749}
-  modeCol: {fileID: 0}
+  modeCol: {fileID: 1361757356}
 --- !u!1 &1361757354
 GameObject:
   m_ObjectHideFlags: 0
