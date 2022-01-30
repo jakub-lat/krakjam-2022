@@ -2788,7 +2788,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -2808,7 +2808,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "But I\u2019m not exactly sure how do they work..."
+  m_Text: 
 --- !u!222 &371353739
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3596,6 +3596,8 @@ GameObject:
   m_Component:
   - component: {fileID: 479995466}
   - component: {fileID: 479995467}
+  - component: {fileID: 479995469}
+  - component: {fileID: 479995468}
   m_Layer: 0
   m_Name: Intro
   m_TagString: Untagged
@@ -3700,6 +3702,49 @@ PlayableDirector:
     - d338e318cc0cb14469a9dddefee92e79: {fileID: 1019623641}
     - c83d3989f4972f4498116f5803dbc7b0: {fileID: 966050747}
     - 5b819e6b17756d047a64608097a918ae: {fileID: 1793610675}
+--- !u!114 &479995468
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 479995465}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d79ecf6b88eb1a41aa705829567cc5e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sceneName: Game
+--- !u!114 &479995469
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 479995465}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e52de21a22b6dd44c9cc19f810c65059, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Events:
+    m_Signals:
+    - {fileID: 11400000, guid: 4348c529552e25246b064fdb3c16569b, type: 2}
+    m_Events:
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 479995468}
+          m_TargetAssemblyTypeName: ChangeSceneAfterCutscene, Bulletache
+          m_MethodName: OnCutsceneEnd
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &480134699
 GameObject:
   m_ObjectHideFlags: 0
@@ -14085,8 +14130,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2920775748096945524}
-  m_LocalRotation: {x: -0, y: 0.72471327, z: 0.68905056, w: 0}
-  m_LocalPosition: {x: 7.64, y: -4.43, z: 5.03}
+  m_LocalRotation: {x: 0, y: 0.7071068, z: -0, w: -0.7071068}
+  m_LocalPosition: {x: 5.672, y: -1.56, z: 10.443}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
