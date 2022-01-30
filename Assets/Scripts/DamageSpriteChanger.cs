@@ -36,7 +36,7 @@ public class DamageSpriteChanger : MonoSingleton<DamageSpriteChanger>
     {
         blink.DOFade(0.5f, 0.3f).SetEase(Ease.OutCubic).OnComplete(() =>
         {
-            blink.DOFade(0, 0.5f).SetEase(Ease.InCubic);
+            blink.DOFade(0, 0.5f).SetDelay(1f).SetEase(Ease.InCubic);
         });
     }
 }

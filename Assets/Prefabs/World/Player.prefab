@@ -542,7 +542,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   initialDoseCount: 0
-  drugEffectTime: 30
+  drugEffectTime: 20
   addictionMaxTime: 120
   addictionEffectsStartTime: 100
   drugHealthBoost: 100
@@ -1003,4 +1003,7 @@ MonoBehaviour:
   musicSources:
     normal: {fileID: 5307687593080143241}
     psycho: {fileID: 5699142933349915776}
+  bossMusic:
+    normal: {fileID: 8300000, guid: e9eda84e49237374e80db2fc99639130, type: 3}
+    psycho: {fileID: 8300000, guid: 394d5b4016be1eb4eadd35dd00abbab6, type: 3}
   fadeDuration: 0.5
