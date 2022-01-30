@@ -18,7 +18,9 @@ namespace UI
         private CanvasGroup creditsCG;
 
         [SerializeField]
-        private GameObject skipIndicator = null; 
+        private GameObject skipIndicator = null;
+
+        private string nextScene = "EndScoreboard";
 
         private void Start()
         {
@@ -39,12 +41,12 @@ namespace UI
 
         public void OnInteract()
         {
-            SceneManager.LoadScene("MainMenu");
+            SceneManager.LoadScene(nextScene);
         }
 
         public void OnPause()
         {
-            SceneManager.LoadScene("MainMenu");
+            SceneManager.LoadScene(nextScene);
         }
 
         private IEnumerator EndGameText()
@@ -72,7 +74,7 @@ namespace UI
             yield return creditsText.rectTransform.DOAnchorPosY(creditsText.rectTransform.sizeDelta.y + (Screen.height/2), 25f)
                 .SetEase(Ease.Linear).WaitForCompletion();
 
-            SceneManager.LoadScene("EndScoreboard");
+            SceneManager.LoadScene(nextScene);
         }
     }
 }
