@@ -9,14 +9,16 @@ using UsableItems;
 
 namespace Player
 {
+    [RequireComponent(typeof(AudioSource))]
     public class HandController : MonoSingleton<HandController>
     {
         [SerializeField] private float pickupTransitionDuration = 0.4f;
         [SerializeField] private float throwItemForce = 8f;
-        [SerializeField] private UsableItem fist;
+        [SerializeField] private MeleeWeapon fist;
         public LayerMask attackLayerMask;
 
         [SerializeField] private UsableItem startingItem;
+        [SerializeField] private AudioClip meleeSound;
 
         public UsableItem CurrentItem { get; private set; }
 
@@ -25,6 +27,10 @@ namespace Player
 
         private void Start()
         {
+            fist.closeFightSource = GetComponent<AudioSource>();
+            fist.hitSound = meleeSound;
+
+            
             if (startingItem != null)
             {
                 var go = Instantiate(startingItem);
@@ -40,7 +46,7 @@ namespace Player
 
             CurrentItem = item;
             CurrentItem.OnPickup();
-
+            
             var rb = CurrentItem.gameObject.GetComponent<Rigidbody>();
             rb.isKinematic = true;
             rb.collisionDetectionMode = CollisionDetectionMode.ContinuousSpeculative;
@@ -101,6 +107,13 @@ namespace Player
 
         public void UseCurrentItem()
         {
+            if (CurrentItem is MeleeWeapon m)
+            {
+                m.closeFightSource = GetComponent<AudioSource>();
+                m.hitSound = meleeSound;
+            }
+
+            
             if (CurrentItem == null)
             {
                 fist.Use();

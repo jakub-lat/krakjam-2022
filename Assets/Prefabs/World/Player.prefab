@@ -542,7 +542,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   initialDoseCount: 0
-  drugEffectTime: 20
+  baseDrugEffectTime: 20
+  subtractDrugEffectTimeBasedOnGameModeMultiplier: 4
   addictionMaxTime: 120
   addictionEffectsStartTime: 100
   drugHealthBoost: 100

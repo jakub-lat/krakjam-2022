@@ -1,7 +1,9 @@
 ﻿using System;
 using Cyberultimate.Unity;
+using Game;
 using Player;
 using UI;
+using Unity.VisualScripting;
 using UnityEngine;
 using WorldChange;
 
@@ -10,7 +12,9 @@ namespace KrakJam2022.Player
     public class DrugController : MonoSingleton<DrugController>
     {
         [SerializeField] private int initialDoseCount;
-        [SerializeField] private float drugEffectTime;
+        [SerializeField] private float baseDrugEffectTime;
+        [SerializeField] private float subtractDrugEffectTimeBasedOnGameModeMultiplier;
+        private float drugEffectTime;
         [SerializeField] private float addictionMaxTime;
         [SerializeField] private float addictionEffectsStartTime;
         [SerializeField] private float drugHealthBoost;
@@ -32,6 +36,7 @@ namespace KrakJam2022.Player
         private void Start()
         {
             currentDoses = initialDoseCount;
+            drugEffectTime = baseDrugEffectTime - ((int)LevelManager.Current.GameMode * subtractDrugEffectTimeBasedOnGameModeMultiplier);
         }
 
         public void AddDrugs(int amount)
