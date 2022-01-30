@@ -4,8 +4,13 @@ using UnityEngine;
 
 public class Furniture : MonoBehaviour
 {
-    private void Awake()
+    private void Start()
     {
-        if (Vector3.Distance(transform.position, PlayerInstance.Current.transform.position) <= ObjectGeneration.Current.minFurnitureRangeFromPlayer) Destroy(gameObject);
+        if (PlayerInstance.Current != null)
+        {
+            if (Vector3.Distance(transform.position, PlayerInstance.Current.transform.position) <=
+                ObjectGeneration.Current.minFurnitureRangeFromPlayer)
+                Destroy(gameObject);
+        }
     }
 }

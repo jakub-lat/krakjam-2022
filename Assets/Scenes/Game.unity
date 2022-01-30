@@ -2387,6 +2387,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 1545557203}
     m_Modifications:
     - target: {fileID: 728314931, guid: 86b8cdb22faebf6478e55220e296baa1, type: 3}
+      propertyPath: objects.Array.data[0].count
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 728314931, guid: 86b8cdb22faebf6478e55220e296baa1, type: 3}
       propertyPath: objects.Array.data[1].count
       value: 10
       objectReference: {fileID: 0}
@@ -7669,6 +7673,16 @@ PrefabInstance:
       propertyPath: bossRoomSpawnPoint
       value: 
       objectReference: {fileID: 837006209}
+    - target: {fileID: 2667818113581105014, guid: 1c8b4abb690b867418682e71ee9c44a1,
+        type: 3}
+      propertyPath: difficultyCurveHard.m_Curve.Array.data[1].value
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 2667818113581105014, guid: 1c8b4abb690b867418682e71ee9c44a1,
+        type: 3}
+      propertyPath: difficultyCurveNormal.m_Curve.Array.data[1].value
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 2667818113581105015, guid: 1c8b4abb690b867418682e71ee9c44a1,
         type: 3}
       propertyPath: m_RootOrder
@@ -10556,11 +10570,6 @@ PrefabInstance:
       propertyPath: healthBar
       value: 
       objectReference: {fileID: 1228253230}
-    - target: {fileID: 1832353734658663969, guid: 7a0cb4b65e7ce80458456fa063c9507e,
-        type: 3}
-      propertyPath: startingHealth
-      value: 10
-      objectReference: {fileID: 0}
     - target: {fileID: 1832353734658663969, guid: 7a0cb4b65e7ce80458456fa063c9507e,
         type: 3}
       propertyPath: playerCharacter

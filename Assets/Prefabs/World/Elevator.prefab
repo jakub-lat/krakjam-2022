@@ -2578,7 +2578,7 @@ MonoBehaviour:
   doorOpen: {fileID: 5180015164000089551}
   doorOpenClip: {fileID: 8300000, guid: 528a4fa769886f04ba8b163a91268e6d, type: 3}
   openOnStart: 1
-  startWaitTime: 2
+  startWaitTime: 5
   musicTransition: 1.5
   elevatorRemover: {fileID: 887347125}
 --- !u!65 &9074998911403675265
