@@ -12,6 +12,7 @@ namespace Player
     public class HandController : MonoSingleton<HandController>
     {
         [SerializeField] private float pickupTransitionDuration = 0.4f;
+        [SerializeField] private float throwItemForce = 8f;
         [SerializeField] private UsableItem fist;
         public LayerMask attackLayerMask;
 
@@ -42,6 +43,7 @@ namespace Player
 
             var rb = CurrentItem.gameObject.GetComponent<Rigidbody>();
             rb.isKinematic = true;
+            rb.collisionDetectionMode = CollisionDetectionMode.ContinuousSpeculative;
             
             foreach (var col in CurrentItem.GetComponents<Collider>())
             {
@@ -84,16 +86,17 @@ namespace Player
 
             var rb = CurrentItem.gameObject.GetComponent<Rigidbody>();
             rb.isKinematic = false;
-            // StartCoroutine(PushAfterTime());
+            
+            rb.AddForce(CameraHelper.MainCamera.transform.forward * throwItemForce, ForceMode.VelocityChange);
+            // StartCoroutine(PushAfterTime(0.2f, rb, 15f));
 
             CurrentItem = null;
         }
 
-        IEnumerator PushAfterTime(float time, Rigidbody rb, float force)
+        /*IEnumerator PushAfterTime(float time, Rigidbody rb, float force)
         {
             yield return new WaitForSeconds(time);
-            rb.AddForce(transform.forward * force, ForceMode.Impulse);
-        }
+        }*/
 
 
         public void UseCurrentItem()
@@ -105,6 +108,11 @@ namespace Player
             }
             else
             {
+                if (CurrentItem is MeleeWeapon)
+                {
+                    PlayerAnim.Current.ItemHit();
+                }
+                
                 CurrentItem.Use();
             }
         }

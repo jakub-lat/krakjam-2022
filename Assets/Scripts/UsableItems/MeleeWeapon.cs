@@ -41,7 +41,7 @@ namespace UsableItems
             }
 
             if (!cooldown.Push()) return;
-            
+
             if (Physics.Raycast(CameraHelper.MainCamera.transform.position, CameraHelper.MainCamera.transform.forward,
                 out var hit, distance, HandController.Current.attackLayerMask, QueryTriggerInteraction.Ignore))
             {

@@ -247,14 +247,14 @@ namespace UsableItems
                         bulletHole.transform.parent = hit.collider.transform;
                     }
                 }
-
-                
-
                 else
                 {
                     GameObject bulletHole = ObjectPooler.Current.SpawnPool(bulletholePoolingTag, hit.point,
                         Quaternion.LookRotation(hit.normal));
                     bulletHole.transform.parent = hit.collider.transform;
+                    
+                    ObjectPooler.Current.SpawnPool("EnvironmentDamageParticle", hit.point,
+                        Quaternion.Euler(hit.point - trailSpawnPoint.position));
                 }
             }
         }

@@ -18,6 +18,9 @@ public class Boss : MonoSingleton<Boss>
     public Transform gunPoint;
     public CharacterController playerCharacter;
 
+    public GameObject bossBeforeFight;
+    public GameObject bossFighting;
+
     public Animator anim;
     private Transform player;
 
@@ -61,7 +64,11 @@ public class Boss : MonoSingleton<Boss>
         healthBar.fillAmount = startingHealth / health;
         EnemySpawner.Current.KillAll();
 
+        bossBeforeFight.SetActive(false);
+        bossFighting.SetActive(true);
         battle = true;
+
+        //ADD BOSSS MUSIC
     }
 
     private void Start()
@@ -72,6 +79,8 @@ public class Boss : MonoSingleton<Boss>
         attack.knockback = punchKnock;
         attack.myPos = transform;
         healthToNextPipe = startingHealth - (startingHealth / (pipeOverHealth + 1));
+        bossBeforeFight.SetActive(true);
+        bossFighting.SetActive(false);
     }
 
     private int currBurst = 0;
@@ -151,6 +160,7 @@ public class Boss : MonoSingleton<Boss>
 
     public void EndPipe()
     {
+        Debug.Log("Pipe broken - boss damaged " + pipeDmg);
         GotHit(pipeDmg);
         pipeAnim = false;
     }
