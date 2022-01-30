@@ -161,10 +161,13 @@ namespace Game
                     playerTransform.parent = transform;
 
                     transform.position = bossElevator.position;
-                    transform.localEulerAngles = bossElevator.localEulerAngles;
-
+                    var diff = bossElevator.localEulerAngles - transform.localEulerAngles;
+                    transform.localEulerAngles += diff;
 
                     playerTransform.parent = transform.parent.parent;
+                    cameraHolder.localEulerAngles += diff;
+
+                    transform.DOMove(bossElevator.position, 2f);
                 }
 
                 floorText.rectTransform.DOAnchorPos(floorTextEndPos, animDuration)
