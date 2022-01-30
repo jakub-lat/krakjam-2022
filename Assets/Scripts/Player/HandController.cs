@@ -15,11 +15,23 @@ namespace Player
         [SerializeField] private UsableItem fist;
         public LayerMask attackLayerMask;
 
+        [SerializeField] private UsableItem startingItem;
+
         public UsableItem CurrentItem { get; private set; }
 
         private Vector3 originalScale;
         private int originalLayer;
-        
+
+        private void Start()
+        {
+            if (startingItem != null)
+            {
+                var go = Instantiate(startingItem);
+                go.transform.localScale = Vector3.one;
+                PickUpItem(go);
+            }
+        }
+
         public void PickUpItem(UsableItem item)
         {
             if (item == null) throw new ArgumentException(nameof(item));
@@ -93,6 +105,11 @@ namespace Player
             }
             else
             {
+                if (CurrentItem is MeleeWeapon)
+                {
+                    PlayerAnim.Current.ItemHit();
+                }
+                
                 CurrentItem.Use();
             }
         }

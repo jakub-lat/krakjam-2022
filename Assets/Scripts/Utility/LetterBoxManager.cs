@@ -48,12 +48,10 @@ public class LetterboxManager : MonoBehaviour
 		letterboxCam.name = "Letter Box Camera";
 	}
 
-	/*
     protected void Update()
     {
 		RefreshSize();
     }
-	*/
 
     public void RefreshSize()
 	{

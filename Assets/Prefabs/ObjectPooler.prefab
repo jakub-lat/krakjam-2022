@@ -65,6 +65,9 @@ MonoBehaviour:
     prefab: {fileID: 3979438509768647779, guid: bbb4a4708b835fb448a7d07ac79a1214,
       type: 3}
     size: 100
+  - tag: EnvironmentDamageParticle
+    prefab: {fileID: 38504765424735230, guid: 4be33946d55c1db47b1cc30688ba046e, type: 3}
+    size: 150
 --- !u!114 &91497220
 MonoBehaviour:
   m_ObjectHideFlags: 0

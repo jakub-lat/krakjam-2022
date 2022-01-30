@@ -185,7 +185,7 @@ GameObject:
   - component: {fileID: 1633197109}
   - component: {fileID: 1633197108}
   m_Layer: 5
-  m_Name: Text (Legacy)
+  m_Name: PressKey
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1213,6 +1213,7 @@ MonoBehaviour:
   gameModeOverlay: {fileID: 6126746980361475886}
   rip: {fileID: 8300000, guid: baf34af42b1ef2447aa47b1a19af7c2a, type: 3}
   ripSource: {fileID: 0}
+  musicSource: {fileID: 0}
 --- !u!1 &6522448451656077343
 GameObject:
   m_ObjectHideFlags: 0
@@ -1230,7 +1231,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &6522448451656077312
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1310,7 +1311,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &6522448451909988012
 RectTransform:
   m_ObjectHideFlags: 0
