@@ -72,7 +72,7 @@ namespace UI
             yield return creditsText.rectTransform.DOAnchorPosY(creditsText.rectTransform.sizeDelta.y + (Screen.height/2), 25f)
                 .SetEase(Ease.Linear).WaitForCompletion();
 
-            SceneManager.LoadScene("MainMenu");
+            SceneManager.LoadScene("EndScoreboard");
         }
     }
 }
