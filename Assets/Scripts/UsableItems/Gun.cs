@@ -150,6 +150,8 @@ namespace UsableItems
             {
                 return;
             }
+            
+            PlayerAnim.Current.Shoot();
 
             isCooldown = true;
             cooldownTimer = fireCooldown;

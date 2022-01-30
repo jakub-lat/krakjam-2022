@@ -8,11 +8,15 @@ namespace Player
     {
         private Animator animator;
         
-        private static readonly int IsWalking = Animator.StringToHash("IsWalking");
+        private static readonly int ShootTrigger = Animator.StringToHash("Shoot");
         private static readonly int PunchTrigger = Animator.StringToHash("Punch");
 
-        public void SetIsWalking(bool v) => animator.SetBool(IsWalking, v);
-        public void Punch() => animator.SetTrigger(PunchTrigger); 
+        public void SetIsWalking(bool v) /*=> animator.SetBool(IsWalking, v);*/
+        {
+        }
+
+        public void Punch() => animator.SetTrigger(PunchTrigger);
+        public void Shoot() => animator.SetTrigger(ShootTrigger);
         
         protected override void Awake()
         {
