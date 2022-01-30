@@ -185,7 +185,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0544f9249592634797d1a80f892ee3b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startingHealth: 1000
+  startingHealth: 10000
   healthBar: {fileID: 0}
   BossUI: {fileID: 0}
   gunRotate: {fileID: 0}
@@ -196,16 +196,16 @@ MonoBehaviour:
   pipeDmg: 150
   bulletPoolTag: EnemyBullet
   burstSizeMin: 20
-  burstSizeMax: 40
+  burstSizeMax: 30
   damage: 6
-  burstFireRate: 0.05
+  burstFireRate: 0.04
   fireRate: 3
   dispersion: 70
   disperionY: 20
   bulletSpeed: 800
   shootInFront: 1
   inFrontMultiplierMin: 0.3
-  inFrontMultiplierMax: 1.2
+  inFrontMultiplierMax: 1.4
   punchDamage: 45
   punchKnock: 100
   rangeToPunch: 6
