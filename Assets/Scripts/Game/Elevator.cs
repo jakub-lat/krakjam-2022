@@ -107,6 +107,7 @@ namespace Game
             if (other.gameObject.CompareTag("Player"))
             {
                 Open();
+                UpdateFloorText();
                 if (LevelManager.Current.CurrentLevel > 0)
                 {
                     RunScoreboardTasks();
