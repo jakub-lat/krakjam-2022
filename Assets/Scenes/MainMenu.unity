@@ -250,16 +250,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: MainMenuUI
       objectReference: {fileID: 0}
-    - target: {fileID: 6522448451656077343, guid: c47788870a3e8a64f87adac4de23b9e5,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6522448451909988011, guid: c47788870a3e8a64f87adac4de23b9e5,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 7353876971054847723, guid: c47788870a3e8a64f87adac4de23b9e5,
         type: 3}
       propertyPath: m_Alpha
