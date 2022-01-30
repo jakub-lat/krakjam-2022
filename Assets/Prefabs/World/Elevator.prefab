@@ -2552,6 +2552,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bossElevator: {fileID: 0}
   playerSpawn: {fileID: 799221834}
+  playerTransform: {fileID: 0}
+  cameraHolder: {fileID: 0}
   exitBlock: {fileID: 2173622567761178347}
   leftDoor: {fileID: 982835863}
   rightDoor: {fileID: 1759283283}
@@ -3016,12 +3018,12 @@ GameObject:
   - component: {fileID: 9074998912223125570}
   - component: {fileID: 8667152109536339131}
   - component: {fileID: 1759283283}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: DoorsR
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &9074998912223125581
 Transform:
@@ -3271,12 +3273,12 @@ GameObject:
   - component: {fileID: 9074998912543461631}
   - component: {fileID: 2941546396263294114}
   - component: {fileID: 982835863}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: DoorsL
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &9074998912543461630
 Transform:
