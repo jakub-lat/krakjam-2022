@@ -87,6 +87,11 @@ namespace Game
                 MovingUpIllusion(startWaitTime);
                 exitBlock.SetActive(false);
             }
+
+            if (LevelManager.Current.CurrentLevel == LevelManager.Current.levelCount)
+            {
+                GoToBoss();
+            }
         }
 
         private void Print(string text)
@@ -155,16 +160,7 @@ namespace Game
 
                 if (LevelManager.Current.CurrentLevel >= LevelManager.Current.levelCount) //last lvl
                 {
-                    playerTransform.parent = transform;
-
-                    transform.position = bossElevator.position;
-                    var diff = bossElevator.localEulerAngles - transform.localEulerAngles;
-                    transform.localEulerAngles += diff;
-
-                    playerTransform.parent = transform.parent.parent;
-                    cameraHolder.localEulerAngles += diff;
-
-                    transform.DOMove(bossElevator.position, 2f);
+                    GoToBoss();
                 }
 
                 floorText.rectTransform.DOAnchorPos(floorTextEndPos, animDuration)
@@ -178,6 +174,21 @@ namespace Game
             }).SetLink(this.gameObject);
         }
 
+        private void GoToBoss()
+        {
+            playerTransform.parent = transform;
+
+            transform.position = bossElevator.position;
+            var diff = bossElevator.localEulerAngles - transform.localEulerAngles;
+            transform.localEulerAngles += diff;
+
+            playerTransform.parent = transform.parent.parent;
+            cameraHolder.localEulerAngles += diff;
+
+            transform.DOMove(bossElevator.position, 2f);
+
+        }
+        
         private void NextLevel()
         {
             LevelManager.Current.NextLevel();
