@@ -67,6 +67,8 @@ public class Boss : MonoSingleton<Boss>
         bossBeforeFight.SetActive(false);
         bossFighting.SetActive(true);
         battle = true;
+
+        //ADD BOSSS MUSIC
     }
 
     private void Start()
