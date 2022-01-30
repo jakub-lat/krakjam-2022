@@ -12,6 +12,8 @@ namespace Game
     {
         [SerializeField] private Transform bossElevator;
         [SerializeField] private Transform playerSpawn;
+        [SerializeField] private Transform playerTransform;
+        [SerializeField] private Transform cameraHolder;
         [SerializeField] private GameObject exitBlock;
         [SerializeField] private NavMeshLink leftDoor, rightDoor;
         [SerializeField] private Transform doorsLeft, doorsRight;
@@ -153,20 +155,23 @@ namespace Game
                 MovingUpIllusion(startMovingDelay);
                 
                 Invoke(nameof(NextLevel), startMovingDelay / 2);
-                
+
+                if (LevelManager.Current.CurrentLevel >= LevelManager.Current.levelCount) //last lvl
+                {
+                    playerTransform.parent = transform;
+
+                    transform.position = bossElevator.position;
+                    transform.localEulerAngles = bossElevator.localEulerAngles;
+
+
+                    playerTransform.parent = transform.parent.parent;
+                }
+
                 floorText.rectTransform.DOAnchorPos(floorTextEndPos, animDuration)
                     .SetEase(Ease.OutCirc)
                     .SetDelay(startMovingDelay)
                     .OnComplete(() =>
                     {
-                        if(LevelManager.Current.CurrentLevel>=LevelManager.Current.levelCount) //last lvl
-                        {
-                            transform.position = bossElevator.position;
-                            transform.rotation = bossElevator.rotation;
-
-                           //PlayerInstance.Current.transform.parent.position=
-                        }
-
                         Print("floor text completed - opening");
                         Open();
                     }).SetLink(this.gameObject);

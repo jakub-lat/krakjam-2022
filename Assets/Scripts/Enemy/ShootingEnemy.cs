@@ -77,7 +77,7 @@ public class ShootingEnemy : EnemyAI
 
         if (!attacked)
         {
-            e.anim.SetTrigger(throwing ? "Throw" : "Shoot");
+            e.anim.SetTrigger((throwing ? "Throw" : "Shoot"));
 
             attacked = true;
 

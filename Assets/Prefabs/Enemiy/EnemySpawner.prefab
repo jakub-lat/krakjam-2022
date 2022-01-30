@@ -125,17 +125,17 @@ MonoBehaviour:
       shooting: 1
       health: 100
     psycho:
-      attackSpeed: 0.5
+      attackSpeed: 0.35
       attackDelay: 0
       knockback: 1
-      attackRange: 1.5
+      attackRange: 1.75
       followRange: 25
       fleeRange: -1
       fleeMultiplier: 5
       moveSpeed: 6
       fleeSpeed: 5
       flee: 0
-      damage: 15
+      damage: 20
       shooting: 0
       health: 100
   meleeShootingModeData:
