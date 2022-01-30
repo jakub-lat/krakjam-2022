@@ -105,6 +105,11 @@ namespace Player
             }
             else
             {
+                if (CurrentItem is MeleeWeapon)
+                {
+                    PlayerAnim.Current.ItemHit();
+                }
+                
                 CurrentItem.Use();
             }
         }
