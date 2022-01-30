@@ -90,7 +90,7 @@ MonoBehaviour:
       outWeight: 0.33333334
     - serializedVersion: 3
       time: 1
-      value: 2.5136907
+      value: 2.5
       inSlope: 0
       outSlope: 0
       tangentMode: 136
@@ -114,7 +114,7 @@ MonoBehaviour:
       outWeight: 0.33333334
     - serializedVersion: 3
       time: 1
-      value: 5.0318575
+      value: 6
       inSlope: 0
       outSlope: 0
       tangentMode: 136
@@ -124,13 +124,13 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  baseMeleeEnemyCount: 8
+  baseMeleeEnemyCount: 7
   meleeEnemyCountM: 0.2
-  baseShootingEnemyCount: 7
+  baseShootingEnemyCount: 4
   shootingEnemyCountM: 0.2
   baseElevatorMeleeEnemyCount: 0
   elevatorMeleeEnemyCountM: 0
-  baseElevatorShootingEnemyCount: 3
+  baseElevatorShootingEnemyCount: 2
   elevatorShootingEnemyCountM: 0.3
   shootingEnemy:
     healthM: 0.1

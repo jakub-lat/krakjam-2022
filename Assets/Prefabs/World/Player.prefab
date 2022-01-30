@@ -579,7 +579,7 @@ MonoBehaviour:
       moveSpeed:
         value: 4
         changeOverTime: -0.4
-        edgeValue: 1
+        edgeValue: 2.5
       sprintSpeed:
         value: 5.5
         changeOverTime: -0.2
