@@ -23,8 +23,12 @@ namespace Player
             {
                 if (value < health)
                 {
-                    
                     soundSource.PlayOneShot(soundController.GetRandomSoundFromRange());
+                }
+
+                if (value > health)
+                {
+                    DamageSpriteChanger.Current?.Blink();
                 }
 
                 health = Math.Min(value, maxHealth);
