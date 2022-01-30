@@ -453,6 +453,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scoreText: {fileID: 1694353881}
+  scaledUpText: {x: 1.2, y: 1.2, z: 1.2}
+  scaleEase: 29
+  scaleOutEase: 30
 --- !u!1 &443164039885641332
 GameObject:
   m_ObjectHideFlags: 0

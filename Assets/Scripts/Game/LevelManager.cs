@@ -71,9 +71,10 @@ namespace Game
             get => score;
             set
             {
+                int delta = value - score;
                 score = value;
                 GameScoreboard.Current.levelData.score = score;
-                ScoreUI.Current.SetScore(score);
+                ScoreUI.Current.SetScore(score, delta);
             }
         }
         
