@@ -14,4 +14,4 @@ Don't look at the source code pls it was written mostly at 3am and it's often a 
 
 ## Special thanks to
 * Pasi - for awesome SFX and voice acting
-* [Riminio](https://riminiomusic.com) - for the soundtrack
+* [Riminio](http://riminiomusic.com) - for the soundtrack
