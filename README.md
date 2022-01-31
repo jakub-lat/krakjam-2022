@@ -1,5 +1,5 @@
 # Bulletache
-A bullet-hell dynamic rougelike FPS about destroying an evil corporation.
+A bullet-hell dynamic roguelike FPS about destroying an evil corporation.
 
 It was made in 5 days for Krakjam 2022 (part of Global Game Jam). The theme was **Duality**.
 
