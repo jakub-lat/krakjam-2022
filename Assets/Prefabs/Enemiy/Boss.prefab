@@ -222,7 +222,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0544f9249592634797d1a80f892ee3b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startingHealth: 11000
+  startingHealth: 17000
   healthBar: {fileID: 0}
   BossUI: {fileID: 0}
   gunRotate: {fileID: 0}
@@ -233,20 +233,20 @@ MonoBehaviour:
   anim: {fileID: 70868674215079934}
   endCutsceneName: Ending
   pipeOverHealth: 3
-  pipeDmg: 300
-  bulletPoolTag: EnemyBullet
-  burstSizeMin: 20
-  burstSizeMax: 40
-  damage: 7.2
+  pipeDmg: 2300
+  bulletPoolTag: BossBullet
+  burstSizeMin: 30
+  burstSizeMax: 45
+  damage: 20
   burstFireRate: 0.04
-  fireRate: 3
-  dispersion: 70
-  disperionY: 20
-  bulletSpeed: 800
+  fireRate: 4
+  dispersion: 50
+  disperionY: 25
+  bulletSpeed: 600
   shootInFront: 1
-  inFrontMultiplierMin: 0.3
-  inFrontMultiplierMax: 1.2
-  punchDamage: 45
+  inFrontMultiplierMin: 0.6
+  inFrontMultiplierMax: 1.4
+  punchDamage: 50
   punchKnock: 100
   rangeToPunch: 6
   attack: {fileID: 22039026}
