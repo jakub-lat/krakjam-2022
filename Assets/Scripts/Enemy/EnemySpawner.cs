@@ -49,22 +49,11 @@ public class EnemySpawner : MonoSingleton<EnemySpawner>
         if (spawnedElevator) return;
 
         elevatorEnemiesTimer -= Time.deltaTime;
-        if (elevatorEnemiesTimer <= 0.1f)
-        {
-            Game.LevelManager.Current.startingElevator.Open();
-        }
-        if(elevatorEnemiesTimer<=0)
+        if (elevatorEnemiesTimer <= 0)
         {
             Instantiate(elevatorEnemies, transform);
             spawnedElevator = true;
-
-            Invoke(nameof(CloseElevator), 5f);
         }
-    }
-
-    void CloseElevator()
-    {
-        Game.LevelManager.Current.startingElevator.Close();
     }
 
     public void StartSpawning()

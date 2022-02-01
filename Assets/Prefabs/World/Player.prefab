@@ -165,7 +165,6 @@ GameObject:
   - component: {fileID: 4071760804872941608}
   - component: {fileID: 4071760804872941605}
   - component: {fileID: 4071760804872941610}
-  - component: {fileID: 4071760804872941611}
   - component: {fileID: 1780812968}
   m_Layer: 7
   m_Name: Body
@@ -239,20 +238,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!136 &4071760804872941611
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4071760804872941609}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.5
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &1780812968
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -809,7 +794,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 00bb805e3042ead4687fa6d298ab3fc6, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.861
+  m_Volume: 0.685
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -905,7 +890,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 4c86b5c23d9a87445bffd4971831fa8b, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.861
+  m_Volume: 0.7
   m_Pitch: 1
   Loop: 1
   Mute: 0

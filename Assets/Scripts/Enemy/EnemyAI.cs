@@ -44,11 +44,11 @@ public abstract class EnemyAI : MonoBehaviour
         RaycastHit hit2;
         float dist = Vector3.Distance(transform.position, player.transform.position);
 
-        Physics.Raycast(transform.position, player.transform.position, out hit2, default, attackMask);
+        Physics.Raycast(transform.position, player.transform.position, out hit2, default, attackMask, QueryTriggerInteraction.Ignore);
         if ((!hit2.transform || playerMask != (playerMask | (1 << hit2.transform.gameObject.layer))) && dist > followRange) return;
 
         
-        Physics.SphereCast(lookPoint.position, 0.1f, lookPoint.transform.forward /100, out hit, attackRange, attackMask);
+        Physics.SphereCast(lookPoint.position, 0.1f, lookPoint.transform.forward /100, out hit, attackRange, attackMask, QueryTriggerInteraction.Ignore);
 
         if (flee && dist<=fleeRange)
         {
