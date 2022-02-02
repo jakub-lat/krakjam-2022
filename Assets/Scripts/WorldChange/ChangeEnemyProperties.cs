@@ -105,7 +105,7 @@ public class ChangeEnemyProperties : WorldChangeLogic
         {
             if (g == null)
             {
-                continue;
+                print($"{g.name} was null, that's weird...");
             }
             SetShootingData(g, sd);
         }

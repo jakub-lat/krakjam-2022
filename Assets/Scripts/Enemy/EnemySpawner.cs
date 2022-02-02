@@ -109,7 +109,7 @@ public class EnemySpawner : MonoSingleton<EnemySpawner>
     public void KillAll()
     {
         transform.KillAllChildren();
-        shootingEnemies.Clear();
-        meleeEnemies.Clear();
+        shootingEnemies = new List<GameObject>();
+        meleeEnemies = new List<GameObject>();
     }
 }
