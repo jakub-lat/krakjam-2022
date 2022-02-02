@@ -14,7 +14,7 @@ public class MainMenuController : MonoBehaviour
     private LineRenderer lineRender = null;
 
     [SerializeField]
-    private Text pressKey = null;
+    private GameObject pressKey = null;
     private float basePositionLogo;
 
     [SerializeField]
@@ -104,7 +104,7 @@ public class MainMenuController : MonoBehaviour
 
         logo.gameObject.SetActive(true);
         background.gameObject.SetActive(true);
-        pressKey.gameObject.SetActive(false);
+        pressKey.SetActive(false);
 
         Sequence seq = DOTween.Sequence();
 

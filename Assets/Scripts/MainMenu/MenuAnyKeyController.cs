@@ -12,4 +12,9 @@ public class MenuAnyKeyController : MonoBehaviour
     {
         t.Invoke();
     }
+
+    public void OnPause()
+    {
+        Application.Quit(0);
+    }
 }
