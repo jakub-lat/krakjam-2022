@@ -2787,7 +2787,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 0, a: 1}
+  m_Color: {r: 1, g: 1, b: 0, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -2807,7 +2807,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "But I\u2019m not exactly sure how do they work..."
+  m_Text: 
 --- !u!222 &371353739
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3653,7 +3653,7 @@ PlayableDirector:
   m_InitialState: 1
   m_WrapMode: 2
   m_DirectorUpdateMode: 1
-  m_InitialTime: 70
+  m_InitialTime: 0
   m_SceneBindings:
   - key: {fileID: 685968446650599075, guid: ec696a250b7b8e84ca446ab7a3bd96ba, type: 2}
     value: {fileID: 0}
@@ -3707,6 +3707,7 @@ PlayableDirector:
     - 8981ed1aa94a97340bf4560cf0e02981: {fileID: 867966090}
     - 367ff4531a7331a4dbfa93546aa46b25: {fileID: 2037007817}
     - 83c73b9297b99564fa50ae93f816777d: {fileID: 386876967}
+    - af51e56e541bc5949baa43ffb9c8aa91: {fileID: 1692569091}
     - e8b271938e01d3449ab6a2f69c10034f: {fileID: 2134237127}
     - ccbf112b3b115814ca082bd7608f22a8: {fileID: 1692569091}
     - c69703f4e05fc714a818a75bd3dcedb3: {fileID: 750106729}
