@@ -43,6 +43,7 @@ public class MainMenuController : MonoBehaviour
     private Button optionsBtn = null;
     private Text optionsTxt = null;
 
+    private bool doOnce;
 
     protected void Awake()
     {
@@ -93,7 +94,11 @@ public class MainMenuController : MonoBehaviour
 
     public void OnPressedAny()
     {
-        
+        if (doOnce)
+        {
+            return;
+        }
+
         logo.position = new Vector2(logo.position.x, 1200);
         background.color = new Color(background.color.r, background.color.g, background.color.b, 0);
 
@@ -115,6 +120,7 @@ public class MainMenuController : MonoBehaviour
         seq.Insert(5.5f, musicSource.DOFade(0.1f, 7).SetEase(Ease.OutElastic));
 
         seq.SetLink(this.gameObject);
+        doOnce = true;
 
     }
 }
