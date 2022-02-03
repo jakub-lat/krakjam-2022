@@ -31,6 +31,6 @@ public class SubtitleTrackMixer : PlayableBehaviour
         }
 
         text.text = currentText;
-        text.color = new Color(1, 1, 1, currentAlpha);
+        text.color = new Color(text.color.r, text.color.g, text.color.b, currentAlpha);
     }
 }

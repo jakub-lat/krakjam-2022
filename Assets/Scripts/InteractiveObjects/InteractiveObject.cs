@@ -9,7 +9,6 @@ namespace InteractiveObjects
 
         public string interactionName;
 
-        [SerializeField] private AudioClip interactionSound;
         [SerializeField] private AudioSource source;
 
         protected abstract bool OnInteract();
@@ -17,7 +16,6 @@ namespace InteractiveObjects
         public void Interact()
         {
             var res = OnInteract();
-            if(interactionSound) source?.PlayOneShot(interactionSound);
             if (res && destroyAfterUse)
             {
                 Destroy(gameObject);

@@ -409,6 +409,17 @@
                     "action": "Any",
                     "isComposite": false,
                     "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "a0760cc3-3026-442b-9aaf-8b2753c9e9d5",
+                    "path": "<Mouse>/press",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "KeyboardMouse",
+                    "action": "Any",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         }
