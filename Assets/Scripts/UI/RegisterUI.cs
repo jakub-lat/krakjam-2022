@@ -100,12 +100,12 @@ public class RegisterUI : MonoBehaviour
 
     private void LoadScene()
     {
-        SceneManager.LoadScene("MainMenu");
+        SceneLoader.LoadScene("MainMenu");
     }
 
     public void Cancel()
     {
-        SceneManager.LoadScene("MainMenu");
+        SceneLoader.LoadScene("MainMenu");
     }
 
 }

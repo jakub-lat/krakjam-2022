@@ -67,7 +67,7 @@ public class MainMenuController : MonoBehaviour
     public void SelectGameMode(int gameMode)
     {
         PlayerPrefs.SetInt("GameMode", gameMode);
-        SceneManager.LoadScene("Intro");
+        SceneLoader.LoadScene("Intro");
     }
 
     public void OnQuit()

@@ -42,6 +42,6 @@ public class ChangeSceneAfterCutscene : MonoBehaviour
 
     private void Director_stopped(PlayableDirector obj)
     {
-        SceneManager.LoadScene(sceneName);
+        SceneLoader.LoadScene(sceneName);
     }
 }

@@ -18,6 +18,7 @@ namespace KrakJam2022.Player
         [SerializeField] private float addictionMaxTime;
         [SerializeField] private float addictionEffectsStartTime;
         [SerializeField] private float drugHealthBoost;
+        [SerializeField] private float subtractDrugHealthBoostBasedOnGameMode = 20;
 
         private bool IsOnDrugs => WorldTypeController.Current.CurrentWorldType == WorldTypeController.WorldType.Psycho;
         
@@ -54,7 +55,7 @@ namespace KrakJam2022.Player
             if (IsOnDrugs || currentDoses <= 0) return;
 
 
-            PlayerHealth.Current.Health += drugHealthBoost;
+            PlayerHealth.Current.Health += drugHealthBoost - ((int)LevelManager.Current.GameMode * subtractDrugHealthBoostBasedOnGameMode);
 
             soundSource.PlayOneShot(takeDrug);
             Invoke(nameof(PlaySensation), 1.5f);

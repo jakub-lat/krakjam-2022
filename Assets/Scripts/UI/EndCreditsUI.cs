@@ -41,12 +41,12 @@ namespace UI
 
         public void OnInteract()
         {
-            SceneManager.LoadScene(nextScene);
+            SceneLoader.LoadScene(nextScene);
         }
 
         public void OnPause()
         {
-            SceneManager.LoadScene(nextScene);
+            SceneLoader.LoadScene(nextScene);
         }
 
         private IEnumerator EndGameText()

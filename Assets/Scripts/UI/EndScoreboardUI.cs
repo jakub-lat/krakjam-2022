@@ -49,7 +49,7 @@ namespace UI
 
         public void MainMenu()
         {
-            SceneManager.LoadScene("MainMenu");
+            SceneLoader.LoadScene("MainMenu");
         }
 
         private string GetTitleText(string str)

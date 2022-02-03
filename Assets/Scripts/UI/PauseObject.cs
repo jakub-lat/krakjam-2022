@@ -67,13 +67,13 @@ public class PauseObject : MonoSingleton<PauseObject>
     public void OnQuit()
     {
         Time.timeScale = 1;
-        SceneManager.LoadScene("MainMenu");
+        SceneLoader.LoadScene("MainMenu");
     }
 
     public void OnRevive()
     {
         Time.timeScale = 1;
-        SceneManager.LoadScene("Game");
+        SceneLoader.LoadScene("Game");
     }
 
     public void OnOutOptions()

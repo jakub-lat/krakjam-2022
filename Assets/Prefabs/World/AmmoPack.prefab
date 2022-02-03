@@ -52,7 +52,7 @@ MonoBehaviour:
   interactionName: Ammo Pack
   interactionSound: {fileID: 0}
   source: {fileID: 0}
-  amount: 30
+  amount: 15
 --- !u!114 &165399853870800424
 MonoBehaviour:
   m_ObjectHideFlags: 0
