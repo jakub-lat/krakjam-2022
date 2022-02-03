@@ -69,7 +69,7 @@ namespace Scoreboard
         private void RenderRow(GameRunLevel x, bool isCurrent)
         {
             idCol.text += "\n" + Colorize(x.position.ToString(), isCurrent);
-            nameCol.text += "\n" + Colorize(Truncate(x.player.name.ToUpper(), 15), isCurrent);
+            nameCol.text += "\n" + Colorize(Truncate(x.player?.name.ToUpper() ?? "", 12), isCurrent);
             scoreCol.text += "\n" + Colorize(x.score.ToString(), isCurrent);
             timeCol.text += "\n" + Colorize(TimeSpan.FromSeconds(x.endTime - x.startTime).ToString(@"mm\:ss"), isCurrent);
             // headshotsCol.text += "\n" + Colorize(x.headshots.ToString(), isCurrent);
@@ -89,7 +89,10 @@ namespace Scoreboard
             foreach (var x in data.others.GetRange(0, Math.Min(15, data.others.Count)))
             {
                 var isCurrent = x.playerID == GameScoreboard.Current.runData.playerID;
-                wasCurrent = isCurrent;
+                if (isCurrent)
+                {
+                    wasCurrent = true;
+                }
                 RenderRow(x, isCurrent);
             }
 

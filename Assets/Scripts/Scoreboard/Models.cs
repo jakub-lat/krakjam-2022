@@ -24,7 +24,7 @@ namespace Scoreboard
         public long id;
         public string name;
         public string token;
-        public List<GameRun> gameRuns;
+        // public List<GameRun> gameRuns;
     }
 
     [Serializable]

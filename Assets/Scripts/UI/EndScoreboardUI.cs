@@ -92,7 +92,10 @@ namespace UI
             foreach (var x in data.others.GetRange(0, Math.Min(15, data.others.Count)))
             {
                 var isCurrent = x.playerID == data.player.playerID;
-                wasCurrent = isCurrent;
+                if (isCurrent)
+                {
+                    wasCurrent = true;
+                }
                 RenderRow(x, isCurrent);
             }
 
