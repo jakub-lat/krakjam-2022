@@ -1,4 +1,6 @@
-﻿using InteractiveObjects;
+﻿using System;
+using System.Linq;
+using InteractiveObjects;
 using Player;
 using UnityEngine;
 
@@ -9,6 +11,9 @@ namespace UsableItems
     {
         public Vector3 rotationOffset;
         public Vector3 positionOffset;
+
+        public float throwDamage = 10f;
+        public float throwHeadshotDamage = 15f;
         
         public abstract void Use();
 
@@ -18,6 +23,11 @@ namespace UsableItems
 
         public virtual void OnDrop()
         {
+        }
+
+        private void OnCollisionEnter(Collision other)
+        {
+            EnemyDamageUtils.EnemyDamage(other, throwDamage, throwHeadshotDamage, 0);
         }
 
         protected override bool OnInteract()

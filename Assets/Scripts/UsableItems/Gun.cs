@@ -182,61 +182,9 @@ namespace UsableItems
                         trailDurationMultiplier * Vector3.Distance(trail.transform.position, hit.point))
                     .SetLink(gameObject);
 
-                var damageRandom = Random.Range(-damageRandomness, damageRandomness);
-
-                if (hit.collider.gameObject.CompareTag("Enemy"))
-                {
-                    var dmg = damage + damageRandom;
-
-                    if(hit.transform.GetComponentInParent<Enemy>()) //its a normal enemy
-                    {
-                        Enemy enemy = hit.transform.GetComponentInParent<Enemy>();
-                        enemy.GotHit(dmg);
-                        enemy.EnemySource.PlayOneShot(enemySoundController.GetRandomSoundFromRange());
-                    } else if (hit.transform.GetComponentInParent<Boss>()) //its a boss
-                    {
-                        Boss boss = hit.transform.GetComponentInParent<Boss>();
-                        boss.GotHit(dmg);
-                        boss.BossSource.PlayOneShot(bossSoundController.GetRandomSoundFromRange());
-                    }
-                    else
-                    {
-                        Debug.LogError("Enemy doesnt have a enemy or boss component");
-                    }
-                    
-                    HitmarkManager.Current.GetNormalHit();
-                    PopupManager.Current.SpawnStandardDamage(hit.transform, (int)dmg);
-                    GameObject particle = ObjectPooler.Current.SpawnPool(hitParticlePoolingTag, hit.point,
-                        Quaternion.LookRotation(hit.normal));
-                }
-                else if (hit.collider.gameObject.CompareTag("EnemyHead"))
-                {
-                    var dmg = headshotDamage + damageRandom;
-                    LevelManager.Current.Score += LevelManager.Current.headshotScore;
-                    
-                    if (hit.transform.GetComponentInParent<Enemy>()) //its a normal enemy
-                    {
-                        Enemy enemy = hit.transform.GetComponentInParent<Enemy>();
-                        enemy.GotHit(dmg);
-                        enemy.EnemySource.PlayOneShot(headshot);
-                    }
-                    else if (hit.transform.GetComponentInParent<Boss>()) //its a boss
-                    {
-                        Boss boss = hit.transform.GetComponentInParent<Boss>();
-                        boss.GotHit(dmg);
-                        boss.BossSource.PlayOneShot(headshot);
-                    }
-                    else
-                    {
-                        Debug.LogError("Enemy doesnt have a enemy or boss component");
-                    }
-
-                    PopupManager.Current.SpawnHeadshotDamage(hit.transform, (int)dmg);
-                    HitmarkManager.Current.GetHeadshotHit();
-                    GameObject particle = ObjectPooler.Current.SpawnPool(hitParticlePoolingTag, hit.point,
-                        Quaternion.LookRotation(hit.normal));
-                    Scoreboard.GameScoreboard.Current.levelData.headshots++;
-                } else if (hit.collider.gameObject.CompareTag("Pipe"))
+                EnemyDamageUtils.EnemyDamage(hit, damage, headshotDamage, damageRandomness, (isHeadshot) => isHeadshot ? headshot : enemySoundController.GetRandomSoundFromRange());
+                
+                if (hit.collider.gameObject.CompareTag("Pipe"))
                 {
                     if (hit.transform.GetComponent<Pipe>().Hit())
                     {

@@ -1,6 +1,7 @@
 using Cyberultimate.Unity;
 using System.Collections;
 using System.Collections.Generic;
+using DefaultNamespace.Enemy;
 using Game;
 using Scoreboard;
 using UI;
@@ -8,7 +9,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class Boss : MonoSingleton<Boss>
+public class Boss : MonoSingleton<Boss>, IEnemy
 {
     private bool battle = false;
     private bool dead = false;
@@ -173,6 +174,11 @@ public class Boss : MonoSingleton<Boss>
             BossPipe.Current.NextPipe();
         }
         healthBar.fillAmount = health/ startingHealth;
+    }
+
+    public void PlaySound(AudioClip clip)
+    {
+        BossSource.PlayOneShot(clip);
     }
 
     private void LoadCutscene()

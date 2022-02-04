@@ -1,9 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
+using DefaultNamespace.Enemy;
 using Game;
 using UnityEngine;
 
-public class Enemy : MonoBehaviour
+public class Enemy : MonoBehaviour, IEnemy
 {
     public Animator anim;
     private EnemyAI ai;
@@ -68,6 +69,11 @@ public class Enemy : MonoBehaviour
 
         gotHit = true;
         anim.SetTrigger(Damage);
+    }
+
+    public void PlaySound(AudioClip clip)
+    {
+        EnemySource.PlayOneShot(clip);
     }
 
     public void HitEnd()

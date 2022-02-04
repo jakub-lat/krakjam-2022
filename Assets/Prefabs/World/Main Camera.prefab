@@ -157,7 +157,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pickupTransitionDuration: 0.4
-  throwItemForce: 8
+  throwItemForce: 20
   fist: {fileID: 3514335162233912470}
   attackLayerMask:
     serializedVersion: 2
@@ -207,10 +207,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   destroyAfterUse: 0
   interactionName: 
-  interactionSound: {fileID: 0}
   source: {fileID: 0}
   rotationOffset: {x: 0, y: 0, z: 0}
   positionOffset: {x: 0, y: 0, z: 0}
+  throwDamage: 0
+  throwHeadshotDamage: 0
   damage: 20
   distance: 4
   cooldownTime: 0.5

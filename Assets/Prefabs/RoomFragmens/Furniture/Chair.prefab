@@ -164,6 +164,8 @@ MonoBehaviour:
   source: {fileID: 0}
   rotationOffset: {x: -112.62, y: 43.9, z: -407.07}
   positionOffset: {x: 0.217, y: -0.7, z: 0.32}
+  throwDamage: 15
+  throwHeadshotDamage: 20
   damage: 140
   distance: 4
   cooldownTime: 2

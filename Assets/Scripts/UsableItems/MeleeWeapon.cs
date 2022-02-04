@@ -41,51 +41,7 @@ namespace UsableItems
             if (Physics.Raycast(CameraHelper.MainCamera.transform.position, CameraHelper.MainCamera.transform.forward,
                 out var hit, distance, HandController.Current.attackLayerMask, QueryTriggerInteraction.Ignore))
             {
-                if (hit.collider.CompareTag("Enemy"))
-                {
-                    if (hit.transform.GetComponentInParent<Enemy>()) //its a normal enemy
-                    {
-                        Enemy enemy = hit.transform.GetComponentInParent<Enemy>();
-                        enemy.GotHit(damage);
-                    }
-                    else if (hit.transform.GetComponentInParent<Boss>()) //its a boss
-                    {
-                        Boss boss = hit.transform.GetComponentInParent<Boss>();
-                        boss.GotHit(damage);
-                    }
-                    else
-                    {
-                        Debug.LogError("Enemy doesnt have a enemy or boss component");
-                    }
-                    
-                    closeFightSource.PlayOneShot(hitSound);
-
-                    HitmarkManager.Current.GetNormalHit();
-                    PopupManager.Current.SpawnStandardDamage(hit.transform.parent, damage);
-                }
-                else if (hit.collider.gameObject.CompareTag("EnemyHead"))
-                {
-                    if (hit.transform.GetComponentInParent<Enemy>()) //its a normal enemy
-                    {
-                        Enemy enemy = hit.transform.GetComponentInParent<Enemy>();
-                        enemy.GotHit(damage*critMultiplier);
-                    }
-                    else if (hit.transform.GetComponentInParent<Boss>()) //its a boss
-                    {
-                        Boss boss = hit.transform.GetComponentInParent<Boss>();
-                        boss.GotHit(damage * critMultiplier);
-                    }
-                    else
-                    {
-                        Debug.LogError("Enemy doesnt have a enemy or boss component");
-                    }
-
-                    HitmarkManager.Current.GetHeadshotHit();
-                    closeFightSource.PlayOneShot(hitSound);
-                    PopupManager.Current.SpawnHeadshotDamage(hit.transform.parent, (int)(damage * critMultiplier));
-                }
-
-                // todo animation
+                EnemyDamageUtils.EnemyDamage(hit, damage, damage * critMultiplier, 0, (_) => hitSound);
             }
 
         }
