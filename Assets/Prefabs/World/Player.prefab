@@ -365,7 +365,7 @@ MonoBehaviour:
   JumpTimeout: 0.1
   FallTimeout: 0.15
   GroundedOffset: -0.14
-  GroundedRadius: 0.5
+  GroundedRadius: 0.7
   GroundLayers:
     serializedVersion: 2
     m_Bits: 8
@@ -533,9 +533,9 @@ MonoBehaviour:
   addictionMaxTime: 120
   addictionEffectsStartTime: 100
   drugHealthBoost: 100
+  subtractDrugHealthBoostBasedOnGameMode: 20
   soundSource: {fileID: 207403016}
   takeDrug: {fileID: 8300000, guid: 5825c3037a16bf548880a81d4b199bd8, type: 3}
-  sensation: {fileID: 8300000, guid: 0778ea6b7e4cf894283aed73917cebd4, type: 3}
 --- !u!114 &3847468548162195743
 MonoBehaviour:
   m_ObjectHideFlags: 0

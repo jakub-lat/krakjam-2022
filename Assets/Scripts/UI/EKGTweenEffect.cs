@@ -22,14 +22,8 @@ public class EKGTweenEffect : MonoBehaviour
     [SerializeField]
     private float delay;
 
-    [SerializeField]
     private bool dead = false;
 
-    private float stableY;
-
-    private bool doOnce;
-    // y = 1
-    // xMultiply = 10000
     protected void Draw()
     {
         lineRenderer.positionCount = points;

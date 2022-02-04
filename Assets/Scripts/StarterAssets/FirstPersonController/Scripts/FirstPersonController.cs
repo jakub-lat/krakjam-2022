@@ -192,7 +192,6 @@ namespace StarterAssets
 
         private void Run()
         {
-            //print(_input.sprint);
             if (_input.sprint && !_input.crouch)
             {
                 targetSpeed = SprintSpeed;
@@ -215,12 +214,11 @@ namespace StarterAssets
                     if (_speed > SprintSpeed / 2)
                     {
                         targetSpeed = SlideSpeed;
-                        print("sliding!");
+
                         push.strength *= slideForce;
 
                         if ((Time.time > cooldownSlideValue))
                         {
-                            print("stop slide");
                             targetSpeed = crouchSpeed;
                         }
 

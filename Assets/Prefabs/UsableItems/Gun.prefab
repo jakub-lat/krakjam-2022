@@ -221,6 +221,7 @@ GameObject:
   - component: {fileID: 4817611201024564784}
   - component: {fileID: 4817611201024564783}
   - component: {fileID: 4817611201024564786}
+  - component: {fileID: 2032084425820198155}
   m_Layer: 0
   m_Name: WorldUI
   m_TagString: Untagged
@@ -324,6 +325,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   infoText: {fileID: 4817611200713626910}
+--- !u!225 &2032084425820198155
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4817611201024564781}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &4817611201125324046
 GameObject:
   m_ObjectHideFlags: 0
@@ -5264,7 +5277,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   destroyAfterUse: 0
   interactionName: Gun
-  interactionSound: {fileID: 0}
   source: {fileID: 0}
   rotationOffset: {x: 0, y: 0, z: 0}
   positionOffset: {x: 0, y: 0, z: 0}
