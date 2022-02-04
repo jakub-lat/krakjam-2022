@@ -168,10 +168,12 @@ namespace Game
 
             EnemySpawner.Current.KillAll();
 
+            /*
             EnemySpawner.Current.meleeEnemyAmount = (baseMeleeEnemyCount + (int)(baseMeleeEnemyCount * levelDifficulty * meleeEnemyCountM));
             EnemySpawner.Current.shootingEnemyAmount = (baseShootingEnemyCount + (int)(baseShootingEnemyCount * levelDifficulty * shootingEnemyCountM));
             EnemySpawner.Current.elevatorMeleeEnemyAmount = (baseElevatorMeleeEnemyCount + (int)(baseElevatorMeleeEnemyCount * levelDifficulty * elevatorMeleeEnemyCountM));
             EnemySpawner.Current.elevatorShootingEnemyAmount = (baseElevatorShootingEnemyCount + (int)(baseElevatorShootingEnemyCount * levelDifficulty * elevatorShootingEnemyCountM));
+            */
 
             EnemySpawner.Current.StartSpawning();
 
