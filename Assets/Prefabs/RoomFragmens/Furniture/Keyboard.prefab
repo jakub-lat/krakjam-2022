@@ -162,7 +162,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   destroyAfterUse: 0
   interactionName: Keyboard
-  interactionSound: {fileID: 0}
   source: {fileID: 0}
   rotationOffset: {x: 6.065, y: -142.27, z: 70}
   positionOffset: {x: -0.113, y: 0.04, z: -0.175}
@@ -171,8 +170,7 @@ MonoBehaviour:
   cooldownTime: 1
   critMultiplier: 1.7
   closeFightSource: {fileID: 0}
-  fistPunch: {fileID: 0}
-  itemPunch: {fileID: 0}
+  hitSound: {fileID: 0}
 --- !u!114 &5482504043265140913
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -203,4 +201,6 @@ MonoBehaviour:
   multipleMaterials:
     normal: []
     psycho: []
+  useGlobalMaterial: 1
+  globalMaterialType: 3
   meshRenderer: {fileID: 0}

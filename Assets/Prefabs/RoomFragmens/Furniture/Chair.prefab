@@ -161,7 +161,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   destroyAfterUse: 0
   interactionName: chair
-  interactionSound: {fileID: 0}
   source: {fileID: 0}
   rotationOffset: {x: -112.62, y: 43.9, z: -407.07}
   positionOffset: {x: 0.217, y: -0.7, z: 0.32}
@@ -170,8 +169,7 @@ MonoBehaviour:
   cooldownTime: 2
   critMultiplier: 1.7
   closeFightSource: {fileID: 0}
-  fistPunch: {fileID: 0}
-  itemPunch: {fileID: 0}
+  hitSound: {fileID: 0}
 --- !u!114 &4487137688776293597
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -190,4 +188,6 @@ MonoBehaviour:
   multipleMaterials:
     normal: []
     psycho: []
+  useGlobalMaterial: 1
+  globalMaterialType: 3
   meshRenderer: {fileID: 0}

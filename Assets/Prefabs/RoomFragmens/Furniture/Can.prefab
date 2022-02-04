@@ -140,6 +140,12 @@ MonoBehaviour:
   materials:
     normal: {fileID: 2100000, guid: 0a7a0ee17ddcb9042a335bd19fad48da, type: 2}
     psycho: {fileID: 2100000, guid: f6ab6992039257b4db248a01bc35a1f1, type: 2}
+  multipleMaterials:
+    normal: []
+    psycho: []
+  useGlobalMaterial: 1
+  globalMaterialType: 3
+  meshRenderer: {fileID: 0}
 --- !u!114 &5279971593878249671
 MonoBehaviour:
   m_ObjectHideFlags: 0

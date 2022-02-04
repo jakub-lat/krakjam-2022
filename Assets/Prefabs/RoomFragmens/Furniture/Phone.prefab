@@ -178,6 +178,12 @@ MonoBehaviour:
   materials:
     normal: {fileID: 2100000, guid: 863339fb8c0a6b946a41dd247c73964b, type: 2}
     psycho: {fileID: 2100000, guid: f6ab6992039257b4db248a01bc35a1f1, type: 2}
+  multipleMaterials:
+    normal: []
+    psycho: []
+  useGlobalMaterial: 1
+  globalMaterialType: 3
+  meshRenderer: {fileID: 0}
 --- !u!1 &3661718254328471167 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3099109876245215654, guid: 211adc6398398844dab4a07352a21dc9,
@@ -229,3 +235,9 @@ MonoBehaviour:
   materials:
     normal: {fileID: 2100000, guid: 863339fb8c0a6b946a41dd247c73964b, type: 2}
     psycho: {fileID: 2100000, guid: f6ab6992039257b4db248a01bc35a1f1, type: 2}
+  multipleMaterials:
+    normal: []
+    psycho: []
+  useGlobalMaterial: 1
+  globalMaterialType: 3
+  meshRenderer: {fileID: 0}

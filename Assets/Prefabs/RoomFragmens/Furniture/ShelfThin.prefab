@@ -179,6 +179,12 @@ MonoBehaviour:
   materials:
     normal: {fileID: 2100000, guid: 68d6b0a721d286c47b42118c3d2e4a16, type: 2}
     psycho: {fileID: 2100000, guid: f6ab6992039257b4db248a01bc35a1f1, type: 2}
+  multipleMaterials:
+    normal: []
+    psycho: []
+  useGlobalMaterial: 1
+  globalMaterialType: 3
+  meshRenderer: {fileID: 0}
 --- !u!1 &2502345848007679628 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: d7a062e822066724794107c7611c4f53,
@@ -232,6 +238,12 @@ MonoBehaviour:
   materials:
     normal: {fileID: 2100000, guid: 68d6b0a721d286c47b42118c3d2e4a16, type: 2}
     psycho: {fileID: 2100000, guid: f6ab6992039257b4db248a01bc35a1f1, type: 2}
+  multipleMaterials:
+    normal: []
+    psycho: []
+  useGlobalMaterial: 1
+  globalMaterialType: 3
+  meshRenderer: {fileID: 0}
 --- !u!1 &2970905700882090160 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 522894079535901549, guid: d7a062e822066724794107c7611c4f53,
@@ -267,6 +279,12 @@ MonoBehaviour:
   materials:
     normal: {fileID: 2100000, guid: 68d6b0a721d286c47b42118c3d2e4a16, type: 2}
     psycho: {fileID: 2100000, guid: f6ab6992039257b4db248a01bc35a1f1, type: 2}
+  multipleMaterials:
+    normal: []
+    psycho: []
+  useGlobalMaterial: 1
+  globalMaterialType: 3
+  meshRenderer: {fileID: 0}
 --- !u!1 &4097043713660859955 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -7592813784559364626, guid: d7a062e822066724794107c7611c4f53,
@@ -302,6 +320,12 @@ MonoBehaviour:
   materials:
     normal: {fileID: 2100000, guid: 68d6b0a721d286c47b42118c3d2e4a16, type: 2}
     psycho: {fileID: 2100000, guid: f6ab6992039257b4db248a01bc35a1f1, type: 2}
+  multipleMaterials:
+    normal: []
+    psycho: []
+  useGlobalMaterial: 1
+  globalMaterialType: 3
+  meshRenderer: {fileID: 0}
 --- !u!1 &7120466943145256739 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5524664875624908030, guid: d7a062e822066724794107c7611c4f53,
@@ -337,6 +361,12 @@ MonoBehaviour:
   materials:
     normal: {fileID: 2100000, guid: 68d6b0a721d286c47b42118c3d2e4a16, type: 2}
     psycho: {fileID: 2100000, guid: f6ab6992039257b4db248a01bc35a1f1, type: 2}
+  multipleMaterials:
+    normal: []
+    psycho: []
+  useGlobalMaterial: 1
+  globalMaterialType: 3
+  meshRenderer: {fileID: 0}
 --- !u!1 &8501706411428946541 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6595336336750985648, guid: d7a062e822066724794107c7611c4f53,
@@ -372,3 +402,9 @@ MonoBehaviour:
   materials:
     normal: {fileID: 2100000, guid: 68d6b0a721d286c47b42118c3d2e4a16, type: 2}
     psycho: {fileID: 2100000, guid: f6ab6992039257b4db248a01bc35a1f1, type: 2}
+  multipleMaterials:
+    normal: []
+    psycho: []
+  useGlobalMaterial: 1
+  globalMaterialType: 3
+  meshRenderer: {fileID: 0}
