@@ -15,6 +15,7 @@ public class EnemyAnim : MonoBehaviour
     public void Kaput()
     {
         transform.parent.gameObject.SetActive(false);
+        gameObject.SetActive(false);
     }
 
     public void EndHit()
