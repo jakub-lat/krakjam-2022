@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using System;
+using QuickOutline;
+using UnityEngine;
 
 namespace InteractiveObjects
 {
@@ -10,6 +12,17 @@ namespace InteractiveObjects
         public string interactionName;
 
         [SerializeField] private AudioSource source;
+
+        private void Start()
+        {
+            // if (gameObject.name.ToLower().Contains("gun"))
+            // {
+            //     var outline = gameObject.AddComponent<Outline>();
+            //     outline.OutlineColor = Color.red;
+            //     outline.OutlineWidth = 5f;
+            // }
+            // outline.OutlineMode = Outline.Mode.OutlineVisible;
+        }
 
         protected abstract bool OnInteract();
 
