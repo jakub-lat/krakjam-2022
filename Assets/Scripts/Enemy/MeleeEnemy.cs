@@ -10,6 +10,8 @@ public class MeleeEnemy : EnemyAI
     public float knockback = 1f;
     public float damage = 10f;
 
+    public float chaseOffset = 0.2f;
+
     public MeleeAttack meleeEnemyScript;
 
     private new void Start()
@@ -32,7 +34,7 @@ public class MeleeEnemy : EnemyAI
     {
         base.Chase();
 
-        agent.SetDestination(player.position + (transform.position-player.position).normalized*attackRange);
+        agent.SetDestination(player.position + (transform.position-player.position).normalized*chaseOffset);
     }
 
     protected override void Attack() 

@@ -24,6 +24,9 @@ public class Enemy : MonoBehaviour, IEnemy
     [SerializeField] private FootstepSoundController damageSounds;
     [SerializeField] private AudioClip headshotSound;
 
+    private static readonly int IsWalking = Animator.StringToHash("IsWalking");
+    private static readonly int IsRunning = Animator.StringToHash("IsRunning");
+
     private void Start()
     {
         //anim = GetComponentInChildren<Animator>();
@@ -58,6 +61,9 @@ public class Enemy : MonoBehaviour, IEnemy
             dead = true;
             myHead.tag = "Untagged";
             myBody.tag = "Untagged";
+
+            anim.SetBool(IsWalking, false);
+            anim.SetBool(IsRunning, false);
 
             anim.SetTrigger(Die);
 
