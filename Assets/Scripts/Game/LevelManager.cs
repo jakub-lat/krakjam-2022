@@ -19,11 +19,11 @@ namespace Game
     [Serializable]
     public class EnemyDifficultyMultiplier
     {
-        public float healthM = 0.1f;
-        public float damageM = 0.2f;
-        public float speedM = 0.2f;
-        public float attackRangeM = 0.4f;
-        public float attackSpeedM = 0.5f;
+        public AnimationCurve health;
+        public AnimationCurve damage;
+        public AnimationCurve speed;
+        public AnimationCurve attackRange;
+        public AnimationCurve attackSpeed;
     }
 
     public class LevelManager : MonoSingleton<LevelManager>
@@ -45,15 +45,7 @@ namespace Game
         [SerializeField] private AnimationCurve difficultyCurveEasy;
         [SerializeField] private AnimationCurve difficultyCurveNormal;
         [SerializeField] private AnimationCurve difficultyCurveHard;
-        [SerializeField] private int baseMeleeEnemyCount = 4;
-        [SerializeField] private float meleeEnemyCountM = 0.3f;
-        [SerializeField] private int baseShootingEnemyCount = 4;
-        [SerializeField] private float shootingEnemyCountM = 0.3f;
 
-        [SerializeField] private int baseElevatorMeleeEnemyCount = 1;
-        [SerializeField] private float elevatorMeleeEnemyCountM = 0.2f;
-        [SerializeField] private int baseElevatorShootingEnemyCount = 1;
-        [SerializeField] private float elevatorShootingEnemyCountM = 0.6f;
         public EnemyDifficultyMultiplier shootingEnemy;
         public EnemyDifficultyMultiplier meleeEnemy;
 
@@ -167,13 +159,6 @@ namespace Game
             startingElevator.elevatorRemover.Remove();
 
             EnemySpawner.Current.KillAll();
-
-            /*
-            EnemySpawner.Current.meleeEnemyAmount = (baseMeleeEnemyCount + (int)(baseMeleeEnemyCount * levelDifficulty * meleeEnemyCountM));
-            EnemySpawner.Current.shootingEnemyAmount = (baseShootingEnemyCount + (int)(baseShootingEnemyCount * levelDifficulty * shootingEnemyCountM));
-            EnemySpawner.Current.elevatorMeleeEnemyAmount = (baseElevatorMeleeEnemyCount + (int)(baseElevatorMeleeEnemyCount * levelDifficulty * elevatorMeleeEnemyCountM));
-            EnemySpawner.Current.elevatorShootingEnemyAmount = (baseElevatorShootingEnemyCount + (int)(baseElevatorShootingEnemyCount * levelDifficulty * elevatorShootingEnemyCountM));
-            */
 
             EnemySpawner.Current.StartSpawning();
 

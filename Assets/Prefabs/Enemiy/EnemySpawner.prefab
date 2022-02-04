@@ -45,12 +45,104 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5039aead7547c5049b40e9649158d090, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minRangeFromPlayer: 45
+  shootingEnemyCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 3.5501323
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 7.1023912
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  meleeEnemyCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 5.923823
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 9.476082
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  elevatorShootingEnemyCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 2.0085282
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 5.1290174
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  elevatorMeleeEnemyCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0.119267225
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0.119267225
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
   posY: 2
-  shootingEnemyAmount: 5
-  meleeEnemyAmount: 7
-  elevatorShootingEnemyAmount: 2
-  elevatorMeleeEnemyAmount: 1
+  minRangeFromPlayer: 45
   elevatorEnemiesTime: 20
   elevatorEnemies: {fileID: 4224456082400782636, guid: 66618cc24177e9045a3972843a05ca79,
     type: 3}
@@ -141,7 +233,7 @@ MonoBehaviour:
   meleeShootingModeData:
     bulletPoolTag: WorkerBullet
     attackSpeed: 2
-    shootDelay: 0.3
+    shootDelay: 0.12
     bulletSpeed: 300
     magazineSize: 6
     reloadSpeed: 3

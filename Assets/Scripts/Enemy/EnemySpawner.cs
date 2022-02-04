@@ -86,7 +86,6 @@ public class EnemySpawner : MonoSingleton<EnemySpawner>
 
     private void Start()
     {
-        // StartSpawning(); //to change
         changeProps = GetComponent<ChangeEnemyProperties>();
         changeProps.UpdateEnemies(WorldTypeController.WorldType.Normal);
     }
