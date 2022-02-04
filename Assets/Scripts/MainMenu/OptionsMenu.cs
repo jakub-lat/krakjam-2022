@@ -14,6 +14,7 @@ public class OptionsMenu : MonoSingleton<OptionsMenu>
     private const string SoundVolumeKey = "SoundVolume";
     private const string MasterVolumeKey = "MasterVolume";
     private const string VoiceVolumeKey = "VoiceVolume";
+    private const string QualityKey = "GraphicsQuality";
 
     [SerializeField]
     private Dropdown qualityDropdown = null;
@@ -106,7 +107,8 @@ public class OptionsMenu : MonoSingleton<OptionsMenu>
         SoundVolume = PlayerPrefs.HasKey(SoundVolumeKey) ? PlayerPrefs.GetFloat (SoundVolumeKey) : SoundVolume;
         MasterVolume = PlayerPrefs.HasKey(MasterVolumeKey) ? PlayerPrefs.GetFloat(MasterVolumeKey) : MasterVolume;
         VoiceVolume = PlayerPrefs.HasKey(VoiceVolumeKey) ? PlayerPrefs.GetFloat(VoiceVolumeKey) : VoiceVolume;
-        
+        QualitySettings.SetQualityLevel(PlayerPrefs.HasKey(QualityKey) ? PlayerPrefs.GetInt(QualityKey) : 2);
+
         qualityDropdown.SetValueWithoutNotify(QualitySettings.GetQualityLevel());
         sensitivitySlider.value = SensitivityMouse;
         musicSlider.value = MusicVolume;
@@ -118,6 +120,7 @@ public class OptionsMenu : MonoSingleton<OptionsMenu>
     public void SetQuality(int qualityIndex)
     {
         QualitySettings.SetQualityLevel(qualityIndex);
+        PlayerPrefs.SetInt(QualityKey, qualityIndex);
     }
 
     public void SetSensitivity(float newSans) // Undertale reference
