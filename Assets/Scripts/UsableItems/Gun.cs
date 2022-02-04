@@ -45,22 +45,13 @@ namespace UsableItems
 
         [SerializeField]
         private AudioClip pickup;
-
-        [SerializeField]
-        private AudioClip headshot = null;
-
+        
         [SerializeField]
         private AudioClip noAmmo = null;
 
         [SerializeField]
         private AudioSource gunSource = null;
-
-        [SerializeField]
-        private FootstepSoundController enemySoundController = null;
-
-        [SerializeField]
-        private FootstepSoundController bossSoundController = null;
-
+        
         private float gunSourceOriginalVolume;
             
         private float trailDurationMultiplier => 10 / trailSpeed;
@@ -182,7 +173,7 @@ namespace UsableItems
                         trailDurationMultiplier * Vector3.Distance(trail.transform.position, hit.point))
                     .SetLink(gameObject);
 
-                EnemyDamageUtils.EnemyDamage(hit, damage, headshotDamage, damageRandomness, (isHeadshot) => isHeadshot ? headshot : enemySoundController.GetRandomSoundFromRange());
+                EnemyDamageUtils.EnemyDamage(hit, damage, headshotDamage, damageRandomness);
                 
                 if (hit.collider.gameObject.CompareTag("Pipe"))
                 {

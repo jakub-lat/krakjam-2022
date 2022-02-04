@@ -186,6 +186,7 @@ GameObject:
   - component: {fileID: 6929658065974969853}
   - component: {fileID: 1832353734658663969}
   - component: {fileID: 3277103809861077350}
+  - component: {fileID: 7811501518217044102}
   m_Layer: 0
   m_Name: Boss
   m_TagString: Untagged
@@ -251,6 +252,8 @@ MonoBehaviour:
   rangeToPunch: 6
   attack: {fileID: 22039026}
   bossSource: {fileID: 3277103809861077350}
+  damageSounds: {fileID: 7811501518217044102}
+  headshotSound: {fileID: 8300000, guid: 4b8880bd0fbfa784494359f453dfb32f, type: 3}
 --- !u!82 &3277103809861077350
 AudioSource:
   m_ObjectHideFlags: 0
@@ -347,6 +350,25 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &7811501518217044102
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6929658065974969852}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 907d361478a31a146a2fa2a92791378c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  footsteps:
+  - {fileID: 8300000, guid: 632705f62f5336943b53a53fee7f9c19, type: 3}
+  - {fileID: 8300000, guid: cd8b5dec61e2f904eb56a7b9d77ea6dd, type: 3}
+  - {fileID: 8300000, guid: be33e8cdffeee634a9821ebe2668f750, type: 3}
+  - {fileID: 8300000, guid: 57971c92bcbf2ce459010c12bac228b8, type: 3}
+  source: {fileID: 0}
+  enableUpdate: 0
 --- !u!1001 &113415079505339717
 PrefabInstance:
   m_ObjectHideFlags: 0

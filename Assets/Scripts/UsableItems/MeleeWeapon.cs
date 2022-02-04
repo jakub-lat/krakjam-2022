@@ -8,6 +8,7 @@ namespace UsableItems
 {
     public class MeleeWeapon : UsableItem
     {
+        [Header("Melee settings")]
         public int damage;
         public float distance;
         public float cooldownTime;
@@ -41,7 +42,8 @@ namespace UsableItems
             if (Physics.Raycast(CameraHelper.MainCamera.transform.position, CameraHelper.MainCamera.transform.forward,
                 out var hit, distance, HandController.Current.attackLayerMask, QueryTriggerInteraction.Ignore))
             {
-                EnemyDamageUtils.EnemyDamage(hit, damage, damage * critMultiplier, 0, (_) => hitSound);
+                closeFightSource.PlayOneShot(hitSound);
+                EnemyDamageUtils.EnemyDamage(hit, damage, damage * critMultiplier, 0);
             }
 
         }

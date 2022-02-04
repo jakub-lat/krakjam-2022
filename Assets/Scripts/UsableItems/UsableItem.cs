@@ -9,6 +9,7 @@ namespace UsableItems
     [RequireComponent(typeof(Rigidbody))]
     public abstract class UsableItem : InteractiveObject
     {
+        [Header("Usable item")]
         public Vector3 rotationOffset;
         public Vector3 positionOffset;
 

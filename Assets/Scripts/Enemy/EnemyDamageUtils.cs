@@ -7,7 +7,7 @@ using Random = UnityEngine.Random;
 
 public class EnemyDamageUtils
 {
-    public static void EnemyDamage(GameObject go, Vector3 hitPoint, Vector3 hitNormal, float normalDamage, float headshotDamage, float damageRandomness, Func<bool, AudioClip> soundGetter = null)
+    public static void EnemyDamage(GameObject go, Vector3 hitPoint, Vector3 hitNormal, float normalDamage, float headshotDamage, float damageRandomness)
     {
         if (normalDamage == 0) return;
 
@@ -25,7 +25,7 @@ public class EnemyDamageUtils
         damage += (int)damageRandom;
         
         enemy.GotHit(damage);
-        if(soundGetter != null) enemy.PlaySound(soundGetter(isHeadshotHit));
+        enemy.PlaySound(isHeadshotHit);
 
         ObjectPooler.Current.SpawnPool("HitParticle", hitPoint,
             Quaternion.LookRotation(hitNormal));
@@ -43,16 +43,14 @@ public class EnemyDamageUtils
         }
     }
 
-    public static void EnemyDamage(RaycastHit hit, float normalDamage, float headshotDamage, float damageRandomness,
-        Func<bool, AudioClip> soundGetter = null)
+    public static void EnemyDamage(RaycastHit hit, float normalDamage, float headshotDamage, float damageRandomness)
     {
-        EnemyDamage(hit.collider.gameObject, hit.point, hit.normal, normalDamage, headshotDamage, damageRandomness, soundGetter);
+        EnemyDamage(hit.collider.gameObject, hit.point, hit.normal, normalDamage, headshotDamage, damageRandomness);
     }
     
-    public static void EnemyDamage(Collision col, float normalDamage, float headshotDamage, float damageRandomness,
-        Func<bool, AudioClip> soundGetter = null)
+    public static void EnemyDamage(Collision col, float normalDamage, float headshotDamage, float damageRandomness)
     {
         var contact = col.contacts.FirstOrDefault();
-        EnemyDamage(col.gameObject, contact.point, contact.normal, normalDamage, headshotDamage, damageRandomness, soundGetter);
+        EnemyDamage(col.gameObject, contact.point, contact.normal, normalDamage, headshotDamage, damageRandomness);
     }
 }

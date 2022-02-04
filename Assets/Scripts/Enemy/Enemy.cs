@@ -21,6 +21,9 @@ public class Enemy : MonoBehaviour, IEnemy
     private AudioSource enemySource = null;
     public AudioSource EnemySource => enemySource;
 
+    [SerializeField] private FootstepSoundController damageSounds;
+    [SerializeField] private AudioClip headshotSound;
+
     private void Start()
     {
         //anim = GetComponentInChildren<Animator>();
@@ -71,9 +74,9 @@ public class Enemy : MonoBehaviour, IEnemy
         anim.SetTrigger(Damage);
     }
 
-    public void PlaySound(AudioClip clip)
+    public void PlaySound(bool isHeadshot)
     {
-        EnemySource.PlayOneShot(clip);
+        EnemySource.PlayOneShot(isHeadshot ? headshotSound : damageSounds.GetRandomSoundFromRange());
     }
 
     public void HitEnd()
