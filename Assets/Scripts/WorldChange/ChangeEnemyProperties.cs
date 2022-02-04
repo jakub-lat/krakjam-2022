@@ -77,27 +77,27 @@ public class ChangeEnemyProperties : WorldChangeLogic
 
         ShootingEnemy se = g.GetComponent<ShootingEnemy>();
         se.bulletPoolTag = sd.bulletPoolTag;
-        se.attackSpeed = sd.attackSpeed * difficulty *  Game.LevelManager.Current.shootingEnemy.attackSpeed.Evaluate(curvePoint);
+        se.attackSpeed = sd.attackSpeed * (difficulty *  Game.LevelManager.Current.shootingEnemy.attackSpeed.Evaluate(curvePoint));
         se.shootDelay = sd.shootDelay;
         se.bulletSpeed = sd.bulletSpeed;
         se.magazineSize = sd.magazineSize;
         se.reloadSpeed = sd.reloadSpeed;
         se.magazine = sd.magazine;
-        se.attackRange = sd.attackRange * difficulty * Game.LevelManager.Current.shootingEnemy.attackRange.Evaluate(curvePoint);
+        se.attackRange = sd.attackRange * (difficulty * Game.LevelManager.Current.shootingEnemy.attackRange.Evaluate(curvePoint));
         se.followRange = sd.followRange;
         se.dispersion = sd.dispersion;
 
         se.fleeRange = sd.fleeRange;
         se.fleeMultiplier = sd.fleeMultiplier;
 
-        se.moveSpeed = sd.moveSpeed * difficulty * Game.LevelManager.Current.shootingEnemy.speed.Evaluate(curvePoint);
-        se.fleeSpeed = sd.fleeSpeed * difficulty * Game.LevelManager.Current.shootingEnemy.speed.Evaluate(curvePoint);
+        se.moveSpeed = sd.moveSpeed * (difficulty * Game.LevelManager.Current.shootingEnemy.speed.Evaluate(curvePoint));
+        se.fleeSpeed = sd.fleeSpeed * (difficulty * Game.LevelManager.Current.shootingEnemy.speed.Evaluate(curvePoint));
         se.flee = sd.flee;
 
-        se.bulletDamage = sd.damage * difficulty * Game.LevelManager.Current.shootingEnemy.damage.Evaluate(curvePoint);
+        se.bulletDamage = sd.damage * (difficulty * Game.LevelManager.Current.shootingEnemy.damage.Evaluate(curvePoint));
 
         var e = g.GetComponent<Enemy>();
-        e.startingHealth = sd.health * difficulty * Game.LevelManager.Current.shootingEnemy.health.Evaluate(curvePoint);
+        e.startingHealth = sd.health * (difficulty * Game.LevelManager.Current.shootingEnemy.health.Evaluate(curvePoint));
         e.HPrefresh();
     }
 
@@ -128,7 +128,7 @@ public class ChangeEnemyProperties : WorldChangeLogic
             } else
             {
                 MeleeEnemy se = g.GetComponent<MeleeEnemy>();
-                se.attackSpeed = md.attackSpeed * difficulty * Game.LevelManager.Current.meleeEnemy.attackSpeed.Evaluate(curvePoint);
+                se.attackSpeed = md.attackSpeed * (difficulty * Game.LevelManager.Current.meleeEnemy.attackSpeed.Evaluate(curvePoint));
                 se.attackDelay = md.attackDelay;
                 se.knockback = md.knockback;
                 se.attackRange = md.attackRange;
@@ -136,16 +136,16 @@ public class ChangeEnemyProperties : WorldChangeLogic
                 se.fleeRange = md.fleeRange;
                 se.fleeMultiplier = md.fleeMultiplier;
 
-                se.moveSpeed = md.moveSpeed * difficulty * Game.LevelManager.Current.meleeEnemy.speed.Evaluate(curvePoint);
-                se.fleeSpeed = md.fleeSpeed * difficulty * Game.LevelManager.Current.meleeEnemy.speed.Evaluate(curvePoint);
+                se.moveSpeed = md.moveSpeed * (difficulty * Game.LevelManager.Current.meleeEnemy.speed.Evaluate(curvePoint));
+                se.fleeSpeed = md.fleeSpeed * (difficulty * Game.LevelManager.Current.meleeEnemy.speed.Evaluate(curvePoint));
                 se.flee = md.flee;
                 
 
-                se.damage = md.damage * difficulty * Game.LevelManager.Current.meleeEnemy.damage.Evaluate(curvePoint);
+                se.damage = md.damage * (difficulty * Game.LevelManager.Current.meleeEnemy.damage.Evaluate(curvePoint));
                 se.meleeEnemyScript.damage = se.damage;
                 se.meleeEnemyScript.knockback = se.knockback;
                 var e = g.GetComponent<Enemy>();
-                e.startingHealth = md.health * difficulty * Game.LevelManager.Current.meleeEnemy.health.Evaluate(curvePoint);
+                e.startingHealth = md.health * (difficulty * Game.LevelManager.Current.meleeEnemy.health.Evaluate(curvePoint));
                 e.HPrefresh();
             }
         }

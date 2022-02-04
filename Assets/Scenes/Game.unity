@@ -4232,7 +4232,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   materialList:
   - wallMaterials:
-      normal: {fileID: 2100000, guid: 110e9f4bd42442642b79d4c2c5eb7239, type: 2}
+      normal: {fileID: 2100000, guid: 72f62178358aa1f43a2ead0b540e00ca, type: 2}
       psycho: {fileID: 2100000, guid: 10beb902f9784694ca8d23d37eecae27, type: 2}
     floorMaterials:
       normal: {fileID: 2100000, guid: 36c60da23060a45419c547584b0c942e, type: 2}
@@ -4745,9 +4745,35 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1545557203}
     m_Modifications:
-    - target: {fileID: 98985245, guid: e1dc9e6cc4bef8a48b429d6c237dfbe3, type: 3}
-      propertyPath: meleeShootingModeData.shootDelay
-      value: 0.12
+    - target: {fileID: 6966197676403806432, guid: e1dc9e6cc4bef8a48b429d6c237dfbe3,
+        type: 3}
+      propertyPath: meleeEnemyCurve.m_Curve.Array.data[0].time
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6966197676403806432, guid: e1dc9e6cc4bef8a48b429d6c237dfbe3,
+        type: 3}
+      propertyPath: meleeEnemyCurve.m_Curve.Array.data[1].time
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6966197676403806432, guid: e1dc9e6cc4bef8a48b429d6c237dfbe3,
+        type: 3}
+      propertyPath: meleeEnemyCurve.m_Curve.Array.data[0].value
+      value: 9.072418
+      objectReference: {fileID: 0}
+    - target: {fileID: 6966197676403806432, guid: e1dc9e6cc4bef8a48b429d6c237dfbe3,
+        type: 3}
+      propertyPath: meleeEnemyCurve.m_Curve.Array.data[1].value
+      value: 12.624677
+      objectReference: {fileID: 0}
+    - target: {fileID: 6966197676403806432, guid: e1dc9e6cc4bef8a48b429d6c237dfbe3,
+        type: 3}
+      propertyPath: shootingEnemyCurve.m_Curve.Array.data[0].value
+      value: 5.025882
+      objectReference: {fileID: 0}
+    - target: {fileID: 6966197676403806432, guid: e1dc9e6cc4bef8a48b429d6c237dfbe3,
+        type: 3}
+      propertyPath: shootingEnemyCurve.m_Curve.Array.data[1].value
+      value: 8.57814
       objectReference: {fileID: 0}
     - target: {fileID: 6966197676403806433, guid: e1dc9e6cc4bef8a48b429d6c237dfbe3,
         type: 3}
@@ -8624,11 +8650,6 @@ PrefabInstance:
       objectReference: {fileID: 1173150357}
     - target: {fileID: 2667818113581105014, guid: 1c8b4abb690b867418682e71ee9c44a1,
         type: 3}
-      propertyPath: levelCount
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 2667818113581105014, guid: 1c8b4abb690b867418682e71ee9c44a1,
-        type: 3}
       propertyPath: cameraHolder
       value: 
       objectReference: {fileID: 1867232967}
@@ -8657,31 +8678,6 @@ PrefabInstance:
       propertyPath: bossRoomSpawnPoint
       value: 
       objectReference: {fileID: 837006209}
-    - target: {fileID: 2667818113581105014, guid: 1c8b4abb690b867418682e71ee9c44a1,
-        type: 3}
-      propertyPath: difficultyCurveEasy.m_Curve.Array.data[0].value
-      value: 0.7
-      objectReference: {fileID: 0}
-    - target: {fileID: 2667818113581105014, guid: 1c8b4abb690b867418682e71ee9c44a1,
-        type: 3}
-      propertyPath: difficultyCurveEasy.m_Curve.Array.data[1].value
-      value: 1.7
-      objectReference: {fileID: 0}
-    - target: {fileID: 2667818113581105014, guid: 1c8b4abb690b867418682e71ee9c44a1,
-        type: 3}
-      propertyPath: difficultyCurveHard.m_Curve.Array.data[0].value
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 2667818113581105014, guid: 1c8b4abb690b867418682e71ee9c44a1,
-        type: 3}
-      propertyPath: difficultyCurveNormal.m_Curve.Array.data[0].value
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2667818113581105014, guid: 1c8b4abb690b867418682e71ee9c44a1,
-        type: 3}
-      propertyPath: difficultyCurveNormal.m_Curve.Array.data[1].value
-      value: 2
-      objectReference: {fileID: 0}
     - target: {fileID: 2667818113581105015, guid: 1c8b4abb690b867418682e71ee9c44a1,
         type: 3}
       propertyPath: m_RootOrder
