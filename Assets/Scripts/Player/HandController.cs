@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using Cyberultimate.Unity;
 using DG.Tweening;
 using LetterBattle.Utility;
+using QuickOutline;
 using UnityEngine;
 using UsableItems;
 
@@ -47,6 +48,11 @@ namespace Player
             CurrentItem = item;
             CurrentItem.OnPickup();
             
+            // if(CurrentItem.TryGetComponent<Outline>(out var outline))
+            // {
+            //     outline.enabled = false;
+            // }
+            
             var rb = CurrentItem.gameObject.GetComponent<Rigidbody>();
             rb.isKinematic = true;
             rb.collisionDetectionMode = CollisionDetectionMode.ContinuousSpeculative;
@@ -56,31 +62,35 @@ namespace Player
                 col.enabled = false;
             }
 
-            originalScale = CurrentItem.transform.lossyScale;
+            CurrentItem.transform.SetParent(null, true);
+            originalScale = CurrentItem.transform.localScale;
             originalLayer = CurrentItem.gameObject.layer;
-
+            
             SetLayerRecursively(CurrentItem.gameObject, gameObject.layer);
             CurrentItem.transform.SetParent(transform, true);
             CurrentItem.transform.DOLocalRotate(CurrentItem.rotationOffset, pickupTransitionDuration);
             CurrentItem.transform.DOLocalMove(CurrentItem.positionOffset, pickupTransitionDuration).SetEase(Ease.InOutQuint);
             CurrentItem.transform.DOScale(CurrentItem.transform.localScale * transform.localScale.x, pickupTransitionDuration);
+            // CurrentItem.transform.DOScale(Vector3.one, pickupTransitionDuration);
             CurrentItem.tag = "Untagged";
         }
 
         public void DropItem()
         {
             if (CurrentItem == null) return;
-
-            // var pos = CurrentItem.transform.position;
-            // CurrentItem.transform.SetParent(null, false);
-            // CurrentItem.transform.position = pos;
-
+            
             SetLayerRecursively(CurrentItem.gameObject, originalLayer);
             CurrentItem.transform.SetParent(null, true);
-            CurrentItem.transform.localScale /= transform.localScale.x;
+            // CurrentItem.transform.localScale /= transform.localScale.x;
+            CurrentItem.transform.DOScale(originalScale, pickupTransitionDuration);
 
             CurrentItem.OnDrop();
             CurrentItem.tag = "Interactable";
+            
+            // if(CurrentItem.TryGetComponent<Outline>(out var outline))
+            // {
+            //     outline.enabled = true;
+            // }
             // CurrentItem.transform.localScale = originalScale;
             
             // CurrentItem.transform.localScale = Vector3.one;

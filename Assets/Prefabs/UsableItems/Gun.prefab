@@ -325,6 +325,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   infoText: {fileID: 4817611200713626910}
+  group: {fileID: 0}
 --- !u!225 &2032084425820198155
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -5694,6 +5695,8 @@ MonoBehaviour:
   multipleMaterials:
     normal: []
     psycho: []
+  useGlobalMaterial: 0
+  globalMaterialType: 0
   meshRenderer: {fileID: 0}
 --- !u!4 &4982205441490768849 stripped
 Transform:
@@ -5744,4 +5747,6 @@ MonoBehaviour:
   multipleMaterials:
     normal: []
     psycho: []
+  useGlobalMaterial: 0
+  globalMaterialType: 0
   meshRenderer: {fileID: 0}

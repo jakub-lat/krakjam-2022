@@ -63,8 +63,9 @@ public class ObjectGeneration : MonoSingleton<ObjectGeneration>
                 var tr = spawned.transform;
                 if (go.type == ObjectType.Gun)
                 {
-                    var newscale = Vector3.one;
-                    tr.localScale = new Vector3 (newscale.x/tr.lossyScale.x, newscale.y/tr.lossyScale.y, newscale.z/tr.lossyScale.z);
+                    tr.parent = null;
+                    tr.localScale = Vector3.one;
+                    // tr.localScale = new Vector3 (newscale.x/tr.lossyScale.x, newscale.y/tr.lossyScale.y, newscale.z/tr.lossyScale.z);
                 }
             }
         }
