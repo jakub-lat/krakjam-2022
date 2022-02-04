@@ -4243,7 +4243,7 @@ MonoBehaviour:
     furniturePsychoMaterial: {fileID: 2100000, guid: f6ab6992039257b4db248a01bc35a1f1,
       type: 2}
   - wallMaterials:
-      normal: {fileID: 2100000, guid: d2efd5a0a236362408b6b6da48349176, type: 2}
+      normal: {fileID: 2100000, guid: 72f62178358aa1f43a2ead0b540e00ca, type: 2}
       psycho: {fileID: 2100000, guid: 10beb902f9784694ca8d23d37eecae27, type: 2}
     floorMaterials:
       normal: {fileID: 2100000, guid: 36c60da23060a45419c547584b0c942e, type: 2}
