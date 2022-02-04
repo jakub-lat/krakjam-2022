@@ -38,7 +38,7 @@ public class GlobalMaterialManager : MonoSingleton<GlobalMaterialManager>
             case MaterialType.Furniture:
                 if (wt == WorldTypeController.WorldType.Normal)
                 {
-                    Debug.Log("Cant return a normal material dor furniture");
+                    //Debug.Log("Cant return a normal material dor furniture");
                     return null;
                 }
                 return current.furniturePsychoMaterial;

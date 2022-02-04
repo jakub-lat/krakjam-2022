@@ -17,8 +17,12 @@ public class ElevatorEnemies : MonoBehaviour
     private void Start()
     {
         transform.position = Game.LevelManager.Current.startingPosA.position;
-        shootingEnemies = EnemySpawner.Current.elevatorShootingEnemyAmount;
-        meleeEnemies = EnemySpawner.Current.elevatorMeleeEnemyAmount;
+
+        var difficulty = Game.LevelManager.Current.Difficulty;
+        var curvePoint = Game.LevelManager.Current.CurrentLevel / Game.LevelManager.Current.levelCount;
+
+        shootingEnemies =(int)( EnemySpawner.Current.elevatorShootingEnemyCurve.Evaluate(curvePoint)*difficulty);
+        meleeEnemies = (int)(EnemySpawner.Current.elevatorMeleeEnemyCurve.Evaluate(curvePoint) * difficulty);
 
         pl = PlayerInstance.Current.transform;
 

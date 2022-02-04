@@ -81,7 +81,11 @@ namespace WorldChange
             {
                 var from = materials.GetInverse(type);
                 Material to = null;
-                if (useGlobalMaterial) to = GlobalMaterialManager.Current.GetMaterial(globalMaterialType, type);
+                try
+                {
+                    to = GlobalMaterialManager.Current.GetMaterial(globalMaterialType, type);
+                } catch { }
+
                 if (!useGlobalMaterial || to == null) to = materials[type];
             
                 var temp = new Material(from);

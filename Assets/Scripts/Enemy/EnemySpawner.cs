@@ -7,13 +7,16 @@ public class EnemySpawner : MonoSingleton<EnemySpawner>
 {
     public enum EnemyType { Shooting, Melee }
 
-    public float minRangeFromPlayer = 30f;
-    [Header("Start Spawning")]
+
+    [Header("Balance")]
+    public AnimationCurve shootingEnemyCurve;
+    public AnimationCurve meleeEnemyCurve;
+    public AnimationCurve elevatorShootingEnemyCurve;
+    public AnimationCurve elevatorMeleeEnemyCurve;
+
+    [Header("Spawning")]
     public float posY = 2;
-    public int shootingEnemyAmount = 2;
-    public int meleeEnemyAmount = 0;
-    public int elevatorShootingEnemyAmount = 2;
-    public int elevatorMeleeEnemyAmount = 1;
+    public float minRangeFromPlayer = 30f;
 
     public float elevatorEnemiesTime = 5f;
     public GameObject elevatorEnemies;
@@ -29,6 +32,10 @@ public class EnemySpawner : MonoSingleton<EnemySpawner>
     private List<Vector3> spawnpoints;
     private float elevatorEnemiesTimer= 10;
 
+    private int shootingEnemyAmount = 2;
+    private int meleeEnemyAmount = 0;
+    private int elevatorShootingEnemyAmount = 2;
+    private int elevatorMeleeEnemyAmount = 1;
 
     public void Spawn(Vector3 pos, Quaternion rot, EnemyType et)
     {
@@ -86,6 +93,12 @@ public class EnemySpawner : MonoSingleton<EnemySpawner>
 
     public void SetupSpawners(Vector3 pos, float width, float height, float spaceX, float spaceZ, int amount)
     {
+        var difficulty = Game.LevelManager.Current.Difficulty;
+        var curvePoint = Game.LevelManager.Current.CurrentLevel / Game.LevelManager.Current.levelCount;
+
+        shootingEnemyAmount = (int)( difficulty * shootingEnemyCurve.Evaluate(curvePoint));
+        meleeEnemyAmount = (int)(difficulty * meleeEnemyCurve.Evaluate(curvePoint));
+
         spawnpoints = new List<Vector3>();
         for(int i = 0; i < amount; i++)
         {
