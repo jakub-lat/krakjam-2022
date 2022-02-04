@@ -116,4 +116,6 @@ MonoBehaviour:
   multipleMaterials:
     normal: []
     psycho: []
+  useGlobalMaterial: 1
+  globalMaterialType: 2
   meshRenderer: {fileID: 0}

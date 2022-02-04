@@ -17,6 +17,10 @@ namespace WorldChange
         
         [SerializeField] private WorldTypeDict<Material[]> multipleMaterials;
 
+        [Header("Global Materials")]
+        [SerializeField] private bool useGlobalMaterial= false;
+        [SerializeField] private GlobalMaterialManager.MaterialType globalMaterialType;
+
         public MeshRenderer meshRenderer;
 
         private void Awake()
@@ -32,6 +36,8 @@ namespace WorldChange
             }
 
             DOTween.SetTweensCapacity(6250, 100);
+
+            OnWorldTypeChange(WorldTypeController.WorldType.Normal);
         }
 
 
@@ -74,7 +80,9 @@ namespace WorldChange
             else
             {
                 var from = materials.GetInverse(type);
-                var to = materials[type];
+                Material to = null;
+                if (useGlobalMaterial) to = GlobalMaterialManager.Current.GetMaterial(globalMaterialType, type);
+                if (!useGlobalMaterial || to == null) to = materials[type];
             
                 var temp = new Material(from);
                 meshRenderer.material = temp;

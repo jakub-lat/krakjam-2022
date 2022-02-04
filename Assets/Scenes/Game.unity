@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.11426178, g: 0.15169969, b: 0.16290113, a: 1}
+  m_IndirectSpecularColor: {r: 0.11426129, g: 0.15169938, b: 0.16290072, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -232,6 +232,8 @@ MonoBehaviour:
   multipleMaterials:
     normal: []
     psycho: []
+  useGlobalMaterial: 0
+  globalMaterialType: 0
   meshRenderer: {fileID: 0}
 --- !u!65 &96312605
 BoxCollider:
@@ -264,6 +266,8 @@ MonoBehaviour:
   multipleMaterials:
     normal: []
     psycho: []
+  useGlobalMaterial: 0
+  globalMaterialType: 0
   meshRenderer: {fileID: 0}
 --- !u!64 &100433543
 MeshCollider:
@@ -2929,6 +2933,8 @@ MonoBehaviour:
   multipleMaterials:
     normal: []
     psycho: []
+  useGlobalMaterial: 0
+  globalMaterialType: 0
   meshRenderer: {fileID: 0}
 --- !u!114 &746804324
 MonoBehaviour:
@@ -2948,6 +2954,8 @@ MonoBehaviour:
   multipleMaterials:
     normal: []
     psycho: []
+  useGlobalMaterial: 0
+  globalMaterialType: 0
   meshRenderer: {fileID: 0}
 --- !u!1001 &782312770
 PrefabInstance:
@@ -4193,6 +4201,74 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!1 &1114528537
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1114528539}
+  - component: {fileID: 1114528538}
+  m_Layer: 0
+  m_Name: GlobalMaterials
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1114528538
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1114528537}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7afffa481c66c374490c9e8eddfec19a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  materialList:
+  - wallMaterials:
+      normal: {fileID: 2100000, guid: 72f62178358aa1f43a2ead0b540e00ca, type: 2}
+      psycho: {fileID: 2100000, guid: 10beb902f9784694ca8d23d37eecae27, type: 2}
+    floorMaterials:
+      normal: {fileID: 2100000, guid: 36c60da23060a45419c547584b0c942e, type: 2}
+      psycho: {fileID: 2100000, guid: 110e9f4bd42442642b79d4c2c5eb7239, type: 2}
+    roofMaterials:
+      normal: {fileID: 2100000, guid: 2c5dba47e38749848a53cddb4678ef57, type: 2}
+      psycho: {fileID: 2100000, guid: 70c6ec75e05a3ec46869fd411725ee94, type: 2}
+    furniturePsychoMaterial: {fileID: 2100000, guid: f6ab6992039257b4db248a01bc35a1f1,
+      type: 2}
+  - wallMaterials:
+      normal: {fileID: 2100000, guid: d2efd5a0a236362408b6b6da48349176, type: 2}
+      psycho: {fileID: 2100000, guid: 10beb902f9784694ca8d23d37eecae27, type: 2}
+    floorMaterials:
+      normal: {fileID: 2100000, guid: 36c60da23060a45419c547584b0c942e, type: 2}
+      psycho: {fileID: 2100000, guid: 110e9f4bd42442642b79d4c2c5eb7239, type: 2}
+    roofMaterials:
+      normal: {fileID: 2100000, guid: 2c5dba47e38749848a53cddb4678ef57, type: 2}
+      psycho: {fileID: 2100000, guid: 70c6ec75e05a3ec46869fd411725ee94, type: 2}
+    furniturePsychoMaterial: {fileID: 2100000, guid: f6ab6992039257b4db248a01bc35a1f1,
+      type: 2}
+  materialSetIndex: 0
+--- !u!4 &1114528539
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1114528537}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 4.35307, y: 63.498642, z: 23.432766}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!64 &1120047382
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -4282,6 +4358,8 @@ MonoBehaviour:
   multipleMaterials:
     normal: []
     psycho: []
+  useGlobalMaterial: 0
+  globalMaterialType: 0
   meshRenderer: {fileID: 0}
 --- !u!114 &1126091231
 MonoBehaviour:
@@ -4302,6 +4380,8 @@ MonoBehaviour:
   multipleMaterials:
     normal: []
     psycho: []
+  useGlobalMaterial: 0
+  globalMaterialType: 0
   meshRenderer: {fileID: 0}
 --- !u!4 &1130116065 stripped
 Transform:
@@ -4406,6 +4486,8 @@ MonoBehaviour:
   multipleMaterials:
     normal: []
     psycho: []
+  useGlobalMaterial: 0
+  globalMaterialType: 0
   meshRenderer: {fileID: 0}
 --- !u!64 &1186049553
 MeshCollider:
@@ -4556,6 +4638,8 @@ MonoBehaviour:
   multipleMaterials:
     normal: []
     psycho: []
+  useGlobalMaterial: 0
+  globalMaterialType: 0
   meshRenderer: {fileID: 0}
 --- !u!114 &1351058882
 MonoBehaviour:
@@ -5920,6 +6004,8 @@ MonoBehaviour:
   multipleMaterials:
     normal: []
     psycho: []
+  useGlobalMaterial: 0
+  globalMaterialType: 0
   meshRenderer: {fileID: 0}
 --- !u!114 &1755940697
 MonoBehaviour:
@@ -5940,6 +6026,8 @@ MonoBehaviour:
   multipleMaterials:
     normal: []
     psycho: []
+  useGlobalMaterial: 0
+  globalMaterialType: 0
   meshRenderer: {fileID: 0}
 --- !u!114 &1755940698
 MonoBehaviour:
@@ -5960,6 +6048,8 @@ MonoBehaviour:
   multipleMaterials:
     normal: []
     psycho: []
+  useGlobalMaterial: 0
+  globalMaterialType: 0
   meshRenderer: {fileID: 0}
 --- !u!114 &1755940699
 MonoBehaviour:
@@ -5980,6 +6070,8 @@ MonoBehaviour:
   multipleMaterials:
     normal: []
     psycho: []
+  useGlobalMaterial: 0
+  globalMaterialType: 0
   meshRenderer: {fileID: 0}
 --- !u!114 &1755940700
 MonoBehaviour:
@@ -6000,6 +6092,8 @@ MonoBehaviour:
   multipleMaterials:
     normal: []
     psycho: []
+  useGlobalMaterial: 0
+  globalMaterialType: 0
   meshRenderer: {fileID: 0}
 --- !u!64 &1772909562
 MeshCollider:
@@ -6363,6 +6457,8 @@ MonoBehaviour:
   multipleMaterials:
     normal: []
     psycho: []
+  useGlobalMaterial: 0
+  globalMaterialType: 0
   meshRenderer: {fileID: 0}
 --- !u!1001 &1828722094
 PrefabInstance:
@@ -6485,6 +6581,8 @@ MonoBehaviour:
   multipleMaterials:
     normal: []
     psycho: []
+  useGlobalMaterial: 0
+  globalMaterialType: 0
   meshRenderer: {fileID: 0}
 --- !u!1001 &1855978105
 PrefabInstance:
@@ -7306,6 +7404,8 @@ MonoBehaviour:
   multipleMaterials:
     normal: []
     psycho: []
+  useGlobalMaterial: 0
+  globalMaterialType: 0
   meshRenderer: {fileID: 0}
 --- !u!4 &2001844721708986
 Transform:
