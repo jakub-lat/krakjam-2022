@@ -79,12 +79,22 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -5054239581793164275, guid: 608df8948538fc7418ffd2184213d4c3,
         type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: -5054239581793164275, guid: 608df8948538fc7418ffd2184213d4c3,
+        type: 3}
       propertyPath: m_NavMeshLayer
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -5054239581793164275, guid: 608df8948538fc7418ffd2184213d4c3,
         type: 3}
       propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: -1563653900522043819, guid: 608df8948538fc7418ffd2184213d4c3,
+        type: 3}
+      propertyPath: m_Layer
       value: 8
       objectReference: {fileID: 0}
     - target: {fileID: -1563653900522043819, guid: 608df8948538fc7418ffd2184213d4c3,
@@ -101,6 +111,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: TabletopLong
+      objectReference: {fileID: 0}
+    - target: {fileID: 5202563100121753507, guid: 608df8948538fc7418ffd2184213d4c3,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 5202563100121753507, guid: 608df8948538fc7418ffd2184213d4c3,
         type: 3}
