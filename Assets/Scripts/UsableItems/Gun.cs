@@ -66,6 +66,8 @@ namespace UsableItems
         private bool isReloading = false;
         private float reloadTimer = 0;
 
+        private bool enableUpdate;
+
         public static Gun Current => HandController.Current.CurrentItem is Gun gun ? gun : null;
 
         private void Awake()
@@ -76,8 +78,25 @@ namespace UsableItems
             gunSourceOriginalVolume = gunSource.volume;
         }
 
+        private void ResetReload()
+        {
+            reloadTimer = reloadDuration;
+            ReloadUI.Current.SetInfo(reloadTimer, reloadDuration);
+        }
+
         private void Update()
         {
+            if (!enableUpdate)
+            {
+                if (isReloading)
+                {
+                    ResetReload();
+                    isReloading = false;
+                }
+
+                return;
+            }
+
             ShootCooldown();
 
             if (isReloading)
@@ -110,6 +129,7 @@ namespace UsableItems
         public override void OnPickup()
         {
             base.OnPickup();
+            enableUpdate = true;
             gunSource.PlayOneShot(pickup);
             gunCollider.isTrigger = true;
         }
@@ -117,6 +137,7 @@ namespace UsableItems
         public override void OnDrop()
         {
             base.OnDrop();
+            enableUpdate = false;
             gunCollider.isTrigger = false;
         }
 
@@ -128,7 +149,7 @@ namespace UsableItems
                 gunSource.pitch = 1;
                 gunSource.PlayOneShot(reload);
                 isReloading = true;
-                reloadTimer = reloadDuration;
+                ResetReload();
             }
         }
 
