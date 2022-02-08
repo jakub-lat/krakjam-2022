@@ -14526,6 +14526,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PostProcessingVolume
       objectReference: {fileID: 0}
+    - target: {fileID: 6697026741054866059, guid: 03277ffb5d6562c48a9c464e5036c071,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6697026741054866069, guid: 03277ffb5d6562c48a9c464e5036c071,
         type: 3}
       propertyPath: m_RootOrder
@@ -14579,6 +14584,11 @@ PrefabInstance:
     - target: {fileID: 6697026741054866069, guid: 03277ffb5d6562c48a9c464e5036c071,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6697026741054866071, guid: 03277ffb5d6562c48a9c464e5036c071,
+        type: 3}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
