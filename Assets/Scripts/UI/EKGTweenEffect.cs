@@ -31,10 +31,10 @@ public class EKGTweenEffect : MonoBehaviour
         for (int i = 0; i < points; i++)
         {
             float progress = ((float)i / (points - 1));
-            float y = curve.Evaluate(progress + Time.timeSinceLevelLoad / delay);
+            float y = curve.Evaluate(progress + Time.time / delay);
             if (dead)
             {
-                y = Mathf.Lerp(y, 1, (((progress) + (Time.timeSinceLevelLoad * (900 / delay))) * 20) / 6500);
+                y = Mathf.Lerp(y, 1, (((progress) + (Time.time * (900 / delay))) * 20) / 6500);
             }
             lineRenderer.SetPosition(i, new Vector3(progress * xMultiply, y * yMultiply, 0));
         }

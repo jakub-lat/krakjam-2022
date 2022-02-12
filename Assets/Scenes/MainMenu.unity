@@ -130,17 +130,20 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1928461957, guid: c47788870a3e8a64f87adac4de23b9e5, type: 3}
-      propertyPath: xMultiply
-      value: 51
+    - target: {fileID: 4119233520121261422, guid: c47788870a3e8a64f87adac4de23b9e5,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -285
       objectReference: {fileID: 0}
-    - target: {fileID: 1928461979, guid: c47788870a3e8a64f87adac4de23b9e5, type: 3}
+    - target: {fileID: 5079942538647849347, guid: c47788870a3e8a64f87adac4de23b9e5,
+        type: 3}
       propertyPath: m_SizeDelta.x
-      value: -1788.5
+      value: 389.5936
       objectReference: {fileID: 0}
-    - target: {fileID: 1928461979, guid: c47788870a3e8a64f87adac4de23b9e5, type: 3}
+    - target: {fileID: 5079942538647849347, guid: c47788870a3e8a64f87adac4de23b9e5,
+        type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -994.25
+      value: -745.2326
       objectReference: {fileID: 0}
     - target: {fileID: 6522448451044699808, guid: c47788870a3e8a64f87adac4de23b9e5,
         type: 3}
@@ -550,7 +553,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76c392e42b5098c458856cdf6ecaaaa1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_FirstSelected: {fileID: 860255468}
+  m_FirstSelected: {fileID: 0}
   m_sendNavigationEvents: 1
   m_DragThreshold: 10
 --- !u!4 &652001670
@@ -736,12 +739,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!1 &860255468 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6522448450825189102, guid: c47788870a3e8a64f87adac4de23b9e5,
-    type: 3}
-  m_PrefabInstance: {fileID: 259004021}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1540350066 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1928461957, guid: c47788870a3e8a64f87adac4de23b9e5,
