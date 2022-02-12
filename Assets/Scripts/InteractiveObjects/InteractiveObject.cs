@@ -7,6 +7,7 @@ namespace InteractiveObjects
     [RequireComponent(typeof(Collider))]
     public abstract class InteractiveObject : MonoBehaviour
     {
+        [Header("Interactive object")]
         [SerializeField] protected bool destroyAfterUse;
 
         public string interactionName;

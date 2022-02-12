@@ -45,22 +45,13 @@ namespace UsableItems
 
         [SerializeField]
         private AudioClip pickup;
-
-        [SerializeField]
-        private AudioClip headshot = null;
-
+        
         [SerializeField]
         private AudioClip noAmmo = null;
 
         [SerializeField]
         private AudioSource gunSource = null;
-
-        [SerializeField]
-        private FootstepSoundController enemySoundController = null;
-
-        [SerializeField]
-        private FootstepSoundController bossSoundController = null;
-
+        
         private float gunSourceOriginalVolume;
             
         private float trailDurationMultiplier => 10 / trailSpeed;
@@ -75,6 +66,8 @@ namespace UsableItems
         private bool isReloading = false;
         private float reloadTimer = 0;
 
+        private bool enableUpdate;
+
         public static Gun Current => HandController.Current.CurrentItem is Gun gun ? gun : null;
 
         private void Awake()
@@ -85,8 +78,25 @@ namespace UsableItems
             gunSourceOriginalVolume = gunSource.volume;
         }
 
+        private void ResetReload()
+        {
+            reloadTimer = reloadDuration;
+            ReloadUI.Current.SetInfo(reloadTimer, reloadDuration);
+        }
+
         private void Update()
         {
+            if (!enableUpdate)
+            {
+                if (isReloading)
+                {
+                    ResetReload();
+                    isReloading = false;
+                }
+
+                return;
+            }
+
             ShootCooldown();
 
             if (isReloading)
@@ -119,6 +129,7 @@ namespace UsableItems
         public override void OnPickup()
         {
             base.OnPickup();
+            enableUpdate = true;
             gunSource.PlayOneShot(pickup);
             gunCollider.isTrigger = true;
         }
@@ -126,6 +137,7 @@ namespace UsableItems
         public override void OnDrop()
         {
             base.OnDrop();
+            enableUpdate = false;
             gunCollider.isTrigger = false;
         }
 
@@ -137,7 +149,7 @@ namespace UsableItems
                 gunSource.pitch = 1;
                 gunSource.PlayOneShot(reload);
                 isReloading = true;
-                reloadTimer = reloadDuration;
+                ResetReload();
             }
         }
 
@@ -182,7 +194,7 @@ namespace UsableItems
                         trailDurationMultiplier * Vector3.Distance(trail.transform.position, hit.point))
                     .SetLink(gameObject);
 
-                EnemyDamageUtils.EnemyDamage(hit, damage, headshotDamage, damageRandomness, (isHeadshot) => isHeadshot ? headshot : enemySoundController.GetRandomSoundFromRange());
+                EnemyDamageUtils.EnemyDamage(hit, damage, headshotDamage, damageRandomness);
                 
                 if (hit.collider.gameObject.CompareTag("Pipe"))
                 {

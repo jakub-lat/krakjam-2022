@@ -61,6 +61,9 @@ public class Boss : MonoSingleton<Boss>, IEnemy
     private AudioSource bossSource;
 
     public AudioSource BossSource => bossSource;
+    
+    [SerializeField] private FootstepSoundController damageSounds;
+    [SerializeField] private AudioClip headshotSound;
 
 
     public void StartBattle()
@@ -176,9 +179,9 @@ public class Boss : MonoSingleton<Boss>, IEnemy
         healthBar.fillAmount = health/ startingHealth;
     }
 
-    public void PlaySound(AudioClip clip)
+    public void PlaySound(bool isHeadshot)
     {
-        BossSource.PlayOneShot(clip);
+        BossSource.PlayOneShot(isHeadshot ? headshotSound : damageSounds.GetRandomSoundFromRange());
     }
 
     private void LoadCutscene()
