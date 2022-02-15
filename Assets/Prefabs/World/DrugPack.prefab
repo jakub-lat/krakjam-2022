@@ -67,7 +67,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   destroyAfterUse: 1
   interactionName: Pills
-  interactionSound: {fileID: 8300000, guid: 0778ea6b7e4cf894283aed73917cebd4, type: 3}
   source: {fileID: 5371323144075630029}
   amount: 2
 --- !u!65 &7127775095800583416
@@ -81,7 +80,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 2.29, y: 2.5, z: 2.5}
+  m_Size: {x: 2.7, y: 2.7, z: 2.7}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!82 &5371323144075630029
 AudioSource:
@@ -316,6 +315,12 @@ MonoBehaviour:
   materials:
     normal: {fileID: 2100000, guid: 57d5eefa3e2ed0146a25e261e6d5f143, type: 2}
     psycho: {fileID: 2100000, guid: a54952f4a1ece95429fbf92d02fa870f, type: 2}
+  multipleMaterials:
+    normal: []
+    psycho: []
+  useGlobalMaterial: 0
+  globalMaterialType: 0
+  meshRenderer: {fileID: 0}
 --- !u!1001 &213073178413938184
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -437,6 +442,12 @@ MonoBehaviour:
   materials:
     normal: {fileID: 2100000, guid: 226d3f5d02145f14fa6f40af1ea439bf, type: 2}
     psycho: {fileID: 2100000, guid: a54952f4a1ece95429fbf92d02fa870f, type: 2}
+  multipleMaterials:
+    normal: []
+    psycho: []
+  useGlobalMaterial: 0
+  globalMaterialType: 0
+  meshRenderer: {fileID: 0}
 --- !u!1001 &2335181872436922258
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -558,6 +569,12 @@ MonoBehaviour:
   materials:
     normal: {fileID: 2100000, guid: 57d5eefa3e2ed0146a25e261e6d5f143, type: 2}
     psycho: {fileID: 2100000, guid: a54952f4a1ece95429fbf92d02fa870f, type: 2}
+  multipleMaterials:
+    normal: []
+    psycho: []
+  useGlobalMaterial: 0
+  globalMaterialType: 0
+  meshRenderer: {fileID: 0}
 --- !u!1001 &9098635902314807233
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -673,6 +690,12 @@ MonoBehaviour:
   materials:
     normal: {fileID: 2100000, guid: 226d3f5d02145f14fa6f40af1ea439bf, type: 2}
     psycho: {fileID: 2100000, guid: a54952f4a1ece95429fbf92d02fa870f, type: 2}
+  multipleMaterials:
+    normal: []
+    psycho: []
+  useGlobalMaterial: 0
+  globalMaterialType: 0
+  meshRenderer: {fileID: 0}
 --- !u!4 &8777058659104167978 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 151ba46a95c681a4eaf232296479f9c2,
