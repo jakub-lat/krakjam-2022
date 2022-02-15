@@ -36,8 +36,10 @@ public class PopupManager : MonoSingleton<PopupManager>
     private TextMesh GetFundaments(Transform enemy, int dmg, Vector3 maxScale, float positionX)
     {
         GameObject obj = ObjectPooler.Current.SpawnPool(poolTag, enemy.position + new Vector3(positionX, 0, 0), enemy.rotation);
-        obj.transform.localEulerAngles = new Vector3(obj.transform.localEulerAngles.x,obj.transform.localEulerAngles.y+180,obj.transform.localEulerAngles.z);
-        
+        // obj.transform.localEulerAngles = new Vector3(obj.transform.localEulerAngles.x,obj.transform.localEulerAngles.y+180,obj.transform.localEulerAngles.z);
+        obj.transform.LookAt(PlayerInstance.Current.transform.position);
+        obj.transform.Rotate(Vector3.up, 180f);
+
         TextMesh text = obj.GetComponent<TextMesh>();
         text.transform.localScale = new Vector3(0, 0, 0);
         text.transform.DOScale(new Vector3(1, 1, 1), duration / 2).SetEase(ease).SetLink(this.gameObject)
