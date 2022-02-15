@@ -19,7 +19,7 @@ public class PauseObject : MonoSingleton<PauseObject>
 
     [SerializeField] private Button scoreboardBtn = null;
 
-    [SerializeField] private GameObject options = null;
+    [SerializeField] private CanvasGroup options = null;
 
     private float savedHeight;
     private float savedPositionY;
@@ -33,10 +33,13 @@ public class PauseObject : MonoSingleton<PauseObject>
     [SerializeField] private Button optionsBtn = null;
     private Text optionsTxt = null;
 
+    [SerializeField] private Image optionsOverlay;
+
 
     protected void Start()
     {
         optionsTxt = optionsBtn.transform.GetChild(0).GetComponent<Text>();
+        OnOutOptions();
     }
 
     public void OnOpen()
@@ -78,18 +81,37 @@ public class PauseObject : MonoSingleton<PauseObject>
 
     public void OnOutOptions()
     {
-        options.SetActive(false);
-        optionsBtn.onClick.RemoveAllListeners();
-        optionsBtn.onClick.AddListener(OnOptions);
-        optionsTxt.text = "Options";
+        // optionsOverlay.DOFade(0, 0.5f);
+        // options.DOFade(0, 0.3f);
+        // options.transform.DOScale(Vector3.zero, 0.5f).SetEase(Ease.OutQuint).OnComplete(() =>
+        // {
+        //     options.gameObject.SetActive(false);
+        // });
+        // todo why tweens not working
+        
+        var c = optionsOverlay.color;
+        c.a = 0;
+        optionsOverlay.color = c;
+        
+        options.gameObject.SetActive(true);
+        options.transform.localScale = Vector3.zero;
+        options.alpha = 0;
     }
 
     public void OnOptions()
     {
-        options.SetActive(true);
-        optionsBtn.onClick.RemoveAllListeners();
-        optionsBtn.onClick.AddListener(OnOutOptions);
-        optionsTxt.text = "Back";
+        // optionsOverlay.DOFade(1, 0.5f);
+        // options.DOFade(1, 0.5f);
+        // options.transform.DOScale(Vector3.one, 0.5f).SetEase(Ease.InOutQuint);
+        // todo why tweens not working
+        
+        var c = optionsOverlay.color;
+        c.a = 1;
+        optionsOverlay.color = c;
+        
+        options.gameObject.SetActive(true);
+        options.transform.localScale = Vector3.one;
+        options.alpha = 1;
     }
 
     public void OpenScoreboard()

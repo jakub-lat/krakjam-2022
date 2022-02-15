@@ -115,8 +115,16 @@ public class OptionsMenu : MonoSingleton<OptionsMenu>
         soundSlider.value = SoundVolume;
         masterSlider.value = MasterVolume;
         voiceSlider.value = VoiceVolume;
+
+        sensitivityText.text = PercentFormat(SensitivityMouse);
+        musicText.text = PercentFormat(MusicVolume);
+        soundText.text = PercentFormat(SoundVolume);
+        masterText.text = PercentFormat(MasterVolume);
+        voiceText.text = PercentFormat(VoiceVolume);
     }
 
+    private string PercentFormat(float val) => $"{Mathf.RoundToInt(val * 100)}";
+    
     public void SetQuality(int qualityIndex)
     {
         QualitySettings.SetQualityLevel(qualityIndex);
@@ -125,35 +133,35 @@ public class OptionsMenu : MonoSingleton<OptionsMenu>
 
     public void SetSensitivity(float newSans) // Undertale reference
     {
-        sensitivityText.text = newSans.ToString("0.00");
+        sensitivityText.text = PercentFormat(newSans);
         SensitivityMouse = newSans;
         PlayerPrefs.SetFloat(MouseSensitivityKey, SensitivityMouse);
     }
 
     public void SetMusicVolume(float value)
     {
-        musicText.text = value.ToString("0.00");
+        musicText.text = PercentFormat(value);
         MusicVolume = value;
         PlayerPrefs.SetFloat(MusicVolumeKey, MusicVolume);
     }
 
     public void SetSoundVolume(float value)
     {
-        soundText.text = value.ToString("0.00");
+        soundText.text = PercentFormat(value);
         SoundVolume = value;
         PlayerPrefs.SetFloat(SoundVolumeKey, SoundVolume);
     }
 
     public void SetVoiceVolume(float value)
     {
-        voiceText.text = value.ToString("0.00");
+        voiceText.text = PercentFormat(value);
         VoiceVolume = value;
         PlayerPrefs.SetFloat(VoiceVolumeKey, VoiceVolume);
     }
 
     public void SetMasterVolume(float value)
     {
-        masterText.text = value.ToString("0.00");
+        masterText.text = PercentFormat(value);
         MasterVolume = value;
         PlayerPrefs.SetFloat(MasterVolumeKey, MasterVolume);
     }
