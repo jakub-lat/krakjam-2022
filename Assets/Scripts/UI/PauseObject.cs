@@ -81,37 +81,20 @@ public class PauseObject : MonoSingleton<PauseObject>
 
     public void OnOutOptions()
     {
-        // optionsOverlay.DOFade(0, 0.5f);
-        // options.DOFade(0, 0.3f);
-        // options.transform.DOScale(Vector3.zero, 0.5f).SetEase(Ease.OutQuint).OnComplete(() =>
-        // {
-        //     options.gameObject.SetActive(false);
-        // });
-        // todo why tweens not working
-        
-        var c = optionsOverlay.color;
-        c.a = 0;
-        optionsOverlay.color = c;
-        
-        options.gameObject.SetActive(true);
-        options.transform.localScale = Vector3.zero;
-        options.alpha = 0;
+        optionsOverlay.DOFade(0, 0.5f).SetUpdate(true);
+        options.DOFade(0, 0.3f).SetUpdate(true);
+        options.transform.DOScale(Vector3.zero, 0.5f).SetEase(Ease.OutQuint).OnComplete(() =>
+        {
+            options.gameObject.SetActive(false);
+        }).SetUpdate(true);
     }
 
     public void OnOptions()
     {
-        // optionsOverlay.DOFade(1, 0.5f);
-        // options.DOFade(1, 0.5f);
-        // options.transform.DOScale(Vector3.one, 0.5f).SetEase(Ease.InOutQuint);
-        // todo why tweens not working
-        
-        var c = optionsOverlay.color;
-        c.a = 1;
-        optionsOverlay.color = c;
-        
         options.gameObject.SetActive(true);
-        options.transform.localScale = Vector3.one;
-        options.alpha = 1;
+        optionsOverlay.DOFade(1, 0.5f).SetUpdate(true);
+        options.DOFade(1, 0.5f).SetUpdate(true);
+        options.transform.DOScale(Vector3.one, 0.5f).SetEase(Ease.InOutQuint).SetUpdate(true);
     }
 
     public void OpenScoreboard()
