@@ -11238,6 +11238,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -50
       objectReference: {fileID: 0}
+    - target: {fileID: 2040528032, guid: f7447ea9a76276d48bed1ff57cecd2a9, type: 3}
+      propertyPath: m_Text
+      value: YOU HAVE BEEN CORPORATED!
+      objectReference: {fileID: 0}
     - target: {fileID: 280313604788198220, guid: f7447ea9a76276d48bed1ff57cecd2a9,
         type: 3}
       propertyPath: m_AnchorMax.x
