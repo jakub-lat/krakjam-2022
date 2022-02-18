@@ -48,12 +48,13 @@ namespace Player
 
         private void HitEnd()
         {
+            InteractionUI.Current?.HideObjectInRange();
+
             if (currentHit == null) return;
             
             outlineLayer.Remove(currentHit.gameObject);
             currentHit.OnHoverEnd();
             currentHit = null;
-            InteractionUI.Current?.HideObjectInRange();
         }
 
         public void OnInteract()

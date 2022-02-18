@@ -5281,6 +5281,8 @@ MonoBehaviour:
   source: {fileID: 0}
   rotationOffset: {x: 0, y: 0, z: 0}
   positionOffset: {x: 0, y: 0, z: 0}
+  throwDamage: 10
+  throwHeadshotDamage: 15
   damage: 50
   headshotDamage: 70
   damageRandomness: 3
@@ -5305,11 +5307,8 @@ MonoBehaviour:
   shoot: {fileID: 8300000, guid: 71419ed6f13910948bfc4ebf647e6794, type: 3}
   reload: {fileID: 8300000, guid: c4ef1600eaa5d924bac90329e078fd8e, type: 3}
   pickup: {fileID: 8300000, guid: 5bd289bc6ce93af4eb068d0b35e07d85, type: 3}
-  headshot: {fileID: 8300000, guid: 4b8880bd0fbfa784494359f453dfb32f, type: 3}
   noAmmo: {fileID: 8300000, guid: 1e907634a38584042bddea91ff2f042d, type: 3}
   gunSource: {fileID: 1941083714989583875}
-  enemySoundController: {fileID: 6133451462017305272}
-  bossSoundController: {fileID: 4996229322161013497}
 --- !u!54 &8510893395727593490
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -5335,7 +5334,8 @@ AudioSource:
   m_GameObject: {fileID: 5903540461458353516}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 7592457477145357069, guid: 6e7774cddcde49eb81f8dab85104734c,
+    type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
   m_Volume: 0.447
