@@ -1,6 +1,7 @@
 ﻿using System;
 using Cinemachine;
 using Cyberultimate.Unity;
+using Options;
 using UnityEngine;
 
 namespace Player
@@ -16,7 +17,7 @@ namespace Player
 
             Cam = GetComponent<CinemachineVirtualCamera>();
             pov = Cam.GetCinemachineComponent<CinemachinePOV>();
-            OptionsMenu.SensitivityMouse = pov.m_HorizontalAxis.m_MaxSpeed;
+            // OptionsMenu.SensitivityMouse = pov.m_HorizontalAxis.m_MaxSpeed;
         }
 
         protected void OnDestroy()
@@ -25,8 +26,8 @@ namespace Player
 
         protected void Update()
         {
-            pov.m_VerticalAxis.m_MaxSpeed = OptionsMenu.SensitivityMouse;
-            pov.m_HorizontalAxis.m_MaxSpeed = OptionsMenu.SensitivityMouse;
+            pov.m_VerticalAxis.m_MaxSpeed = OptionsManager.Current.MouseSensitivity.Value;
+            pov.m_HorizontalAxis.m_MaxSpeed = OptionsManager.Current.MouseSensitivity.Value;
         }
     }
 }

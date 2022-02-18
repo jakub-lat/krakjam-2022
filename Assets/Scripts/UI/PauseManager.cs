@@ -1,3 +1,4 @@
+using System;
 using Cyberultimate.Unity;
 using System.Collections;
 using System.Collections.Generic;
@@ -26,6 +27,12 @@ public class PauseManager : MonoSingleton<PauseManager>
     [SerializeField]
     private AudioClip gameOver;
 
+
+    private void Start()
+    {
+        SetPause(pauseObject, false);
+    }
+
     public void SwitchPause()
     {
         if (IsDead)
@@ -34,7 +41,7 @@ public class PauseManager : MonoSingleton<PauseManager>
         }
 
         IsPaused = !IsPaused;
-        Pause(pauseObject, IsPaused);
+        SetPause(pauseObject, IsPaused);
     }
 
     public void SwitchDeath()
@@ -47,13 +54,13 @@ public class PauseManager : MonoSingleton<PauseManager>
             PauseObject.Current.OnGameOver();
         }
         IsPaused = true;
-        Pause(gameOverObject, IsDead);
+        SetPause(gameOverObject, IsDead);
     }
 
-    public void Pause(GameObject obj, bool isTrue)
+    public void SetPause(GameObject obj, bool isPaused)
     {
-        input.SetCursorState(isTrue);
-        if (isTrue)
+        input.SetCursorState(isPaused);
+        if (isPaused)
         {
             Time.timeScale = 0;
             // TimeScaling.Status.Register(obj, 0);
@@ -65,7 +72,7 @@ public class PauseManager : MonoSingleton<PauseManager>
             // screw u biegus, these scripts of yours are shady
             // TimeScaling.Status.Unregister(obj);
         }
-        obj.SetActive(isTrue);
+        obj.SetActive(isPaused);
         LastObject = obj;
         
         PauseObject.Current.OnOpen();

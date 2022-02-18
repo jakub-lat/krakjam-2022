@@ -844,6 +844,8 @@ MonoBehaviour:
   multipleMaterials:
     normal: []
     psycho: []
+  useGlobalMaterial: 0
+  globalMaterialType: 0
   meshRenderer: {fileID: 0}
 --- !u!1 &2173622567761178347
 GameObject:
@@ -2174,7 +2176,8 @@ AudioSource:
   m_GameObject: {fileID: 8209699356991839506}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 7592457477145357069, guid: b85103b0231715a468c98547cf1e4b37,
+    type: 2}
   m_audioClip: {fileID: 8300000, guid: a1311f734bbea614fba9ac608b748a8a, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 0.676
@@ -2377,6 +2380,8 @@ MonoBehaviour:
   multipleMaterials:
     normal: []
     psycho: []
+  useGlobalMaterial: 0
+  globalMaterialType: 0
   meshRenderer: {fileID: 0}
 --- !u!1 &9074998911005416877
 GameObject:
@@ -2494,6 +2499,8 @@ MonoBehaviour:
   multipleMaterials:
     normal: []
     psycho: []
+  useGlobalMaterial: 0
+  globalMaterialType: 0
   meshRenderer: {fileID: 0}
 --- !u!1 &9074998911403675279
 GameObject:
@@ -2830,6 +2837,8 @@ MonoBehaviour:
   multipleMaterials:
     normal: []
     psycho: []
+  useGlobalMaterial: 0
+  globalMaterialType: 0
   meshRenderer: {fileID: 0}
 --- !u!1 &9074998911488061760
 GameObject:
@@ -2947,6 +2956,8 @@ MonoBehaviour:
   multipleMaterials:
     normal: []
     psycho: []
+  useGlobalMaterial: 0
+  globalMaterialType: 0
   meshRenderer: {fileID: 0}
 --- !u!1 &9074998911844418270
 GameObject:
@@ -3123,6 +3134,8 @@ MonoBehaviour:
   multipleMaterials:
     normal: []
     psycho: []
+  useGlobalMaterial: 0
+  globalMaterialType: 0
   meshRenderer: {fileID: 0}
 --- !u!114 &1759283283
 MonoBehaviour:
@@ -3260,6 +3273,8 @@ MonoBehaviour:
   multipleMaterials:
     normal: []
     psycho: []
+  useGlobalMaterial: 0
+  globalMaterialType: 0
   meshRenderer: {fileID: 0}
 --- !u!1 &9074998912543461625
 GameObject:
@@ -3378,6 +3393,8 @@ MonoBehaviour:
   multipleMaterials:
     normal: []
     psycho: []
+  useGlobalMaterial: 0
+  globalMaterialType: 0
   meshRenderer: {fileID: 0}
 --- !u!114 &982835863
 MonoBehaviour:

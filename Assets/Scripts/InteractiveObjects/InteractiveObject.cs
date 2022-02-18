@@ -1,5 +1,8 @@
 ﻿using System;
-using QuickOutline;
+using System.Collections.Generic;
+using System.Globalization;
+using System.Linq;
+using Unity.VisualScripting;
 using UnityEngine;
 
 namespace InteractiveObjects
@@ -13,9 +16,20 @@ namespace InteractiveObjects
         public string interactionName;
 
         [SerializeField] private AudioSource source;
-
+        
+        private List<MonoBehaviour> outlines;
+        
         private void Start()
         {
+            // outlines = gameObject.GetComponentsInChildren<Renderer>().Select(x => x.AddComponent<Outline>()).ToList();
+            // foreach (var outline in outlines)
+            // {
+            //     outline.enabled = false;
+            // }
+            // outline.OutlineColor = Color.yellow;
+            // outline.OutlineMode = Outline.Mode.OutlineAndSilhouette;
+            // outline.OutlineWidth = 10f;
+            // outline.enabled = false;
             // if (gameObject.name.ToLower().Contains("gun"))
             // {
             //     var outline = gameObject.AddComponent<Outline>();
@@ -34,6 +48,23 @@ namespace InteractiveObjects
             {
                 Destroy(gameObject);
             }
+        }
+
+        public virtual void OnHover()
+        {
+            // foreach (var outline in outlines)
+            // {
+            //     outline.enabled = true;
+            // }
+            // CameraHelper.MainCamera.GetComponent<OutlineEffect>
+        }
+
+        public virtual void OnHoverEnd()
+        {
+            // foreach (var outline in outlines)
+            // {
+            //     outline.enabled = false;
+            // }
         }
     }
 }
