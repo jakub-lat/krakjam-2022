@@ -14,12 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _layers:
   - _settings:
-      _outlineSettings: {fileID: 11400000, guid: 85eed2867995144478d85c719f1f99f9,
+      _outlineSettings: {fileID: 11400000, guid: 0b429e57ff2a4b7d96addda01bbf3784,
         type: 2}
-      _outlineColor: {r: 1, g: 0, b: 0, a: 1}
-      _outlineWidth: 4
-      _outlineIntensity: 2
-      _outlineAlphaCutoff: 0.9
+      _outlineColor: {r: 0, g: 0, b: 0, a: 0}
+      _outlineWidth: 1
+      _outlineIntensity: 1
+      _outlineAlphaCutoff: 0
       _outlineMode: 0
     _name: Interactable
     _enabled: 1

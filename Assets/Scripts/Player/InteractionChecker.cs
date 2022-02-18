@@ -3,6 +3,7 @@ using Cyberultimate.Unity;
 using InteractiveObjects;
 using UI;
 using UnityEngine;
+using UnityEngine.Rendering.Universal;
 using UnityFx.Outline;
 
 namespace Player
@@ -19,8 +20,8 @@ namespace Player
         
         private void Start()
         {
-            outlineEffect = CameraHelper.MainCamera.GetComponent<OutlineEffect>();
-            outlineLayer = outlineEffect.OutlineLayers[0];
+            outlineLayer = (Resources.Load("OutlineLayerCollection") as OutlineLayerCollection)?[0];
+
             HitEnd();
             // outlineEffect.AddGameObject();
         }

@@ -517,7 +517,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 270d3185d159bf54fb4cddbb42235437, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _outlineResources: {fileID: 11400000, guid: d28e70f030b1a634db9a6a6d5478ef19, type: 2}
+  _outlineResources: {fileID: 11400000, guid: 231d88937a104094b8e4e0fdb8d2e77b, type: 2}
   _outlineLayers: {fileID: 11400000, guid: 3af4de02ad77427098236bb13dbac160, type: 2}
   _cameraEvent: 15
 --- !u!1 &6355037468434703009

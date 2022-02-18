@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Active: 1
   _outlineResources: {fileID: 11400000, guid: 231d88937a104094b8e4e0fdb8d2e77b, type: 2}
-  _outlineLayers: {fileID: 11400000, guid: aeb8ced0f5f81ff4b903944caba5145a, type: 2}
+  _outlineLayers: {fileID: 11400000, guid: 3af4de02ad77427098236bb13dbac160, type: 2}
   _outlineSettings:
     _outlineSettings: {fileID: 0}
     _outlineColor: {r: 1, g: 0, b: 0, a: 1}
