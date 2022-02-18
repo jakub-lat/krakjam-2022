@@ -3,8 +3,6 @@
 # Get latest from https://github.com/github/gitignore/blob/master/Unity.gitignore
 #
 
-Assets/Resources/ScoreboardConfig.txt
-
 
 /[Ll]ibrary/
 /[Tt]emp/
@@ -69,3 +67,7 @@ Assets/Resources/ScoreboardConfig.txt.meta
 Assets/Scenes/Game/NavMesh.asset
 
 Assets/Scripts/Scoreboard/ScoreboardConfig.cs
+
+Assets/Resources/ScoreboardConfig.txt
+Assets/Scenes/Game/NavMesh.asset.meta
+Assets/Scripts/Scoreboard/ScoreboardConfig.cs.meta
