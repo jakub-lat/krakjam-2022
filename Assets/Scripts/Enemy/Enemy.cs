@@ -29,7 +29,6 @@ public class Enemy : MonoBehaviour, IEnemy
 
     private void Start()
     {
-        //anim = GetComponentInChildren<Animator>();
         ai = GetComponent<EnemyAI>();
         hp = startingHealth;
     }
@@ -67,7 +66,7 @@ public class Enemy : MonoBehaviour, IEnemy
 
             anim.SetTrigger(Die);
 
-            myBody.GetComponent<Collider>().isTrigger = true;
+            // myBody.GetComponent<Collider>().isTrigger = true;
             foreach (Collider c in GetComponentsInChildren<Collider>())
             {
                 c.enabled = false;
