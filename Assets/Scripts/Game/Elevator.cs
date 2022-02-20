@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using DG.Tweening;
 using Scoreboard;
 using StarterAssets;
@@ -31,7 +33,11 @@ namespace Game
         [SerializeField] private Transform illusionObj;
         [SerializeField] private float illusionStartY;
         [SerializeField] private float illusionEndY;
-        
+
+        [SerializeField] private Transform floorButtonContainer;
+        [SerializeField] private ElevatorButton floorButtonPrefab;
+        private List<ElevatorButton> _floorButtons;
+
         private Vector2 floorTextStartPos;
 
         private Vector3 doorsLeftClosedLocalPos, doorsRightClosedLocalPos;
@@ -73,6 +79,17 @@ namespace Game
             doorsLeftClosedLocalPos = doorsLeft.localPosition;
             doorsRightClosedLocalPos = doorsRight.localPosition;
 
+            var lvlCnt = LevelManager.Current.levelCount;
+            _floorButtons = new List<ElevatorButton>();
+            for (var i = lvlCnt; i >= 1 ; i--)
+            {
+                var btn = Instantiate(floorButtonPrefab, floorButtonContainer);
+                btn.Init(i, LevelManager.Current.levelDescriptions.ElementAtOrDefault(i-1) ?? string.Empty);
+                _floorButtons.Add(btn);
+            }
+
+            _floorButtons.Reverse();
+
             UpdateFloorText();
 
             floorTextStartPos = floorText.rectTransform.anchoredPosition;
@@ -83,6 +100,7 @@ namespace Game
             {
                 GetComponent<ElevatorScoreboard>().Hide();
                 music.Play();
+                Invoke(nameof(UpdateFloorText), 0.5f);
                 Invoke(nameof(Open), startWaitTime);
                 MovingUpIllusion(startWaitTime);
                 exitBlock.SetActive(false);
@@ -92,6 +110,8 @@ namespace Game
             {
                 GoToBoss();
             }
+
+            Debug.Log($"start: current level={LevelManager.Current.CurrentLevel}");
         }
 
         private void Print(string text)
@@ -149,8 +169,8 @@ namespace Game
             music.DOFade(1, musicTransition);
             GameMusic.Current.FadeOut(musicTransition);
 
-            UpdateFloorText();
             exitBlock.SetActive(true);
+            
             Close().OnComplete(() =>
             {
                 Print("closed");
@@ -158,12 +178,18 @@ namespace Game
                 MovingUpIllusion(startMovingDelay);
                 
                 Invoke(nameof(NextLevel), startMovingDelay / 2);
+                Invoke(nameof(UpdateFloorText), (startMovingDelay / 2) + 0.1f);
                 
                 floorText.rectTransform.DOAnchorPos(floorTextEndPos, animDuration)
                     .SetEase(Ease.OutCirc)
                     .SetDelay(startMovingDelay)
                     .OnComplete(() =>
                     {
+                        foreach (var x in _floorButtons)
+                        {
+                            x.Unselect();
+                        }
+                        
                         Print("floor text completed - opening");
                         Open();
                     }).SetLink(this.gameObject);
@@ -207,11 +233,23 @@ namespace Game
         {
             var lvl = LevelManager.Current.CurrentLevel;
             floorText.text = $"{lvl + 1}\n{lvl}";
+            Debug.Log($"cnt {_floorButtons.Count} i {lvl}");
+            
+            Debug.Log($"Updating floor text - current level = {LevelManager.Current.CurrentLevel}");
+            foreach (var x in _floorButtons)
+            {
+                x.Unselect();
+            }
+            _floorButtons[lvl-1].Select();
         }
 
         public Tween Open()
         {
             // Print("open");
+            foreach (var x in _floorButtons)
+            {
+                x.Unselect();
+            }
 
             music.DOFade(0, musicTransition);
             GameMusic.Current.FadeIn(musicTransition);

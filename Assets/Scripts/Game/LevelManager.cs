@@ -6,6 +6,7 @@ using Player;
 using Scoreboard;
 using UI;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 namespace Game
 {
@@ -25,7 +26,7 @@ namespace Game
         public AnimationCurve attackRange;
         public AnimationCurve attackSpeed;
     }
-
+    
     public class LevelManager : MonoSingleton<LevelManager>
     {
         public GameMode GameMode => (GameMode)PlayerPrefs.GetInt("GameMode");
@@ -40,8 +41,11 @@ namespace Game
         public Transform cameraHolder;
         public Transform bossRoomSpawnPoint;
 
-        [Header("Game balance")] 
+        [Header("Level settings")]
         public int levelCount;
+        public List<string> levelDescriptions;
+
+        [Header("Game balance")] 
         [SerializeField] private AnimationCurve difficultyCurveEasy;
         [SerializeField] private AnimationCurve difficultyCurveNormal;
         [SerializeField] private AnimationCurve difficultyCurveHard;
