@@ -31,7 +31,7 @@ namespace Player
             fist.closeFightSource = GetComponent<AudioSource>();
             fist.hitSound = meleeSound;
 
-            
+
             if (startingItem != null)
             {
                 var go = Instantiate(startingItem);
@@ -47,16 +47,16 @@ namespace Player
 
             CurrentItem = item;
             CurrentItem.OnPickup();
-            
+
             // if(CurrentItem.TryGetComponent<Outline>(out var outline))
             // {
             //     outline.enabled = false;
             // }
-            
+
             var rb = CurrentItem.gameObject.GetComponent<Rigidbody>();
             rb.isKinematic = true;
             rb.collisionDetectionMode = CollisionDetectionMode.ContinuousSpeculative;
-            
+
             foreach (var col in CurrentItem.GetComponents<Collider>())
             {
                 col.enabled = false;
@@ -65,12 +65,14 @@ namespace Player
             CurrentItem.transform.SetParent(null, true);
             originalScale = CurrentItem.transform.localScale;
             originalLayer = CurrentItem.gameObject.layer;
-            
+
             SetLayerRecursively(CurrentItem.gameObject, gameObject.layer);
             CurrentItem.transform.SetParent(transform, true);
             CurrentItem.transform.DOLocalRotate(CurrentItem.rotationOffset, pickupTransitionDuration);
-            CurrentItem.transform.DOLocalMove(CurrentItem.positionOffset, pickupTransitionDuration).SetEase(Ease.InOutQuint);
-            CurrentItem.transform.DOScale(CurrentItem.transform.localScale * transform.localScale.x, pickupTransitionDuration);
+            CurrentItem.transform.DOLocalMove(CurrentItem.positionOffset, pickupTransitionDuration)
+                .SetEase(Ease.InOutQuint);
+            CurrentItem.transform.DOScale(CurrentItem.transform.localScale * transform.localScale.x,
+                pickupTransitionDuration);
             // CurrentItem.transform.DOScale(Vector3.one, pickupTransitionDuration);
             CurrentItem.tag = "Untagged";
         }
@@ -78,7 +80,7 @@ namespace Player
         public void DropItem()
         {
             if (CurrentItem == null) return;
-            
+
             SetLayerRecursively(CurrentItem.gameObject, originalLayer);
             CurrentItem.transform.SetParent(null, true);
             // CurrentItem.transform.localScale /= transform.localScale.x;
@@ -86,15 +88,15 @@ namespace Player
 
             CurrentItem.OnDrop();
             CurrentItem.tag = "Interactable";
-            
+
             // if(CurrentItem.TryGetComponent<Outline>(out var outline))
             // {
             //     outline.enabled = true;
             // }
             // CurrentItem.transform.localScale = originalScale;
-            
+
             // CurrentItem.transform.localScale = Vector3.one;
-            
+
             foreach (var col in CurrentItem.GetComponents<Collider>())
             {
                 col.enabled = true;
@@ -102,7 +104,7 @@ namespace Player
 
             var rb = CurrentItem.gameObject.GetComponent<Rigidbody>();
             rb.isKinematic = false;
-            
+
             rb.AddForce(CameraHelper.MainCamera.transform.forward * throwItemForce, ForceMode.VelocityChange);
             // StartCoroutine(PushAfterTime(0.2f, rb, 15f));
 
@@ -123,38 +125,45 @@ namespace Player
                 m.hitSound = meleeSound;
             }
 
-            
-            if (CurrentItem == null)
+            // todo możnaby przenieść uruchamianie anim.ItemHit() do MeleeWeapon
+            // i zrobić skrypt Fist w którym odpala się anim.Punch()
+
+            if (CurrentItem == null) // use fist
             {
-                fist.Use();
-                PlayerAnim.Current.Punch();
+                if (fist.Use())
+                {
+                    PlayerAnim.Current.Punch();
+                }
             }
-            else
+            else if (CurrentItem is MeleeWeapon) // use melee
             {
-                if (CurrentItem is MeleeWeapon)
+                if (CurrentItem.Use()) // if succeeded play animation
                 {
                     PlayerAnim.Current.ItemHit();
                 }
-                
+            }
+            else // use other item
+            {
                 CurrentItem.Use();
             }
         }
-        
+
         void SetLayerRecursively(GameObject obj, int newLayer)
         {
             if (null == obj)
             {
                 return;
             }
-       
+
             obj.layer = newLayer;
-       
+
             foreach (Transform child in obj.transform)
             {
                 if (null == child)
                 {
                     continue;
                 }
+
                 SetLayerRecursively(child.gameObject, newLayer);
             }
         }

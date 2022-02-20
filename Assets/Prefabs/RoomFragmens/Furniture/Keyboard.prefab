@@ -165,9 +165,11 @@ MonoBehaviour:
   source: {fileID: 0}
   rotationOffset: {x: 6.065, y: -142.27, z: 70}
   positionOffset: {x: -0.113, y: 0.04, z: -0.175}
+  throwDamage: 10
+  throwHeadshotDamage: 15
   damage: 40
   distance: 3
-  cooldownTime: 1
+  cooldownTime: 0.5
   critMultiplier: 1.7
   closeFightSource: {fileID: 0}
   hitSound: {fileID: 0}

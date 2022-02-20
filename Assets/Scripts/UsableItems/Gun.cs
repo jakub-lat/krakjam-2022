@@ -121,9 +121,10 @@ namespace UsableItems
             ui?.SetInfo($"{first} / {totalAmmo}");
         }
         
-        public override void Use()
+        public override bool Use()
         {
             Shoot();
+            return true;
         }
 
         public override void OnPickup()
