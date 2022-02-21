@@ -16,7 +16,7 @@ namespace UsableItems
         public float throwDamage = 10f;
         public float throwHeadshotDamage = 15f;
         
-        public abstract void Use();
+        public abstract bool Use();
 
         public virtual void OnPickup()
         {

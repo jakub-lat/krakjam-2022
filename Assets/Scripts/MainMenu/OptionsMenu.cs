@@ -5,16 +5,12 @@ using UnityEngine;
 using UnityEngine.UI;
 using Cyberultimate;
 using Cyberultimate.Unity;
+using Options;
+using UI;
 using UnityEngine.Audio;
 
 public class OptionsMenu : MonoSingleton<OptionsMenu>
 {
-    private const string MouseSensitivityKey = "MouseSensitivity";
-    private const string MusicVolumeKey = "MusicVolume";
-    private const string SoundVolumeKey = "SoundVolume";
-    private const string MasterVolumeKey = "MasterVolume";
-    private const string VoiceVolumeKey = "VoiceVolume";
-    private const string QualityKey = "GraphicsQuality";
 
     [SerializeField]
     private Dropdown qualityDropdown = null;
@@ -43,118 +39,64 @@ public class OptionsMenu : MonoSingleton<OptionsMenu>
     [SerializeField]
     private Text voiceText;
 
-    public static float SensitivityMouse { get; set; } = 0.2f;
-    private float _MusicVolume = 1;
-    public float MusicVolume { get { return _MusicVolume; } private set 
-        { 
-            if (value != _MusicVolume)
-            {
-                mixer.SetFloat(MusicVolumeKey, Mathf.Log10(value) * 20);
-                _MusicVolume = value;
-            }
-        } }
 
-    private float _SoundVolume = 1;
-    public float SoundVolume
-    {
-        get { return _SoundVolume; }
-        private set
-        {
-            if (value != _SoundVolume)
-            {
-                mixer.SetFloat(SoundVolumeKey, Mathf.Log10(value) * 20);
-                _SoundVolume = value;
-            }
-        }
-    }
-    private float _MasterVolume = 1;
-    public float MasterVolume
-    {
-        get { return _MasterVolume; }
-        private set
-        {
-            if (value != _MasterVolume)
-            {
-                mixer.SetFloat(MasterVolumeKey, Mathf.Log10(value) * 20);
-                _MasterVolume = value;
-            }
-        }
-    }
-
-    private float _VoiceVolume = 1;
-    public float VoiceVolume
-    {
-        get { return _VoiceVolume; }
-        private set
-        {
-            if (value != _VoiceVolume)
-            {
-                mixer.SetFloat(VoiceVolumeKey, Mathf.Log10(value) * 20);
-                _VoiceVolume = value;
-            }
-        }
-    }
-
-    public static event Action<float> OnChangedSensitivity = delegate { };
-
-    [SerializeField]
-    private AudioMixer mixer;
+    private OptionsManager options;
 
     protected void Start()
     {
-        SensitivityMouse = PlayerPrefs.HasKey(MouseSensitivityKey) ? PlayerPrefs.GetFloat(MouseSensitivityKey) : SensitivityMouse;
-        MusicVolume = PlayerPrefs.HasKey(MusicVolumeKey) ? PlayerPrefs.GetFloat(MusicVolumeKey) : MusicVolume;
-        SoundVolume = PlayerPrefs.HasKey(SoundVolumeKey) ? PlayerPrefs.GetFloat (SoundVolumeKey) : SoundVolume;
-        MasterVolume = PlayerPrefs.HasKey(MasterVolumeKey) ? PlayerPrefs.GetFloat(MasterVolumeKey) : MasterVolume;
-        VoiceVolume = PlayerPrefs.HasKey(VoiceVolumeKey) ? PlayerPrefs.GetFloat(VoiceVolumeKey) : VoiceVolume;
-        QualitySettings.SetQualityLevel(PlayerPrefs.HasKey(QualityKey) ? PlayerPrefs.GetInt(QualityKey) : 2);
-
+        options = OptionsManager.Current;
+        
         qualityDropdown.SetValueWithoutNotify(QualitySettings.GetQualityLevel());
-        sensitivitySlider.value = SensitivityMouse;
-        musicSlider.value = MusicVolume;
-        soundSlider.value = SoundVolume;
-        masterSlider.value = MasterVolume;
-        voiceSlider.value = VoiceVolume;
+        sensitivitySlider.value = options.MouseSensitivity.Value;
+        musicSlider.value = options.MusicVolume.Value;
+        soundSlider.value = options.SoundVolume.Value;
+        masterSlider.value = options.MasterVolume.Value;
+        voiceSlider.value = options.VoiceVolume.Value;
+
+        sensitivityText.text = PercentFormat(options.MouseSensitivity.Value);
+        musicText.text = PercentFormat(options.MusicVolume.Value);
+        soundText.text = PercentFormat(options.SoundVolume.Value);
+        masterText.text = PercentFormat(options.MasterVolume.Value);
+        voiceText.text = PercentFormat(options.VoiceVolume.Value);
     }
 
-    public void SetQuality(int qualityIndex)
-    {
-        QualitySettings.SetQualityLevel(qualityIndex);
-        PlayerPrefs.SetInt(QualityKey, qualityIndex);
-    }
+     
+    private string PercentFormat(float val) => $"{Mathf.RoundToInt(val * 100)}";
+    
 
     public void SetSensitivity(float newSans) // Undertale reference
     {
-        sensitivityText.text = newSans.ToString("0.00");
-        SensitivityMouse = newSans;
-        PlayerPrefs.SetFloat(MouseSensitivityKey, SensitivityMouse);
+        sensitivityText.text = PercentFormat(newSans);
+        options.MouseSensitivity.Set(newSans);
     }
 
     public void SetMusicVolume(float value)
     {
-        musicText.text = value.ToString("0.00");
-        MusicVolume = value;
-        PlayerPrefs.SetFloat(MusicVolumeKey, MusicVolume);
+        musicText.text = PercentFormat(value);
+        options.MusicVolume.Set(value);
     }
 
     public void SetSoundVolume(float value)
     {
-        soundText.text = value.ToString("0.00");
-        SoundVolume = value;
-        PlayerPrefs.SetFloat(SoundVolumeKey, SoundVolume);
+        soundText.text = PercentFormat(value);
+        options.SoundVolume.Set(value);
     }
 
     public void SetVoiceVolume(float value)
     {
-        voiceText.text = value.ToString("0.00");
-        VoiceVolume = value;
-        PlayerPrefs.SetFloat(VoiceVolumeKey, VoiceVolume);
+        voiceText.text = PercentFormat(value);
+        options.VoiceVolume.Set(value);
     }
 
     public void SetMasterVolume(float value)
     {
-        masterText.text = value.ToString("0.00");
-        MasterVolume = value;
-        PlayerPrefs.SetFloat(MasterVolumeKey, MasterVolume);
+        masterText.text = PercentFormat(value);
+        options.MasterVolume.Set(value);
+    }
+
+    public void SetQuality(int value)
+    {
+        qualityDropdown.value = value;
+        options.Quality.Set(value);
     }
 }

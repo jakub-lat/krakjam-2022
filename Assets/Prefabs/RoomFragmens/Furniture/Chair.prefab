@@ -166,9 +166,9 @@ MonoBehaviour:
   positionOffset: {x: 0.217, y: -0.7, z: 0.32}
   throwDamage: 15
   throwHeadshotDamage: 20
-  damage: 140
+  damage: 100
   distance: 4
-  cooldownTime: 2
+  cooldownTime: 1.2
   critMultiplier: 1.7
   closeFightSource: {fileID: 0}
   hitSound: {fileID: 0}

@@ -50,7 +50,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   destroyAfterUse: 1
   interactionName: Ammo Pack
-  interactionSound: {fileID: 0}
   source: {fileID: 0}
   amount: 15
 --- !u!114 &165399853870800424
@@ -71,6 +70,8 @@ MonoBehaviour:
   multipleMaterials:
     normal: []
     psycho: []
+  useGlobalMaterial: 0
+  globalMaterialType: 0
   meshRenderer: {fileID: 658579653042567819}
 --- !u!65 &3619155514031246530
 BoxCollider:

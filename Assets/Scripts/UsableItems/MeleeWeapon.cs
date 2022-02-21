@@ -30,14 +30,14 @@ namespace UsableItems
             rb.isKinematic = true;
         }
 
-        public override void Use()
+        public override bool Use()
         {
             if (PauseManager.Current.IsPaused)
             {
-                return;
+                return false;
             }
 
-            if (!cooldown.Push()) return;
+            if (!cooldown.Push()) return false;
 
             if (Physics.Raycast(CameraHelper.MainCamera.transform.position, CameraHelper.MainCamera.transform.forward,
                 out var hit, distance, HandController.Current.attackLayerMask, QueryTriggerInteraction.Ignore))
@@ -46,6 +46,7 @@ namespace UsableItems
                 EnemyDamageUtils.EnemyDamage(hit, damage, damage * critMultiplier, 0);
             }
 
+            return true;
         }
     }
 }
