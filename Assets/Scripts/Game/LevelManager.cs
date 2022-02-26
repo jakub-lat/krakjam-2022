@@ -123,6 +123,7 @@ namespace Game
             (startingPosA, startingPosB) = (startingPosB, startingPosA);
 
             GenerateLevel();
+            Landscape.Current.SetElevation(CurrentLevel);
 
             // startingElevator.Open();
             startingElevator.Active = false;
