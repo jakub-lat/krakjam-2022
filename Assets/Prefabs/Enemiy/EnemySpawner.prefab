@@ -169,7 +169,7 @@ MonoBehaviour:
       bulletPoolTag: EnemyBullet
       attackSpeed: 0.5
       shootDelay: 0.1
-      bulletSpeed: 1000
+      bulletSpeed: 1500
       magazineSize: 6
       reloadSpeed: 3
       magazine: 0

@@ -9,7 +9,7 @@ public class ElevatorRemover : MonoBehaviour
 
     public void Remove()
     {
-        Debug.Log("BRR");
+        // Debug.Log("BRR");
         foreach(Transform o in GenerateRoom.Current.GetComponentsInChildren<Transform>())
         {
             if (Vector3.Distance(o.position,transform.position)<=removeDist && removeMask == (removeMask | (1 << o.gameObject.layer)))

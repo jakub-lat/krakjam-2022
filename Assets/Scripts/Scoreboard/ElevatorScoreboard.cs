@@ -18,7 +18,9 @@ namespace Scoreboard
         [SerializeField] private Text idCol;
         [SerializeField] private Text nameCol;
         [SerializeField] private Text scoreCol;
+
         [SerializeField] private Text timeCol;
+
         // [SerializeField] private Text headshotsCol;
         [SerializeField] private Text deathsCol;
 
@@ -27,7 +29,7 @@ namespace Scoreboard
             surface.SetActive(false);
             canvas.SetActive(false);
         }
-        
+
         public async Task Show(int level)
         {
             surface.SetActive(true);
@@ -45,7 +47,7 @@ namespace Scoreboard
             }
             catch (Exception e)
             {
-                Debug.Log(e);
+                Debug.LogError(e);
                 loadingText.enabled = false;
                 errorText.enabled = true;
             }
@@ -60,7 +62,7 @@ namespace Scoreboard
         {
             return sure ? $"<color=green>{str}</color>" : str;
         }
-        
+
         public static string Truncate(string value, int maxChars)
         {
             return value.Length <= maxChars ? value : value.Substring(0, maxChars) + "...";
@@ -71,11 +73,12 @@ namespace Scoreboard
             idCol.text += "\n" + Colorize(x.position.ToString(), isCurrent);
             nameCol.text += "\n" + Colorize(Truncate(x.player?.name.ToUpper() ?? "", 12), isCurrent);
             scoreCol.text += "\n" + Colorize(x.score.ToString(), isCurrent);
-            timeCol.text += "\n" + Colorize(TimeSpan.FromSeconds(x.endTime - x.startTime).ToString(@"mm\:ss"), isCurrent);
+            timeCol.text += "\n" + Colorize(TimeSpan.FromSeconds(x.endTime - x.startTime).ToString(@"mm\:ss"),
+                isCurrent);
             // headshotsCol.text += "\n" + Colorize(x.headshots.ToString(), isCurrent);
             deathsCol.text += "\n" + Colorize(x.deaths.ToString(), isCurrent);
         }
-        
+
         private void RenderData(ScoreboardForLevelResponse data)
         {
             idCol.text = GetTitleText("-");
@@ -86,20 +89,34 @@ namespace Scoreboard
             deathsCol.text = GetTitleText("DEATHS");
 
             var wasCurrent = false;
-            foreach (var x in data.others.GetRange(0, Math.Min(15, data.others.Count)))
+            foreach (var (x, i) in data.others.GetRange(0, Math.Min(15, data.others.Count)).Select((x, i) => (x, i)))
             {
+                if (x == null)
+                {
+                    Debug.LogError($"gameRunLevel on index {i} is null! skipping");
+                    continue;
+                }
+
                 var isCurrent = x.playerID == GameScoreboard.Current.runData.playerID;
                 if (isCurrent)
                 {
                     wasCurrent = true;
                 }
+
                 RenderRow(x, isCurrent);
             }
 
-            if (!wasCurrent)
+            if (wasCurrent) return;
+
+            if (data.player == null)
             {
-                RenderRow(data.player, true);
+                Debug.LogError("data.player is null!");
+                Debug.LogError(JsonConvert.SerializeObject(data));
+                return;
             }
+
+
+            RenderRow(data.player, true);
         }
     }
 }
