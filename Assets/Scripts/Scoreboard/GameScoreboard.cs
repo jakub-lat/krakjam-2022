@@ -40,11 +40,11 @@ namespace Scoreboard
         protected override void Awake()
         {
             base.Awake();
-            // Debug.Log($"token: {Token}");
+            Debug.Log($"token: {Token}");
 
             DontDestroyOnLoad(gameObject);
 
-            var t = this.GetType().Assembly.GetType("Scoreboard.ScoreboardConfig");
+            var t = GetType().Assembly.GetType("Scoreboard.ScoreboardConfig");
             if (t != null)
             {
                 var f = t.GetFields(

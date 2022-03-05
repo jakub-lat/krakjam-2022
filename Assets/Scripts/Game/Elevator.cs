@@ -239,7 +239,7 @@ namespace Game
             {
                 x.Unselect();
             }
-            Debug.Log(lvl);
+            // Debug.Log(lvl);
             _floorButtons[lvl-1].Select();
         }
 
