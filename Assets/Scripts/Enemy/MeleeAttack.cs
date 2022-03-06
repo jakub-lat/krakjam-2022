@@ -34,6 +34,7 @@ public class MeleeAttack : MonoBehaviour
             dir += new Vector3(0, knockUp, 0);
             //col.gameObject.GetComponentInParent<Rigidbody>().AddForce(dir*knockback);
             PlayerHealth.Current.Health -= damage;
+            Debug.Log(damage);
         }
     }
 }

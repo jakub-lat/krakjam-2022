@@ -40,7 +40,7 @@ namespace Scoreboard
         protected override void Awake()
         {
             base.Awake();
-            Debug.Log($"token: {Token}");
+            //Debug.Log($"token: {Token}");
 
             DontDestroyOnLoad(gameObject);
 

@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class EnemyAnim : MonoBehaviour
 {
-    private Enemy e;
+    private Enemy[] e;
     private MeleeEnemy melee;
 
     private void Start()
     {
-        e = GetComponentInParent<Enemy>();
+        e = GetComponentsInParent<Enemy>();
         melee = GetComponentInParent<MeleeEnemy>();
     }
     public void Kaput()
@@ -20,7 +20,10 @@ public class EnemyAnim : MonoBehaviour
 
     public void EndHit()
     {
-        e.HitEnd();
+        foreach(Enemy ce in e)
+        {
+            ce.HitEnd();
+        }
     }
 
     public void EndThrow()

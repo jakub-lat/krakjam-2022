@@ -49,8 +49,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
-      time: 0
-      value: 3.5501323
+      time: -0.008139491
+      value: 3.0305033
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -58,8 +58,8 @@ MonoBehaviour:
       inWeight: 0
       outWeight: 0
     - serializedVersion: 3
-      time: 1
-      value: 7.1023912
+      time: 0.9999782
+      value: 7.05557
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -73,8 +73,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
-      time: 0
-      value: 5.923823
+      time: -0.0024021268
+      value: 4.046457
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -82,8 +82,8 @@ MonoBehaviour:
       inWeight: 0
       outWeight: 0
     - serializedVersion: 3
-      time: 1
-      value: 9.476082
+      time: 0.9975979
+      value: 7.598716
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -175,7 +175,7 @@ MonoBehaviour:
       magazine: 0
       dispersion: 40
       attackRange: 30
-      followRange: 30
+      followRange: 40
       fleeRange: 2
       fleeMultiplier: 2
       moveSpeed: 3
@@ -207,7 +207,7 @@ MonoBehaviour:
       attackDelay: 0.1
       knockback: 1
       attackRange: 1
-      followRange: 25
+      followRange: 30
       fleeRange: -1
       fleeMultiplier: 5
       moveSpeed: 4
@@ -217,30 +217,30 @@ MonoBehaviour:
       shooting: 1
       health: 100
     psycho:
-      attackSpeed: 0.35
+      attackSpeed: 1
       attackDelay: 0
       knockback: 1
       attackRange: 1.75
-      followRange: 25
+      followRange: 35
       fleeRange: -1
       fleeMultiplier: 5
       moveSpeed: 6
       fleeSpeed: 5
       flee: 0
-      damage: 20
+      damage: 40
       shooting: 0
       health: 100
   meleeShootingModeData:
     bulletPoolTag: WorkerBullet
     attackSpeed: 2
-    shootDelay: 0.12
-    bulletSpeed: 300
+    shootDelay: 0.4
+    bulletSpeed: 1000
     magazineSize: 6
     reloadSpeed: 3
     magazine: 0
     dispersion: 30
     attackRange: 15
-    followRange: 30
+    followRange: 35
     fleeRange: 8
     fleeMultiplier: 2
     moveSpeed: 4

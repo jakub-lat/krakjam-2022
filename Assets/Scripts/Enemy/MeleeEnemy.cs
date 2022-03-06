@@ -34,12 +34,18 @@ public class MeleeEnemy : EnemyAI
     {
         base.Chase();
 
-        agent.SetDestination(player.position + (transform.position-player.position).normalized*chaseOffset);
+        var change = (transform.position - player.position) * chaseOffset;
+        change.y = 0;
+
+        agent.SetDestination(player.position + change);
+
+        //Debug.Log("c");
     }
 
     protected override void Attack() 
     {
         agent.SetDestination(transform.position);
+        //Debug.Log("a");
 
         if (!attacked)
         {

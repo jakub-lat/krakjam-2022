@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 0.594
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.27335495, g: 0.3151891, b: 0.3256538, a: 0.594}
+  m_IndirectSpecularColor: {r: 0.27335483, g: 0.31518868, b: 0.32565382, a: 0.594}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -4823,40 +4823,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1545557203}
     m_Modifications:
-    - target: {fileID: 98985245, guid: e1dc9e6cc4bef8a48b429d6c237dfbe3, type: 3}
-      propertyPath: meleeShootingModeData.shootDelay
-      value: 0.4
-      objectReference: {fileID: 0}
-    - target: {fileID: 6966197676403806432, guid: e1dc9e6cc4bef8a48b429d6c237dfbe3,
-        type: 3}
-      propertyPath: meleeEnemyCurve.m_Curve.Array.data[0].time
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6966197676403806432, guid: e1dc9e6cc4bef8a48b429d6c237dfbe3,
-        type: 3}
-      propertyPath: meleeEnemyCurve.m_Curve.Array.data[1].time
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6966197676403806432, guid: e1dc9e6cc4bef8a48b429d6c237dfbe3,
-        type: 3}
-      propertyPath: meleeEnemyCurve.m_Curve.Array.data[0].value
-      value: 9.072418
-      objectReference: {fileID: 0}
-    - target: {fileID: 6966197676403806432, guid: e1dc9e6cc4bef8a48b429d6c237dfbe3,
-        type: 3}
-      propertyPath: meleeEnemyCurve.m_Curve.Array.data[1].value
-      value: 12.624677
-      objectReference: {fileID: 0}
-    - target: {fileID: 6966197676403806432, guid: e1dc9e6cc4bef8a48b429d6c237dfbe3,
-        type: 3}
-      propertyPath: shootingEnemyCurve.m_Curve.Array.data[0].value
-      value: 5.025882
-      objectReference: {fileID: 0}
-    - target: {fileID: 6966197676403806432, guid: e1dc9e6cc4bef8a48b429d6c237dfbe3,
-        type: 3}
-      propertyPath: shootingEnemyCurve.m_Curve.Array.data[1].value
-      value: 8.57814
-      objectReference: {fileID: 0}
     - target: {fileID: 6966197676403806433, guid: e1dc9e6cc4bef8a48b429d6c237dfbe3,
         type: 3}
       propertyPath: m_Name
@@ -8989,6 +8955,366 @@ PrefabInstance:
         type: 3}
       propertyPath: levelDescriptions.Array.data[5]
       value: BOSS OFFICE
+      objectReference: {fileID: 0}
+    - target: {fileID: 2667818113581105014, guid: 1c8b4abb690b867418682e71ee9c44a1,
+        type: 3}
+      propertyPath: meleeEnemy.damage.m_Curve.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2667818113581105014, guid: 1c8b4abb690b867418682e71ee9c44a1,
+        type: 3}
+      propertyPath: meleeEnemy.health.m_Curve.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2667818113581105014, guid: 1c8b4abb690b867418682e71ee9c44a1,
+        type: 3}
+      propertyPath: meleeEnemy.damage.m_Curve.Array.data[0].time
+      value: -0.024749756
+      objectReference: {fileID: 0}
+    - target: {fileID: 2667818113581105014, guid: 1c8b4abb690b867418682e71ee9c44a1,
+        type: 3}
+      propertyPath: meleeEnemy.damage.m_Curve.Array.data[1].time
+      value: 3.4712663
+      objectReference: {fileID: 0}
+    - target: {fileID: 2667818113581105014, guid: 1c8b4abb690b867418682e71ee9c44a1,
+        type: 3}
+      propertyPath: meleeEnemy.damage.m_Curve.Array.data[2].time
+      value: 4.387085
+      objectReference: {fileID: 0}
+    - target: {fileID: 2667818113581105014, guid: 1c8b4abb690b867418682e71ee9c44a1,
+        type: 3}
+      propertyPath: meleeEnemy.health.m_Curve.Array.data[0].time
+      value: -0.018562317
+      objectReference: {fileID: 0}
+    - target: {fileID: 2667818113581105014, guid: 1c8b4abb690b867418682e71ee9c44a1,
+        type: 3}
+      propertyPath: meleeEnemy.health.m_Curve.Array.data[1].time
+      value: 3.7341897
+      objectReference: {fileID: 0}
+    - target: {fileID: 2667818113581105014, guid: 1c8b4abb690b867418682e71ee9c44a1,
+        type: 3}
+      propertyPath: meleeEnemy.health.m_Curve.Array.data[2].time
+      value: 4.529358
+      objectReference: {fileID: 0}
+    - target: {fileID: 2667818113581105014, guid: 1c8b4abb690b867418682e71ee9c44a1,
+        type: 3}
+      propertyPath: meleeEnemy.damage.m_Curve.Array.data[0].value
+      value: 0.20517227
+      objectReference: {fileID: 0}
+    - target: {fileID: 2667818113581105014, guid: 1c8b4abb690b867418682e71ee9c44a1,
+        type: 3}
+      propertyPath: meleeEnemy.damage.m_Curve.Array.data[1].value
+      value: 0.21670792
+      objectReference: {fileID: 0}
+    - target: {fileID: 2667818113581105014, guid: 1c8b4abb690b867418682e71ee9c44a1,
+        type: 3}
+      propertyPath: meleeEnemy.damage.m_Curve.Array.data[2].value
+      value: 0.24145767
+      objectReference: {fileID: 0}
+    - target: {fileID: 2667818113581105014, guid: 1c8b4abb690b867418682e71ee9c44a1,
+        type: 3}
+      propertyPath: meleeEnemy.health.m_Curve.Array.data[0].value
+      value: 0.19403335
+      objectReference: {fileID: 0}
+    - target: {fileID: 2667818113581105014, guid: 1c8b4abb690b867418682e71ee9c44a1,
+        type: 3}
+      propertyPath: meleeEnemy.health.m_Curve.Array.data[1].value
+      value: 0.22109054
+      objectReference: {fileID: 0}
+    - target: {fileID: 2667818113581105014, guid: 1c8b4abb690b867418682e71ee9c44a1,
+        type: 3}
+      propertyPath: meleeEnemy.health.m_Curve.Array.data[2].value
+      value: 0.2385585
+      objectReference: {fileID: 0}
+    - target: {fileID: 2667818113581105014, guid: 1c8b4abb690b867418682e71ee9c44a1,
+        type: 3}
+      propertyPath: difficultyCurveHard.m_Curve.Array.data[0].time
+      value: -0.0031392544
+      objectReference: {fileID: 0}
+    - target: {fileID: 2667818113581105014, guid: 1c8b4abb690b867418682e71ee9c44a1,
+        type: 3}
+      propertyPath: shootingEnemy.speed.m_Curve.Array.data[0].time
+      value: -0.012374878
+      objectReference: {fileID: 0}
+    - target: {fileID: 2667818113581105014, guid: 1c8b4abb690b867418682e71ee9c44a1,
+        type: 3}
+      propertyPath: difficultyCurveHard.m_Curve.Array.data[0].value
+      value: 1.9859706
+      objectReference: {fileID: 0}
+    - target: {fileID: 2667818113581105014, guid: 1c8b4abb690b867418682e71ee9c44a1,
+        type: 3}
+      propertyPath: meleeEnemy.damage.m_Curve.Array.data[0].inSlope
+      value: 0.0032996545
+      objectReference: {fileID: 0}
+    - target: {fileID: 2667818113581105014, guid: 1c8b4abb690b867418682e71ee9c44a1,
+        type: 3}
+      propertyPath: meleeEnemy.damage.m_Curve.Array.data[1].inSlope
+      value: 0.015162194
+      objectReference: {fileID: 0}
+    - target: {fileID: 2667818113581105014, guid: 1c8b4abb690b867418682e71ee9c44a1,
+        type: 3}
+      propertyPath: meleeEnemy.damage.m_Curve.Array.data[2].inSlope
+      value: 0.027024733
+      objectReference: {fileID: 0}
+    - target: {fileID: 2667818113581105014, guid: 1c8b4abb690b867418682e71ee9c44a1,
+        type: 3}
+      propertyPath: meleeEnemy.health.m_Curve.Array.data[0].inSlope
+      value: 0.007209958
+      objectReference: {fileID: 0}
+    - target: {fileID: 2667818113581105014, guid: 1c8b4abb690b867418682e71ee9c44a1,
+        type: 3}
+      propertyPath: meleeEnemy.health.m_Curve.Array.data[1].inSlope
+      value: 0.014588795
+      objectReference: {fileID: 0}
+    - target: {fileID: 2667818113581105014, guid: 1c8b4abb690b867418682e71ee9c44a1,
+        type: 3}
+      propertyPath: meleeEnemy.health.m_Curve.Array.data[2].inSlope
+      value: 0.02196763
+      objectReference: {fileID: 0}
+    - target: {fileID: 2667818113581105014, guid: 1c8b4abb690b867418682e71ee9c44a1,
+        type: 3}
+      propertyPath: shootingEnemy.damage.m_Curve.Array.data[0].time
+      value: 0.012374878
+      objectReference: {fileID: 0}
+    - target: {fileID: 2667818113581105014, guid: 1c8b4abb690b867418682e71ee9c44a1,
+        type: 3}
+      propertyPath: shootingEnemy.damage.m_Curve.Array.data[1].time
+      value: 4.510803
+      objectReference: {fileID: 0}
+    - target: {fileID: 2667818113581105014, guid: 1c8b4abb690b867418682e71ee9c44a1,
+        type: 3}
+      propertyPath: shootingEnemy.health.m_Curve.Array.data[0].time
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2667818113581105014, guid: 1c8b4abb690b867418682e71ee9c44a1,
+        type: 3}
+      propertyPath: shootingEnemy.health.m_Curve.Array.data[1].time
+      value: 4.488617
+      objectReference: {fileID: 0}
+    - target: {fileID: 2667818113581105014, guid: 1c8b4abb690b867418682e71ee9c44a1,
+        type: 3}
+      propertyPath: shootingEnemy.speed.m_Curve.Array.data[0].value
+      value: 0.20907852
+      objectReference: {fileID: 0}
+    - target: {fileID: 2667818113581105014, guid: 1c8b4abb690b867418682e71ee9c44a1,
+        type: 3}
+      propertyPath: meleeEnemy.damage.m_Curve.Array.data[0].outSlope
+      value: 0.0032996545
+      objectReference: {fileID: 0}
+    - target: {fileID: 2667818113581105014, guid: 1c8b4abb690b867418682e71ee9c44a1,
+        type: 3}
+      propertyPath: meleeEnemy.damage.m_Curve.Array.data[1].outSlope
+      value: 0.015162194
+      objectReference: {fileID: 0}
+    - target: {fileID: 2667818113581105014, guid: 1c8b4abb690b867418682e71ee9c44a1,
+        type: 3}
+      propertyPath: meleeEnemy.damage.m_Curve.Array.data[2].inWeight
+      value: 0.33333334
+      objectReference: {fileID: 0}
+    - target: {fileID: 2667818113581105014, guid: 1c8b4abb690b867418682e71ee9c44a1,
+        type: 3}
+      propertyPath: meleeEnemy.damage.m_Curve.Array.data[2].outSlope
+      value: 0.027024733
+      objectReference: {fileID: 0}
+    - target: {fileID: 2667818113581105014, guid: 1c8b4abb690b867418682e71ee9c44a1,
+        type: 3}
+      propertyPath: meleeEnemy.health.m_Curve.Array.data[0].outSlope
+      value: 0.007209958
+      objectReference: {fileID: 0}
+    - target: {fileID: 2667818113581105014, guid: 1c8b4abb690b867418682e71ee9c44a1,
+        type: 3}
+      propertyPath: meleeEnemy.health.m_Curve.Array.data[1].outSlope
+      value: 0.014588795
+      objectReference: {fileID: 0}
+    - target: {fileID: 2667818113581105014, guid: 1c8b4abb690b867418682e71ee9c44a1,
+        type: 3}
+      propertyPath: meleeEnemy.health.m_Curve.Array.data[2].inWeight
+      value: 0.33333334
+      objectReference: {fileID: 0}
+    - target: {fileID: 2667818113581105014, guid: 1c8b4abb690b867418682e71ee9c44a1,
+        type: 3}
+      propertyPath: meleeEnemy.health.m_Curve.Array.data[2].outSlope
+      value: 0.02196763
+      objectReference: {fileID: 0}
+    - target: {fileID: 2667818113581105014, guid: 1c8b4abb690b867418682e71ee9c44a1,
+        type: 3}
+      propertyPath: shootingEnemy.damage.m_Curve.Array.data[0].value
+      value: 0.20062515
+      objectReference: {fileID: 0}
+    - target: {fileID: 2667818113581105014, guid: 1c8b4abb690b867418682e71ee9c44a1,
+        type: 3}
+      propertyPath: shootingEnemy.damage.m_Curve.Array.data[1].value
+      value: 0.22290298
+      objectReference: {fileID: 0}
+    - target: {fileID: 2667818113581105014, guid: 1c8b4abb690b867418682e71ee9c44a1,
+        type: 3}
+      propertyPath: shootingEnemy.health.m_Curve.Array.data[0].value
+      value: 0.19711563
+      objectReference: {fileID: 0}
+    - target: {fileID: 2667818113581105014, guid: 1c8b4abb690b867418682e71ee9c44a1,
+        type: 3}
+      propertyPath: shootingEnemy.health.m_Curve.Array.data[1].value
+      value: 0.23398086
+      objectReference: {fileID: 0}
+    - target: {fileID: 2667818113581105014, guid: 1c8b4abb690b867418682e71ee9c44a1,
+        type: 3}
+      propertyPath: meleeEnemy.attackSpeed.m_Curve.Array.data[0].time
+      value: -0.030937195
+      objectReference: {fileID: 0}
+    - target: {fileID: 2667818113581105014, guid: 1c8b4abb690b867418682e71ee9c44a1,
+        type: 3}
+      propertyPath: meleeEnemy.attackSpeed.m_Curve.Array.data[1].time
+      value: 4.5231934
+      objectReference: {fileID: 0}
+    - target: {fileID: 2667818113581105014, guid: 1c8b4abb690b867418682e71ee9c44a1,
+        type: 3}
+      propertyPath: meleeEnemy.damage.m_Curve.Array.data[1].outWeight
+      value: 0.33333334
+      objectReference: {fileID: 0}
+    - target: {fileID: 2667818113581105014, guid: 1c8b4abb690b867418682e71ee9c44a1,
+        type: 3}
+      propertyPath: meleeEnemy.health.m_Curve.Array.data[1].outWeight
+      value: 0.33333334
+      objectReference: {fileID: 0}
+    - target: {fileID: 2667818113581105014, guid: 1c8b4abb690b867418682e71ee9c44a1,
+        type: 3}
+      propertyPath: shootingEnemy.speed.m_Curve.Array.data[0].inSlope
+      value: 0.0007844823
+      objectReference: {fileID: 0}
+    - target: {fileID: 2667818113581105014, guid: 1c8b4abb690b867418682e71ee9c44a1,
+        type: 3}
+      propertyPath: shootingEnemy.speed.m_Curve.Array.data[1].inSlope
+      value: 0.0007844823
+      objectReference: {fileID: 0}
+    - target: {fileID: 2667818113581105014, guid: 1c8b4abb690b867418682e71ee9c44a1,
+        type: 3}
+      propertyPath: meleeEnemy.attackSpeed.m_Curve.Array.data[0].value
+      value: 0.20743057
+      objectReference: {fileID: 0}
+    - target: {fileID: 2667818113581105014, guid: 1c8b4abb690b867418682e71ee9c44a1,
+        type: 3}
+      propertyPath: meleeEnemy.attackSpeed.m_Curve.Array.data[1].value
+      value: 0.22061417
+      objectReference: {fileID: 0}
+    - target: {fileID: 2667818113581105014, guid: 1c8b4abb690b867418682e71ee9c44a1,
+        type: 3}
+      propertyPath: shootingEnemy.damage.m_Curve.Array.data[0].inSlope
+      value: 0.004952359
+      objectReference: {fileID: 0}
+    - target: {fileID: 2667818113581105014, guid: 1c8b4abb690b867418682e71ee9c44a1,
+        type: 3}
+      propertyPath: shootingEnemy.damage.m_Curve.Array.data[1].inSlope
+      value: 0.004952359
+      objectReference: {fileID: 0}
+    - target: {fileID: 2667818113581105014, guid: 1c8b4abb690b867418682e71ee9c44a1,
+        type: 3}
+      propertyPath: shootingEnemy.health.m_Curve.Array.data[0].inSlope
+      value: 0.00821305
+      objectReference: {fileID: 0}
+    - target: {fileID: 2667818113581105014, guid: 1c8b4abb690b867418682e71ee9c44a1,
+        type: 3}
+      propertyPath: shootingEnemy.health.m_Curve.Array.data[1].inSlope
+      value: 0.00821305
+      objectReference: {fileID: 0}
+    - target: {fileID: 2667818113581105014, guid: 1c8b4abb690b867418682e71ee9c44a1,
+        type: 3}
+      propertyPath: shootingEnemy.speed.m_Curve.Array.data[0].outSlope
+      value: 0.0007844823
+      objectReference: {fileID: 0}
+    - target: {fileID: 2667818113581105014, guid: 1c8b4abb690b867418682e71ee9c44a1,
+        type: 3}
+      propertyPath: shootingEnemy.speed.m_Curve.Array.data[1].outSlope
+      value: 0.0007844823
+      objectReference: {fileID: 0}
+    - target: {fileID: 2667818113581105014, guid: 1c8b4abb690b867418682e71ee9c44a1,
+        type: 3}
+      propertyPath: meleeEnemy.damage.m_Curve.Array.data[2].tangentMode
+      value: 34
+      objectReference: {fileID: 0}
+    - target: {fileID: 2667818113581105014, guid: 1c8b4abb690b867418682e71ee9c44a1,
+        type: 3}
+      propertyPath: meleeEnemy.health.m_Curve.Array.data[2].tangentMode
+      value: 34
+      objectReference: {fileID: 0}
+    - target: {fileID: 2667818113581105014, guid: 1c8b4abb690b867418682e71ee9c44a1,
+        type: 3}
+      propertyPath: shootingEnemy.damage.m_Curve.Array.data[0].outSlope
+      value: 0.004952359
+      objectReference: {fileID: 0}
+    - target: {fileID: 2667818113581105014, guid: 1c8b4abb690b867418682e71ee9c44a1,
+        type: 3}
+      propertyPath: shootingEnemy.damage.m_Curve.Array.data[1].outSlope
+      value: 0.004952359
+      objectReference: {fileID: 0}
+    - target: {fileID: 2667818113581105014, guid: 1c8b4abb690b867418682e71ee9c44a1,
+        type: 3}
+      propertyPath: shootingEnemy.health.m_Curve.Array.data[0].outSlope
+      value: 0.00821305
+      objectReference: {fileID: 0}
+    - target: {fileID: 2667818113581105014, guid: 1c8b4abb690b867418682e71ee9c44a1,
+        type: 3}
+      propertyPath: shootingEnemy.health.m_Curve.Array.data[1].outSlope
+      value: 0.00821305
+      objectReference: {fileID: 0}
+    - target: {fileID: 2667818113581105014, guid: 1c8b4abb690b867418682e71ee9c44a1,
+        type: 3}
+      propertyPath: meleeEnemy.attackSpeed.m_Curve.Array.data[0].inSlope
+      value: 0.002894865
+      objectReference: {fileID: 0}
+    - target: {fileID: 2667818113581105014, guid: 1c8b4abb690b867418682e71ee9c44a1,
+        type: 3}
+      propertyPath: meleeEnemy.attackSpeed.m_Curve.Array.data[1].inSlope
+      value: 0.002894865
+      objectReference: {fileID: 0}
+    - target: {fileID: 2667818113581105014, guid: 1c8b4abb690b867418682e71ee9c44a1,
+        type: 3}
+      propertyPath: shootingEnemy.attackRange.m_Curve.Array.data[0].time
+      value: -0.024749756
+      objectReference: {fileID: 0}
+    - target: {fileID: 2667818113581105014, guid: 1c8b4abb690b867418682e71ee9c44a1,
+        type: 3}
+      propertyPath: shootingEnemy.attackRange.m_Curve.Array.data[1].time
+      value: 4.4922485
+      objectReference: {fileID: 0}
+    - target: {fileID: 2667818113581105014, guid: 1c8b4abb690b867418682e71ee9c44a1,
+        type: 3}
+      propertyPath: meleeEnemy.attackSpeed.m_Curve.Array.data[0].outSlope
+      value: 0.002894865
+      objectReference: {fileID: 0}
+    - target: {fileID: 2667818113581105014, guid: 1c8b4abb690b867418682e71ee9c44a1,
+        type: 3}
+      propertyPath: meleeEnemy.attackSpeed.m_Curve.Array.data[1].outSlope
+      value: 0.002894865
+      objectReference: {fileID: 0}
+    - target: {fileID: 2667818113581105014, guid: 1c8b4abb690b867418682e71ee9c44a1,
+        type: 3}
+      propertyPath: shootingEnemy.attackRange.m_Curve.Array.data[0].value
+      value: 0.2066066
+      objectReference: {fileID: 0}
+    - target: {fileID: 2667818113581105014, guid: 1c8b4abb690b867418682e71ee9c44a1,
+        type: 3}
+      propertyPath: shootingEnemy.attackRange.m_Curve.Array.data[1].value
+      value: 0.22043106
+      objectReference: {fileID: 0}
+    - target: {fileID: 2667818113581105014, guid: 1c8b4abb690b867418682e71ee9c44a1,
+        type: 3}
+      propertyPath: shootingEnemy.attackRange.m_Curve.Array.data[0].inSlope
+      value: 0.003060542
+      objectReference: {fileID: 0}
+    - target: {fileID: 2667818113581105014, guid: 1c8b4abb690b867418682e71ee9c44a1,
+        type: 3}
+      propertyPath: shootingEnemy.attackRange.m_Curve.Array.data[1].inSlope
+      value: 0.003060542
+      objectReference: {fileID: 0}
+    - target: {fileID: 2667818113581105014, guid: 1c8b4abb690b867418682e71ee9c44a1,
+        type: 3}
+      propertyPath: shootingEnemy.attackRange.m_Curve.Array.data[0].outSlope
+      value: 0.003060542
+      objectReference: {fileID: 0}
+    - target: {fileID: 2667818113581105014, guid: 1c8b4abb690b867418682e71ee9c44a1,
+        type: 3}
+      propertyPath: shootingEnemy.attackRange.m_Curve.Array.data[1].outSlope
+      value: 0.003060542
       objectReference: {fileID: 0}
     - target: {fileID: 2667818113581105015, guid: 1c8b4abb690b867418682e71ee9c44a1,
         type: 3}
