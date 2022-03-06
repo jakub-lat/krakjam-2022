@@ -153,8 +153,6 @@ namespace Game
             finishElevator.SetDoorNavSurface(false); //enemies cant walk through door
             startingElevator.SetDoorNavSurface(true);
 
-            var levelDifficulty = Difficulty;
-
             GenerateRoom.Current.transform.KillAllChildren();
             ObjectGeneration.Current.ClearObjects();
             GenerateRoom.Current.Generate(CurrentLevel - 1);

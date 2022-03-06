@@ -168,9 +168,9 @@ MonoBehaviour:
   throwDamage: 10
   throwHeadshotDamage: 15
   damage: 40
-  distance: 3
+  distance: 4
   cooldownTime: 0.5
-  critMultiplier: 1.7
+  critMultiplier: 3
   closeFightSource: {fileID: 0}
   hitSound: {fileID: 0}
 --- !u!114 &5482504043265140913
