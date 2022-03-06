@@ -80,6 +80,8 @@ namespace Game
         protected override void Awake()
         {
             base.Awake();
+        }
+        void Start() { 
             
             (startingElevator, finishElevator) = (finishElevator, startingElevator);
             width = GenerateRoom.Current.width;
@@ -100,6 +102,7 @@ namespace Game
             }
 
             Invoke(nameof(DisplayObjective), 2f);
+
         }
 
         void DisplayObjective()
