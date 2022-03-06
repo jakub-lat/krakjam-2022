@@ -111,7 +111,7 @@ namespace Game
                 GoToBoss();
             }
 
-            Debug.Log($"start: current level={LevelManager.Current.CurrentLevel}");
+            // Debug.Log($"start: current level={LevelManager.Current.CurrentLevel}");
         }
 
         private void Print(string text)
@@ -233,13 +233,13 @@ namespace Game
         {
             var lvl = LevelManager.Current.CurrentLevel;
             floorText.text = $"{lvl + 1}\n{lvl}";
-            Debug.Log($"cnt {_floorButtons.Count} i {lvl}");
             
-            Debug.Log($"Updating floor text - current level = {LevelManager.Current.CurrentLevel}");
+            // Debug.Log($"Updating floor text - current level = {LevelManager.Current.CurrentLevel}");
             foreach (var x in _floorButtons)
             {
                 x.Unselect();
             }
+            // Debug.Log(lvl);
             _floorButtons[lvl-1].Select();
         }
 

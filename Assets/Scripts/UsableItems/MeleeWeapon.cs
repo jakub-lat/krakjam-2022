@@ -27,7 +27,7 @@ namespace UsableItems
             cooldown.AutoUpdate(this);
             
             var rb = gameObject.GetComponent<Rigidbody>();
-            rb.isKinematic = true;
+            rb.isKinematic = false;
         }
 
         public override bool Use()

@@ -77,8 +77,10 @@ namespace Game
         private int width, height;
         private float spaceX, spaceZ;
 
-        private void Start()
+        protected override void Awake()
         {
+            base.Awake();
+            
             (startingElevator, finishElevator) = (finishElevator, startingElevator);
             width = GenerateRoom.Current.width;
             height = GenerateRoom.Current.height;
@@ -123,6 +125,7 @@ namespace Game
             (startingPosA, startingPosB) = (startingPosB, startingPosA);
 
             GenerateLevel();
+            Landscape.Current.SetElevation(CurrentLevel);
 
             // startingElevator.Open();
             startingElevator.Active = false;
