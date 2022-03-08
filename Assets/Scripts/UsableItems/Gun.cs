@@ -223,7 +223,7 @@ namespace UsableItems
         private void ReloadFinal()
         {
             var prevAmmo = currentAmmo;
-            currentAmmo = Math.Min(maxCurrentAmmo, totalAmmo);
+            currentAmmo = Math.Min(maxCurrentAmmo, prevAmmo + totalAmmo);
             totalAmmo -= (currentAmmo - prevAmmo);
         }
 
