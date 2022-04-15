@@ -1,7 +1,8 @@
-# Bulletache
-A bullet-hell dynamic roguelike FPS about destroying an evil corporation.
-
+# Decorporation - open source game jam version
+A bullet-hell dynamic roguelike FPS about destroying an evil corporation. 
 It was made in 5 days for Krakjam 2022 (part of Global Game Jam). The theme was **Duality**.
+
+**Check out the full version (coming soon on Steam) - [decorporation.cubepotato.eu](https://decorporation.cubepotato.eu)**
 
 Don't look at the source code pls it was written mostly at 3am and it's often a hell of spaghetti code.
 
